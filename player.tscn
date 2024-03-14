@@ -1,0 +1,135 @@
+[gd_scene load_steps=20 format=3 uid="uid://bcnbbq1mw03nv"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
+[ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
+[ext_resource type="Texture2D" uid="uid://dh5g5k03maj5e" path="res://assets/player/QuailStatic3.png" id="3_xxd4a"]
+[ext_resource type="Texture2D" uid="uid://bmjusyo3qlbsx" path="res://assets/player/QuailStatic4.png" id="4_1iod7"]
+[ext_resource type="Texture2D" uid="uid://dabhk4fahhnyh" path="res://assets/player/QuailStatic5.png" id="5_lccfj"]
+[ext_resource type="Texture2D" uid="uid://dyrtv4nnfjv8j" path="res://assets/player/QuailStatic6.png" id="6_smeov"]
+[ext_resource type="Texture2D" uid="uid://dfuvxfqmpwo06" path="res://assets/player/QuailStatic7.png" id="7_hordg"]
+[ext_resource type="Texture2D" uid="uid://cmxx7mdnr5hh3" path="res://assets/player/QuailStatic8.png" id="8_vwric"]
+[ext_resource type="Texture2D" uid="uid://b7mef36ajuhr0" path="res://assets/player/QuailStatic9.png" id="9_dx3mc"]
+[ext_resource type="Texture2D" uid="uid://dnlu5pml2gs1o" path="res://assets/player/QuailStatic2.png" id="10_utgu2"]
+[ext_resource type="Texture2D" uid="uid://bi65u10foijt6" path="res://assets/player/QuailRun1.png" id="11_oetry"]
+[ext_resource type="Texture2D" uid="uid://c6fbtfgmm2ua2" path="res://assets/player/QuailRun2.png" id="12_80h0u"]
+[ext_resource type="Texture2D" uid="uid://bqywkluqr3eot" path="res://assets/player/QuailRun3.png" id="13_a6jy1"]
+[ext_resource type="Texture2D" uid="uid://ce6nun7tfi57g" path="res://assets/player/QuailRun4.png" id="14_bqkq3"]
+[ext_resource type="Texture2D" uid="uid://5gy1dnv6xuw1" path="res://assets/player/QuailRun5.png" id="15_e22l5"]
+[ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="16_jtsbn"]
+[ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="17_aovc8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufn3i"]
+radius = 6.08276
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xxd4a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1iod7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lccfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_smeov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hordg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vwric")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dx3mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lccfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_smeov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hordg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vwric")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dx3mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_utgu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1ff1k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_oetry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_80h0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a6jy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bqkq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_e22l5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_jtsbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_aovc8")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[node name="Player" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_lrfys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ufn3i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7sgie")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.782804

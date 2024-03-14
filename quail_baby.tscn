@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd62om5x8mc2h"]
+
+[ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="1_36wmc"]
+[ext_resource type="Script" path="res://scripts/quail_baby.gd" id="1_bt3ko"]
+[ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="3_hvxpv"]
+[ext_resource type="Texture2D" uid="uid://csmbhd3o5idoh" path="res://assets/player/QuailBaby3.png" id="4_1kubu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_534es"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_36wmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hvxpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1kubu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0utth"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5nqo"]
+radius = 2.0
+
+[node name="QuailBaby" type="CharacterBody2D"]
+script = ExtResource("1_bt3ko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_534es")
+autoplay = "default"
+frame_progress = 0.504343
+speed_scale = 0.7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0utth")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_k5nqo")
+debug_color = Color(0.976471, 0, 0.407843, 0.419608)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
