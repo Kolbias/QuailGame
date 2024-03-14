@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy118xxmglaxs"]
+
+[ext_resource type="Texture2D" uid="uid://ds5pkr2l613mf" path="res://assets/objects/FenceHorizontalCentre.png" id="1_m1mvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohw15"]
+size = Vector2(32, 3)
+
+[node name="FenceHorzCentre" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m1mvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_ohw15")

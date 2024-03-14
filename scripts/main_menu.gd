@@ -7,7 +7,7 @@ func _ready():
 	baby_quail_left.flip_h = true
 func _process(delta):
 	#Attempted to animate main quail replace with tweens?
-	#main_quail.position.x += 50.0 * delta
+	main_quail.position.x += 50.0 * delta
 	#await get_tree().create_timer(1000).timeout
 	#main_quail.position.x = 0.0
 	#baby_quail_left.flip_h = true

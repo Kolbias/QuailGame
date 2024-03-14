@@ -43,10 +43,12 @@ func _process(delta):
 	else:
 		sprite.play("idle")
 	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
-
+	
+	move_and_collide(vel* delta)
 func _on_area_entered(area: Area2D):
 	self.queue_free()
 	print("Game Over")
+
 
 
 func _on_hurtbox_area_entered(area):

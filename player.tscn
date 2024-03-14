@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=22 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://5gy1dnv6xuw1" path="res://assets/player/QuailRun5.png" id="15_e22l5"]
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="16_jtsbn"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="17_aovc8"]
+[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="18_k87bq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
@@ -122,7 +123,7 @@ radius = 6.08276
 radius = 8.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 11
 script = ExtResource("1_lrfys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -151,10 +152,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="UI"]
+z_index = 1
 layout_mode = 0
 offset_left = -142.0
-offset_top = -85.0
-offset_right = -102.0
-offset_bottom = -62.0
+offset_top = -77.0
+offset_right = -78.0
+offset_bottom = -54.0
+theme_override_fonts/font = ExtResource("18_k87bq")
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

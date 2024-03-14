@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bngb6c6mrar0u"]
+
+[ext_resource type="Texture2D" uid="uid://2hdy1b1xukli" path="res://assets/objects/FenceVerticalTop.png" id="1_pqesl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7735"]
+size = Vector2(2, 30)
+
+[node name="FenceVertTop" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="StaticBody2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pqesl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_c7735")
