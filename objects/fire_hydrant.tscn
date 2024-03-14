@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3lxl7ncrjm1"]
+
+[ext_resource type="Texture2D" uid="uid://cbheshgmujm8c" path="res://assets/objects/Hydrant.png" id="1_a5e67"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v1e8d"]
+radius = 3.0
+height = 14.0
+
+[node name="FireHydrant" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a5e67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v1e8d")
