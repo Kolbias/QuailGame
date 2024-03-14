@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=9 format=3 uid="uid://ha7xupacm3d3"]
 
+[ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
 [ext_resource type="PackedScene" uid="uid://bcnbbq1mw03nv" path="res://player.tscn" id="2_y3bi7"]
 [ext_resource type="Script" path="res://scripts/car_spanwer.gd" id="3_vw035"]
 [ext_resource type="PackedScene" uid="uid://dd62om5x8mc2h" path="res://quail_baby.tscn" id="4_o7dqe"]
+[ext_resource type="PackedScene" uid="uid://dxmubkwfi514i" path="res://quail_egg.tscn" id="5_k6rxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_ltnl4")
@@ -169,6 +171,7 @@ texture = ExtResource("1_ltnl4")
 sources/0 = SubResource("TileSetAtlasSource_wb1q5")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_22jv0")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 1)
@@ -217,5 +220,11 @@ position = Vector2(51, 78)
 [node name="QuailBaby6" parent="." instance=ExtResource("4_o7dqe")]
 position = Vector2(85, 53)
 
+[node name="QuailEgg" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(95, 29)
+
 [node name="Player" parent="." instance=ExtResource("2_y3bi7")]
 position = Vector2(86, 6.99998)
+
+[connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
