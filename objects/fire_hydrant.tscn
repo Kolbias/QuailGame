@@ -7,6 +7,7 @@ radius = 3.0
 height = 14.0
 
 [node name="FireHydrant" type="StaticBody2D"]
+z_index = 4
 collision_layer = 8
 collision_mask = 5
 

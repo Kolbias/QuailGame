@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci1vdlgk0k2yp"]
+
+[ext_resource type="Texture2D" uid="uid://ci4l3j2abvbhp" path="res://assets/objects/Bench.png" id="1_e3blr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqae7"]
+size = Vector2(59, 11)
+
+[node name="Bench" type="StaticBody2D"]
+z_index = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e3blr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_eqae7")

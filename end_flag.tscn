@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5oc8vlw742f"]
+
+[ext_resource type="Texture2D" uid="uid://7scipsbu0xnf" path="res://assets/objects/EndFlag.png" id="1_cg1q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ku378"]
+size = Vector2(14, 15)
+
+[node name="EndFlag" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cg1q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_ku378")

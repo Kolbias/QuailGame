@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuv1tav8vdfe8"]
+
+[ext_resource type="Texture2D" uid="uid://btbwvioymkj0g" path="res://assets/objects/Hedge.png" id="1_axgn1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gahj"]
+radius = 7.07107
+
+[node name="Hedge" type="StaticBody2D"]
+z_index = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_axgn1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_3gahj")

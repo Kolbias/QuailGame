@@ -6,6 +6,7 @@
 size = Vector2(2, 45)
 
 [node name="FenceVertBottom" type="StaticBody2D"]
+z_index = 4
 collision_layer = 8
 collision_mask = 5
 
