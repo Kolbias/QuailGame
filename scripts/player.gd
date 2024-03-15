@@ -7,15 +7,15 @@ extends CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var quails = PlayerVariables.quail_count
-	if quails > 0:
-		var quail_amount = quails
-		for n in quail_amount:
-			var instance = quail_baby.instantiate()
-			get_parent().add_child(instance)
-			instance.position = position
-			print("spawned quail baby")
-	else:
-		pass
+	#if quails > 0:
+		#var quail_amount = quails
+		#for n in quail_amount:
+			#var instance = quail_baby.instantiate()
+			#get_parent().add_child(instance)
+			#instance.position = position
+			#print("spawned quail baby")
+	#else:
+		#pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -53,8 +53,10 @@ func _on_area_entered(area: Area2D):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
+		PlayerVariables.quail_count = 0
+		get_tree().change_scene_to_file("res://game_over.tscn")
 		print("Game Over")
-		self.queue_free()
+		# self.queue_free()
 	else:
 		pass
 func _on_quail_egg_quail_hatched():

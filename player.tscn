@@ -146,6 +146,7 @@ shape = SubResource("CircleShape2D_i7leb")
 debug_color = Color(0.980392, 0.0509804, 0.32549, 0.419608)
 
 [node name="UI" type="Control" parent="."]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
