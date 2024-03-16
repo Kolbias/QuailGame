@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddk8hn0jx3lpg"]
+
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
+[ext_resource type="Texture2D" uid="uid://dwq0dhmfaeom3" path="res://assets/BackgroundPink.png" id="1_qdmvg"]
+[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_u15fd"]
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_m5l4d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qdmvg")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Next" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = -13.0
+theme_override_fonts/font = ExtResource("3_u15fd")
+text = "Play again
+"
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 5.0
+offset_right = 40.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 16
+text = "Quit
+
+"
+
+[node name="QuailScore" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -78.0
+offset_top = -82.0
+offset_right = 114.0
+offset_bottom = -58.0
+theme_override_fonts/font = ExtResource("3_u15fd")
+text = "you rescued blank quails"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[connection signal="button_down" from="Control/Next" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="Control/Quit" to="." method="_on_quit_button_down"]
