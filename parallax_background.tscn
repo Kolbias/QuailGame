@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://8w8wqgsf5vbs"]
+
+[ext_resource type="Texture2D" uid="uid://dwq0dhmfaeom3" path="res://assets/BackgroundPink.png" id="1_amsn8"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(800, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_amsn8")
+centered = false

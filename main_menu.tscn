@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=19 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
 [ext_resource type="Texture2D" uid="uid://bbhsf3abhm1f8" path="res://assets/menu/MenuLandscape.png" id="2_ini4t"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="3_ai5w4"]
+[ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="3_r3he0"]
 [ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="4_dsl5h"]
 [ext_resource type="Texture2D" uid="uid://csmbhd3o5idoh" path="res://assets/player/QuailBaby3.png" id="5_uomgj"]
 [ext_resource type="Texture2D" uid="uid://bi65u10foijt6" path="res://assets/player/QuailRun1.png" id="7_cjc1g"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="12_6rmpi"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="13_e2ebm"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="14_qf2yh"]
+[ext_resource type="AudioStream" uid="uid://dle8qk27avik" path="res://assets/sounds/BirdAmbience.ogg" id="16_1uy3b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -65,8 +67,11 @@ animations = [{
 script = ExtResource("1_otsdi")
 
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1, -2)
 texture = ExtResource("1_8yby5")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("3_r3he0")]
 
 [node name="Landscape" type="Sprite2D" parent="."]
 texture = ExtResource("2_ini4t")
@@ -121,6 +126,9 @@ offset_bottom = 26.0
 theme_override_fonts/font = ExtResource("14_qf2yh")
 theme_override_font_sizes/font_size = 16
 text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_1uy3b")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

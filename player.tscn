@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=24 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="17_aovc8"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="18_k87bq"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="19_68xgg"]
+[ext_resource type="AudioStream" uid="uid://doysxerrm2kqs" path="res://assets/sounds/QuailStep.ogg" id="19_awh45"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
@@ -174,7 +175,11 @@ theme_override_fonts/font = ExtResource("18_k87bq")
 wait_time = 120.0
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_awh45")
+volume_db = 17.802
+
+[node name="EggHatchSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_68xgg")
 pitch_scale = 1.5
 
