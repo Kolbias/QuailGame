@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var walk_sound = $WalkingSound
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var quails = PlayerVariables.quail_count
+	# var quails = PlayerVariables.quail_count
 	timer.start()
 	#if quails > 0:
 		#var quail_amount = quails
@@ -52,7 +52,7 @@ func _process(delta):
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	
 	move_and_collide(vel* delta)
-func _on_area_entered(area: Area2D):
+func _on_area_entered(_area: Area2D):
 	self.queue_free()
 	print("Game Over")
 

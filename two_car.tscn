@@ -1,8 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://vrhemfyaf2ph"]
+[gd_scene load_steps=9 format=3 uid="uid://vrhemfyaf2ph"]
 
 [ext_resource type="Script" path="res://scripts/two_car.gd" id="1_dj6e3"]
+[ext_resource type="Texture2D" uid="uid://cuqyk1umr3rh1" path="res://assets/cars/CarVanBlue.png" id="2_2uf3m"]
 [ext_resource type="Texture2D" uid="uid://cqwkw1o7hklnb" path="res://assets/cars/CarVanRed.png" id="2_q8i2w"]
 [ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="3_pco0k"]
+[ext_resource type="Texture2D" uid="uid://b4u2b5oetsgii" path="res://assets/cars/CarVanWhite.png" id="4_jlgkm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ijec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2uf3m")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_q8i2w")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jlgkm")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5wlb"]
 size = Vector2(48, 99)
@@ -16,8 +45,9 @@ collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_dj6e3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_q8i2w")
+[node name="CarSprite1" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ijec")
+animation = &"white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -34,9 +64,10 @@ max_distance = 500.0
 collision_layer = 3
 collision_mask = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(0, -176)
-texture = ExtResource("2_q8i2w")
+[node name="CarSprite2" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(1, -174)
+sprite_frames = SubResource("SpriteFrames_6ijec")
+animation = &"white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -176)

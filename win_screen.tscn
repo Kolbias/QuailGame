@@ -39,11 +39,12 @@ text = "Quit
 
 [node name="QuailScore" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -78.0
-offset_top = -82.0
-offset_right = 114.0
-offset_bottom = -58.0
+offset_left = -124.0
+offset_top = -97.0
+offset_right = 124.0
+offset_bottom = -72.0
 theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 26
 text = "you rescued blank quails"
 
 [node name="Camera2D" type="Camera2D" parent="."]

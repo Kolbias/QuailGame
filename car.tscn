@@ -1,8 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://eilcljxhbdnp"]
+[gd_scene load_steps=8 format=3 uid="uid://eilcljxhbdnp"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_6ue5v"]
+[ext_resource type="Texture2D" uid="uid://cuqyk1umr3rh1" path="res://assets/cars/CarVanBlue.png" id="2_i47wc"]
 [ext_resource type="Texture2D" uid="uid://cqwkw1o7hklnb" path="res://assets/cars/CarVanRed.png" id="2_w36le"]
 [ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="3_rq1ux"]
+[ext_resource type="Texture2D" uid="uid://b4u2b5oetsgii" path="res://assets/cars/CarVanWhite.png" id="4_el8ld"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35tca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i47wc")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_w36le")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_el8ld")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5wlb"]
 size = Vector2(48, 99)
@@ -13,8 +42,9 @@ collision_layer = 3
 collision_mask = 5
 script = ExtResource("1_6ue5v")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_w36le")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_35tca")
+animation = &"white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)

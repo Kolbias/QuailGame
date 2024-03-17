@@ -7,7 +7,7 @@ extends Node2D
 @export var background_scroll_speed = Vector2(0.15,0.15)
 
 func _ready():
-	score_text.text = "You rescued " + str(score) + " quails!"
+	score_text.text = "You rescued " + str(score) + " quail babies!"
 func _process(delta):
 	parallax.motion_offset += background_scroll_speed
 

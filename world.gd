@@ -10,5 +10,5 @@ func _on_quail_egg_quail_hatched():
 	add_child(new_quail)
 	new_quail.position = main_quail.position
 
-func _process(delta):
+func _process(_delta):
 	parallax.motion_offset += background_scroll_speed
