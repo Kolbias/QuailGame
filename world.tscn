@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=22 format=3 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ci1vdlgk0k2yp" path="res://objects/bench.tscn" id="12_eh1jf"]
 [ext_resource type="PackedScene" uid="uid://cuv1tav8vdfe8" path="res://objects/hedge.tscn" id="12_lbmdf"]
 [ext_resource type="PackedScene" uid="uid://ba5oc8vlw742f" path="res://end_flag.tscn" id="15_h3ylk"]
+[ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="17_0xtf8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_ltnl4")
@@ -532,7 +533,7 @@ layer_0/tile_data = PackedInt32Array(-196606, 0, 4, -131069, 65536, 5, -131070, 
 [node name="InvisibleWalls" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xask1")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131042, 0, 0, -131030, 0, 0, -262127, 0, 0, -131029, 0, 0, -131028, 0, 0, -131027, 0, 0, -131026, 0, 0, -131025, 0, 0, -131024, 0, 0, -131023, 0, 0, -131022, 0, 0, -131021, 0, 0, -131020, 0, 0, -131019, 0, 0, -65482, 0, 0, 54, 0, 0, 65590, 0, 0, 131126, 0, 0, 196662, 0, 0, 262198, 0, 0, 327734, 0, 0, 393270, 0, 0, 458806, 0, 0, 524342, 0, 0, 589877, 0, 0, 589876, 0, 0, 655412, 0, 0, 720948, 0, 0, 786484, 0, 0, 852020, 0, 0, 917556, 0, 0, 983092, 0, 0, 1048627, 0, 0, 1048626, 0, 0, 1048625, 0, 0, 1048624, 0, 0, 1048623, 0, 0, 1048622, 0, 0, 1048621, 0, 0, 1048620, 0, 0, 1048619, 0, 0, 1048618, 0, 0, 1048617, 0, 0, 1048616, 0, 0, 1048615, 0, 0, 1048614, 0, 0, 1048613, 0, 0, 1048612, 0, 0, 1048611, 0, 0, 1048610, 0, 0, 1048609, 0, 0, 1048608, 0, 0, 1048607, 0, 0, 1048606, 0, 0, 1048605, 0, 0, 983069, 0, 0, 917533, 0, 0, 851997, 0, 0, 786461, 0, 0, 720925, 0, 0, 655389, 0, 0, -196591, 0, 0, -131055, 0, 0, 393243, 0, 0, 458779, 0, 0, 458780, 0, 0, 393244, 0, 0, -262138, 0, 0, -327674, 0, 0, -393210, 0, 0, -458746, 0, 0, -524282, 0, 0, -589818, 0, 0, -655354, 0, 0, -720890, 0, 0, -720879, 0, 0, -655343, 0, 0, -589807, 0, 0, -524271, 0, 0, -458735, 0, 0, -393199, 0, 0, -327663, 0, 0, -786416, 0, 0, -786417, 0, 0, -786418, 0, 0, -786419, 0, 0, -786420, 0, 0, -786421, 0, 0, -786422, 0, 0, -786423, 0, 0, -786424, 0, 0, -786425, 0, 0, -196566, 0, 0, -262102, 0, 0, -327638, 0, 0, -393174, 0, 0, -458710, 0, 0, -524246, 0, 0, -589782, 0, 0, -655318, 0, 0, -720854, 0, 0, -786391, 0, 0, -786392, 0, 0, -786393, 0, 0, -786394, 0, 0, -786395, 0, 0, -786396, 0, 0, -786397, 0, 0, -786398, 0, 0, -786399, 0, 0, -786400, 0, 0, -786401, 0, 0, -720866, 0, 0, -655330, 0, 0, -589794, 0, 0, -524258, 0, 0, -458722, 0, 0, -393186, 0, 0, -327650, 0, 0, -262114, 0, 0, -196578, 0, 0, 720902, 0, 0, 786438, 0, 0, 851974, 0, 0, 917510, 0, 0, 983046, 0, 0, 1048582, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1048593, 0, 0, 983057, 0, 0, 917521, 0, 0, 851985, 0, 0, 786449, 0, 0, 720913, 0, 0)
+layer_0/tile_data = PackedInt32Array(-131029, 0, 0, -131028, 0, 0, -131027, 0, 0, -131026, 0, 0, -131025, 0, 0, -131024, 0, 0, -131023, 0, 0, -131022, 0, 0, -131021, 0, 0, -131020, 0, 0, -131019, 0, 0, -65482, 0, 0, 54, 0, 0, 65590, 0, 0, 131126, 0, 0, 196662, 0, 0, 262198, 0, 0, 327734, 0, 0, 393270, 0, 0, 458806, 0, 0, 524342, 0, 0, 589877, 0, 0, 589876, 0, 0, 655412, 0, 0, 720948, 0, 0, 786484, 0, 0, 852020, 0, 0, 917556, 0, 0, 983092, 0, 0, 1048627, 0, 0, 1048626, 0, 0, 1048625, 0, 0, 1048624, 0, 0, 1048623, 0, 0, 1048622, 0, 0, 1048621, 0, 0, 1048620, 0, 0, 1048619, 0, 0, 1048618, 0, 0, 1048617, 0, 0, 1048616, 0, 0, 1048615, 0, 0, 1048614, 0, 0, 1048613, 0, 0, 1048612, 0, 0, 1048611, 0, 0, 1048610, 0, 0, 1048609, 0, 0, 1048608, 0, 0, 1048607, 0, 0, 1048606, 0, 0, 1048605, 0, 0, 983069, 0, 0, 917533, 0, 0, 851997, 0, 0, 786461, 0, 0, 720925, 0, 0, 655389, 0, 0, 393243, 0, 0, 458779, 0, 0, 458780, 0, 0, 393244, 0, 0, -786416, 0, 0, -786417, 0, 0, -786418, 0, 0, -786419, 0, 0, -786420, 0, 0, -786421, 0, 0, -786422, 0, 0, -786423, 0, 0, -786424, 0, 0, -786425, 0, 0, -786391, 0, 0, -786392, 0, 0, -786393, 0, 0, -786394, 0, 0, -786395, 0, 0, -786396, 0, 0, -786397, 0, 0, -786398, 0, 0, -786399, 0, 0, -786400, 0, 0, -786401, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, -262139, 0, 0, -327675, 0, 0, -393211, 0, 0, -458747, 0, 0, -524283, 0, 0, -589819, 0, 0, -655355, 0, 0, -720891, 0, 0, -786426, 0, 0, -720878, 0, 0, -655342, 0, 0, -589806, 0, 0, -524270, 0, 0, -196590, 0, 0, -262126, 0, 0, -327662, 0, 0, -393198, 0, 0, -458734, 0, 0, -131054, 0, 0, -786415, 0, 0, -131043, 0, 0, -196579, 0, 0, -262115, 0, 0, -327651, 0, 0, -393187, 0, 0, -458723, 0, 0, -524259, 0, 0, -589795, 0, 0, -655331, 0, 0, -720867, 0, 0, -786402, 0, 0, -196565, 0, 0, -262101, 0, 0, -327637, 0, 0, -393173, 0, 0, -458709, 0, 0, -524245, 0, 0, -589781, 0, 0, -655317, 0, 0, -720853, 0, 0, -786390, 0, 0, 720914, 0, 0, 786450, 0, 0, 851986, 0, 0, 917522, 0, 0, 983058, 0, 0, 1048594, 0, 0, 1114129, 0, 0, 720901, 0, 0, 786437, 0, 0, 851973, 0, 0, 917509, 0, 0, 983045, 0, 0, 1048581, 0, 0, 1114118, 0, 0)
 
 [node name="CarSpawner" type="Marker2D" parent="."]
 position = Vector2(149, -165)
@@ -543,7 +544,7 @@ one_shot = true
 autostart = true
 
 [node name="CarSpawner3" type="Marker2D" parent="."]
-position = Vector2(545, -178)
+position = Vector2(538, -468)
 script = ExtResource("3_vw035")
 
 [node name="Timer" type="Timer" parent="CarSpawner3"]
@@ -551,7 +552,7 @@ one_shot = true
 autostart = true
 
 [node name="CarSpawner4" type="Marker2D" parent="."]
-position = Vector2(545, -178)
+position = Vector2(542, -210)
 script = ExtResource("3_vw035")
 
 [node name="Timer" type="Timer" parent="CarSpawner4"]
@@ -568,7 +569,7 @@ one_shot = true
 autostart = true
 
 [node name="CarSpawner5" type="Marker2D" parent="."]
-position = Vector2(633, 268)
+position = Vector2(633, 297)
 rotation = 3.14159
 script = ExtResource("3_vw035")
 
@@ -577,13 +578,22 @@ one_shot = true
 autostart = true
 
 [node name="QuailEgg" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(63, 55)
+position = Vector2(97, 100)
 
 [node name="QuailEgg2" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(95, -18)
 
+[node name="QuailEgg20" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(106, -69)
+
+[node name="QuailEgg21" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(413, 64)
+
+[node name="QuailEgg18" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(256, -143)
+
 [node name="QuailEgg3" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(95, 29)
+position = Vector2(24, 19)
 
 [node name="QuailEgg4" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(295, 82)
@@ -594,11 +604,20 @@ position = Vector2(494, 244)
 [node name="QuailEgg5" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(383, 12)
 
+[node name="QuailEgg19" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(279, -19)
+
+[node name="QuailEgg17" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(478, 7)
+
 [node name="QuailEgg6" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(322, 126)
 
+[node name="QuailEgg16" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(322, 17)
+
 [node name="QuailEgg7" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(57, 107)
+position = Vector2(18, 156)
 
 [node name="QuailEgg8" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(449, 147)
@@ -607,10 +626,10 @@ position = Vector2(449, 147)
 position = Vector2(692, -1)
 
 [node name="QuailEgg10" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(744, 159)
+position = Vector2(778, 154)
 
 [node name="QuailEgg14" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(838, 121)
+position = Vector2(810, 153)
 
 [node name="QuailEgg12" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(683, 244)
@@ -623,7 +642,7 @@ position = Vector2(768, 11)
 
 [node name="Player" parent="." instance=ExtResource("2_y3bi7")]
 z_index = 2
-position = Vector2(55, 24)
+position = Vector2(35, 65)
 
 [node name="Fences" type="Node" parent="."]
 
@@ -684,8 +703,14 @@ position = Vector2(411, 142)
 [node name="FenceHorzLeft5" parent="Fences" instance=ExtResource("9_oce64")]
 position = Vector2(284, -19)
 
+[node name="FenceHorzLeft6" parent="Fences" instance=ExtResource("9_oce64")]
+position = Vector2(769, 151)
+
 [node name="FenceHorzRight6" parent="Fences" instance=ExtResource("7_3ec6f")]
 position = Vector2(486, -19)
+
+[node name="FenceHorzRight7" parent="Fences" instance=ExtResource("7_3ec6f")]
+position = Vector2(789, 151)
 
 [node name="FenceHorzCentre9" parent="Fences" instance=ExtResource("8_xk024")]
 position = Vector2(348, -19)
@@ -735,6 +760,9 @@ position = Vector2(9, 129)
 [node name="FireHydrant" parent="." instance=ExtResource("11_0sr6a")]
 position = Vector2(103, 76)
 
+[node name="FireHydrant2" parent="." instance=ExtResource("11_0sr6a")]
+position = Vector2(679, -32)
+
 [node name="Hedge" parent="." instance=ExtResource("12_lbmdf")]
 position = Vector2(284, 9)
 
@@ -750,6 +778,12 @@ position = Vector2(486, 6)
 [node name="Hedge5" parent="." instance=ExtResource("12_lbmdf")]
 position = Vector2(409, 48)
 
+[node name="Hedge12" parent="." instance=ExtResource("12_lbmdf")]
+position = Vector2(493, -143)
+
+[node name="Hedge13" parent="." instance=ExtResource("12_lbmdf")]
+position = Vector2(280, -53)
+
 [node name="Hedge6" parent="." instance=ExtResource("12_lbmdf")]
 position = Vector2(401, 63)
 
@@ -763,7 +797,7 @@ position = Vector2(680, 3)
 position = Vector2(690, 11)
 
 [node name="Hedge9" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(682, 26)
+position = Vector2(678, 36)
 
 [node name="Hedge10" parent="." instance=ExtResource("12_lbmdf")]
 position = Vector2(677, 231)
@@ -780,10 +814,20 @@ position = Vector2(832, 12)
 [node name="FenceVertCentre" parent="." instance=ExtResource("7_78oge")]
 position = Vector2(366, 158)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_0xtf8")
+autoplay = true
+
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg2" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg2" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg20" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg20" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg21" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg21" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg18" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg18" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg3" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg3" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg4" to="." method="_on_quail_egg_quail_hatched"]
@@ -792,8 +836,14 @@ position = Vector2(366, 158)
 [connection signal="quail_hatched" from="QuailEgg13" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg5" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg5" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg19" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg19" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg17" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg17" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg6" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg6" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg16" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg16" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg7" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg7" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg8" to="." method="_on_quail_egg_quail_hatched"]

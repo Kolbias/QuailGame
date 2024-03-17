@@ -1,6 +1,7 @@
 extends Area2D
 
-@onready var timer = get_node("Timer")
+@onready var timer = $Timer
+@onready var sound = $AudioStreamPlayer2D
 signal quail_hatched
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,5 +22,6 @@ func _on_area_exited(area):
 
 
 func _on_timer_timeout():
+	sound.play()
 	quail_hatched.emit()
 	queue_free()

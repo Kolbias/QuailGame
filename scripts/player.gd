@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var quail_baby = preload("res://quail_baby.tscn")
 @onready var world = preload("res://world.gd")
 @onready var timer = $Timer
+@onready var sound = $AudioStreamPlayer2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var quails = PlayerVariables.quail_count
@@ -65,6 +66,7 @@ func _on_hurtbox_area_entered(area):
 		pass
 func _on_quail_egg_quail_hatched():
 	PlayerVariables.quail_count += 1
+	sound.play()
 	var added_quail_count = PlayerVariables.quail_count
 	print("Quail count: " + str(added_quail_count))
 
