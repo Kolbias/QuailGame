@@ -13,7 +13,7 @@ func _ready():
 		sprite.animation = 'red'
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	drive()
 	if position.y > 1000.0:
 		queue_free()

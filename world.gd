@@ -5,10 +5,11 @@ extends Node2D
 @onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
 
+
 func _on_quail_egg_quail_hatched():
 	var new_quail = quail_baby.instantiate()
 	add_child(new_quail)
 	new_quail.position = main_quail.position
 
-func _process(_delta):
+func _process(_ddelta):
 	parallax.motion_offset += background_scroll_speed

@@ -22,7 +22,8 @@ offset_top = -44.0
 offset_right = 44.0
 offset_bottom = -13.0
 theme_override_fonts/font = ExtResource("3_u15fd")
-text = "Play again
+theme_override_font_sizes/font_size = 15
+text = "Next Level
 "
 
 [node name="Quit" type="Button" parent="Control"]
@@ -39,12 +40,12 @@ text = "Quit
 
 [node name="QuailScore" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -124.0
-offset_top = -97.0
-offset_right = 124.0
-offset_bottom = -72.0
+offset_left = -156.0
+offset_top = -109.0
+offset_right = 156.0
+offset_bottom = -79.0
 theme_override_fonts/font = ExtResource("3_u15fd")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 31
 text = "you rescued blank quails"
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -7,7 +7,7 @@ extends Node2D
 @export var background_scroll_speed = Vector2(0.15,0.15)
 
 func _ready():
-	score_text.text = "You rescued " + str(score) + " quail babies!"
+	score_text.text = "You rescued " + str(score) + " quail!"
 func _process(delta):
 	parallax.motion_offset += background_scroll_speed
 
@@ -17,4 +17,8 @@ func _on_quit_button_down():
 
 func _on_next_button_down():
 	PlayerVariables.quail_count = 0
-	get_tree().change_scene_to_file("res://world.tscn")
+	if PlayerVariables.current_level == 'world1':
+		PlayerVariables.current_level = 'world2'
+		get_tree().change_scene_to_file("res://world2.tscn")
+	else:
+		get_tree().change_scene_to_file("res://main_menu.tscn")

@@ -4,6 +4,7 @@
 
 [node name="TwoCarSpawner" type="Marker2D"]
 position = Vector2(149, -165)
+rotation = 3.14159
 script = ExtResource("1_3na3d")
 
 [node name="Timer" type="Timer" parent="."]

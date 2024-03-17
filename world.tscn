@@ -798,6 +798,7 @@ autoplay = true
 
 [node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
 position = Vector2(549, -262)
+rotation = 0.0
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
