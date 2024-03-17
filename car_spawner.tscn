@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkhux5dgtxjin"]
+
+[ext_resource type="Script" path="res://scripts/car_spanwer.gd" id="1_6fbsn"]
+
+[node name="CarSpawner" type="Marker2D"]
+position = Vector2(149, -165)
+script = ExtResource("1_6fbsn")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

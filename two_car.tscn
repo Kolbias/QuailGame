@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://vrhemfyaf2ph"]
+
+[ext_resource type="Script" path="res://scripts/two_car.gd" id="1_dj6e3"]
+[ext_resource type="Texture2D" uid="uid://cqwkw1o7hklnb" path="res://assets/cars/CarVanRed.png" id="2_q8i2w"]
+[ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="3_pco0k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5wlb"]
+size = Vector2(48, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhs0r"]
+size = Vector2(44, 106)
+
+[node name="TwoCar" type="Area2D" groups=["car"]]
+position = Vector2(0, 1)
+collision_layer = 3
+collision_mask = 5
+script = ExtResource("1_dj6e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q8i2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d5wlb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pco0k")
+volume_db = -8.0
+pitch_scale = 0.64
+autoplay = true
+max_distance = 500.0
+
+[node name="Area2D" type="Area2D" parent="." groups=["car"]]
+collision_layer = 3
+collision_mask = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(0, -176)
+texture = ExtResource("2_q8i2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -176)
+shape = SubResource("RectangleShape2D_uhs0r")

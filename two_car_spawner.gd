@@ -1,6 +1,8 @@
 extends Marker2D
 
-@onready var car = preload("res://car.tscn")
+
+@onready var car = preload("res://two_car.tscn")
+
 @onready var timer = get_node("Timer")
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +19,7 @@ func spawn_car():
 	if car_spawned == false:
 		var instance = car.instantiate()
 		add_child(instance)
+
 	else:
 		pass
 		
