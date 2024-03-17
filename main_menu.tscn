@@ -74,28 +74,33 @@ texture = ExtResource("1_8yby5")
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_r3he0")]
 
 [node name="Landscape" type="Sprite2D" parent="."]
+position = Vector2(-14, -3)
+scale = Vector2(2, 2)
 texture = ExtResource("2_ini4t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
 
 [node name="BabyQuail" type="AnimatedSprite2D" parent="."]
-position = Vector2(22, -23)
+position = Vector2(29, -48)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 
 [node name="BabyQuail" type="AnimatedSprite2D" parent="BabyQuail"]
-position = Vector2(26, -2)
+position = Vector2(24.5, -2)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 
 [node name="BabyQuailLeft" type="AnimatedSprite2D" parent="."]
-position = Vector2(44, -36)
+position = Vector2(38, -72)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 
 [node name="MainQuail" type="AnimatedSprite2D" parent="."]
-position = Vector2(-116, 40)
+position = Vector2(-146, 71)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_i8by4")
 autoplay = "default"
 

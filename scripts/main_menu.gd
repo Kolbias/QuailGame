@@ -14,7 +14,7 @@ func _process(delta):
 	parallax.motion_offset += background_scroll_speed
 	#Attempted to animate main quail replace with tweens?
 	main_quail.position.x += 50.0 * delta
-	if main_quail.position.x > 150.0:
+	if main_quail.position.x > 200.0:
 		main_quail.position = Vector2(-150,40)
 	else:
 		pass
