@@ -177,6 +177,15 @@ offset_right = -192.0
 offset_bottom = -91.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 
+[node name="UnpauseButton" type="Button" parent="UI"]
+process_mode = 2
+layout_mode = 0
+offset_left = -67.0
+offset_top = -52.0
+offset_right = 64.0
+offset_bottom = -21.0
+text = "Return to Game"
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 90.0
 one_shot = true
@@ -190,4 +199,5 @@ stream = ExtResource("19_68xgg")
 pitch_scale = 1.5
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="button_down" from="UI/UnpauseButton" to="." method="_on_unpause_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

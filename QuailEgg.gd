@@ -9,15 +9,15 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	timer.start()
 
 
-func _on_area_exited(area):
+func _on_area_exited(_area):
 	timer.stop()
 
 

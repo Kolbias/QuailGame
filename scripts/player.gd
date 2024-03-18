@@ -8,8 +8,11 @@ extends CharacterBody2D
 @onready var timer = $Timer
 @onready var egg_hatch_sound = $EggHatchSound
 @onready var walk_sound = $WalkingSound
+@onready var paused = false
+@onready var unpause_button = $UI/UnpauseButton
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	unpause_button.visible = false
 	# var quails = PlayerVariables.quail_count
 	timer.start()
 	#if quails > 0:
@@ -52,6 +55,12 @@ func _process(delta):
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	
 	move_and_collide(vel* delta)
+	
+	if Input.is_action_just_pressed("pause") and paused == false:
+		get_tree().paused = true
+		unpause_button.visible = true
+	
+	
 func _on_area_entered(_area: Area2D):
 	self.queue_free()
 	print("Game Over")
@@ -75,3 +84,9 @@ func _on_quail_egg_quail_hatched():
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
+
+
+func _on_unpause_button_button_down():
+		unpause_button.visible = false
+		get_tree().paused = false
+		
