@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var unpause_button = $UI/UnpauseButton
 @onready var game_over_ui = $UI/GameOverText
 @onready var alive = true
+@onready var particles = $CPUParticles2D
+@onready var hurtbox = $Hurtbox
 
 
 func _ready():
@@ -19,7 +21,7 @@ func _ready():
 	game_over_ui.visible = false 
 	timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	var current_quail_count = PlayerVariables.quail_count
 	var vel = Vector2()
@@ -54,7 +56,9 @@ func _process(delta):
 		get_tree().paused = true
 		unpause_button.visible = true
 	
-	
+	if alive == false:
+		particles.emitting = true
+		
 func _on_area_entered(_area: Area2D):
 	self.queue_free()
 	print("Game Over")
@@ -65,13 +69,13 @@ func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
 		PlayerVariables.quail_count = 0
 		sprite.visible = false
+		hurtbox.monitoring = true
 		alive = false
-		# get_tree().change_scene_to_file("res://game_over.tscn")
 		game_over_ui.visible = true
 		print("Game Over")
-		# self.queue_free()
 	else:
 		pass
+
 func _on_quail_egg_quail_hatched():
 	PlayerVariables.quail_count += 1
 	egg_hatch_sound.play()
@@ -91,6 +95,7 @@ func _on_unpause_button_button_down():
 
 func _on_play_again_button_button_down():
 	print(PlayerVariables.current_level)
+	PlayerVariables.quail_count = 0
 	if PlayerVariables.current_level == "world1":
 		get_tree().change_scene_to_file("res://world.tscn")
 	if PlayerVariables.current_level == "world2":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=29 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -21,6 +21,7 @@
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="18_k87bq"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="19_68xgg"]
 [ext_resource type="AudioStream" uid="uid://doysxerrm2kqs" path="res://assets/sounds/QuailStep.ogg" id="19_awh45"]
+[ext_resource type="Texture2D" uid="uid://byptsodw7pegw" path="res://assets/player/QuailFeather.png" id="22_4y1jm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
@@ -125,6 +126,21 @@ radius = 6.08276
 [sub_resource type="CircleShape2D" id="CircleShape2D_i7leb"]
 radius = 8.0
 
+[sub_resource type="Curve" id="Curve_4kel6"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0561798, 200), 0.0, 0.0, 0, 0, Vector2(0.859551, -200), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_dqq4a"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.370787, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_bnd0r"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.9097, 0.0, 0, 0]
+point_count = 3
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 11
 script = ExtResource("1_lrfys")
@@ -218,7 +234,31 @@ volume_db = 17.802
 stream = ExtResource("19_68xgg")
 pitch_scale = 1.5
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 20.0
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("22_4y1jm")
+direction = Vector2(0, -1)
+spread = 75.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = 0.5
+angular_velocity_max = 50.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+linear_accel_curve = SubResource("Curve_4kel6")
+radial_accel_max = 1.0
+damping_max = 0.5
+damping_curve = SubResource("Curve_dqq4a")
+angle_max = 45.0
+scale_amount_min = 0.5
+scale_amount_max = 0.7
+scale_amount_curve = SubResource("Curve_bnd0r")
+anim_speed_max = 5.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="button_down" from="UI/UnpauseButton" to="." method="_on_unpause_button_button_down"]
