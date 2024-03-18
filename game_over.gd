@@ -18,6 +18,8 @@ func _on_play_again_button_down():
 		get_tree().change_scene_to_file("res://world.tscn")
 	elif current_level == "world2":
 		get_tree().change_scene_to_file("res://world2.tscn")
+	elif current_level == "world3":
+		get_tree().change_scene_to_file("res://world3.tscn")
 
 
 func _on_quit_button_down():

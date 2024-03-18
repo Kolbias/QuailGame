@@ -20,5 +20,9 @@ func _on_next_button_down():
 	if PlayerVariables.current_level == 'world1':
 		PlayerVariables.current_level = 'world2'
 		get_tree().change_scene_to_file("res://world2.tscn")
+	elif PlayerVariables.current_level == 'world2':
+		PlayerVariables.current_level = 'world3' #Change to World3 When Created
+		get_tree().change_scene_to_file("res://world3.tscn")
+		
 	else:
 		get_tree().change_scene_to_file("res://main_menu.tscn")
