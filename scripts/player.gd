@@ -10,39 +10,33 @@ extends CharacterBody2D
 @onready var walk_sound = $WalkingSound
 @onready var paused = false
 @onready var unpause_button = $UI/UnpauseButton
-# Called when the node enters the scene tree for the first time.
+@onready var game_over_ui = $UI/GameOverText
+@onready var alive = true
+
+
 func _ready():
 	unpause_button.visible = false
-	# var quails = PlayerVariables.quail_count
+	game_over_ui.visible = false 
 	timer.start()
-	#if quails > 0:
-		#var quail_amount = quails
-		#for n in quail_amount:
-			#var instance = quail_baby.instantiate()
-			#get_parent().add_child(instance)
-			#instance.position = position
-			#print("spawned quail baby")
-	#else:
-		#pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var current_quail_count = PlayerVariables.quail_count
 	var vel = Vector2()
 	var speed = PlayerVariables.speed
-	var moving := false 
-	if Input.is_action_pressed("move_left"):
+	var moving = false 
+	if Input.is_action_pressed("move_left") and alive == true:
 		position.x -= speed * delta
 		sprite.flip_h = true
 		moving = true
-	elif Input.is_action_pressed("move_right"):
+	elif Input.is_action_pressed("move_right") and alive == true:
 		position.x += speed * delta
 		sprite.flip_h = false
 		moving = true
-	elif Input.is_action_pressed("move_down"):
+	elif Input.is_action_pressed("move_down") and alive == true:
 		position.y += speed * delta
 		moving = true
-	elif Input.is_action_pressed("move_up"):
+	elif Input.is_action_pressed("move_up") and alive == true:
 		position.y -= speed * delta
 		moving = true
 	
@@ -70,7 +64,10 @@ func _on_area_entered(_area: Area2D):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
 		PlayerVariables.quail_count = 0
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		sprite.visible = false
+		alive = false
+		# get_tree().change_scene_to_file("res://game_over.tscn")
+		game_over_ui.visible = true
 		print("Game Over")
 		# self.queue_free()
 	else:
@@ -90,3 +87,13 @@ func _on_unpause_button_button_down():
 		unpause_button.visible = false
 		get_tree().paused = false
 		
+
+
+func _on_play_again_button_button_down():
+	print(PlayerVariables.current_level)
+	if PlayerVariables.current_level == "world1":
+		get_tree().change_scene_to_file("res://world.tscn")
+	if PlayerVariables.current_level == "world2":
+		get_tree().change_scene_to_file("res://world2.tscn")
+	if PlayerVariables.current_level == "world3":
+		get_tree().change_scene_to_file("res://world3.tscn")

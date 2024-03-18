@@ -180,11 +180,31 @@ theme_override_fonts/font = ExtResource("18_k87bq")
 [node name="UnpauseButton" type="Button" parent="UI"]
 process_mode = 2
 layout_mode = 0
-offset_left = -67.0
-offset_top = -52.0
-offset_right = 64.0
-offset_bottom = -21.0
+offset_left = -53.0
+offset_top = -58.0
+offset_right = 53.0
+offset_bottom = -35.0
+theme_override_fonts/font = ExtResource("18_k87bq")
+theme_override_font_sizes/font_size = 0
 text = "Return to Game"
+
+[node name="GameOverText" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -86.0
+offset_right = 34.0
+offset_bottom = -63.0
+theme_override_fonts/font = ExtResource("18_k87bq")
+text = "Game Over"
+
+[node name="PlayAgainButton" type="Button" parent="UI/GameOverText"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = 28.0
+offset_right = 78.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("18_k87bq")
+text = "Play Again?"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 90.0
@@ -198,6 +218,9 @@ volume_db = 17.802
 stream = ExtResource("19_68xgg")
 pitch_scale = 1.5
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="button_down" from="UI/UnpauseButton" to="." method="_on_unpause_button_button_down"]
+[connection signal="button_down" from="UI/GameOverText/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
