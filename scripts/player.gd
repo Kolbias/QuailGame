@@ -26,7 +26,7 @@ func _ready():
 
 func _process(delta):
 	var current_quail_count = PlayerVariables.quail_count
-	var vel = Vector2()
+	var dir = Vector2()
 	var speed = PlayerVariables.speed
 	var moving = false 
 	var move_left = Input.is_action_pressed("move_left")
@@ -34,19 +34,20 @@ func _process(delta):
 	var move_down = Input.is_action_pressed("move_down")
 	var move_up = Input.is_action_pressed("move_up")
 	
+
 	if move_left and alive == true:
-		vel.x -= speed
+		dir.x -= speed
 		sprite.flip_h = true
 		moving = true
 	if move_right and alive == true:
-		vel.x += speed
+		dir.x += speed
 		sprite.flip_h = false
 		moving = true
 	if move_down and alive == true:
-		vel.y += speed
+		dir.y += speed
 		moving = true
 	if move_up and alive == true:
-		vel.y -= speed
+		dir.y -= speed
 		moving = true
 	
 	if moving:
@@ -57,7 +58,11 @@ func _process(delta):
 	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	
-	move_and_collide(vel.normalized() * speed)
+	velocity = dir.normalized() * speed
+	move_and_slide()
+	print(dir)
+	
+	# move_and_collide(dir.normalized() * speed)
 	
 	if Input.is_action_just_pressed("pause") and paused == false:
 		get_tree().paused = true
