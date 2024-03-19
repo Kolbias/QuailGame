@@ -14,10 +14,12 @@ extends CharacterBody2D
 @onready var alive = true
 @onready var particles = $CPUParticles2D
 @onready var hurtbox = $Hurtbox
+@onready var pause_quit_button = $UI/PauseQuitButton
 
 
 func _ready():
 	unpause_button.visible = false
+	pause_quit_button.visible = false
 	game_over_ui.visible = false 
 	timer.start()
 
@@ -55,6 +57,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause") and paused == false:
 		get_tree().paused = true
 		unpause_button.visible = true
+		pause_quit_button.visible = true
 	
 	if alive == false:
 		particles.emitting = true
@@ -89,6 +92,7 @@ func _on_timer_timeout():
 
 func _on_unpause_button_button_down():
 		unpause_button.visible = false
+		pause_quit_button.visible = false
 		get_tree().paused = false
 		
 
@@ -102,3 +106,8 @@ func _on_play_again_button_button_down():
 		get_tree().change_scene_to_file("res://world2.tscn")
 	if PlayerVariables.current_level == "world3":
 		get_tree().change_scene_to_file("res://world3.tscn")
+
+
+func _on_pause_quit_button_button_down():
+	get_tree().change_scene_to_file("res://main_menu.tscn")
+
