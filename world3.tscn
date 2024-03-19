@@ -799,7 +799,7 @@ position = Vector2(76, 159)
 position = Vector2(698, 238)
 
 [node name="EndFlag" parent="." instance=ExtResource("18_ywwiq")]
-position = Vector2(37, 75)
+position = Vector2(33, 119)
 
 [node name="Bench2" parent="." instance=ExtResource("17_pdyjb")]
 position = Vector2(795, 221)

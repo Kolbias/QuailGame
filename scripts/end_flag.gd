@@ -1,7 +1,7 @@
 extends Area2D
 @onready var timer = $Timer
-@onready var eggs_required_ui = $Label
-@onready var progress_bar = $ProgressBar
+@onready var eggs_required_ui = $Control/VBoxContainer/Label
+@onready var progress_bar = $Control/VBoxContainer/ProgressBar
 
 
 func _ready():

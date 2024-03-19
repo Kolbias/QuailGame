@@ -57,12 +57,9 @@ func _process(delta):
 		sprite.play("idle")
 	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
-	
 	velocity = dir.normalized() * speed
 	move_and_slide()
-	print(dir)
 	
-	# move_and_collide(dir.normalized() * speed)
 	
 	if Input.is_action_just_pressed("pause") and paused == false:
 		get_tree().paused = true
