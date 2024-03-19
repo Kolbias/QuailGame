@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=28 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -126,12 +126,6 @@ radius = 6.08276
 [sub_resource type="CircleShape2D" id="CircleShape2D_i7leb"]
 radius = 8.0
 
-[sub_resource type="Curve" id="Curve_4kel6"]
-min_value = -200.0
-max_value = 200.0
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0561798, 200), 0.0, 0.0, 0, 0, Vector2(0.859551, -200), 0.0, 0.0, 0, 0]
-point_count = 3
-
 [sub_resource type="Curve" id="Curve_dqq4a"]
 max_value = 100.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.370787, 100), 0.0, 0.0, 0, 0]
@@ -239,6 +233,7 @@ emitting = false
 amount = 100
 lifetime = 20.0
 one_shot = true
+speed_scale = 3.0
 explosiveness = 1.0
 texture = ExtResource("22_4y1jm")
 direction = Vector2(0, -1)
@@ -249,9 +244,8 @@ initial_velocity_max = 50.0
 angular_velocity_min = 0.5
 angular_velocity_max = 50.0
 orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-linear_accel_curve = SubResource("Curve_4kel6")
-radial_accel_max = 1.0
+orbit_velocity_max = 0.05
+linear_accel_max = 5.5
 damping_max = 0.5
 damping_curve = SubResource("Curve_dqq4a")
 angle_max = 45.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=29 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -16,6 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="13_e2ebm"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="14_qf2yh"]
 [ext_resource type="AudioStream" uid="uid://dle8qk27avik" path="res://assets/sounds/BirdAmbience.ogg" id="16_1uy3b"]
+[ext_resource type="Texture2D" uid="uid://bfoeag2rlk14v" path="res://assets/menu/Logo1.png" id="17_0xdoe"]
+[ext_resource type="Texture2D" uid="uid://drdieq575h42c" path="res://assets/menu/Logo2.png" id="18_sr6i1"]
+[ext_resource type="Texture2D" uid="uid://6eemqjyajcex" path="res://assets/menu/Logo3.png" id="19_7kx6v"]
+[ext_resource type="Texture2D" uid="uid://cu6xfls5nbkax" path="res://assets/menu/Logo4.png" id="20_cvbyc"]
+[ext_resource type="Texture2D" uid="uid://cu2xbo4t22t03" path="res://assets/menu/Logo5.png" id="21_6r85s"]
+[ext_resource type="Texture2D" uid="uid://dkgfrrdny1psg" path="res://assets/menu/Logo6.png" id="22_ag358"]
+[ext_resource type="Texture2D" uid="uid://ct3vbqif20nhb" path="res://assets/menu/Logo7.png" id="23_8i4u2"]
+[ext_resource type="Texture2D" uid="uid://bfy21kgsoxx8d" path="res://assets/menu/Logo8.png" id="24_tida4"]
+[ext_resource type="Texture2D" uid="uid://bjanagih2vxo1" path="res://assets/menu/Logo9.png" id="25_kjnww"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -63,6 +72,41 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_hh74u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_0xdoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_sr6i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7kx6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cvbyc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_6r85s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ag358")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8i4u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_tida4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_kjnww")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_otsdi")
 
@@ -107,16 +151,6 @@ scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_i8by4")
 autoplay = "default"
 
-[node name="Label" type="Label" parent="."]
-offset_left = -129.0
-offset_top = -77.0
-offset_right = -55.0
-offset_bottom = -54.0
-theme_override_fonts/font = ExtResource("14_qf2yh")
-theme_override_font_sizes/font_size = 16
-text = "Quail Run
-"
-
 [node name="Button" type="Button" parent="."]
 offset_left = -114.0
 offset_top = -28.0
@@ -137,6 +171,12 @@ text = "Quit"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_1uy3b")
+
+[node name="AnimationPlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(-92, -58)
+sprite_frames = SubResource("SpriteFrames_hh74u")
+autoplay = "default"
+frame_progress = 0.411459
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
