@@ -209,10 +209,10 @@ process_mode = 2
 layout_mode = 0
 offset_left = -52.0
 offset_top = -30.0
-offset_right = 51.0
-offset_bottom = -7.0
+offset_right = 52.0
+offset_bottom = -6.0
 theme_override_fonts/font = ExtResource("18_k87bq")
-text = "Return to Menu"
+text = "Quit to Menu"
 
 [node name="GameOverText" type="Label" parent="UI"]
 layout_mode = 0

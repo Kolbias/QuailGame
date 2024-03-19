@@ -29,19 +29,24 @@ func _process(delta):
 	var vel = Vector2()
 	var speed = PlayerVariables.speed
 	var moving = false 
-	if Input.is_action_pressed("move_left") and alive == true:
-		position.x -= speed * delta
+	var move_left = Input.is_action_pressed("move_left")
+	var move_right = Input.is_action_pressed("move_right")
+	var move_down = Input.is_action_pressed("move_down")
+	var move_up = Input.is_action_pressed("move_up")
+	
+	if move_left and alive == true:
+		vel.x -= speed
 		sprite.flip_h = true
 		moving = true
-	elif Input.is_action_pressed("move_right") and alive == true:
-		position.x += speed * delta
+	if move_right and alive == true:
+		vel.x += speed
 		sprite.flip_h = false
 		moving = true
-	elif Input.is_action_pressed("move_down") and alive == true:
-		position.y += speed * delta
+	if move_down and alive == true:
+		vel.y += speed
 		moving = true
-	elif Input.is_action_pressed("move_up") and alive == true:
-		position.y -= speed * delta
+	if move_up and alive == true:
+		vel.y -= speed
 		moving = true
 	
 	if moving:
@@ -52,7 +57,7 @@ func _process(delta):
 	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	
-	move_and_collide(vel* delta)
+	move_and_collide(vel.normalized() * speed)
 	
 	if Input.is_action_just_pressed("pause") and paused == false:
 		get_tree().paused = true
