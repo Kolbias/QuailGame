@@ -28,6 +28,7 @@ extends CharacterBody2D
 
 
 func _ready():
+	print("Current level = " + PlayerVariables.current_level)
 	unpause_button.visible = false
 	pause_quit_button.visible = false
 	pause_retry.visible = false
@@ -117,12 +118,14 @@ func _on_unpause_button_button_down():
 func _on_play_again_button_button_down():
 	print(PlayerVariables.current_level)
 	PlayerVariables.quail_count = 0
-	if PlayerVariables.current_level == "world1":
-		get_tree().change_scene_to_file("res://world.tscn")
+	if PlayerVariables.current_level == "world1" or "world":
+		get_tree().reload_current_scene()
 	if PlayerVariables.current_level == "world2":
-		get_tree().change_scene_to_file("res://world2.tscn")
+		get_tree().reload_current_scene()
 	if PlayerVariables.current_level == "world3":
-		get_tree().change_scene_to_file("res://world3.tscn")
+		get_tree().reload_current_scene()
+	# else:
+		#get_tree().change_scene_to_file("res://" + PlayerVariables.current_level + ".tscn")
 
 
 func _on_pause_quit_button_button_down():

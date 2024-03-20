@@ -7,7 +7,6 @@ extends Node2D
 @onready var sound = $AudioStreamPlayer2D
 
 func _ready():
-	PlayerVariables.current_level = "world"
 	get_tree().paused = false
 	baby_quail_left.flip_h = true
 	sound.play()

@@ -534,9 +534,6 @@ layer_0/tile_data = PackedInt32Array(1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0
 [node name="CarSpawner" parent="." instance=ExtResource("5_bpco2")]
 position = Vector2(154, -298)
 
-[node name="CarSpawner2" parent="." instance=ExtResource("5_bpco2")]
-position = Vector2(385, -245)
-
 [node name="CarSpawner5" type="Marker2D" parent="."]
 position = Vector2(625, 344)
 rotation = 3.14159
@@ -633,6 +630,9 @@ position = Vector2(779, 33)
 [node name="Player" parent="." instance=ExtResource("8_alarm")]
 z_index = 2
 position = Vector2(771, 17)
+
+[node name="CarSpawner2" parent="." instance=ExtResource("5_bpco2")]
+position = Vector2(387, -288)
 
 [node name="Fences" type="Node" parent="."]
 

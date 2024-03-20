@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddk8hn0jx3lpg"]
+[gd_scene load_steps=9 format=3 uid="uid://ddk8hn0jx3lpg"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
+[ext_resource type="Texture2D" uid="uid://cvcbtcdqm62k0" path="res://assets/ui/BronzeStar.png" id="3_c4w3b"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_u15fd"]
+[ext_resource type="Texture2D" uid="uid://cmxd036748ps1" path="res://assets/ui/SilverStar.png" id="4_3j872"]
+[ext_resource type="AudioStream" uid="uid://dg80eo36ckyi7" path="res://assets/sounds/QuailCall1.mp3" id="4_agpg8"]
+[ext_resource type="Texture2D" uid="uid://dt3yjotdk0557" path="res://assets/ui/GoldStar.png" id="5_7crkx"]
+[ext_resource type="AudioStream" uid="uid://dle8qk27avik" path="res://assets/sounds/BirdAmbience.ogg" id="5_cw2r3"]
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource("1_m5l4d")
@@ -16,6 +21,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BronzeStar" type="Sprite2D" parent="Control"]
+visible = false
+texture = ExtResource("3_c4w3b")
+offset = Vector2(0, -50)
+
+[node name="SilverStar" type="Sprite2D" parent="Control"]
+visible = false
+texture = ExtResource("4_3j872")
+offset = Vector2(0, -50)
+
+[node name="GoldStar" type="Sprite2D" parent="Control"]
+visible = false
+texture = ExtResource("5_7crkx")
+offset = Vector2(0, -50)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
 layout_mode = 0
@@ -62,6 +82,12 @@ vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="QuailCallSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_agpg8")
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cw2r3")
 
 [connection signal="button_down" from="Control/VBoxContainer2/Next" to="." method="_on_next_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer2/Quit" to="." method="_on_quit_button_down"]
