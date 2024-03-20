@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=26 format=3 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://ba5oc8vlw742f" path="res://end_flag.tscn" id="15_h3ylk"]
 [ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="17_0xtf8"]
 [ext_resource type="PackedScene" uid="uid://b1igtqb3o25lp" path="res://two_car_spawner.tscn" id="19_y7xyt"]
+[ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="20_w316h"]
+[ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="21_y7ylm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_ltnl4")
@@ -799,6 +801,21 @@ autoplay = true
 [node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
 position = Vector2(549, -262)
 rotation = 0.0
+
+[node name="Flower" parent="." instance=ExtResource("20_w316h")]
+position = Vector2(60, 124)
+
+[node name="Flower2" parent="." instance=ExtResource("20_w316h")]
+position = Vector2(418, 90)
+
+[node name="Flower3" parent="." instance=ExtResource("20_w316h")]
+position = Vector2(339, 38)
+
+[node name="grass" parent="." instance=ExtResource("21_y7ylm")]
+position = Vector2(112, 93)
+
+[node name="grass2" parent="." instance=ExtResource("21_y7ylm")]
+position = Vector2(273, 146)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

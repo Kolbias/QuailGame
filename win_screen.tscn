@@ -57,6 +57,8 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
 text = "you rescued blank quails"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd2h116fn2nhg"]
+
+[ext_resource type="Shader" path="res://shaders/grass.gdshader" id="1_khoel"]
+[ext_resource type="Texture2D" uid="uid://88u30bp2gtit" path="res://assets/objects/Flower.png" id="2_x5eol"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7vjy"]
+shader = ExtResource("1_khoel")
+
+[node name="Flower" type="Sprite2D"]
+material = SubResource("ShaderMaterial_v7vjy")
+texture = ExtResource("2_x5eol")

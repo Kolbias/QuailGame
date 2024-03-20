@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=31 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://ct3vbqif20nhb" path="res://assets/menu/Logo7.png" id="23_8i4u2"]
 [ext_resource type="Texture2D" uid="uid://bfy21kgsoxx8d" path="res://assets/menu/Logo8.png" id="24_tida4"]
 [ext_resource type="Texture2D" uid="uid://bjanagih2vxo1" path="res://assets/menu/Logo9.png" id="25_kjnww"]
+[ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="26_rfs4x"]
+[ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="27_la2ku"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -144,6 +146,20 @@ position = Vector2(41, -65)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
+
+[node name="grass" parent="." instance=ExtResource("26_rfs4x")]
+position = Vector2(-29, 61)
+
+[node name="grass2" parent="." instance=ExtResource("26_rfs4x")]
+position = Vector2(114, 18)
+
+[node name="Flower" parent="." instance=ExtResource("27_la2ku")]
+position = Vector2(78.25, 57.25)
+scale = Vector2(1.92857, 2.07143)
+
+[node name="Flower2" parent="." instance=ExtResource("27_la2ku")]
+position = Vector2(-60, 49)
+scale = Vector2(1.92857, 2.07143)
 
 [node name="MainQuail" type="AnimatedSprite2D" parent="."]
 position = Vector2(-185, 70)
