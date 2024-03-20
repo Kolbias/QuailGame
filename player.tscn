@@ -166,53 +166,78 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="BabyQuailUI" type="Sprite2D" parent="UI"]
-position = Vector2(-228.5, -124.5)
-scale = Vector2(1.83333, 2.2)
-texture = ExtResource("18_3eshq")
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 1
+anchor_left = -5.974
+anchor_top = -3.352
+anchor_right = 5.869
+anchor_bottom = 3.341
+offset_left = -0.039978
+offset_top = -0.919983
+offset_right = 6.23999
+offset_bottom = 3.36
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI"]
-z_index = 1
-layout_mode = 0
-offset_left = -217.0
-offset_top = -131.0
-offset_right = -195.0
-offset_bottom = -116.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-
-[node name="Timer" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = -219.0
-offset_top = -115.0
-offset_right = -179.0
-offset_bottom = -100.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-
-[node name="ClockUI" type="Sprite2D" parent="UI"]
-position = Vector2(-228, -108)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("20_g1pi0")
-
-[node name="UnpauseButton" type="Button" parent="UI"]
-process_mode = 2
-layout_mode = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -53.0
-offset_top = -58.0
+offset_top = -38.5
 offset_right = 53.0
-offset_bottom = -35.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnpauseButton" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
 theme_override_fonts/font = ExtResource("18_k87bq")
 theme_override_font_sizes/font_size = 0
 text = "Return to Game"
 
-[node name="PauseQuitButton" type="Button" parent="UI"]
+[node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
 process_mode = 2
-layout_mode = 0
-offset_left = -52.0
-offset_top = -30.0
-offset_right = 52.0
-offset_bottom = -6.0
+layout_mode = 2
 theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Quit to Menu"
+
+[node name="PauseRetry" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_k87bq")
+theme_override_font_sizes/font_size = 16
+text = "Restart"
+
+[node name="BabyQuailUI" type="Sprite2D" parent="UI/Control"]
+position = Vector2(10.5, 10.5)
+scale = Vector2(1.83333, 2.2)
+texture = ExtResource("18_3eshq")
+
+[node name="QuailCount" type="Label" parent="UI/Control"]
+z_index = 1
+layout_mode = 1
+offset_left = 20.0
+offset_right = 42.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("18_k87bq")
+
+[node name="ClockUI" type="Sprite2D" parent="UI/Control"]
+position = Vector2(11, 27)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_g1pi0")
+
+[node name="Timer" type="Label" parent="UI/Control"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("18_k87bq")
 
 [node name="GameOverText" type="Label" parent="UI"]
 layout_mode = 0
@@ -271,7 +296,8 @@ scale_amount_curve = SubResource("Curve_bnd0r")
 anim_speed_max = 5.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="button_down" from="UI/UnpauseButton" to="." method="_on_unpause_button_button_down"]
-[connection signal="button_down" from="UI/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
+[connection signal="button_down" from="UI/Control/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_button_down"]
+[connection signal="button_down" from="UI/Control/VBoxContainer/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
+[connection signal="button_down" from="UI/Control/VBoxContainer/PauseRetry" to="." method="_on_pause_retry_button_down"]
 [connection signal="button_down" from="UI/GameOverText/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
