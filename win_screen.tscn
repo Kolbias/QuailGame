@@ -23,19 +23,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BronzeStar" type="Sprite2D" parent="Control"]
-visible = false
+position = Vector2(0, -60)
 texture = ExtResource("3_c4w3b")
-offset = Vector2(0, -50)
 
 [node name="SilverStar" type="Sprite2D" parent="Control"]
-visible = false
+position = Vector2(0, -60)
 texture = ExtResource("4_3j872")
-offset = Vector2(0, -50)
 
 [node name="GoldStar" type="Sprite2D" parent="Control"]
-visible = false
+position = Vector2(0, -60)
 texture = ExtResource("5_7crkx")
-offset = Vector2(0, -50)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
 layout_mode = 0

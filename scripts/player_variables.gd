@@ -1,7 +1,7 @@
 extends Node
 
 var speed = 100.0
-var quail_count = 0
+var quail_count = 20
 
 var current_level = "world1"
 

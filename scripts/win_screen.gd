@@ -5,10 +5,13 @@ extends Node2D
 @onready var score_text = $Control/VBoxContainer/QuailScore
 @onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
+# Awards
 @onready var bronze_star = $Control/BronzeStar
 @onready var silver_star = $Control/SilverStar
 @onready var gold_star = $Control/GoldStar
 @onready var star_text = $Control/VBoxContainer/StarText
+@onready var star_speed = 0.5
+@onready var star_scale = Vector2(3,3)
 
 # Sounds
 @onready var quail_call_sound = $QuailCallSound
@@ -23,45 +26,45 @@ func _ready():
 	# Bronze
 	if score == 10 and world == "world1":
 		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
 		star_text.visible = true
 		star_text.text = "You got a Bronze Star!"
 	if (score > 10 and score < 20 and world == "world1"):
 		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(silver_star, "scale", star_scale, star_speed)
 		star_text.visible = true
 		star_text.text = "You got a Silver Star!"
 	if score >= 20 and world == "world1":
 		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(gold_star, "scale", star_scale, star_speed)
 		star_text.visible = true
 		star_text.text = "You got a Gold Star!"
 	
 	# World2 Score Thresholds
 	if score == 15 and world == "world2":
 		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
 		star_text.visible = true
 		star_text.text = "You got a Bronze Star!"
 	if (score > 15 and score < 20 and world == "world2"):
 		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(silver_star, "scale", star_scale, star_speed)
 		star_text.text = "You got a Silver Star!"
 	if score >= 20 and world == "world2":
 		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(gold_star, "scale", star_scale, star_speed)
 		star_text.text = "You got a Gold Star!"
 	
 	# World3 Score Thresholds
 	if score == 18 and world == "world3":
 		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
 	if (score > 18 and score < 22 and world == "world3"):
 		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(silver_star, "scale", star_scale, star_speed)
 	if score >= 23 and world == "world3":
 		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", Vector2(3,3), 1)
+		tween.tween_property(gold_star, "scale", star_scale, star_speed)
 
 
 	quail_call_sound.play()

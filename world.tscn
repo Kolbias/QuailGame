@@ -823,7 +823,17 @@ position = Vector2(112, 93)
 position = Vector2(273, 146)
 
 [node name="WindSpawner" parent="." instance=ExtResource("22_hx8l0")]
-position = Vector2(45, 140)
+position = Vector2(-2, 140)
+time_min = 1
+time_max = 7
+
+[node name="WindSpawner2" parent="." instance=ExtResource("22_hx8l0")]
+position = Vector2(-2, 13)
+
+[node name="WindSpawner3" parent="." instance=ExtResource("22_hx8l0")]
+position = Vector2(-2, 82)
+time_min = 2
+time_max = 6
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

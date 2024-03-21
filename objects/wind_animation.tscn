@@ -83,6 +83,7 @@ animations = [{
 
 [node name="WindAnimation" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_u3l3g")
+autoplay = "default"
 frame = 17
 frame_progress = 1.0
 script = ExtResource("18_rkt5y")

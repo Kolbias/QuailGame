@@ -10,10 +10,11 @@ script = ExtResource("1_k5ors")
 [node name="WindAnimation" parent="." instance=ExtResource("2_ljw8b")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="DebugSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_ibvxu")
 

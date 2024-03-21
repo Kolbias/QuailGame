@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dla466dhvfd5i"]
+[gd_scene load_steps=29 format=3 uid="uid://dla466dhvfd5i"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2xufd"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_jw5g7"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="21_b8c88"]
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="22_cl81f"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="23_xywqj"]
+[ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="24_2orip"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_hibwo")
@@ -863,6 +864,15 @@ position = Vector2(96, 103)
 
 [node name="grass2" parent="." instance=ExtResource("23_xywqj")]
 position = Vector2(93, 104)
+
+[node name="WindSpawner" parent="." instance=ExtResource("24_2orip")]
+position = Vector2(-1, -65)
+
+[node name="WindSpawner2" parent="." instance=ExtResource("24_2orip")]
+position = Vector2(0, 161)
+
+[node name="WindSpawner3" parent="." instance=ExtResource("24_2orip")]
+position = Vector2(-1, 79)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
