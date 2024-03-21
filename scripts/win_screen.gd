@@ -8,6 +8,7 @@ extends Node2D
 @onready var bronze_star = $Control/BronzeStar
 @onready var silver_star = $Control/SilverStar
 @onready var gold_star = $Control/GoldStar
+@onready var star_text = $Control/VBoxContainer/StarText
 
 # Sounds
 @onready var quail_call_sound = $QuailCallSound
@@ -19,26 +20,37 @@ func _ready():
 	var world = PlayerVariables.current_level
 	
 	# World1 Score Thresholds
+	# Bronze
 	if score == 10 and world == "world1":
 		bronze_star.visible = true
 		tween.tween_property(bronze_star, "scale", Vector2(3,3), 1)
+		star_text.visible = true
+		star_text.text = "You got a Bronze Star!"
 	if (score > 10 and score < 20 and world == "world1"):
 		silver_star.visible = true
 		tween.tween_property(silver_star, "scale", Vector2(3,3), 1)
+		star_text.visible = true
+		star_text.text = "You got a Silver Star!"
 	if score >= 20 and world == "world1":
 		gold_star.visible = true
 		tween.tween_property(gold_star, "scale", Vector2(3,3), 1)
+		star_text.visible = true
+		star_text.text = "You got a Gold Star!"
 	
 	# World2 Score Thresholds
 	if score == 15 and world == "world2":
 		bronze_star.visible = true
 		tween.tween_property(bronze_star, "scale", Vector2(3,3), 1)
+		star_text.visible = true
+		star_text.text = "You got a Bronze Star!"
 	if (score > 15 and score < 20 and world == "world2"):
 		silver_star.visible = true
 		tween.tween_property(silver_star, "scale", Vector2(3,3), 1)
+		star_text.text = "You got a Silver Star!"
 	if score >= 20 and world == "world2":
 		gold_star.visible = true
 		tween.tween_property(gold_star, "scale", Vector2(3,3), 1)
+		star_text.text = "You got a Gold Star!"
 	
 	# World3 Score Thresholds
 	if score == 18 and world == "world3":
@@ -76,3 +88,5 @@ func _on_next_button_down():
 		
 	else:
 		get_tree().change_scene_to_file("res://main_menu.tscn")
+
+

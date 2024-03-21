@@ -1,0 +1,96 @@
+[gd_scene load_steps=20 format=3 uid="uid://c8276g1m6j85c"]
+
+[ext_resource type="Script" path="res://scripts/wind_spawner.gd" id="1_k5ors"]
+[ext_resource type="Texture2D" uid="uid://bisqdjpmer2cw" path="res://assets/environment/wind/wind1.png" id="2_3hgar"]
+[ext_resource type="Texture2D" uid="uid://k5ys17xn6eml" path="res://assets/environment/wind/wind2.png" id="3_s7y3o"]
+[ext_resource type="Texture2D" uid="uid://cfh0p4dwwfrer" path="res://assets/environment/wind/wind3.png" id="4_u2d25"]
+[ext_resource type="Texture2D" uid="uid://dbq7fg4nwxamr" path="res://assets/environment/wind/wind4.png" id="5_j20s2"]
+[ext_resource type="Texture2D" uid="uid://buwtwvjlfwafx" path="res://assets/environment/wind/wind5.png" id="6_haswx"]
+[ext_resource type="Texture2D" uid="uid://w7cd8oq1ommo" path="res://assets/environment/wind/wind6.png" id="7_uaj38"]
+[ext_resource type="Texture2D" uid="uid://dkkluixgyj6jp" path="res://assets/environment/wind/wind7.png" id="8_w1kpf"]
+[ext_resource type="Texture2D" uid="uid://xjli3wtx5qhy" path="res://assets/environment/wind/wind8.png" id="9_08nav"]
+[ext_resource type="Texture2D" uid="uid://b0xs5ts1g676e" path="res://assets/environment/wind/wind9.png" id="10_brrnc"]
+[ext_resource type="Texture2D" uid="uid://b8e5ivxwd2t7j" path="res://assets/environment/wind/wind10.png" id="11_uh8rx"]
+[ext_resource type="Texture2D" uid="uid://cq3iybet2p23g" path="res://assets/environment/wind/wind11.png" id="12_h2aau"]
+[ext_resource type="Texture2D" uid="uid://jsduet6nkyq5" path="res://assets/environment/wind/wind12.png" id="13_yhky0"]
+[ext_resource type="Texture2D" uid="uid://kem0s8ycdqy6" path="res://assets/environment/wind/wind13.png" id="14_02gnu"]
+[ext_resource type="Texture2D" uid="uid://bh4t0u8cmxsku" path="res://assets/environment/wind/wind14.png" id="15_uxeff"]
+[ext_resource type="Texture2D" uid="uid://cudjyx0rs3mog" path="res://assets/environment/wind/wind15.png" id="16_56l8r"]
+[ext_resource type="Texture2D" uid="uid://dr8vjm22hbqrr" path="res://assets/environment/wind/wind16.png" id="17_mgu5d"]
+[ext_resource type="Texture2D" uid="uid://ccrubieo5dxqu" path="res://assets/environment/wind/wind17.png" id="18_yqyhr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3l3g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3hgar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s7y3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u2d25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j20s2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_haswx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uaj38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w1kpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_08nav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_brrnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uh8rx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_h2aau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yhky0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_02gnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_uxeff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_56l8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mgu5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_yqyhr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="WindSpawner" type="Node2D"]
+script = ExtResource("1_k5ors")
+
+[node name="WindAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u3l3g")
+autoplay = "default"
+frame = 16
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[connection signal="animation_finished" from="WindAnimation" to="." method="_on_wind_animation_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

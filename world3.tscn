@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://hybl53q65uf4"]
+[gd_scene load_steps=28 format=3 uid="uid://hybl53q65uf4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_58dau"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_chxl2"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://ba5oc8vlw742f" path="res://end_flag.tscn" id="18_ywwiq"]
 [ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="19_qtjos"]
 [ext_resource type="PackedScene" uid="uid://b1igtqb3o25lp" path="res://two_car_spawner.tscn" id="20_skkvq"]
+[ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="21_6aiq5"]
+[ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="22_qe0cy"]
+[ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="23_r6uwc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_4ga7m")
@@ -817,6 +820,30 @@ rotation = 0.0
 [node name="TwoCarSpawner2" parent="." instance=ExtResource("20_skkvq")]
 z_index = 4
 position = Vector2(233, 346)
+
+[node name="Flower" parent="." instance=ExtResource("21_6aiq5")]
+position = Vector2(277, 144)
+
+[node name="Flower2" parent="." instance=ExtResource("22_qe0cy")]
+position = Vector2(313, 66)
+
+[node name="Flower3" parent="." instance=ExtResource("22_qe0cy")]
+position = Vector2(65, 55)
+
+[node name="grass" parent="." instance=ExtResource("23_r6uwc")]
+position = Vector2(320, -72)
+
+[node name="Flower4" parent="." instance=ExtResource("22_qe0cy")]
+position = Vector2(780, 89)
+
+[node name="Flower5" parent="." instance=ExtResource("21_6aiq5")]
+position = Vector2(728, 208)
+
+[node name="grass2" parent="." instance=ExtResource("23_r6uwc")]
+position = Vector2(494, 261)
+
+[node name="Flower6" parent="." instance=ExtResource("22_qe0cy")]
+position = Vector2(679, -135)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

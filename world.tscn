@@ -519,6 +519,7 @@ sources/0 = SubResource("TileSetAtlasSource_cprcg")
 script = ExtResource("1_22jv0")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_xgafp")]
+scroll_offset = Vector2(-204.59, -0.481132)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 1)
@@ -564,6 +565,9 @@ position = Vector2(106, -69)
 
 [node name="QuailEgg21" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(413, 64)
+
+[node name="QuailEgg23" parent="." instance=ExtResource("5_k6rxl")]
+position = Vector2(486, 24)
 
 [node name="QuailEgg18" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(256, -143)
@@ -825,6 +829,8 @@ position = Vector2(273, 146)
 [connection signal="quail_hatched" from="QuailEgg20" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg21" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg21" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg23" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg23" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg18" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg18" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg3" to="." method="_on_quail_egg_quail_hatched"]

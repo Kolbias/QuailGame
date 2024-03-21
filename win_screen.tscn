@@ -72,6 +72,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="StarText" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 32
+text = "Star Text"
+horizontal_alignment = 1
+
 [node name="QuailScore" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_u15fd")
