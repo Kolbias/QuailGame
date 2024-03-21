@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=27 format=3 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b1igtqb3o25lp" path="res://two_car_spawner.tscn" id="19_y7xyt"]
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="20_w316h"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="21_y7ylm"]
+[ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="22_hx8l0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_ltnl4")
@@ -519,7 +520,7 @@ sources/0 = SubResource("TileSetAtlasSource_cprcg")
 script = ExtResource("1_22jv0")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_xgafp")]
-scroll_offset = Vector2(-204.59, -0.481132)
+scroll_offset = Vector2(936.034, -384.974)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 1)
@@ -820,6 +821,9 @@ position = Vector2(112, 93)
 
 [node name="grass2" parent="." instance=ExtResource("21_y7ylm")]
 position = Vector2(273, 146)
+
+[node name="WindSpawner" parent="." instance=ExtResource("22_hx8l0")]
+position = Vector2(45, 140)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

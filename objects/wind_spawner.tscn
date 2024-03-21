@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8276g1m6j85c"]
+[gd_scene load_steps=4 format=3 uid="uid://c8276g1m6j85c"]
 
 [ext_resource type="Script" path="res://scripts/wind_spawner.gd" id="1_k5ors"]
 [ext_resource type="PackedScene" uid="uid://cii0wa0wgqcln" path="res://objects/wind_animation.tscn" id="2_ljw8b"]
+[ext_resource type="Texture2D" uid="uid://dfr5s6t3j54ot" path="res://icon.svg" id="3_ibvxu"]
 
 [node name="WindSpawner" type="Node2D"]
 script = ExtResource("1_k5ors")
@@ -9,10 +10,12 @@ script = ExtResource("1_k5ors")
 [node name="WindAnimation" parent="." instance=ExtResource("2_ljw8b")]
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
+wait_time = 5.0
+one_shot = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_ibvxu")
 
 [connection signal="animation_finished" from="WindAnimation" to="." method="_on_wind_animation_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -118,6 +118,7 @@ position = Vector2(1, -2)
 texture = ExtResource("1_8yby5")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("3_r3he0")]
+scroll_offset = Vector2(834.312, 260.992)
 
 [node name="Landscape" type="Sprite2D" parent="."]
 position = Vector2(-0.999997, -10)

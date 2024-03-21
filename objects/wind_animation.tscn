@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cii0wa0wgqcln"]
+[gd_scene load_steps=20 format=3 uid="uid://cii0wa0wgqcln"]
 
 [ext_resource type="Texture2D" uid="uid://bisqdjpmer2cw" path="res://assets/environment/wind/wind1.png" id="1_ued1c"]
 [ext_resource type="Texture2D" uid="uid://k5ys17xn6eml" path="res://assets/environment/wind/wind2.png" id="2_fc2fs"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cudjyx0rs3mog" path="res://assets/environment/wind/wind15.png" id="15_3mjrr"]
 [ext_resource type="Texture2D" uid="uid://dr8vjm22hbqrr" path="res://assets/environment/wind/wind16.png" id="16_ps71r"]
 [ext_resource type="Texture2D" uid="uid://ccrubieo5dxqu" path="res://assets/environment/wind/wind17.png" id="17_1u4tu"]
+[ext_resource type="Script" path="res://objects/wind_animation.gd" id="18_rkt5y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u3l3g"]
 animations = [{
@@ -82,8 +83,13 @@ animations = [{
 
 [node name="WindAnimation" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_u3l3g")
-autoplay = "default"
 frame = 17
 frame_progress = 1.0
+script = ExtResource("18_rkt5y")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
