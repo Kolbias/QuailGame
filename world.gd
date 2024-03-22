@@ -4,12 +4,34 @@ extends Node2D
 @onready var quail_baby = preload("res://quail_baby.tscn")
 @onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
+@onready var player_quail_amount = PlayerVariables.quail_count
 
+
+func _ready():
+	#await self.ready
+	#spawn_quail()
+	pass
 
 func _on_quail_egg_quail_hatched():
 	var new_quail = quail_baby.instantiate()
 	add_child(new_quail)
 	new_quail.position = main_quail.position
 
-func _process(_ddelta):
+func _process(_delta):
 	parallax.motion_offset += background_scroll_speed
+
+# Function to spawn quail, currently not working as World node is "Not ready" 
+func spawn_quail():
+	if PlayerVariables.quail_count > 0:
+		var spawned_quail = 0
+		var instance = quail_baby.instantiate()
+		for n in player_quail_amount:
+			add_child(instance)
+			print(n)
+			instance.position = main_quail.position
+			spawned_quail += 1
+			continue
+			if spawned_quail >= player_quail_amount:
+				break
+	else:
+		pass

@@ -28,6 +28,12 @@ extends CharacterBody2D
 
 
 func _ready():
+	#Tryin to spawn Babies between levels
+	#if PlayerVariables.quail_count > 0:
+		#var instance = quail_baby.instantiate()
+		#for x in PlayerVariables.quail_count:
+			#add_child(instance)
+			
 	print("Current level = " + PlayerVariables.current_level)
 	unpause_button.visible = false
 	pause_quit_button.visible = false
