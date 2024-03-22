@@ -628,6 +628,13 @@ position = Vector2(768, 11)
 z_index = 2
 position = Vector2(35, 65)
 
+[node name="EndFlag" parent="." instance=ExtResource("15_h3ylk")]
+position = Vector2(832, 12)
+
+[node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
+position = Vector2(549, -262)
+rotation = 0.0
+
 [node name="Fences" type="Node" parent="."]
 
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("9_oce64")]
@@ -741,94 +748,91 @@ position = Vector2(9, 105)
 [node name="FenceVertCentre6" parent="Fences" instance=ExtResource("7_78oge")]
 position = Vector2(9, 129)
 
-[node name="FireHydrant" parent="." instance=ExtResource("11_0sr6a")]
-position = Vector2(103, 76)
-
-[node name="FireHydrant2" parent="." instance=ExtResource("11_0sr6a")]
-position = Vector2(679, -32)
-
-[node name="Hedge" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(284, 9)
-
-[node name="Hedge2" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(332, 13)
-
-[node name="Hedge3" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(399, 40)
-
-[node name="Hedge4" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(486, 6)
-
-[node name="Hedge5" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(409, 48)
-
-[node name="Hedge12" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(493, -143)
-
-[node name="Hedge13" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(280, -53)
-
-[node name="Hedge6" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(401, 63)
-
-[node name="Hedge11" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(820, 151)
-
-[node name="Hedge7" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(680, 3)
-
-[node name="Hedge8" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(690, 11)
-
-[node name="Hedge9" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(678, 36)
-
-[node name="Hedge10" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(677, 231)
-
-[node name="Bench" parent="." instance=ExtResource("12_eh1jf")]
-position = Vector2(303, 27)
-
-[node name="Bench2" parent="." instance=ExtResource("12_eh1jf")]
-position = Vector2(768, 22)
-
-[node name="EndFlag" parent="." instance=ExtResource("15_h3ylk")]
-position = Vector2(832, 12)
-
-[node name="FenceVertCentre" parent="." instance=ExtResource("7_78oge")]
+[node name="FenceVertCentre9" parent="Fences" instance=ExtResource("7_78oge")]
 position = Vector2(366, 158)
 
-[node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
-position = Vector2(549, -262)
-rotation = 0.0
+[node name="Environment" type="Node" parent="."]
 
-[node name="Flower" parent="." instance=ExtResource("20_w316h")]
+[node name="Flower" parent="Environment" instance=ExtResource("20_w316h")]
 position = Vector2(60, 124)
 
-[node name="Flower2" parent="." instance=ExtResource("20_w316h")]
+[node name="Flower2" parent="Environment" instance=ExtResource("20_w316h")]
 position = Vector2(418, 90)
 
-[node name="Flower3" parent="." instance=ExtResource("20_w316h")]
+[node name="Flower3" parent="Environment" instance=ExtResource("20_w316h")]
 position = Vector2(339, 38)
 
-[node name="grass" parent="." instance=ExtResource("21_y7ylm")]
+[node name="grass" parent="Environment" instance=ExtResource("21_y7ylm")]
 position = Vector2(112, 93)
 
-[node name="grass2" parent="." instance=ExtResource("21_y7ylm")]
+[node name="grass2" parent="Environment" instance=ExtResource("21_y7ylm")]
 position = Vector2(273, 146)
 
-[node name="WindSpawner" parent="." instance=ExtResource("22_hx8l0")]
+[node name="WindSpawner" parent="Environment" instance=ExtResource("22_hx8l0")]
 position = Vector2(-2, 140)
 time_min = 1
 time_max = 7
 
-[node name="WindSpawner2" parent="." instance=ExtResource("22_hx8l0")]
+[node name="WindSpawner2" parent="Environment" instance=ExtResource("22_hx8l0")]
 position = Vector2(-2, 13)
 
-[node name="WindSpawner3" parent="." instance=ExtResource("22_hx8l0")]
+[node name="WindSpawner3" parent="Environment" instance=ExtResource("22_hx8l0")]
 position = Vector2(-2, 82)
 time_min = 2
 time_max = 6
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="FireHydrant" parent="Objects" instance=ExtResource("11_0sr6a")]
+position = Vector2(103, 76)
+
+[node name="FireHydrant2" parent="Objects" instance=ExtResource("11_0sr6a")]
+position = Vector2(679, -32)
+
+[node name="Hedge" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(284, 9)
+
+[node name="Hedge2" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(332, 13)
+
+[node name="Hedge3" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(399, 40)
+
+[node name="Hedge4" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(486, 6)
+
+[node name="Hedge5" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(409, 48)
+
+[node name="Hedge12" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(493, -143)
+
+[node name="Hedge13" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(280, -53)
+
+[node name="Hedge6" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(401, 63)
+
+[node name="Hedge11" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(820, 151)
+
+[node name="Hedge7" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(680, 3)
+
+[node name="Hedge8" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(690, 11)
+
+[node name="Hedge9" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(678, 36)
+
+[node name="Hedge10" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(677, 231)
+
+[node name="Bench" parent="Objects" instance=ExtResource("12_eh1jf")]
+position = Vector2(303, 27)
+
+[node name="Bench2" parent="Objects" instance=ExtResource("12_eh1jf")]
+position = Vector2(768, 22)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_egt0q")
