@@ -17,10 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://ci1vdlgk0k2yp" path="res://objects/bench.tscn" id="12_eh1jf"]
 [ext_resource type="PackedScene" uid="uid://cuv1tav8vdfe8" path="res://objects/hedge.tscn" id="12_lbmdf"]
 [ext_resource type="PackedScene" uid="uid://ba5oc8vlw742f" path="res://end_flag.tscn" id="15_h3ylk"]
-[ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="17_0xtf8"]
 [ext_resource type="PackedScene" uid="uid://b1igtqb3o25lp" path="res://two_car_spawner.tscn" id="19_y7xyt"]
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="20_w316h"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="21_y7ylm"]
+[ext_resource type="AudioStream" uid="uid://dyty47c8c82an" path="res://assets/sounds/QuailSongRevised.ogg" id="22_egt0q"]
 [ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="22_hx8l0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
@@ -798,11 +798,6 @@ position = Vector2(832, 12)
 [node name="FenceVertCentre" parent="." instance=ExtResource("7_78oge")]
 position = Vector2(366, 158)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_0xtf8")
-volume_db = 3.0
-autoplay = true
-
 [node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
 position = Vector2(549, -262)
 rotation = 0.0
@@ -834,6 +829,11 @@ position = Vector2(-2, 13)
 position = Vector2(-2, 82)
 time_min = 2
 time_max = 6
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_egt0q")
+volume_db = -3.0
+autoplay = true
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

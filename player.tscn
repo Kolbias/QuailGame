@@ -20,8 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="18_3eshq"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="18_k87bq"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="19_68xgg"]
-[ext_resource type="AudioStream" uid="uid://doysxerrm2kqs" path="res://assets/sounds/QuailStep.ogg" id="19_awh45"]
 [ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="20_g1pi0"]
+[ext_resource type="AudioStream" uid="uid://c43vqtkjmikdr" path="res://assets/sounds/QuailHit.ogg" id="21_27fe3"]
 [ext_resource type="Texture2D" uid="uid://byptsodw7pegw" path="res://assets/player/QuailFeather.png" id="22_4y1jm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
@@ -249,6 +249,7 @@ theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Game Over"
 
 [node name="PlayAgainButton" type="Button" parent="UI/GameOverText"]
+visible = false
 layout_mode = 0
 offset_left = -9.0
 offset_top = 28.0
@@ -257,13 +258,22 @@ offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Play Again?"
 
+[node name="Label" type="Label" parent="UI/GameOverText"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 17.0
+offset_right = 105.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("18_k87bq")
+text = "Press R to restart"
+horizontal_alignment = 1
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 90.0
 one_shot = true
 
-[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_awh45")
-volume_db = 17.802
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_27fe3")
 
 [node name="EggHatchSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_68xgg")

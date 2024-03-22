@@ -23,14 +23,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BronzeStar" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(0, -60)
 texture = ExtResource("3_c4w3b")
 
 [node name="SilverStar" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(0, -60)
 texture = ExtResource("4_3j872")
 
 [node name="GoldStar" type="Sprite2D" parent="Control"]
+visible = false
 position = Vector2(0, -60)
 texture = ExtResource("5_7crkx")
 

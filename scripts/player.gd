@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var world = preload("res://world.gd")
 @onready var timer = $Timer
 @onready var egg_hatch_sound = $EggHatchSound
-@onready var walk_sound = $WalkingSound
+@onready var hit_sound = $HitSound
 
 # Gameplay UI
 @onready var quail_count_ui = $UI/Control/QuailCount
@@ -51,6 +51,7 @@ func _process(delta):
 	var move_right = Input.is_action_pressed("move_right")
 	var move_down = Input.is_action_pressed("move_down")
 	var move_up = Input.is_action_pressed("move_up")
+
 	
 # Movement
 	if move_left and alive == true:
@@ -70,13 +71,15 @@ func _process(delta):
 	
 	if moving:
 		sprite.play("run")
-		# walk_sound.play()
 	else:
 		sprite.play("idle")
 	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	velocity = dir.normalized() * speed
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	
 # Pause
 	if Input.is_action_just_pressed("pause") and paused == false:
@@ -92,6 +95,7 @@ func _process(delta):
 # Car Collision
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
+		hit_sound.play()
 		PlayerVariables.quail_count = 0
 		sprite.visible = false
 		hurtbox.monitoring = true
@@ -127,10 +131,11 @@ func _on_play_again_button_button_down():
 	if PlayerVariables.current_level == "world1" or "world":
 		get_tree().reload_current_scene()
 	if PlayerVariables.current_level == "world2":
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://world2.tscn")
 	if PlayerVariables.current_level == "world3":
-		get_tree().reload_current_scene()
-	# else:
+		get_tree().change_scene_to_file("res://world3.tscn")
+	else:
+		pass
 		#get_tree().change_scene_to_file("res://" + PlayerVariables.current_level + ".tscn")
 
 
