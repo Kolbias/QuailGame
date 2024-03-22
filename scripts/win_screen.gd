@@ -66,7 +66,17 @@ func _ready():
 		gold_star.visible = true
 		tween.tween_property(gold_star, "scale", star_scale, star_speed)
 
-
+	# World4 Score Thresholds
+	if score == 18 and world == "world4":
+		bronze_star.visible = true
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
+	if (score > 18 and score < 22 and world == "world4"):
+		silver_star.visible = true
+		tween.tween_property(silver_star, "scale", star_scale, star_speed)
+	if score >= 23 and world == "world4":
+		gold_star.visible = true
+		tween.tween_property(gold_star, "scale", star_scale, star_speed)
+		
 	quail_call_sound.play()
 	ambient_sound.play()
 	score_text.text = "You rescued " + str(score) + " quail!"
@@ -85,9 +95,13 @@ func _on_next_button_down():
 		print(PlayerVariables.current_level)
 		get_tree().change_scene_to_file("res://world2.tscn")
 	elif PlayerVariables.current_level == 'world2':
-		PlayerVariables.current_level = 'world3' #Change to World3 When Created
+		PlayerVariables.current_level = 'world3' 
 		print(PlayerVariables.current_level)
 		get_tree().change_scene_to_file("res://world3.tscn")
+	elif PlayerVariables.current_level == 'world3':
+		PlayerVariables.current_level = 'world4' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world4.tscn")
 		
 	else:
 		get_tree().change_scene_to_file("res://main_menu.tscn")

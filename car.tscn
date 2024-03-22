@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://eilcljxhbdnp"]
+[gd_scene load_steps=9 format=3 uid="uid://eilcljxhbdnp"]
 
 [ext_resource type="Script" path="res://scripts/car.gd" id="1_6ue5v"]
 [ext_resource type="Texture2D" uid="uid://cuqyk1umr3rh1" path="res://assets/cars/CarVanBlue.png" id="2_i47wc"]
 [ext_resource type="Texture2D" uid="uid://cqwkw1o7hklnb" path="res://assets/cars/CarVanRed.png" id="2_w36le"]
 [ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="3_rq1ux"]
 [ext_resource type="Texture2D" uid="uid://b4u2b5oetsgii" path="res://assets/cars/CarVanWhite.png" id="4_el8ld"]
+[ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://effects/HeadLight.jpg" id="6_tspjd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35tca"]
 animations = [{
@@ -56,3 +57,17 @@ volume_db = -8.0
 pitch_scale = 0.64
 autoplay = true
 max_distance = 500.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-22, 125)
+color = Color(0.952941, 0.658824, 0.2, 1)
+texture = ExtResource("6_tspjd")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(17, 126)
+color = Color(0.952941, 0.658824, 0.2, 1)
+shadow_enabled = true
+shadow_item_cull_mask = 9
+texture = ExtResource("6_tspjd")
+texture_scale = 0.5

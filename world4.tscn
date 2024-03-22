@@ -518,7 +518,7 @@ texture = ExtResource("4_i7g5o")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cprcg")
 
-[node name="World3" type="Node2D"]
+[node name="World4" type="Node2D"]
 script = ExtResource("1_mnrrk")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_5w3kg")]
@@ -539,10 +539,10 @@ layer_0/tile_data = PackedInt32Array(1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0
 position = Vector2(111, 132)
 
 [node name="QuailEgg29" parent="." instance=ExtResource("7_57alm")]
-position = Vector2(77, 195)
+position = Vector2(81, 187)
 
 [node name="QuailEgg2" parent="." instance=ExtResource("7_57alm")]
-position = Vector2(357, -131)
+position = Vector2(419, -106)
 
 [node name="QuailEgg20" parent="." instance=ExtResource("7_57alm")]
 position = Vector2(109, -166)
@@ -551,13 +551,13 @@ position = Vector2(109, -166)
 position = Vector2(450, 81)
 
 [node name="QuailEgg18" parent="." instance=ExtResource("7_57alm")]
-position = Vector2(433, -69)
+position = Vector2(528, -67)
 
 [node name="QuailEgg3" parent="." instance=ExtResource("7_57alm")]
 position = Vector2(110, -78)
 
 [node name="QuailEgg4" parent="." instance=ExtResource("7_57alm")]
-position = Vector2(405, -69)
+position = Vector2(427, -51)
 
 [node name="QuailEgg23" parent="." instance=ExtResource("7_57alm")]
 position = Vector2(278, 183)
@@ -584,10 +584,10 @@ position = Vector2(682, -162)
 position = Vector2(386, 185)
 
 [node name="QuailEgg6" parent="." instance=ExtResource("7_57alm")]
-position = Vector2(210, 143)
+position = Vector2(192, 151)
 
 [node name="QuailEgg16" parent="." instance=ExtResource("7_57alm")]
-position = Vector2(295, 14)
+position = Vector2(330, 53)
 
 [node name="QuailEgg7" parent="." instance=ExtResource("7_57alm")]
 position = Vector2(206, -21)
@@ -619,9 +619,15 @@ position = Vector2(779, 33)
 [node name="QuailEgg8" parent="." instance=ExtResource("7_57alm")]
 position = Vector2(99, 70)
 
+[node name="QuailEgg19" parent="." instance=ExtResource("7_57alm")]
+position = Vector2(109, 262)
+
+[node name="QuailEgg30" parent="." instance=ExtResource("7_57alm")]
+position = Vector2(113, -130)
+
 [node name="Player" parent="." instance=ExtResource("8_ygu36")]
 z_index = 2
-position = Vector2(771, 17)
+position = Vector2(772, 122)
 
 [node name="EndFlag" parent="." instance=ExtResource("9_6qbna")]
 position = Vector2(426, 250)
@@ -645,7 +651,7 @@ position = Vector2(301, 326)
 position = Vector2(488, -293)
 
 [node name="CarSpawner5" type="Marker2D" parent="."]
-position = Vector2(659, 327)
+position = Vector2(677, 451)
 rotation = 3.14159
 script = ExtResource("6_8mp3j")
 
@@ -654,7 +660,7 @@ one_shot = true
 autostart = true
 
 [node name="CarSpawner6" type="Marker2D" parent="."]
-position = Vector2(364, 323)
+position = Vector2(366, 452)
 rotation = 3.14159
 script = ExtResource("6_8mp3j")
 
@@ -783,7 +789,7 @@ position = Vector2(411, 172)
 position = Vector2(736, 122)
 
 [node name="Hedge16" parent="Objects" instance=ExtResource("22_1ooyk")]
-position = Vector2(419, -92)
+position = Vector2(419, -175)
 
 [node name="Hedge13" parent="Objects" instance=ExtResource("22_1ooyk")]
 position = Vector2(730, 163)
@@ -798,7 +804,7 @@ position = Vector2(819, 172)
 position = Vector2(436, 96)
 
 [node name="Hedge8" parent="Objects" instance=ExtResource("22_1ooyk")]
-position = Vector2(763, 46)
+position = Vector2(790, 20)
 
 [node name="Hedge14" parent="Objects" instance=ExtResource("22_1ooyk")]
 position = Vector2(787, -9)
@@ -825,7 +831,7 @@ position = Vector2(87, 168)
 position = Vector2(404, 259)
 
 [node name="Lamp3" parent="Objects" instance=ExtResource("25_bs1ps")]
-position = Vector2(791, 96)
+position = Vector2(788, 104)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_x8mga")
@@ -838,7 +844,7 @@ color = Color(0.172549, 1, 1, 1)
 energy = 0.3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.403922, 0, 0.403922, 1)
+color = Color(0.282353, 0, 0.282353, 1)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
@@ -896,3 +902,7 @@ color = Color(0.403922, 0, 0.403922, 1)
 [connection signal="quail_hatched" from="QuailEgg15" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg8" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg8" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg19" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg19" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg30" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="QuailEgg30" to="Player" method="_on_quail_egg_quail_hatched"]

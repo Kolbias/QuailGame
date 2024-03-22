@@ -5,8 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gahj"]
 radius = 7.07107
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_05ic2"]
-polygon = PackedVector2Array(0, -13, -6, -3, -9, 5, -6, 8, -1, 9, 5, 8, 9, 6, 6, -3)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pu04x"]
+closed = false
+polygon = PackedVector2Array(7, 6, 6, 0, 2, -9, 0, -11, -2, -9, -6, 0, -7, 6)
 
 [node name="Hedge" type="StaticBody2D"]
 z_index = 4
@@ -19,5 +20,5 @@ position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_3gahj")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_05ic2")
+occluder = SubResource("OccluderPolygon2D_pu04x")
 occluder_light_mask = 9
