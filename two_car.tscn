@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cqwkw1o7hklnb" path="res://assets/cars/CarVanRed.png" id="2_q8i2w"]
 [ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="3_pco0k"]
 [ext_resource type="Texture2D" uid="uid://b4u2b5oetsgii" path="res://assets/cars/CarVanWhite.png" id="4_jlgkm"]
-[ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://effects/HeadLight.jpg" id="6_3b2bi"]
+[ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://Effects/HeadLight.jpg" id="6_3b2bi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ijec"]
 animations = [{
@@ -35,10 +35,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5wlb"]
-size = Vector2(48, 99)
+size = Vector2(8, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhs0r"]
-size = Vector2(44, 106)
+size = Vector2(9, 18)
 
 [node name="TwoCar" type="Area2D" groups=["car"]]
 position = Vector2(0, 1)
@@ -51,7 +51,19 @@ sprite_frames = SubResource("SpriteFrames_6ijec")
 animation = &"white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(-21, -44)
+shape = SubResource("RectangleShape2D_d5wlb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(19, -43)
+shape = SubResource("RectangleShape2D_d5wlb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-21, 40)
+shape = SubResource("RectangleShape2D_d5wlb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(19, 40)
 shape = SubResource("RectangleShape2D_d5wlb")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -83,7 +95,19 @@ sprite_frames = SubResource("SpriteFrames_6ijec")
 animation = &"white"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -176)
+position = Vector2(-19, -218)
+shape = SubResource("RectangleShape2D_uhs0r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19, -217)
+shape = SubResource("RectangleShape2D_uhs0r")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19, -135)
+shape = SubResource("RectangleShape2D_uhs0r")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-19, -135)
 shape = SubResource("RectangleShape2D_uhs0r")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Area2D"]

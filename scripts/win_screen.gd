@@ -18,64 +18,42 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
-	var tween = get_tree().create_tween()
 	var score = PlayerVariables.quail_count
 	var world = PlayerVariables.current_level
 	
 	# World1 Score Thresholds
 	# Bronze
 	if score == 10 and world == "world1":
-		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
-		star_text.visible = true
-		star_text.text = "You got a Bronze Star!"
+		award_bronze()
 	if (score > 10 and score < 20 and world == "world1"):
-		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", star_scale, star_speed)
-		star_text.visible = true
-		star_text.text = "You got a Silver Star!"
+		award_silver()
 	if score >= 20 and world == "world1":
-		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", star_scale, star_speed)
-		star_text.visible = true
-		star_text.text = "You got a Gold Star!"
+		award_gold()
 	
 	# World2 Score Thresholds
 	if score == 15 and world == "world2":
-		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
-		star_text.visible = true
-		star_text.text = "You got a Bronze Star!"
+		award_bronze()
 	if (score > 15 and score < 20 and world == "world2"):
-		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", star_scale, star_speed)
-		star_text.text = "You got a Silver Star!"
+		award_silver()
 	if score >= 20 and world == "world2":
-		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", star_scale, star_speed)
-		star_text.text = "You got a Gold Star!"
+		award_gold()
 	
 	# World3 Score Thresholds
 	if score == 18 and world == "world3":
-		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
+		award_bronze()
 	if (score > 18 and score < 22 and world == "world3"):
-		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", star_scale, star_speed)
+		award_silver()
 	if score >= 23 and world == "world3":
-		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", star_scale, star_speed)
+		award_gold()
 
 	# World4 Score Thresholds
-	if score == 18 and world == "world4":
-		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
-	if (score > 18 and score < 22 and world == "world4"):
-		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", star_scale, star_speed)
-	if score >= 23 and world == "world4":
-		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", star_scale, star_speed)
+	if score == 12 and world == "world4":
+		award_bronze()
+	if (score > 15 and score < 19 and world == "world4"):
+		award_silver()
+	if score >= 20 and world == "world4":
+		award_gold()
+		
 		
 	quail_call_sound.play()
 	ambient_sound.play()
@@ -107,3 +85,23 @@ func _on_next_button_down():
 		get_tree().change_scene_to_file("res://main_menu.tscn")
 
 
+func award_bronze():
+		var tween = get_tree().create_tween()
+		bronze_star.visible = true
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
+		star_text.visible = true
+		star_text.text = "You got a Bronze Star!"
+
+func award_silver():
+		var tween = get_tree().create_tween()
+		silver_star.visible = true
+		tween.tween_property(silver_star, "scale", star_scale, star_speed)
+		star_text.visible = true
+		star_text.text = "You got a Silver Star!"
+		
+func award_gold():
+		var tween = get_tree().create_tween()
+		gold_star.visible = true
+		tween.tween_property(gold_star, "scale", star_scale, star_speed)
+		star_text.visible = true
+		star_text.text = "You got a Gold Star!"

@@ -15,10 +15,10 @@ func _ready():
 
 func _process(_delta):
 	drive()
-	if position.y > 1000.0:
+	if position.y > 1500.0:
 		queue_free()
 		# print("Debug: Car culled")
-	elif position.y < -1000.0:
+	elif position.y < -1500.0:
 		queue_free()
 		# print("Debug: Car culled")
 	else:

@@ -13,6 +13,8 @@ func _ready():
 		eggs_required_ui.text = "15+ Quail"
 	if PlayerVariables.current_level == "world3":
 		eggs_required_ui.text = "18+ Quail"
+	if PlayerVariables.current_level == "world4":
+		eggs_required_ui.text = "12+ Quail"
 
 func _process(_delta):
 	progress_bar.value = timer.time_left
@@ -35,6 +37,11 @@ func _on_area_entered(area):
 			print("you have no quails!")
 	if PlayerVariables.current_level == "world3":
 		if area.is_in_group("player") and PlayerVariables.quail_count >= 18:
+			progress_bar.visible = true
+			print("win quail count = " + str(PlayerVariables.quail_count))
+			timer.start()
+	if PlayerVariables.current_level == "world4":
+		if area.is_in_group("player") and PlayerVariables.quail_count >= 12:
 			progress_bar.visible = true
 			print("win quail count = " + str(PlayerVariables.quail_count))
 			timer.start()

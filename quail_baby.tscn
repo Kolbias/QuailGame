@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dd62om5x8mc2h"]
+[gd_scene load_steps=9 format=3 uid="uid://dd62om5x8mc2h"]
 
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="1_36wmc"]
 [ext_resource type="Script" path="res://scripts/quail_baby.gd" id="1_bt3ko"]
 [ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="3_hvxpv"]
 [ext_resource type="Texture2D" uid="uid://csmbhd3o5idoh" path="res://assets/player/QuailBaby3.png" id="4_1kubu"]
+[ext_resource type="AudioStream" uid="uid://c43vqtkjmikdr" path="res://assets/sounds/QuailHit.ogg" id="5_82qmo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_534es"]
 animations = [{
@@ -50,4 +51,10 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_k5nqo")
 debug_color = Color(0.976471, 0, 0.407843, 0.419608)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_82qmo")
+volume_db = -2.0
+pitch_scale = 3.0
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

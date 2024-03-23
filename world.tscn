@@ -520,7 +520,6 @@ sources/0 = SubResource("TileSetAtlasSource_cprcg")
 script = ExtResource("1_22jv0")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_xgafp")]
-scroll_offset = Vector2(936.034, -384.974)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(1, 1)

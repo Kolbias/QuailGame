@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btd2mdak0vv07"
-path="res://.godot/imported/light.png-082d5e19d8cfad84ccb3f6aab7a67edb.ctex"
+uid="uid://hlj75elb85wn"
+path="res://.godot/imported/WavesBackground.png-b322149530b95502a37ce1c50d9dd7f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Effects/light.png"
-dest_files=["res://.godot/imported/light.png-082d5e19d8cfad84ccb3f6aab7a67edb.ctex"]
+source_file="res://assets/backgrounds/WavesBackground.png"
+dest_files=["res://.godot/imported/WavesBackground.png-b322149530b95502a37ce1c50d9dd7f1.ctex"]
 
 [params]
 

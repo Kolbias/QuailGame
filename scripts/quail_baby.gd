@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var root_node = get_parent()
 @onready var player = root_node.get_node("Player")
 @onready var animation_player = get_node("AnimatedSprite2D")
+@onready var hit_sound = $AudioStreamPlayer2D
 
 signal quail_killed
 
@@ -24,8 +25,13 @@ func _process(delta):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
+		hit_sound.playing = true
 		PlayerVariables.quail_count -= 1
-	self.queue_free()
+		
 
 func _on_quail_killed():
 	quail_killed.emit()
+
+
+func _on_audio_stream_player_2d_finished():
+	self.queue_free()

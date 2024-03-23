@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhxtmp2tcsl23"]
+
+[ext_resource type="Script" path="res://scripts/parallax_background.gd" id="1_ifhvn"]
+[ext_resource type="Texture2D" uid="uid://sj30dol0qiix" path="res://assets/backgrounds/StarBackground.png" id="2_hwh4d"]
+
+[node name="NightParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_ifhvn")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(64, 0)
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("2_hwh4d")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]

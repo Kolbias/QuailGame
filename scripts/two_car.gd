@@ -21,10 +21,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	drive()
-	if position.y > 1000.0:
+	if position.y > 1800.0:
 		queue_free()
 		print("Car culled")
-	elif position.y < -1000.0:
+	elif position.y < -1800.0:
 		queue_free()
 		print("Car culled")
 	else:

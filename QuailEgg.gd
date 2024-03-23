@@ -2,8 +2,7 @@ extends Area2D
 
 @onready var timer = $Timer
 @onready var sound = $AudioStreamPlayer2D
-@onready var particles = preload("res://Effects/egg_hatch_particles.tscn")
-
+@onready var particles = $EggHatchParticles
 signal quail_hatched
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,8 +22,11 @@ func _on_area_exited(_area):
 
 
 func _on_timer_timeout():
-	var instance = particles.instantiate()
-	add_child(instance)
 	sound.play()
+	particles.emitting = true
 	quail_hatched.emit()
+
+
+
+func _on_egg_hatch_particles_finished():
 	queue_free()

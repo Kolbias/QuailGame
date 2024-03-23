@@ -79,6 +79,7 @@ func _process(delta):
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("restart"):
+		PlayerVariables.quail_count = 0
 		get_tree().reload_current_scene()
 	
 # Pause
@@ -95,7 +96,8 @@ func _process(delta):
 # Car Collision
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
-		hit_sound.play()
+		if alive: 
+			hit_sound.play()
 		PlayerVariables.quail_count = 0
 		sprite.visible = false
 		hurtbox.monitoring = true

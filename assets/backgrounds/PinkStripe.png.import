@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btd2mdak0vv07"
-path="res://.godot/imported/light.png-082d5e19d8cfad84ccb3f6aab7a67edb.ctex"
+uid="uid://bwijv53enrwqm"
+path="res://.godot/imported/PinkStripe.png-802f7625a4ce32c8a76fe48b25bcb893.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Effects/light.png"
-dest_files=["res://.godot/imported/light.png-082d5e19d8cfad84ccb3f6aab7a67edb.ctex"]
+source_file="res://assets/backgrounds/PinkStripe.png"
+dest_files=["res://.godot/imported/PinkStripe.png-802f7625a4ce32c8a76fe48b25bcb893.ctex"]
 
 [params]
 
