@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://gq0k1lpounae"]
+[gd_scene load_steps=30 format=3 uid="uid://gq0k1lpounae"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_mnrrk"]
 [ext_resource type="PackedScene" uid="uid://bhxtmp2tcsl23" path="res://night_parallax_background.tscn" id="2_p8ta8"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ci1vdlgk0k2yp" path="res://objects/bench.tscn" id="23_1s6vg"]
 [ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="24_x8mga"]
 [ext_resource type="PackedScene" uid="uid://ssqaexqbcwd1" path="res://objects/lamp.tscn" id="25_bs1ps"]
+[ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="25_qk2dn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_frd5w")
@@ -845,6 +846,10 @@ energy = 0.3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.282353, 0, 0.282353, 1)
+
+[node name="MotorcycleSpawner" parent="." instance=ExtResource("25_qk2dn")]
+position = Vector2(617, 494)
+rotation = 3.14159
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
