@@ -7,7 +7,7 @@ radius = 7.07107
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pu04x"]
 closed = false
-polygon = PackedVector2Array(7, 6, 6, 0, 2, -9, 0, -11, -2, -9, -6, 0, -7, 6)
+polygon = PackedVector2Array(9, 6, 9, 3, 8, 3, 8, 2, 8, 0, 7, 0, 7, -3, 6, -3, 6, -5, 5, -5, 5, -7, 4, -7, 4, -9, 3, -9, 3, -11, 2, -11, 2, -12, 1, -12, 1, -13, -1, -13, -1, -12, -2, -12, -2, -11, -3, -11, -3, -9, -4, -9, -4, -7, -5, -7, -5, -5, -6, -5, -6, -3, -7, -3, -7, 0, -8, 0, -8, 3, -9, 3, -9, 6)
 
 [node name="Hedge" type="StaticBody2D"]
 z_index = 4

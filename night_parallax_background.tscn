@@ -15,3 +15,6 @@ texture = ExtResource("2_hwh4d")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.376471, 0.376471, 0.376471, 1)
