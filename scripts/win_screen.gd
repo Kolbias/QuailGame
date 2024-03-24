@@ -18,7 +18,6 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
-	var score = PlayerVariables.quail_count
 	var world = PlayerVariables.current_level
 	
 	# World1 Score Thresholds
@@ -90,18 +89,18 @@ func award_bronze():
 		bronze_star.visible = true
 		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
 		star_text.visible = true
-		star_text.text = "You got a Bronze Star!"
+		star_text.text = "You got a Bronze Award!"
 
 func award_silver():
 		var tween = get_tree().create_tween()
 		silver_star.visible = true
 		tween.tween_property(silver_star, "scale", star_scale, star_speed)
 		star_text.visible = true
-		star_text.text = "You got a Silver Star!"
+		star_text.text = "You got a Silver Award!"
 		
 func award_gold():
 		var tween = get_tree().create_tween()
 		gold_star.visible = true
 		tween.tween_property(gold_star, "scale", star_scale, star_speed)
 		star_text.visible = true
-		star_text.text = "You got a Gold Star!"
+		star_text.text = "You got a Gold Award!"
