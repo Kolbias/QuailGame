@@ -838,6 +838,10 @@ stream = ExtResource("22_egt0q")
 volume_db = -3.0
 autoplay = true
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.870588, 0.368627, 0.352941, 1)
+energy = 0.4
+
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg2" to="." method="_on_quail_egg_quail_hatched"]

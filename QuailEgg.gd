@@ -3,6 +3,7 @@ extends Area2D
 @onready var timer = $Timer
 @onready var sound = $AudioStreamPlayer2D
 @onready var particles = $EggHatchParticles
+@onready var sprite = $Sprite2D
 signal quail_hatched
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +23,7 @@ func _on_area_exited(_area):
 
 
 func _on_timer_timeout():
+	sprite.visible = false
 	sound.play()
 	particles.emitting = true
 	quail_hatched.emit()

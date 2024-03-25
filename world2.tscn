@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dla466dhvfd5i"]
+[gd_scene load_steps=30 format=3 uid="uid://dla466dhvfd5i"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_2xufd"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_jw5g7"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="22_cl81f"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="23_xywqj"]
 [ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="24_2orip"]
+[ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="25_7tg0k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_hibwo")
@@ -881,6 +882,14 @@ position = Vector2(795, 221)
 stream = ExtResource("18_nt8lv")
 volume_db = 3.0
 autoplay = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(1, 0)
+color = Color(0.870588, 0.368627, 0.352941, 1)
+energy = 0.4
+
+[node name="TrashCan" parent="." instance=ExtResource("25_7tg0k")]
+position = Vector2(48, 68)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

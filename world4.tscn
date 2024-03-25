@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://gq0k1lpounae"]
+[gd_scene load_steps=31 format=3 uid="uid://gq0k1lpounae"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_mnrrk"]
 [ext_resource type="PackedScene" uid="uid://bhxtmp2tcsl23" path="res://night_parallax_background.tscn" id="2_p8ta8"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="24_x8mga"]
 [ext_resource type="PackedScene" uid="uid://ssqaexqbcwd1" path="res://objects/lamp.tscn" id="25_bs1ps"]
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="25_qk2dn"]
+[ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="26_xecss"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_frd5w")
@@ -775,7 +776,7 @@ position = Vector2(784, 153)
 position = Vector2(104, -30)
 
 [node name="Hedge" parent="Objects" instance=ExtResource("22_1ooyk")]
-position = Vector2(760, 186)
+position = Vector2(727, 153)
 
 [node name="Hedge3" parent="Objects" instance=ExtResource("22_1ooyk")]
 position = Vector2(79, -40)
@@ -793,7 +794,7 @@ position = Vector2(736, 122)
 position = Vector2(419, -175)
 
 [node name="Hedge13" parent="Objects" instance=ExtResource("22_1ooyk")]
-position = Vector2(730, 163)
+position = Vector2(734, 165)
 
 [node name="Hedge6" parent="Objects" instance=ExtResource("22_1ooyk")]
 position = Vector2(437, 173)
@@ -811,7 +812,7 @@ position = Vector2(790, 20)
 position = Vector2(787, -9)
 
 [node name="Hedge15" parent="Objects" instance=ExtResource("22_1ooyk")]
-position = Vector2(727, 22)
+position = Vector2(759, 0)
 
 [node name="Hedge9" parent="Objects" instance=ExtResource("22_1ooyk")]
 position = Vector2(403, 82)
@@ -850,6 +851,9 @@ color = Color(0.282353, 0, 0.282353, 1)
 [node name="MotorcycleSpawner" parent="." instance=ExtResource("25_qk2dn")]
 position = Vector2(617, 494)
 rotation = 3.14159
+
+[node name="TrashCan" parent="." instance=ExtResource("26_xecss")]
+position = Vector2(775, 4)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
