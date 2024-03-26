@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jsv37gc03qyx" path="res://assets/cars/Motorcycle.png" id="3_4r7p3"]
 [ext_resource type="Texture2D" uid="uid://b4u2b5oetsgii" path="res://assets/cars/CarVanWhite.png" id="4_adt0k"]
 [ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="5_qxpse"]
-[ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://Effects/HeadLight.jpg" id="6_jd170"]
+[ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://effects/HeadLight.jpg" id="6_jd170"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35tca"]
 animations = [{

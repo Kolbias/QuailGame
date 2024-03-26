@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var speed = randf_range(6.0, 12.0)
+@onready var speed = randf_range(3.5, 11.0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,5 +23,5 @@ func drive():
 	position.y += speed
 
 func get_random_lane_pos():
-	var random_x = randf_range(-20.0,20.0)
+	var random_x = randf_range(-15.0,15.0)
 	position.x += random_x

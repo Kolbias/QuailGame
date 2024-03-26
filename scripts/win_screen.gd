@@ -5,6 +5,7 @@ extends Node2D
 @onready var score_text = $Control/VBoxContainer/QuailScore
 @onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
+
 # Awards
 @onready var bronze_star = $Control/BronzeStar
 @onready var silver_star = $Control/SilverStar
@@ -46,11 +47,27 @@ func _ready():
 		award_gold()
 
 	# World4 Score Thresholds
-	if score == 12 and world == "world4":
+	if score == 14 and world == "world4":
 		award_bronze()
 	if (score > 15 and score < 19 and world == "world4"):
 		award_silver()
 	if score >= 20 and world == "world4":
+		award_gold()
+	
+	# World5
+	if score == 12 and world == "world5":
+		award_bronze()
+	if (score > 15 and score < 19 and world == "world5"):
+		award_silver()
+	if score >= 20 and world == "world5":
+		award_gold()
+	
+	# World6
+	if score == 12 and world == "world6":
+		award_bronze()
+	if (score > 15 and score < 19 and world == "world6"):
+		award_silver()
+	if score >= 20 and world == "world6":
 		award_gold()
 		
 		
@@ -71,15 +88,27 @@ func _on_next_button_down():
 		PlayerVariables.current_level = 'world2'
 		print(PlayerVariables.current_level)
 		get_tree().change_scene_to_file("res://world2.tscn")
+	
 	elif PlayerVariables.current_level == 'world2':
 		PlayerVariables.current_level = 'world3' 
 		print(PlayerVariables.current_level)
 		get_tree().change_scene_to_file("res://world3.tscn")
+	
 	elif PlayerVariables.current_level == 'world3':
 		PlayerVariables.current_level = 'world4' 
 		print(PlayerVariables.current_level)
 		get_tree().change_scene_to_file("res://world4.tscn")
-		
+	
+	elif PlayerVariables.current_level == 'world4':
+		PlayerVariables.current_level = 'world5' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world5.tscn")
+	
+	elif PlayerVariables.current_level == 'world5':
+		PlayerVariables.current_level = 'world6' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world6.tscn")
+	
 	else:
 		get_tree().change_scene_to_file("res://main_menu.tscn")
 

@@ -23,10 +23,10 @@ func _process(_delta):
 	drive()
 	if position.y > 1800.0:
 		queue_free()
-		print("Car culled")
+		# print("Car culled")
 	elif position.y < -1800.0:
 		queue_free()
-		print("Car culled")
+		# print("Car culled")
 	else:
 		pass
 
