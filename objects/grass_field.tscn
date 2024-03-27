@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://mmyevdxjw537"]
+
+[ext_resource type="PackedScene" uid="uid://lwstjaj8y3q3" path="res://objects/grass_alternate.tscn" id="1_1c0jx"]
+[ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="2_mds5n"]
+
+[node name="GrassField" type="Node2D"]
+
+[node name="grass" parent="." instance=ExtResource("1_1c0jx")]
+position = Vector2(16, 16)
+
+[node name="grass3" parent="." instance=ExtResource("1_1c0jx")]
+position = Vector2(7, 4)
+
+[node name="grass4" parent="." instance=ExtResource("1_1c0jx")]
+position = Vector2(-13, -12)
+
+[node name="grass5" parent="." instance=ExtResource("1_1c0jx")]
+position = Vector2(27, -16)
+
+[node name="grass2" parent="." instance=ExtResource("2_mds5n")]
+position = Vector2(-5, 12)
+
+[node name="grass10" parent="." instance=ExtResource("2_mds5n")]
+position = Vector2(55, 25)
+
+[node name="grass6" parent="." instance=ExtResource("2_mds5n")]
+position = Vector2(-29, 7)
+
+[node name="grass8" parent="." instance=ExtResource("2_mds5n")]
+position = Vector2(-25, 40)
+
+[node name="grass9" parent="." instance=ExtResource("2_mds5n")]
+position = Vector2(58, -6)
+
+[node name="grass7" parent="." instance=ExtResource("2_mds5n")]
+position = Vector2(34, 40)

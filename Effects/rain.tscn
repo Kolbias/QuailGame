@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c2lovow5uq774"]
+
+[node name="Rain" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(0.768627, 0.847059, 1, 1)
+amount = 1000
+lifetime = 2.0
+randomness = 0.37
+emission_shape = 3
+emission_rect_extents = Vector2(1920, 1)
+spread = 81.36
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0

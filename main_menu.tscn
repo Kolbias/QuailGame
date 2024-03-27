@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=35 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://bjanagih2vxo1" path="res://assets/menu/Logo9.png" id="25_kjnww"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="26_rfs4x"]
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="27_la2ku"]
+[ext_resource type="PackedScene" uid="uid://mmyevdxjw537" path="res://objects/grass_field.tscn" id="29_2nq05"]
+[ext_resource type="PackedScene" uid="uid://bfwp4ixxnw01i" path="res://objects/flower_patch.tscn" id="30_7qc0d"]
+[ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="31_n2hne"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -72,7 +75,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hh74u"]
@@ -156,14 +159,17 @@ position = Vector2(-29, 61)
 position = Vector2(114, 18)
 
 [node name="Flower" parent="." instance=ExtResource("27_la2ku")]
-position = Vector2(78.25, 57.25)
+z_index = 2
+position = Vector2(-20, 82)
 scale = Vector2(1.92857, 2.07143)
 
 [node name="Flower2" parent="." instance=ExtResource("27_la2ku")]
-position = Vector2(-60, 49)
+z_index = 2
+position = Vector2(74, 84)
 scale = Vector2(1.92857, 2.07143)
 
 [node name="MainQuail" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(-185, 70)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_i8by4")
@@ -202,6 +208,24 @@ frame_progress = 0.411459
 
 [node name="DirectionalLight" type="DirectionalLight2D" parent="."]
 color = Color(0.835294, 0.682353, 0.352941, 1)
+
+[node name="GrassField" parent="." instance=ExtResource("29_2nq05")]
+position = Vector2(19, 47)
+
+[node name="GrassField2" parent="." instance=ExtResource("29_2nq05")]
+position = Vector2(-109, 79)
+
+[node name="FlowerPatch" parent="." instance=ExtResource("30_7qc0d")]
+position = Vector2(44, 39)
+scale = Vector2(2, 2)
+
+[node name="Flower3" parent="." instance=ExtResource("27_la2ku")]
+position = Vector2(-58, 48)
+scale = Vector2(2, 2)
+
+[node name="Flower4" parent="." instance=ExtResource("31_n2hne")]
+position = Vector2(145, 39)
+scale = Vector2(2, 2)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]

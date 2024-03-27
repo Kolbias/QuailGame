@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd62om5x8mc2h"]
+[gd_scene load_steps=10 format=3 uid="uid://dd62om5x8mc2h"]
 
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="1_36wmc"]
 [ext_resource type="Script" path="res://scripts/quail_baby.gd" id="1_bt3ko"]
@@ -29,6 +29,10 @@ radius = 4.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5nqo"]
 radius = 2.0
 
+[sub_resource type="Curve" id="Curve_cn48r"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.898876, 0.857143), 0.0, 0.0, 0, 0, Vector2(0.966292, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="QuailBaby" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
@@ -55,6 +59,17 @@ debug_color = Color(0.976471, 0, 0.407843, 0.419608)
 stream = ExtResource("5_82qmo")
 volume_db = -2.0
 pitch_scale = 3.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 1
+lifetime = 1.2
+one_shot = true
+gravity = Vector2(0, -75)
+scale_amount_min = 3.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_cn48r")
+color = Color(0.380392, 1, 1, 1)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfwp4ixxnw01i"]
+
+[ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="1_fanhw"]
+[ext_resource type="PackedScene" uid="uid://d373sbriqh826" path="res://objects/flower_alternate.tscn" id="2_8yel7"]
+[ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="3_2du8x"]
+[ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="4_dtifl"]
+
+[node name="FlowerPatch" type="Node2D"]
+
+[node name="Flower" parent="." instance=ExtResource("1_fanhw")]
+position = Vector2(9, 4)
+
+[node name="Flower2" parent="." instance=ExtResource("1_fanhw")]
+position = Vector2(3, 11)
+
+[node name="Flower3" parent="." instance=ExtResource("1_fanhw")]
+position = Vector2(-4, -5)
+
+[node name="Flower4" parent="." instance=ExtResource("1_fanhw")]
+position = Vector2(-10, 11)
+
+[node name="FlowerAlternate" parent="." instance=ExtResource("2_8yel7")]
+position = Vector2(-5, 4)
+
+[node name="FlowerAlternate3" parent="." instance=ExtResource("2_8yel7")]
+position = Vector2(-13, -2)
+
+[node name="FlowerAlternate2" parent="." instance=ExtResource("2_8yel7")]
+position = Vector2(12, -3)
+
+[node name="grass" parent="." instance=ExtResource("3_2du8x")]
+position = Vector2(4, -3)
+
+[node name="Flower5" parent="." instance=ExtResource("4_dtifl")]
+position = Vector2(-16, 5)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=29 format=3 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="21_y7ylm"]
 [ext_resource type="AudioStream" uid="uid://dyty47c8c82an" path="res://assets/sounds/QuailSongRevised.ogg" id="22_egt0q"]
 [ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="22_hx8l0"]
+[ext_resource type="PackedScene" uid="uid://bfwp4ixxnw01i" path="res://objects/flower_patch.tscn" id="23_0xeq5"]
+[ext_resource type="PackedScene" uid="uid://mmyevdxjw537" path="res://objects/grass_field.tscn" id="24_oo3d7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_ltnl4")
@@ -836,10 +838,26 @@ position = Vector2(768, 22)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_egt0q")
 volume_db = -3.0
+autoplay = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
+
+[node name="FlowerPatch" parent="." instance=ExtResource("23_0xeq5")]
+position = Vector2(359, 22)
+
+[node name="FlowerPatch2" parent="." instance=ExtResource("23_0xeq5")]
+position = Vector2(815, 172)
+
+[node name="GrassField" parent="." instance=ExtResource("24_oo3d7")]
+position = Vector2(316, 82)
+
+[node name="GrassField2" parent="." instance=ExtResource("24_oo3d7")]
+position = Vector2(45, 100)
+
+[node name="GrassField3" parent="." instance=ExtResource("24_oo3d7")]
+position = Vector2(48, 31)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

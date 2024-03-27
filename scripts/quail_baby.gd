@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var player = root_node.get_node("Player")
 @onready var animation_player = get_node("AnimatedSprite2D")
 @onready var hit_sound = $AudioStreamPlayer2D
+@onready var particle = $CPUParticles2D
+@onready var sprite = $AnimatedSprite2D
 
 signal quail_killed
 
@@ -26,6 +28,8 @@ func _process(delta):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
 		hit_sound.playing = true
+		particle.emitting = true
+		sprite.visible = false
 		PlayerVariables.quail_count -= 1
 		
 
