@@ -1,0 +1,105 @@
+[gd_scene load_steps=18 format=3 uid="uid://p3pm6rgrn57s"]
+
+[ext_resource type="Texture2D" uid="uid://dixppvbxsssam" path="res://assets/environment/Rain/RainOnWater1.png" id="1_0cvhu"]
+[ext_resource type="Texture2D" uid="uid://cy47a2x2rg3d4" path="res://assets/environment/Rain/RainOnWater2.png" id="2_pnsfx"]
+[ext_resource type="Texture2D" uid="uid://csstfq7tn0b6r" path="res://assets/environment/Rain/RainOnWater3.png" id="3_xnc27"]
+[ext_resource type="Texture2D" uid="uid://cr7lavw3gdvuf" path="res://assets/environment/Rain/RainOnWater4.png" id="4_yvd01"]
+[ext_resource type="Texture2D" uid="uid://x2dmges8xir5" path="res://assets/environment/Rain/RainOnWater5.png" id="5_t37m6"]
+[ext_resource type="Texture2D" uid="uid://yi378jjd65lf" path="res://assets/environment/Rain/RainOnWater6.png" id="6_215sa"]
+[ext_resource type="Texture2D" uid="uid://dtccgayd3rubi" path="res://assets/environment/Rain/RainOnWater7.png" id="7_oqxhu"]
+[ext_resource type="Texture2D" uid="uid://c6226lpmn3785" path="res://assets/environment/Rain/RainOnWater8.png" id="8_5m6la"]
+[ext_resource type="Texture2D" uid="uid://b3odjl5n5png4" path="res://assets/environment/Rain/RainOnWater9.png" id="9_oxt0l"]
+[ext_resource type="Texture2D" uid="uid://bx6wl3y3d0jf" path="res://assets/environment/Rain/RainOnWater10.png" id="10_talxe"]
+[ext_resource type="Texture2D" uid="uid://dw5hrtkrysyn7" path="res://assets/environment/Rain/RainOnWater11.png" id="11_c0tr5"]
+[ext_resource type="Texture2D" uid="uid://tql6j0fexxyh" path="res://assets/environment/Rain/RainOnWater12.png" id="12_hspqi"]
+[ext_resource type="Texture2D" uid="uid://b1plxckx7p0fi" path="res://assets/environment/Rain/RainOnWater13.png" id="13_nfwul"]
+[ext_resource type="Texture2D" uid="uid://1up1yma5uhtj" path="res://assets/environment/Rain/RainOnWater14.png" id="14_5bjmd"]
+[ext_resource type="Texture2D" uid="uid://brwcq73uffqgd" path="res://assets/environment/Rain/RainOnWater15.png" id="15_m1wgh"]
+[ext_resource type="Texture2D" uid="uid://bo4ffn0p7wket" path="res://assets/environment/Rain/RainOnWater16.png" id="16_u8m00"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egl5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0cvhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pnsfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xnc27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yvd01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t37m6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_215sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oqxhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5m6la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_oxt0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_talxe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c0tr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hspqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nfwul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5bjmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_m1wgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u8m00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="RainOnWaterAnim" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_egl5j")
+autoplay = "default"
+frame_progress = 0.0427109
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(49, 24)
+sprite_frames = SubResource("SpriteFrames_egl5j")
+autoplay = "default"
+frame_progress = 0.409025
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-54, 20)
+sprite_frames = SubResource("SpriteFrames_egl5j")
+autoplay = "default"
+frame_progress = 0.165508
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(53, -22)
+sprite_frames = SubResource("SpriteFrames_egl5j")
+autoplay = "default"
+frame_progress = 0.631841
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-50, -23)
+sprite_frames = SubResource("SpriteFrames_egl5j")
+autoplay = "default"
+frame_progress = 0.427447

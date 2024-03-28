@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dheb82njo58vb"]
+
+[ext_resource type="Shader" path="res://shaders/water.gdshader" id="1_265g5"]
+[ext_resource type="Texture2D" uid="uid://dstxl06uxbvv8" path="res://shaders/water_noise.tres" id="2_tpa2e"]
+[ext_resource type="Texture2D" uid="uid://dfr5s6t3j54ot" path="res://icon.svg" id="3_e8nkh"]
+[ext_resource type="Texture2D" uid="uid://cnl0upg6785t" path="res://shaders/water_noise2.tres" id="3_irety"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdljp"]
+shader = ExtResource("1_265g5")
+shader_parameter/scroll1 = Vector2(0.01, 0.01)
+shader_parameter/scroll2 = Vector2(-0.01, -0.01)
+shader_parameter/distortion_strength = 0.2
+shader_parameter/tone_color = Color(0.427451, 0.917647, 0.839216, 1)
+shader_parameter/top_color = Color(1, 1, 1, 0.501961)
+shader_parameter/light_start = 0.342
+shader_parameter/light_end = 0.411
+shader_parameter/noise1 = ExtResource("2_tpa2e")
+shader_parameter/noise2 = ExtResource("3_irety")
+
+[node name="Water" type="Sprite2D"]
+material = SubResource("ShaderMaterial_kdljp")
+position = Vector2(-89, -25)
+texture = ExtResource("3_e8nkh")
