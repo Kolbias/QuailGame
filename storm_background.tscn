@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr5h11sy2os6o"]
+
+[ext_resource type="Script" path="res://scripts/storm_background.gd" id="1_dp34d"]
+[ext_resource type="Texture2D" uid="uid://bruojp88g60sk" path="res://assets/backgrounds/PurpleCloudBackground.png" id="2_wpx6n"]
+[ext_resource type="Texture2D" uid="uid://bq6rhp3uc7ayk" path="res://assets/backgrounds/PurpleCloudBackgroundSmall2.png" id="3_xcgrk"]
+[ext_resource type="Shader" path="res://parallax_background.gdshader" id="4_inn3r"]
+[ext_resource type="Texture2D" uid="uid://573rtgaek7iq" path="res://assets/backgrounds/PurpleCloudBackgroundSmall3.png" id="5_78j7q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqxfh"]
+shader = ExtResource("4_inn3r")
+
+[node name="StormBackground" type="ParallaxBackground"]
+script = ExtResource("1_dp34d")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.5, 1.5)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(800, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_wpx6n")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(4, 0)
+motion_scale = Vector2(1.1, 1.1)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(800, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("3_xcgrk")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.3, 1.3)
+motion_offset = Vector2(500, 0)
+motion_mirroring = Vector2(800, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+material = SubResource("ShaderMaterial_gqxfh")
+texture = ExtResource("5_78j7q")
+centered = false

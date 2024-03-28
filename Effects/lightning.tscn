@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu48k6vit408m"]
+
+[ext_resource type="Script" path="res://Effects/lightning.gd" id="1_q3sdw"]
+[ext_resource type="AudioStream" uid="uid://b48m0s3majgij" path="res://assets/sounds/Thunder.ogg" id="2_d2bme"]
+
+[node name="Lightning" type="DirectionalLight2D"]
+color = Color(0.427451, 0.917647, 0.839216, 1)
+energy = 0.0
+script = ExtResource("1_q3sdw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d2bme")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

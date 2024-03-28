@@ -632,10 +632,6 @@ position = Vector2(35, 65)
 [node name="EndFlag" parent="." instance=ExtResource("15_h3ylk")]
 position = Vector2(832, 12)
 
-[node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
-position = Vector2(545, -354)
-rotation = 0.0
-
 [node name="Fences" type="Node" parent="."]
 
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("9_oce64")]
@@ -782,6 +778,21 @@ position = Vector2(-2, 82)
 time_min = 2
 time_max = 6
 
+[node name="FlowerPatch" parent="Environment" instance=ExtResource("23_0xeq5")]
+position = Vector2(359, 22)
+
+[node name="FlowerPatch2" parent="Environment" instance=ExtResource("23_0xeq5")]
+position = Vector2(815, 172)
+
+[node name="GrassField" parent="Environment" instance=ExtResource("24_oo3d7")]
+position = Vector2(316, 82)
+
+[node name="GrassField2" parent="Environment" instance=ExtResource("24_oo3d7")]
+position = Vector2(45, 100)
+
+[node name="GrassField3" parent="Environment" instance=ExtResource("24_oo3d7")]
+position = Vector2(48, 31)
+
 [node name="Objects" type="Node" parent="."]
 
 [node name="FireHydrant" parent="Objects" instance=ExtResource("11_0sr6a")]
@@ -840,24 +851,13 @@ stream = ExtResource("22_egt0q")
 volume_db = -3.0
 autoplay = true
 
+[node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
+position = Vector2(545, -354)
+rotation = 0.0
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
-
-[node name="FlowerPatch" parent="." instance=ExtResource("23_0xeq5")]
-position = Vector2(359, 22)
-
-[node name="FlowerPatch2" parent="." instance=ExtResource("23_0xeq5")]
-position = Vector2(815, 172)
-
-[node name="GrassField" parent="." instance=ExtResource("24_oo3d7")]
-position = Vector2(316, 82)
-
-[node name="GrassField2" parent="." instance=ExtResource("24_oo3d7")]
-position = Vector2(45, 100)
-
-[node name="GrassField3" parent="." instance=ExtResource("24_oo3d7")]
-position = Vector2(48, 31)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

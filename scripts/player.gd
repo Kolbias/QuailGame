@@ -149,8 +149,4 @@ func _on_pause_quit_button_button_down():
 func _on_pause_retry_button_down():
 	PlayerVariables.quail_count = 0
 	get_tree().paused = false
-	if PlayerVariables.current_level == "world1":
-		get_tree().change_scene_to_file("res://world.tscn")
-	else:
-		get_tree().change_scene_to_file("res://" + PlayerVariables.current_level + ".tscn")
-		
+	get_tree().reload_current_scene()

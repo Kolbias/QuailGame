@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var hit_sound = $AudioStreamPlayer2D
 @onready var particle = $CPUParticles2D
 @onready var sprite = $AnimatedSprite2D
+@onready var alive = true
 
 signal quail_killed
 
@@ -27,15 +28,22 @@ func _process(delta):
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
-		hit_sound.playing = true
-		particle.emitting = true
-		sprite.visible = false
-		PlayerVariables.quail_count -= 1
-		
+		if alive:
+			hit_sound.playing = true
+			alive = false
+			particle.emitting = true
+			sprite.visible = false
+			PlayerVariables.quail_count -= 1
+		else:
+			pass
 
 func _on_quail_killed():
 	quail_killed.emit()
 
 
 func _on_audio_stream_player_2d_finished():
+	pass
+
+
+func _on_cpu_particles_2d_finished():
 	self.queue_free()
