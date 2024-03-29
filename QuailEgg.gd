@@ -14,12 +14,14 @@ func _process(_delta):
 	pass
 
 
-func _on_area_entered(_area):
-	timer.start()
+func _on_area_entered(area):
+	if area.is_in_group("player"):
+		timer.start()
 
 
-func _on_area_exited(_area):
-	timer.stop()
+func _on_area_exited(area):
+	if area.is_in_group("player"):
+		timer.stop()
 
 
 func _on_timer_timeout():

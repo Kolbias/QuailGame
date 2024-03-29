@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=38 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -18,11 +18,20 @@
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="16_jtsbn"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="17_aovc8"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="18_3eshq"]
+[ext_resource type="Texture2D" uid="uid://coyo2ughorsuu" path="res://assets/player/QuailSwim1.png" id="18_k5v2s"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="18_k87bq"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="19_68xgg"]
+[ext_resource type="Texture2D" uid="uid://b6vy4upelputr" path="res://assets/player/QuailSwim2.png" id="19_hwb81"]
+[ext_resource type="Texture2D" uid="uid://bcghg7djg1mdv" path="res://assets/player/QuailSwim3.png" id="20_ciu67"]
 [ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="20_g1pi0"]
 [ext_resource type="AudioStream" uid="uid://c43vqtkjmikdr" path="res://assets/sounds/QuailHit.ogg" id="21_27fe3"]
+[ext_resource type="Texture2D" uid="uid://dmobvg6usyglh" path="res://assets/player/QuailSwim4.png" id="21_4310o"]
+[ext_resource type="Texture2D" uid="uid://cjkocq2odibiw" path="res://assets/player/QuailSwim5.png" id="22_0grv3"]
 [ext_resource type="Texture2D" uid="uid://byptsodw7pegw" path="res://assets/player/QuailFeather.png" id="22_4y1jm"]
+[ext_resource type="Texture2D" uid="uid://2ljtty7g6lsf" path="res://assets/player/QuailSwim6.png" id="23_khuxv"]
+[ext_resource type="Texture2D" uid="uid://dqulrlhgm34vb" path="res://assets/player/QuailSwim7.png" id="24_h73ne"]
+[ext_resource type="Texture2D" uid="uid://54iugs4aog8t" path="res://assets/player/QuailSwim8.png" id="25_j57du"]
+[ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
@@ -119,6 +128,38 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_k5v2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hwb81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ciu67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_4310o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0grv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_khuxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_h73ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_j57du")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_58y8r")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ufn3i"]
@@ -136,15 +177,14 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.9097, 0.0, 0, 0]
 point_count = 3
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 11
 script = ExtResource("1_lrfys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7sgie")
 animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.782804
+autoplay = "swim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ufn3i")
@@ -153,6 +193,7 @@ shape = SubResource("CircleShape2D_ufn3i")
 zoom = Vector2(4, 4)
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["player"]]
+scale = Vector2(0.6, 0.56)
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -160,6 +201,8 @@ shape = SubResource("CircleShape2D_i7leb")
 debug_color = Color(0.980392, 0.0509804, 0.32549, 0.419608)
 
 [node name="UI" type="Control" parent="."]
+light_mask = 2
+visibility_layer = 2
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -167,6 +210,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Control" type="Control" parent="UI"]
+light_mask = 0
+visibility_layer = 2
+z_index = 6
 layout_mode = 1
 anchor_left = -5.974
 anchor_top = -3.352
@@ -227,6 +273,7 @@ offset_bottom = 15.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 
 [node name="ClockUI" type="Sprite2D" parent="UI/Control"]
+z_index = 5
 position = Vector2(11, 27)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("20_g1pi0")

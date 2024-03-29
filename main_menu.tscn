@@ -232,30 +232,18 @@ text = "Play"
 [node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
-focus_neighbor_bottom = NodePath("../SettingsButton")
-focus_next = NodePath("../SettingsButton")
 focus_previous = NodePath("../PlayButton")
 theme_override_fonts/font = ExtResource("14_qf2yh")
 text = "Level Select"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../LevelSelectButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
-focus_previous = NodePath("../LevelSelectButton")
-theme_override_fonts/font = ExtResource("14_qf2yh")
-text = "Game Settings"
-
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
-focus_previous = NodePath("../SettingsButton")
 theme_override_fonts/font = ExtResource("14_qf2yh")
 theme_override_font_sizes/font_size = 16
 text = "	Quit Game"
 
 [connection signal="button_down" from="VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]

@@ -40,9 +40,11 @@ func _on_hurtbox_area_entered(area):
 		print("water detected")
 		if alive:
 			splash_particle.emitting = true
+			alive = false
 			water_sound.playing = true
 			spirit_particle.emitting = true
 			sprite.visible = false
+			PlayerVariables.quail_count -= 1
 		else:
 			pass
 

@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var timer = $Timer
 @onready var egg_hatch_sound = $EggHatchSound
 @onready var hit_sound = $HitSound
+@onready var in_water = false
 
 # Gameplay UI
 @onready var quail_count_ui = $UI/Control/QuailCount
@@ -69,10 +70,17 @@ func _process(delta):
 		dir.y -= speed
 		moving = true
 	
+	
 	if moving:
 		sprite.play("run")
+		if in_water:
+				sprite.play("swim")
+	elif in_water and moving == false:
+		sprite.play("swim")
+		
 	else:
 		sprite.play("idle")
+	
 	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	velocity = dir.normalized() * speed
@@ -105,6 +113,7 @@ func _on_hurtbox_area_entered(area):
 		game_over_ui.visible = true
 		print("Game Over")
 	if area.is_in_group("water"):
+		in_water = true
 		PlayerVariables.speed = PlayerVariables.speed * 0.5
 	else:
 		pass
@@ -156,4 +165,5 @@ func _on_pause_retry_button_down():
 
 func _on_hurtbox_area_exited(area):
 	if area.is_in_group("water"):
+		in_water = false
 		PlayerVariables.speed = 100.0
