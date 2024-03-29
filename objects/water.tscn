@@ -19,5 +19,4 @@ shader_parameter/noise2 = ExtResource("3_irety")
 
 [node name="Water" type="Sprite2D"]
 material = SubResource("ShaderMaterial_kdljp")
-position = Vector2(-89, -25)
 texture = ExtResource("3_e8nkh")

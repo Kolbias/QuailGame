@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf7bqf1lxw5ag"]
+
+[ext_resource type="PackedScene" uid="uid://dheb82njo58vb" path="res://objects/water.tscn" id="1_v5bu4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jcnpl"]
+radius = 8.39416
+height = 22.2222
+
+[node name="WaterHazard" type="Area2D" groups=["water"]]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5.48, 5.04)
+shape = SubResource("CapsuleShape2D_jcnpl")
+debug_color = Color(0.945098, 0, 0.596078, 0.419608)
+
+[node name="Water" parent="." instance=ExtResource("1_v5bu4")]
+visible = false

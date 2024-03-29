@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://p3pm6rgrn57s"]
+[gd_scene load_steps=19 format=3 uid="uid://p3pm6rgrn57s"]
 
 [ext_resource type="Texture2D" uid="uid://dixppvbxsssam" path="res://assets/environment/Rain/RainOnWater1.png" id="1_0cvhu"]
+[ext_resource type="PackedScene" uid="uid://dxgw6ebuksf5g" path="res://Effects/rain_on_water_anim_single.tscn" id="1_4psfp"]
 [ext_resource type="Texture2D" uid="uid://cy47a2x2rg3d4" path="res://assets/environment/Rain/RainOnWater2.png" id="2_pnsfx"]
 [ext_resource type="Texture2D" uid="uid://csstfq7tn0b6r" path="res://assets/environment/Rain/RainOnWater3.png" id="3_xnc27"]
 [ext_resource type="Texture2D" uid="uid://cr7lavw3gdvuf" path="res://assets/environment/Rain/RainOnWater4.png" id="4_yvd01"]
@@ -75,10 +76,7 @@ animations = [{
 
 [node name="RainOnWaterAnim" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_egl5j")
-autoplay = "default"
-frame_progress = 0.0427109
+[node name="RainOnWaterAnimSingle" parent="." instance=ExtResource("1_4psfp")]
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(49, 24)

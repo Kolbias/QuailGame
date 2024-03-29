@@ -200,18 +200,18 @@ theme_override_fonts/font = ExtResource("18_k87bq")
 theme_override_font_sizes/font_size = 0
 text = "Return to Game"
 
-[node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("18_k87bq")
-text = "Quit to Menu"
-
 [node name="PauseRetry" type="Button" parent="UI/Control/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("18_k87bq")
 theme_override_font_sizes/font_size = 16
 text = "Restart"
+
+[node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("18_k87bq")
+text = "Quit to Menu"
 
 [node name="BabyQuailUI" type="Sprite2D" parent="UI/Control"]
 position = Vector2(10.5, 10.5)
@@ -306,8 +306,9 @@ scale_amount_curve = SubResource("Curve_bnd0r")
 anim_speed_max = 5.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="button_down" from="UI/Control/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_button_down"]
-[connection signal="button_down" from="UI/Control/VBoxContainer/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
 [connection signal="button_down" from="UI/Control/VBoxContainer/PauseRetry" to="." method="_on_pause_retry_button_down"]
+[connection signal="button_down" from="UI/Control/VBoxContainer/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
 [connection signal="button_down" from="UI/GameOverText/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

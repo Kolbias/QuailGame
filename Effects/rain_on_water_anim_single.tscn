@@ -1,0 +1,79 @@
+[gd_scene load_steps=18 format=3 uid="uid://dxgw6ebuksf5g"]
+
+[ext_resource type="Texture2D" uid="uid://dixppvbxsssam" path="res://assets/environment/Rain/RainOnWater1.png" id="1_rtxdd"]
+[ext_resource type="Texture2D" uid="uid://cy47a2x2rg3d4" path="res://assets/environment/Rain/RainOnWater2.png" id="2_svmkg"]
+[ext_resource type="Texture2D" uid="uid://csstfq7tn0b6r" path="res://assets/environment/Rain/RainOnWater3.png" id="3_a8klq"]
+[ext_resource type="Texture2D" uid="uid://cr7lavw3gdvuf" path="res://assets/environment/Rain/RainOnWater4.png" id="4_tokjn"]
+[ext_resource type="Texture2D" uid="uid://x2dmges8xir5" path="res://assets/environment/Rain/RainOnWater5.png" id="5_cvcmj"]
+[ext_resource type="Texture2D" uid="uid://yi378jjd65lf" path="res://assets/environment/Rain/RainOnWater6.png" id="6_5jlji"]
+[ext_resource type="Texture2D" uid="uid://dtccgayd3rubi" path="res://assets/environment/Rain/RainOnWater7.png" id="7_go364"]
+[ext_resource type="Texture2D" uid="uid://c6226lpmn3785" path="res://assets/environment/Rain/RainOnWater8.png" id="8_5d68i"]
+[ext_resource type="Texture2D" uid="uid://b3odjl5n5png4" path="res://assets/environment/Rain/RainOnWater9.png" id="9_00p6t"]
+[ext_resource type="Texture2D" uid="uid://bx6wl3y3d0jf" path="res://assets/environment/Rain/RainOnWater10.png" id="10_xlpt7"]
+[ext_resource type="Texture2D" uid="uid://dw5hrtkrysyn7" path="res://assets/environment/Rain/RainOnWater11.png" id="11_0twdy"]
+[ext_resource type="Texture2D" uid="uid://tql6j0fexxyh" path="res://assets/environment/Rain/RainOnWater12.png" id="12_hcxg3"]
+[ext_resource type="Texture2D" uid="uid://b1plxckx7p0fi" path="res://assets/environment/Rain/RainOnWater13.png" id="13_ldm33"]
+[ext_resource type="Texture2D" uid="uid://1up1yma5uhtj" path="res://assets/environment/Rain/RainOnWater14.png" id="14_2bjmh"]
+[ext_resource type="Texture2D" uid="uid://brwcq73uffqgd" path="res://assets/environment/Rain/RainOnWater15.png" id="15_b4thv"]
+[ext_resource type="Texture2D" uid="uid://bo4ffn0p7wket" path="res://assets/environment/Rain/RainOnWater16.png" id="16_yptli"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_egl5j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rtxdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_svmkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a8klq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tokjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cvcmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5jlji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_go364")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5d68i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_00p6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xlpt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0twdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hcxg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ldm33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2bjmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b4thv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yptli")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_egl5j")
+autoplay = "default"
+frame_progress = 0.0427109

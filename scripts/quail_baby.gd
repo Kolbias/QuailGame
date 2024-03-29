@@ -4,8 +4,10 @@ extends CharacterBody2D
 @onready var root_node = get_parent()
 @onready var player = root_node.get_node("Player")
 @onready var animation_player = get_node("AnimatedSprite2D")
-@onready var hit_sound = $AudioStreamPlayer2D
-@onready var particle = $CPUParticles2D
+@onready var hit_sound = $CarDeathSound
+@onready var water_sound = $WaterDeathSound
+@onready var spirit_particle = $SpiritParticle
+@onready var splash_particle = $SplashParticle
 @onready var sprite = $AnimatedSprite2D
 @onready var alive = true
 
@@ -31,9 +33,16 @@ func _on_hurtbox_area_entered(area):
 		if alive:
 			hit_sound.playing = true
 			alive = false
-			particle.emitting = true
+			spirit_particle.emitting = true
 			sprite.visible = false
 			PlayerVariables.quail_count -= 1
+	if area.is_in_group("water"):
+		print("water detected")
+		if alive:
+			splash_particle.emitting = true
+			water_sound.playing = true
+			spirit_particle.emitting = true
+			sprite.visible = false
 		else:
 			pass
 

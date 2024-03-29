@@ -858,6 +858,11 @@ position = Vector2(698, 238)
 [node name="Bench2" parent="Objects" instance=ExtResource("17_pdyjb")]
 position = Vector2(795, 221)
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(1, 0)
+color = Color(0.870588, 0.368627, 0.352941, 1)
+energy = 0.4
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_qtjos")
 volume_db = 3.0

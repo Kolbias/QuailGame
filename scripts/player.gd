@@ -104,6 +104,8 @@ func _on_hurtbox_area_entered(area):
 		alive = false
 		game_over_ui.visible = true
 		print("Game Over")
+	if area.is_in_group("water"):
+		PlayerVariables.speed = PlayerVariables.speed * 0.5
 	else:
 		pass
 
@@ -150,3 +152,8 @@ func _on_pause_retry_button_down():
 	PlayerVariables.quail_count = 0
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+func _on_hurtbox_area_exited(area):
+	if area.is_in_group("water"):
+		PlayerVariables.speed = 100.0

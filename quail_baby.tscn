@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd62om5x8mc2h"]
+[gd_scene load_steps=13 format=3 uid="uid://dd62om5x8mc2h"]
 
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="1_36wmc"]
 [ext_resource type="Script" path="res://scripts/quail_baby.gd" id="1_bt3ko"]
 [ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="3_hvxpv"]
 [ext_resource type="Texture2D" uid="uid://csmbhd3o5idoh" path="res://assets/player/QuailBaby3.png" id="4_1kubu"]
 [ext_resource type="AudioStream" uid="uid://c43vqtkjmikdr" path="res://assets/sounds/QuailHit.ogg" id="5_82qmo"]
+[ext_resource type="AudioStream" uid="uid://ba80q8gvghdhh" path="res://assets/sounds/BabyQuailDrown.ogg" id="6_30bxa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_534es"]
 animations = [{
@@ -33,6 +34,15 @@ radius = 2.0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.898876, 0.857143), 0.0, 0.0, 0, 0, Vector2(0.966292, 0.010989), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_hq6bk"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.685393, 81.3187), 0.0, 0.0, 0, 0, Vector2(0.977528, 41.7582), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_wv8tg"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
 [node name="QuailBaby" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 4
@@ -49,18 +59,18 @@ shape = SubResource("CircleShape2D_0utth")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_k5nqo")
 debug_color = Color(0.976471, 0, 0.407843, 0.419608)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="CarDeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_82qmo")
 volume_db = -2.0
 pitch_scale = 3.0
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="SpiritParticle" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 1
 lifetime = 1.2
@@ -75,6 +85,28 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_cn48r")
 color = Color(0.427451, 0.917647, 0.839216, 1)
 
+[node name="WaterDeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_30bxa")
+
+[node name="SplashParticle" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.22
+direction = Vector2(0, -1)
+gravity = Vector2(0, -20)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+radial_accel_min = 1.0
+radial_accel_max = 11.1
+damping_min = 1.0
+damping_max = 5.0
+damping_curve = SubResource("Curve_hq6bk")
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_wv8tg")
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
-[connection signal="finished" from="CPUParticles2D" to="." method="_on_cpu_particles_2d_finished"]
+[connection signal="finished" from="CarDeathSound" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="finished" from="SpiritParticle" to="." method="_on_cpu_particles_2d_finished"]
