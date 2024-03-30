@@ -69,6 +69,14 @@ func _ready():
 		award_silver()
 	if score >= 20 and world == "world6":
 		award_gold()
+	
+	# World7
+	if score == 20 and world == "world7":
+		award_bronze()
+	if (score > 21 and score < 24 and world == "world7"):
+		award_silver()
+	if score >= 25 and world == "world7":
+		award_gold()
 		
 		
 	quail_call_sound.play()
