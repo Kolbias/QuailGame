@@ -13,6 +13,7 @@ func _ready():
 	
 func _process(delta):
 	parallax.motion_offset += background_scroll_speed
+	
 	#Attempted to animate main quail replace with tweens?
 	main_quail.position.x += 100.0 * delta
 	if main_quail.position.x > 2020.0:
@@ -29,7 +30,7 @@ func _process(delta):
 
 
 func _on_button_button_down():
-	get_tree().change_scene_to_file("res://world.tscn")
+	get_tree().change_scene_to_file("res://world1.tscn")
 
 
 func _on_button_2_button_down():

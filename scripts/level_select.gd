@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_button_world_1_button_down():
 	PlayerVariables.current_level = "world1"
-	get_tree().change_scene_to_file("res://world.tscn")
+	get_tree().change_scene_to_file("res://world1.tscn")
 
 func _on_button_world_2_button_down():
 	PlayerVariables.current_level = "world2"

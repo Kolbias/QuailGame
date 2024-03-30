@@ -84,6 +84,14 @@ func _on_quit_button_down():
 
 func _on_next_button_down():
 	PlayerVariables.quail_count = 0
+	#var world = PlayerVariables.current_level[0]
+	#print(world)
+	#print("Next world will be: " + str(world))
+	#var next_world_path = "res://" + str(next_world) + ".tscn"
+	#print("World path is: " + str(next_world_path))
+	# get_tree().change_scene_to_file(next_world_path)
+	
+	
 	if PlayerVariables.current_level == 'world1':
 		PlayerVariables.current_level = 'world2'
 		print(PlayerVariables.current_level)
@@ -109,6 +117,15 @@ func _on_next_button_down():
 		print(PlayerVariables.current_level)
 		get_tree().change_scene_to_file("res://world6.tscn")
 	
+	elif PlayerVariables.current_level == 'world6':
+		PlayerVariables.current_level = 'world7' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world7.tscn")
+	
+	elif PlayerVariables.current_level == 'world7':
+		PlayerVariables.current_level = 'world8' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world7.tscn") # Change to world8 when created.
 	else:
 		get_tree().change_scene_to_file("res://main_menu.tscn")
 
