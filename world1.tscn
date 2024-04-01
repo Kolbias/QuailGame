@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=32 format=3 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dp0m44q787nm" path="res://objects/fence_horz_left.tscn" id="9_oce64"]
 [ext_resource type="PackedScene" uid="uid://cc3lxl7ncrjm1" path="res://objects/fire_hydrant.tscn" id="11_0sr6a"]
 [ext_resource type="PackedScene" uid="uid://bngb6c6mrar0u" path="res://objects/fence_vert_top.tscn" id="11_wc63t"]
+[ext_resource type="PackedScene" uid="uid://6hpfgu5nkmjw" path="res://objects/fence_vert_bottom.tscn" id="12_8rgmo"]
 [ext_resource type="PackedScene" uid="uid://ci1vdlgk0k2yp" path="res://objects/bench.tscn" id="12_eh1jf"]
 [ext_resource type="PackedScene" uid="uid://cuv1tav8vdfe8" path="res://objects/hedge.tscn" id="12_lbmdf"]
 [ext_resource type="PackedScene" uid="uid://ba5oc8vlw742f" path="res://end_flag.tscn" id="15_h3ylk"]
@@ -645,8 +646,11 @@ position = Vector2(832, 12)
 
 [node name="Fences" type="Node" parent="."]
 
+[node name="FenceVertBottom2" parent="Fences" instance=ExtResource("12_8rgmo")]
+position = Vector2(469, 107)
+
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("9_oce64")]
-position = Vector2(379, 142)
+position = Vector2(441, 78)
 
 [node name="FenceVertCentre7" parent="Fences" instance=ExtResource("7_78oge")]
 position = Vector2(9, 156)
@@ -673,31 +677,13 @@ position = Vector2(75, -53)
 position = Vector2(51, -53)
 
 [node name="FenceHorzRight2" parent="Fences" instance=ExtResource("7_3ec6f")]
-position = Vector2(352, 161)
-
-[node name="FenceHorzCentre3" parent="Fences" instance=ExtResource("8_xk024")]
-position = Vector2(324, 161)
-
-[node name="FenceHorzCentre4" parent="Fences" instance=ExtResource("8_xk024")]
-position = Vector2(308, 161)
+position = Vector2(457, 123)
 
 [node name="FenceVertTop" parent="Fences" instance=ExtResource("11_wc63t")]
 position = Vector2(38, -49)
 
-[node name="FenceHorzLeft2" parent="Fences" instance=ExtResource("9_oce64")]
-position = Vector2(282, 161)
-
 [node name="FenceHorzRight5" parent="Fences" instance=ExtResource("7_3ec6f")]
-position = Vector2(487, 142)
-
-[node name="FenceHorzCentre6" parent="Fences" instance=ExtResource("8_xk024")]
-position = Vector2(443, 142)
-
-[node name="FenceHorzCentre8" parent="Fences" instance=ExtResource("8_xk024")]
-position = Vector2(465, 142)
-
-[node name="FenceHorzCentre7" parent="Fences" instance=ExtResource("8_xk024")]
-position = Vector2(411, 142)
+position = Vector2(455, 78)
 
 [node name="FenceHorzLeft5" parent="Fences" instance=ExtResource("9_oce64")]
 position = Vector2(284, -19)
@@ -756,8 +742,17 @@ position = Vector2(9, 105)
 [node name="FenceVertCentre6" parent="Fences" instance=ExtResource("7_78oge")]
 position = Vector2(9, 129)
 
-[node name="FenceVertCentre9" parent="Fences" instance=ExtResource("7_78oge")]
-position = Vector2(366, 158)
+[node name="FenceVertBottom" parent="Fences" instance=ExtResource("12_8rgmo")]
+position = Vector2(428, 107)
+
+[node name="FenceHorzLeft2" parent="Fences" instance=ExtResource("9_oce64")]
+position = Vector2(441, 123)
+
+[node name="FenceVertTop3" parent="Fences" instance=ExtResource("11_wc63t")]
+position = Vector2(428, 83)
+
+[node name="FenceVertTop4" parent="Fences" instance=ExtResource("11_wc63t")]
+position = Vector2(469, 82)
 
 [node name="Environment" type="Node" parent="."]
 

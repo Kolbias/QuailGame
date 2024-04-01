@@ -1,11 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=41 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
-[ext_resource type="Texture2D" uid="uid://bbhsf3abhm1f8" path="res://assets/menu/MenuLandscape.png" id="2_ini4t"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="3_ai5w4"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="3_r3he0"]
 [ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="4_dsl5h"]
+[ext_resource type="Texture2D" uid="uid://bsq8ckvempa1f" path="res://assets/menu/MenuLandscapeRevised.png" id="4_evn7y"]
 [ext_resource type="Texture2D" uid="uid://csmbhd3o5idoh" path="res://assets/player/QuailBaby3.png" id="5_uomgj"]
 [ext_resource type="Texture2D" uid="uid://bi65u10foijt6" path="res://assets/player/QuailRun1.png" id="7_cjc1g"]
 [ext_resource type="Texture2D" uid="uid://c6fbtfgmm2ua2" path="res://assets/player/QuailRun2.png" id="8_gie34"]
@@ -15,22 +15,28 @@
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="12_6rmpi"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="13_e2ebm"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="14_qf2yh"]
-[ext_resource type="Texture2D" uid="uid://bfoeag2rlk14v" path="res://assets/menu/Logo1.png" id="17_0xdoe"]
 [ext_resource type="AudioStream" uid="uid://dyty47c8c82an" path="res://assets/sounds/QuailSongRevised.ogg" id="18_ph6ky"]
-[ext_resource type="Texture2D" uid="uid://drdieq575h42c" path="res://assets/menu/Logo2.png" id="18_sr6i1"]
 [ext_resource type="AudioStream" uid="uid://b0xed0so1xntv" path="res://assets/sounds/QuailSoundscape.mp3" id="18_tkjay"]
-[ext_resource type="Texture2D" uid="uid://6eemqjyajcex" path="res://assets/menu/Logo3.png" id="19_7kx6v"]
-[ext_resource type="Texture2D" uid="uid://cu6xfls5nbkax" path="res://assets/menu/Logo4.png" id="20_cvbyc"]
-[ext_resource type="Texture2D" uid="uid://cu2xbo4t22t03" path="res://assets/menu/Logo5.png" id="21_6r85s"]
-[ext_resource type="Texture2D" uid="uid://dkgfrrdny1psg" path="res://assets/menu/Logo6.png" id="22_ag358"]
-[ext_resource type="Texture2D" uid="uid://ct3vbqif20nhb" path="res://assets/menu/Logo7.png" id="23_8i4u2"]
-[ext_resource type="Texture2D" uid="uid://bfy21kgsoxx8d" path="res://assets/menu/Logo8.png" id="24_tida4"]
-[ext_resource type="Texture2D" uid="uid://bjanagih2vxo1" path="res://assets/menu/Logo9.png" id="25_kjnww"]
+[ext_resource type="Texture2D" uid="uid://6lyvg44yv2xa" path="res://assets/menu/LogoRevision1.png" id="19_vsnwp"]
+[ext_resource type="Texture2D" uid="uid://dvkr20ifxgri3" path="res://assets/menu/LogoRevision2.png" id="20_suiy7"]
+[ext_resource type="Texture2D" uid="uid://cr0wdcbeon341" path="res://assets/menu/LogoRevision3.png" id="21_ym8ow"]
+[ext_resource type="Texture2D" uid="uid://cgobqbly5oaav" path="res://assets/menu/LogoRevision4.png" id="22_plk07"]
+[ext_resource type="Texture2D" uid="uid://ctpmdequp1jvg" path="res://assets/menu/LogoRevision5.png" id="23_ea5su"]
+[ext_resource type="Texture2D" uid="uid://hyqhiwl3ckdb" path="res://assets/menu/LogoRevision6.png" id="24_3aqqg"]
+[ext_resource type="Texture2D" uid="uid://drb1ge682i5dn" path="res://assets/menu/LogoRevision7.png" id="25_hnfhy"]
+[ext_resource type="Texture2D" uid="uid://dea50m2ssb76b" path="res://assets/menu/LogoRevision8.png" id="26_0aupc"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="26_rfs4x"]
+[ext_resource type="Texture2D" uid="uid://di6n02m2ec63q" path="res://assets/menu/LogoRevision9.png" id="27_5c4ht"]
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="27_la2ku"]
+[ext_resource type="Texture2D" uid="uid://dernhw4dtthxu" path="res://assets/menu/LogoRevision10.png" id="28_ks5fq"]
 [ext_resource type="PackedScene" uid="uid://mmyevdxjw537" path="res://objects/grass_field.tscn" id="29_2nq05"]
+[ext_resource type="Texture2D" uid="uid://bx2pw0j65cnvf" path="res://assets/menu/LogoRevision11.png" id="29_lxwlq"]
 [ext_resource type="PackedScene" uid="uid://bfwp4ixxnw01i" path="res://objects/flower_patch.tscn" id="30_7qc0d"]
+[ext_resource type="Texture2D" uid="uid://dxudw4l6pwwh6" path="res://assets/menu/LogoRevision12.png" id="30_qqpoq"]
+[ext_resource type="Texture2D" uid="uid://c7timi4rrgrk7" path="res://assets/menu/LogoRevision13.png" id="31_2lka3"]
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="31_n2hne"]
+[ext_resource type="Texture2D" uid="uid://bk574n3cfkkbg" path="res://assets/menu/LogoRevision14.png" id="32_152n8"]
+[ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -82,31 +88,46 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_0xdoe")
+"texture": ExtResource("19_vsnwp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_sr6i1")
+"texture": ExtResource("20_suiy7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_7kx6v")
+"texture": ExtResource("21_ym8ow")
 }, {
 "duration": 1.0,
-"texture": ExtResource("20_cvbyc")
+"texture": ExtResource("22_plk07")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_6r85s")
+"texture": ExtResource("23_ea5su")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_ag358")
+"texture": ExtResource("24_3aqqg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_8i4u2")
+"texture": ExtResource("25_hnfhy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("24_tida4")
+"texture": ExtResource("26_0aupc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_kjnww")
+"texture": ExtResource("27_5c4ht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ks5fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_lxwlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_qqpoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_2lka3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_152n8")
 }],
 "loop": true,
 "name": &"default",
@@ -125,29 +146,29 @@ texture = ExtResource("1_8yby5")
 scroll_offset = Vector2(834.312, 260.992)
 
 [node name="Landscape" type="Sprite2D" parent="."]
-position = Vector2(-0.999997, -10)
+position = Vector2(2, -18)
 scale = Vector2(1.7, 1.7)
-texture = ExtResource("2_ini4t")
+texture = ExtResource("4_evn7y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
 
 [node name="BabyQuail2" type="AnimatedSprite2D" parent="."]
-position = Vector2(81, -55)
+position = Vector2(84, -63)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 frame = 2
 
 [node name="BabyQuail" type="AnimatedSprite2D" parent="."]
-position = Vector2(26, -52)
+position = Vector2(30, -60)
 scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 frame = 1
 
 [node name="BabyQuailLeft" type="AnimatedSprite2D" parent="."]
-position = Vector2(41, -65)
+position = Vector2(74, -79)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
@@ -156,16 +177,14 @@ autoplay = "default"
 position = Vector2(-29, 61)
 
 [node name="grass2" parent="." instance=ExtResource("26_rfs4x")]
-position = Vector2(114, 18)
+position = Vector2(55, -9)
 
 [node name="Flower" parent="." instance=ExtResource("27_la2ku")]
-z_index = 2
-position = Vector2(-20, 82)
+position = Vector2(-27, 71)
 scale = Vector2(1.92857, 2.07143)
 
 [node name="Flower2" parent="." instance=ExtResource("27_la2ku")]
-z_index = 2
-position = Vector2(74, 84)
+position = Vector2(156, 69)
 scale = Vector2(1.92857, 2.07143)
 
 [node name="MainQuail" type="AnimatedSprite2D" parent="."]
@@ -186,19 +205,19 @@ autoplay = true
 position = Vector2(-92, -58)
 sprite_frames = SubResource("SpriteFrames_hh74u")
 autoplay = "default"
-frame_progress = 0.411459
+frame_progress = 0.47167
 
 [node name="DirectionalLight" type="DirectionalLight2D" parent="."]
 color = Color(0.835294, 0.682353, 0.352941, 1)
 
 [node name="GrassField" parent="." instance=ExtResource("29_2nq05")]
-position = Vector2(19, 47)
+position = Vector2(23, 34)
 
 [node name="GrassField2" parent="." instance=ExtResource("29_2nq05")]
-position = Vector2(-109, 79)
+position = Vector2(96, 30)
 
 [node name="FlowerPatch" parent="." instance=ExtResource("30_7qc0d")]
-position = Vector2(44, 39)
+position = Vector2(-7, 33)
 scale = Vector2(2, 2)
 
 [node name="Flower3" parent="." instance=ExtResource("27_la2ku")]
@@ -213,10 +232,10 @@ scale = Vector2(2, 2)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -20.0
-offset_right = -22.0
-offset_bottom = 84.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 83.0
+offset_bottom = 89.0
 grow_vertical = 2
 size_flags_horizontal = 0
 
@@ -243,6 +262,12 @@ focus_next = NodePath("../PlayButton")
 theme_override_fonts/font = ExtResource("14_qf2yh")
 theme_override_font_sizes/font_size = 16
 text = "	Quit Game"
+
+[node name="MenuSign" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-89, 68)
+scale = Vector2(2, 2)
+texture = ExtResource("32_fsm2t")
 
 [connection signal="button_down" from="VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]

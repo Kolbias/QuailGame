@@ -8,9 +8,15 @@ extends Node2D
 @onready var active = false
 @onready var random_y_pos = 0.0
 @onready var parent = get_parent()
+@export var flip_vertical = false
+@onready var sprite = $WindAnimation
 
 func _ready():
 	timer.start()
+	if flip_vertical == true:
+		sprite.flip_v = true
+	else:
+		sprite.flip_v = false
 
 func _process(delta):
 	if position.y > 500:
@@ -27,7 +33,11 @@ func _on_timer_timeout():
 
 func spawn_wind():
 	var instance = wind.instantiate()
-	add_child(instance)
+	if flip_vertical == true:
+		add_child(instance)
+		instance.flip_v = true
+	else:
+		add_child(instance)
 	# print("Debug: Wind Spawned")
 	timer.wait_time = random_time
 	timer.start()
