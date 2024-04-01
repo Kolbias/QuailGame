@@ -583,6 +583,9 @@ position = Vector2(413, -257)
 [node name="RainOnWaterAnim8" parent="." instance=ExtResource("4_d1oan")]
 position = Vector2(409, -97)
 
+[node name="RainOnWaterAnim9" parent="." instance=ExtResource("4_d1oan")]
+position = Vector2(716, 91)
+
 [node name="RainOnWaterAnim2" parent="." instance=ExtResource("6_4d7bk")]
 position = Vector2(417, 63)
 
@@ -763,6 +766,9 @@ position = Vector2(832, 12)
 
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("10_c7kci")]
 position = Vector2(375, 141)
+
+[node name="FenceHorzLeft7" parent="Fences" instance=ExtResource("10_c7kci")]
+position = Vector2(320, -130)
 
 [node name="FenceHorzRight3" parent="Fences" instance=ExtResource("12_ha7k0")]
 position = Vector2(350, -130)

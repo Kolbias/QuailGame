@@ -26,6 +26,10 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
 
+[editor]
+
+movie_writer/movie_file="C:/Users/kolby/Videos/Godot Videos/QuailGameVid2.avi"
+
 [input]
 
 move_left={
