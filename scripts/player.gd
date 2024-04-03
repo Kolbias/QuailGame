@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var egg_hatch_sound = $EggHatchSound
 @onready var hit_sound = $HitSound
 @onready var in_water = false
+@onready var push_amount = 80.0
 
 # Gameplay UI
 @onready var quail_count_ui = $UI/Control/QuailCount
@@ -85,6 +86,11 @@ func _process(delta):
 	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	velocity = dir.normalized() * speed
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+			var c = get_slide_collision(i)
+			if c.get_collider() is RigidBody2D:
+				c.get_collider().apply_central_impulse(-c.get_normal() * push_amount)
 	
 	if Input.is_action_just_pressed("restart"):
 		PlayerVariables.quail_count = 0

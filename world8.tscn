@@ -973,7 +973,7 @@ max_random_time = 3.0
 
 [node name="TwoCarSpawner2" parent="." instance=ExtResource("28_p1qqn")]
 z_index = 4
-position = Vector2(258, 762)
+position = Vector2(265, 761)
 min_random_time = 3.0
 max_random_time = 7.0
 
