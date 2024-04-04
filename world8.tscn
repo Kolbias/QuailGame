@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b4hg287dlt4vr"]
+[gd_scene load_steps=39 format=3 uid="uid://b4hg287dlt4vr"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_xvjpl"]
 [ext_resource type="PackedScene" uid="uid://dheb82njo58vb" path="res://objects/water.tscn" id="2_mefkg"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bu48k6vit408m" path="res://Effects/lightning.tscn" id="31_wh1xf"]
 [ext_resource type="PackedScene" uid="uid://c2lovow5uq774" path="res://Effects/rain.tscn" id="32_inwa7"]
 [ext_resource type="PackedScene" uid="uid://cr5h11sy2os6o" path="res://storm_background.tscn" id="33_cgjg4"]
+[ext_resource type="PackedScene" uid="uid://crvj5s2lbx51m" path="res://objects/pylon.tscn" id="34_h85o4"]
 [ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="34_u2sqe"]
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="35_bcqkn"]
 
@@ -976,6 +977,18 @@ z_index = 4
 position = Vector2(265, 761)
 min_random_time = 3.0
 max_random_time = 7.0
+
+[node name="Pylon" parent="." instance=ExtResource("34_h85o4")]
+position = Vector2(374, -46)
+
+[node name="Pylon2" parent="." instance=ExtResource("34_h85o4")]
+position = Vector2(372, -113)
+
+[node name="Pylon3" parent="." instance=ExtResource("34_h85o4")]
+position = Vector2(396, 265)
+
+[node name="Pylon4" parent="." instance=ExtResource("34_h85o4")]
+position = Vector2(475, 170)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

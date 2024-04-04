@@ -74,6 +74,20 @@ theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 7"
 
+[node name="ButtonWorld8" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vm8hg")
+theme_override_font_sizes/font_size = 32
+text = "World 8
+"
+
+[node name="ButtonWorld9" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vm8hg")
+theme_override_font_sizes/font_size = 32
+text = "World 9
+"
+
 [node name="Back" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -87,4 +101,6 @@ text = "Back"
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld5" to="." method="_on_button_world_5_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld6" to="." method="_on_button_world_6_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld7" to="." method="_on_button_world_7_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ButtonWorld8" to="." method="_on_button_world_8_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ButtonWorld9" to="." method="_on_button_world_9_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/Back" to="." method="_on_back_button_down"]

@@ -39,6 +39,18 @@ func _on_button_world_7_button_down():
 	PlayerVariables.current_level = "world7"
 	get_tree().change_scene_to_file("res://world7.tscn")
 
+func _on_button_world_8_button_down():
+	PlayerVariables.current_level = "world8"
+	get_tree().change_scene_to_file("res://world8.tscn")
+
+func _on_button_world_9_button_down():
+	PlayerVariables.current_level = "world9"
+	get_tree().change_scene_to_file("res://world9.tscn")
 
 func _on_back_button_down():
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+
+
+

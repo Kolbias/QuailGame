@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=32 format=3 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_ltnl4"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="22_hx8l0"]
 [ext_resource type="PackedScene" uid="uid://bfwp4ixxnw01i" path="res://objects/flower_patch.tscn" id="23_0xeq5"]
 [ext_resource type="PackedScene" uid="uid://mmyevdxjw537" path="res://objects/grass_field.tscn" id="24_oo3d7"]
-[ext_resource type="PackedScene" uid="uid://crvj5s2lbx51m" path="res://objects/pylon.tscn" id="28_libyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_ltnl4")
@@ -864,11 +863,6 @@ rotation = 0.0
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
-
-[node name="Pylon" parent="." instance=ExtResource("28_libyr")]
-position = Vector2(73, 25)
-collision_layer = 4
-linear_damp = 5.0
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
