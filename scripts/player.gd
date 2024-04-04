@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var egg_hatch_sound = $EggHatchSound
 @onready var hit_sound = $HitSound
 @onready var in_water = false
-@onready var push_amount = 80.0
+@onready var push_amount = 10.0
 
 # Gameplay UI
 @onready var quail_count_ui = $UI/Control/QuailCount
