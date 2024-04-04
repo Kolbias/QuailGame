@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var score = PlayerVariables.quail_count
 @onready var score_text = $Control/VBoxContainer/QuailScore
 @onready var parallax = $ParallaxBackground/ParallaxLayer
