@@ -1,9 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://k25s0le0yj4w"]
+[gd_scene load_steps=21 format=3 uid="uid://k25s0le0yj4w"]
 
 [ext_resource type="Shader" path="res://shaders/fire.gdshader" id="1_iyfui"]
 [ext_resource type="Script" path="res://objects/fire.gd" id="2_e21g2"]
 [ext_resource type="Texture2D" uid="uid://dfr5s6t3j54ot" path="res://icon.svg" id="2_xpm83"]
 [ext_resource type="Texture2D" uid="uid://dtssbq32n3ntm" path="res://assets/environment/SolidRed.png" id="3_ng8u4"]
+[ext_resource type="Shader" path="res://shaders/fire3.gdshader" id="4_6kfsh"]
+[ext_resource type="Shader" path="res://shaders/fire2.gdshader" id="5_1jgp5"]
+[ext_resource type="Texture2D" uid="uid://btd2mdak0vv07" path="res://Effects/light.png" id="7_kojpe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1os4m"]
 
@@ -20,40 +23,135 @@ shader_parameter/animation_speed = 0.5
 shader_parameter/flame_color = Color(0.92549, 0.152941, 0.247059, 1)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_jdlf2")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ylm3k"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ihv1t"]
+noise = SubResource("FastNoiseLite_ylm3k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq5x8"]
+shader = ExtResource("4_6kfsh")
+shader_parameter/yoffset = 0.5
+shader_parameter/animation_speed = 0.5
+shader_parameter/flame_color = Color(0.909804, 0.823529, 0.509804, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ihv1t")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p3b4j"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o88iv"]
+seamless = true
+noise = SubResource("FastNoiseLite_p3b4j")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r1hpv"]
+shader = ExtResource("5_1jgp5")
+shader_parameter/yoffset = 0.5
+shader_parameter/animation_speed = 0.5
+shader_parameter/flame_color = Color(0.952941, 0.658824, 0.2, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_o88iv")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1ruts"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ynenp"]
-width = 1080
-height = 500
 noise = SubResource("FastNoiseLite_1ruts")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tqo6m"]
 shader = ExtResource("1_iyfui")
 shader_parameter/yoffset = 0.4
-shader_parameter/animation_speed = 0.5
-shader_parameter/flame_color = Color(0.92549, 0.152941, 0.247059, 1)
+shader_parameter/animation_speed = 0.9
+shader_parameter/flame_color = Color(0.92549, 0.203922, 0.247059, 1)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_ynenp")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v48mc"]
 radius = 29.0
-height = 560.0
+height = 3278.0
 
-[node name="Fire" type="Area2D"]
+[node name="Fire" type="Area2D" groups=["fire"]]
 material = SubResource("ShaderMaterial_hvuuy")
+position = Vector2(-49, 8)
 script = ExtResource("2_e21g2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_tqo6m")
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eq5x8")
+position = Vector2(12, -404)
 rotation = 1.5708
-scale = Vector2(5, 1.5)
+scale = Vector2(3.52707, 2.28211)
 texture = ExtResource("2_xpm83")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-894, -2)
-scale = Vector2(100, 40)
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_eq5x8")
+position = Vector2(67, -80)
+rotation = 1.5708
+scale = Vector2(5.80999, 2.86677)
+texture = ExtResource("2_xpm83")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r1hpv")
+position = Vector2(40, -776)
+rotation = 1.5708
+scale = Vector2(4.4419, 3.66498)
+texture = ExtResource("2_xpm83")
+
+[node name="Sprite2D16" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r1hpv")
+position = Vector2(-15, -114)
+rotation = 1.5708
+scale = Vector2(4.4419, 3.66498)
+texture = ExtResource("2_xpm83")
+
+[node name="Sprite2D14" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r1hpv")
+position = Vector2(33, -358)
+rotation = 1.5708
+scale = Vector2(4.4419, 3.66498)
+texture = ExtResource("2_xpm83")
+
+[node name="Orange2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r1hpv")
+position = Vector2(2.99998, 461)
+rotation = 1.5708
+scale = Vector2(4.4419, 3.66498)
+texture = ExtResource("2_xpm83")
+
+[node name="Orange1" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r1hpv")
+position = Vector2(30, -613)
+rotation = 1.5708
+scale = Vector2(4.4419, 3.66498)
+texture = ExtResource("2_xpm83")
+
+[node name="RedMid" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tqo6m")
+position = Vector2(-20, -105.376)
+rotation = 1.5708
+scale = Vector2(5.6283, 4.07779)
+texture = ExtResource("2_xpm83")
+
+[node name="RedTop" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tqo6m")
+position = Vector2(-29, -668)
+rotation = 1.5708
+scale = Vector2(5.46661, 3.47322)
+texture = ExtResource("2_xpm83")
+
+[node name="RedBot" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tqo6m")
+position = Vector2(-63, 468)
+rotation = 1.5708
+scale = Vector2(4.75791, 3.00075)
+texture = ExtResource("2_xpm83")
+
+[node name="Block" type="Sprite2D" parent="."]
+position = Vector2(-850, -144)
+scale = Vector2(100, 115)
 texture = ExtResource("3_ng8u4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-307, 2.38419e-07)
+position = Vector2(-285, 152)
 scale = Vector2(9.24, 1)
 shape = SubResource("CapsuleShape2D_v48mc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(9, -128)
+color = Color(0.92549, 0.152941, 0.247059, 1)
+energy = 2.22
+texture = ExtResource("7_kojpe")
+texture_scale = 2.0

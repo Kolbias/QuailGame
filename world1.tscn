@@ -867,9 +867,8 @@ color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
 
 [node name="Fire" parent="." instance=ExtResource("28_ckvic")]
-z_index = 5
-position = Vector2(-200, 74)
-fire_speed = 0.4
+z_index = 7
+position = Vector2(-235, 243)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

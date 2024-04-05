@@ -260,7 +260,7 @@ theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Quit to Menu"
 
 [node name="BabyQuailUI" type="Sprite2D" parent="UI/Control"]
-position = Vector2(10.5, 10.5)
+position = Vector2(11, 7.99998)
 scale = Vector2(1.83333, 2.2)
 texture = ExtResource("18_3eshq")
 
