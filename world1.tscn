@@ -869,6 +869,7 @@ energy = 0.4
 [node name="Fire" parent="." instance=ExtResource("28_ckvic")]
 z_index = 7
 position = Vector2(-235, 243)
+fire_speed = 0.5
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
