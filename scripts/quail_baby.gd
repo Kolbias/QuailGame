@@ -45,6 +45,14 @@ func _on_hurtbox_area_entered(area):
 			spirit_particle.emitting = true
 			sprite.visible = false
 			PlayerVariables.quail_count -= 1
+	if area.is_in_group("fire"):
+		print("fire detected")
+		if alive:
+			alive = false
+			water_sound.playing = true
+			spirit_particle.emitting = true
+			sprite.visible = false
+			PlayerVariables.quail_count -= 1
 		else:
 			pass
 

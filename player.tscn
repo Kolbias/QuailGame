@@ -200,16 +200,19 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_i7leb")
 debug_color = Color(0.980392, 0.0509804, 0.32549, 0.419608)
 
-[node name="UI" type="Control" parent="."]
-light_mask = 2
-visibility_layer = 2
-z_index = 5
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+light_mask = 0
+visibility_layer = 512
+z_index = 6
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Control" type="Control" parent="UI"]
+[node name="Control" type="Control" parent="CanvasLayer/UI"]
 light_mask = 0
 visibility_layer = 2
 z_index = 6
@@ -225,7 +228,7 @@ offset_bottom = 3.36
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -239,32 +242,32 @@ offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UnpauseButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="UnpauseButton" type="Button" parent="CanvasLayer/UI/Control/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("18_k87bq")
 theme_override_font_sizes/font_size = 0
 text = "Return to Game"
 
-[node name="PauseRetry" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="PauseRetry" type="Button" parent="CanvasLayer/UI/Control/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("18_k87bq")
 theme_override_font_sizes/font_size = 16
 text = "Restart"
 
-[node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="PauseQuitButton" type="Button" parent="CanvasLayer/UI/Control/VBoxContainer"]
 process_mode = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Quit to Menu"
 
-[node name="BabyQuailUI" type="Sprite2D" parent="UI/Control"]
+[node name="BabyQuailUI" type="Sprite2D" parent="CanvasLayer/UI/Control"]
 position = Vector2(11, 7.99998)
 scale = Vector2(1.83333, 2.2)
 texture = ExtResource("18_3eshq")
 
-[node name="QuailCount" type="Label" parent="UI/Control"]
+[node name="QuailCount" type="Label" parent="CanvasLayer/UI/Control"]
 z_index = 1
 layout_mode = 1
 offset_left = 20.0
@@ -272,13 +275,13 @@ offset_right = 42.0
 offset_bottom = 15.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 
-[node name="ClockUI" type="Sprite2D" parent="UI/Control"]
+[node name="ClockUI" type="Sprite2D" parent="CanvasLayer/UI/Control"]
 z_index = 5
 position = Vector2(11, 27)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("20_g1pi0")
 
-[node name="Timer" type="Label" parent="UI/Control"]
+[node name="Timer" type="Label" parent="CanvasLayer/UI/Control"]
 layout_mode = 1
 offset_left = 20.0
 offset_top = 20.0
@@ -286,7 +289,7 @@ offset_right = 60.0
 offset_bottom = 35.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 
-[node name="GameOverText" type="Label" parent="UI"]
+[node name="GameOverText" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 0
 offset_left = -35.0
 offset_top = -86.0
@@ -295,7 +298,7 @@ offset_bottom = -63.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Game Over"
 
-[node name="PlayAgainButton" type="Button" parent="UI/GameOverText"]
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/UI/GameOverText"]
 visible = false
 layout_mode = 0
 offset_left = -9.0
@@ -305,7 +308,7 @@ offset_bottom = 51.0
 theme_override_fonts/font = ExtResource("18_k87bq")
 text = "Play Again?"
 
-[node name="Label" type="Label" parent="UI/GameOverText"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/GameOverText"]
 layout_mode = 0
 offset_left = -29.0
 offset_top = 17.0
@@ -354,8 +357,8 @@ anim_speed_max = 5.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
-[connection signal="button_down" from="UI/Control/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_button_down"]
-[connection signal="button_down" from="UI/Control/VBoxContainer/PauseRetry" to="." method="_on_pause_retry_button_down"]
-[connection signal="button_down" from="UI/Control/VBoxContainer/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
-[connection signal="button_down" from="UI/GameOverText/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/UI/Control/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/UI/Control/VBoxContainer/PauseRetry" to="." method="_on_pause_retry_button_down"]
+[connection signal="button_down" from="CanvasLayer/UI/Control/VBoxContainer/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/UI/GameOverText/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

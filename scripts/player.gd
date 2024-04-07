@@ -13,15 +13,15 @@ extends CharacterBody2D
 @onready var push_amount = 10.0
 
 # Gameplay UI
-@onready var quail_count_ui = $UI/Control/QuailCount
-@onready var timer_ui = $UI/Control/Timer
+@onready var quail_count_ui = $CanvasLayer/UI/Control/QuailCount
+@onready var timer_ui = $CanvasLayer/UI/Control/Timer
 
 # Paused Variables
 @onready var paused = false
-@onready var unpause_button = $UI/Control/VBoxContainer/UnpauseButton
-@onready var pause_quit_button = $UI/Control/VBoxContainer/PauseQuitButton
-@onready var pause_retry = $UI/Control/VBoxContainer/PauseRetry
-@onready var game_over_ui = $UI/GameOverText
+@onready var unpause_button = $CanvasLayer/UI/Control/VBoxContainer/UnpauseButton
+@onready var pause_quit_button = $CanvasLayer/UI/Control/VBoxContainer/PauseQuitButton
+@onready var pause_retry = $CanvasLayer/UI/Control/VBoxContainer/PauseRetry
+@onready var game_over_ui = $CanvasLayer/UI/GameOverText
 
 # Effects Variables
 @onready var particles = $CPUParticles2D
@@ -118,9 +118,16 @@ func _on_hurtbox_area_entered(area):
 		alive = false
 		game_over_ui.visible = true
 		print("Game Over")
+		
 	if area.is_in_group("water"):
 		in_water = true
 		PlayerVariables.speed = PlayerVariables.speed * 0.5
+		
+	if area.is_in_group("fire"):
+		print("Quail burning!!")
+		alive = false
+		sprite.visible = false
+		game_over_ui.visible = true
 	else:
 		pass
 

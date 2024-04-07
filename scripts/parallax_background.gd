@@ -9,6 +9,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	parallax.motion_offset += background_scroll_speed
 	second_parallax.motion_offset += background_scroll_speed
