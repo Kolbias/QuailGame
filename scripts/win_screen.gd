@@ -46,9 +46,9 @@ func _ready():
 		award_gold()
 
 	# World4 Score Thresholds
-	if score == 14 and world == "world4":
+	if score == 12 and world == "world4":
 		award_bronze()
-	if (score > 15 and score < 19 and world == "world4"):
+	if (score > 13 and score < 19 and world == "world4"):
 		award_silver()
 	if score >= 20 and world == "world4":
 		award_gold()

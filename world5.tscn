@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://4gqddnkx1r68"]
+[gd_scene load_steps=31 format=3 uid="uid://4gqddnkx1r68"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_yqqcx"]
 [ext_resource type="PackedScene" uid="uid://bhxtmp2tcsl23" path="res://night_parallax_background.tscn" id="2_uym1q"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ssqaexqbcwd1" path="res://objects/lamp.tscn" id="23_d7jm2"]
 [ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="24_1p5om"]
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="25_sh226"]
+[ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="26_ctb7l"]
 [ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="26_v24q1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
@@ -816,19 +817,15 @@ position = Vector2(209, -130)
 position = Vector2(479, -100)
 
 [node name="Lamp4" parent="Objects" instance=ExtResource("23_d7jm2")]
-visible = false
 position = Vector2(73, 144)
 
 [node name="Lamp5" parent="Objects" instance=ExtResource("23_d7jm2")]
-visible = false
 position = Vector2(-103, 116)
 
 [node name="Lamp2" parent="Objects" instance=ExtResource("23_d7jm2")]
-visible = false
-position = Vector2(220, 47)
+position = Vector2(231, -171)
 
 [node name="Lamp3" parent="Objects" instance=ExtResource("23_d7jm2")]
-visible = false
 position = Vector2(482, 17)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -862,6 +859,8 @@ position = Vector2(-19, -371)
 [node name="TrashCan" parent="." instance=ExtResource("26_v24q1")]
 z_index = 5
 position = Vector2(209, 39)
+
+[node name="UICanvas" parent="." instance=ExtResource("26_ctb7l")]
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

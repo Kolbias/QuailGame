@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://hybl53q65uf4"]
+[gd_scene load_steps=30 format=3 uid="uid://hybl53q65uf4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_58dau"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_chxl2"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="22_qe0cy"]
 [ext_resource type="PackedScene" uid="uid://n8xybts7chpj" path="res://objects/grass.tscn" id="23_r6uwc"]
 [ext_resource type="PackedScene" uid="uid://c8276g1m6j85c" path="res://objects/wind_spawner.tscn" id="24_iih1l"]
+[ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="25_lfpbs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_4ga7m")
@@ -867,6 +868,8 @@ energy = 0.4
 stream = ExtResource("19_qtjos")
 volume_db = 3.0
 autoplay = true
+
+[node name="UICanvas" parent="." instance=ExtResource("25_lfpbs")]
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

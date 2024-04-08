@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://di5rswu1ftwhf"]
+[gd_scene load_steps=32 format=3 uid="uid://di5rswu1ftwhf"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ct7cd"]
 [ext_resource type="PackedScene" uid="uid://bhxtmp2tcsl23" path="res://night_parallax_background.tscn" id="2_mm67l"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="24_8fshv"]
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="25_u6k2a"]
 [ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="26_ri2qg"]
+[ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="27_8djka"]
 [ext_resource type="PackedScene" uid="uid://cer2wenif6nf2" path="res://semi_spawner.tscn" id="27_godbd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
@@ -899,6 +900,8 @@ position = Vector2(615, -425)
 
 [node name="EndFlag" parent="." instance=ExtResource("7_a3s3s")]
 position = Vector2(827, -160)
+
+[node name="UICanvas" parent="." instance=ExtResource("27_8djka")]
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

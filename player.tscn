@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=35 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -17,13 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://5gy1dnv6xuw1" path="res://assets/player/QuailRun5.png" id="15_e22l5"]
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="16_jtsbn"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="17_aovc8"]
-[ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="18_3eshq"]
 [ext_resource type="Texture2D" uid="uid://coyo2ughorsuu" path="res://assets/player/QuailSwim1.png" id="18_k5v2s"]
-[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="18_k87bq"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="19_68xgg"]
 [ext_resource type="Texture2D" uid="uid://b6vy4upelputr" path="res://assets/player/QuailSwim2.png" id="19_hwb81"]
 [ext_resource type="Texture2D" uid="uid://bcghg7djg1mdv" path="res://assets/player/QuailSwim3.png" id="20_ciu67"]
-[ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="20_g1pi0"]
 [ext_resource type="AudioStream" uid="uid://c43vqtkjmikdr" path="res://assets/sounds/QuailHit.ogg" id="21_27fe3"]
 [ext_resource type="Texture2D" uid="uid://dmobvg6usyglh" path="res://assets/player/QuailSwim4.png" id="21_4310o"]
 [ext_resource type="Texture2D" uid="uid://cjkocq2odibiw" path="res://assets/player/QuailSwim5.png" id="22_0grv3"]
@@ -200,124 +197,6 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_i7leb")
 debug_color = Color(0.980392, 0.0509804, 0.32549, 0.419608)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="UI" type="Control" parent="CanvasLayer"]
-light_mask = 0
-visibility_layer = 512
-z_index = 6
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Control" type="Control" parent="CanvasLayer/UI"]
-light_mask = 0
-visibility_layer = 2
-z_index = 6
-layout_mode = 1
-anchor_left = -5.974
-anchor_top = -3.352
-anchor_right = 5.869
-anchor_bottom = 3.341
-offset_left = -0.039978
-offset_top = -0.919983
-offset_right = 6.23999
-offset_bottom = 3.36
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -53.0
-offset_top = -38.5
-offset_right = 53.0
-offset_bottom = 38.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="UnpauseButton" type="Button" parent="CanvasLayer/UI/Control/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("18_k87bq")
-theme_override_font_sizes/font_size = 0
-text = "Return to Game"
-
-[node name="PauseRetry" type="Button" parent="CanvasLayer/UI/Control/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("18_k87bq")
-theme_override_font_sizes/font_size = 16
-text = "Restart"
-
-[node name="PauseQuitButton" type="Button" parent="CanvasLayer/UI/Control/VBoxContainer"]
-process_mode = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("18_k87bq")
-text = "Quit to Menu"
-
-[node name="BabyQuailUI" type="Sprite2D" parent="CanvasLayer/UI/Control"]
-position = Vector2(11, 7.99998)
-scale = Vector2(1.83333, 2.2)
-texture = ExtResource("18_3eshq")
-
-[node name="QuailCount" type="Label" parent="CanvasLayer/UI/Control"]
-z_index = 1
-layout_mode = 1
-offset_left = 20.0
-offset_right = 42.0
-offset_bottom = 15.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-
-[node name="ClockUI" type="Sprite2D" parent="CanvasLayer/UI/Control"]
-z_index = 5
-position = Vector2(11, 27)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("20_g1pi0")
-
-[node name="Timer" type="Label" parent="CanvasLayer/UI/Control"]
-layout_mode = 1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 60.0
-offset_bottom = 35.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-
-[node name="GameOverText" type="Label" parent="CanvasLayer/UI"]
-layout_mode = 0
-offset_left = -35.0
-offset_top = -86.0
-offset_right = 34.0
-offset_bottom = -63.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-text = "Game Over"
-
-[node name="PlayAgainButton" type="Button" parent="CanvasLayer/UI/GameOverText"]
-visible = false
-layout_mode = 0
-offset_left = -9.0
-offset_top = 28.0
-offset_right = 78.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-text = "Play Again?"
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/GameOverText"]
-layout_mode = 0
-offset_left = -29.0
-offset_top = 17.0
-offset_right = 105.0
-offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("18_k87bq")
-text = "Press R to restart"
-horizontal_alignment = 1
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 90.0
 one_shot = true
@@ -357,8 +236,4 @@ anim_speed_max = 5.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
-[connection signal="button_down" from="CanvasLayer/UI/Control/VBoxContainer/UnpauseButton" to="." method="_on_unpause_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/UI/Control/VBoxContainer/PauseRetry" to="." method="_on_pause_retry_button_down"]
-[connection signal="button_down" from="CanvasLayer/UI/Control/VBoxContainer/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/UI/GameOverText/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

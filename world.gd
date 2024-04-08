@@ -4,7 +4,8 @@ extends Node2D
 @onready var quail_baby = preload("res://quail_baby.tscn")
 # @export var background_scroll_speed = Vector2(0.15,0.15)
 @onready var player_quail_amount = PlayerVariables.quail_count
-
+@onready var ui = $UICanvas
+@onready var player = $Player
 
 func _ready():
 	pass
@@ -15,6 +16,7 @@ func _on_quail_egg_quail_hatched():
 	new_quail.position = main_quail.position
 
 func _process(_delta):
+	# ui.position = player.position
 	# parallax.motion_offset += background_scroll_speed
 	# night_parallax.motion_offset += background_scroll_speed
 	pass

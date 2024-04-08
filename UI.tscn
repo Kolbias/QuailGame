@@ -1,0 +1,151 @@
+[gd_scene load_steps=5 format=3 uid="uid://d07dm82do2lbh"]
+
+[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
+[ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
+[ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="2_c03q6"]
+[ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="3_krllt"]
+
+[node name="UICanvas" type="CanvasLayer"]
+script = ExtResource("1_wmy3y")
+
+[node name="UI" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="UI"]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+top_level = true
+z_index = 6
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -38.5
+offset_right = 53.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnpauseButton" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Return to Game"
+
+[node name="PauseRetry" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Quit to Menu"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 123.0
+offset_bottom = 25.0
+grow_vertical = 2
+
+[node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
+position = Vector2(23, 6.99874)
+scale = Vector2(6.66667, 7.6005)
+texture = ExtResource("2_c03q6")
+
+[node name="ClockUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
+z_index = 5
+position = Vector2(24, 47)
+scale = Vector2(5, 4.71429)
+texture = ExtResource("3_krllt")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
+z_index = 6
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = 20.0
+offset_right = 324.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="QuailCount" type="Label" parent="UI/Control/VBoxContainer3"]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Quail Count: ##"
+
+[node name="Timer" type="Label" parent="UI/Control/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Time Remaining: ##"
+
+[node name="GameOverText" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -133.0
+offset_right = 66.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Game Over"
+
+[node name="PlayAgainButton" type="Button" parent="UI/GameOverText"]
+visible = false
+layout_mode = 0
+offset_left = -9.0
+offset_top = 28.0
+offset_right = 78.0
+offset_bottom = 51.0
+theme_override_fonts/font = ExtResource("1_32fu0")
+text = "Play Again?"
+
+[node name="Label" type="Label" parent="UI/GameOverText"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 33.0
+offset_right = 191.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Press R to restart"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 85.0
+one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bapfixcggnh6d"]
+[gd_scene load_steps=39 format=3 uid="uid://bapfixcggnh6d"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_npyd6"]
 [ext_resource type="PackedScene" uid="uid://dheb82njo58vb" path="res://objects/water.tscn" id="2_8loxm"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="32_8uo8i"]
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="33_honvj"]
 [ext_resource type="PackedScene" uid="uid://crvj5s2lbx51m" path="res://objects/pylon.tscn" id="34_w0gp5"]
+[ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="34_wyg0t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("5_2iudi")
@@ -1004,6 +1005,8 @@ position = Vector2(396, 265)
 
 [node name="Pylon4" parent="." instance=ExtResource("34_w0gp5")]
 position = Vector2(475, 170)
+
+[node name="UICanvas" parent="." instance=ExtResource("34_wyg0t")]
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

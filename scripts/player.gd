@@ -12,16 +12,16 @@ extends CharacterBody2D
 @onready var in_water = false
 @onready var push_amount = 10.0
 
-# Gameplay UI
-@onready var quail_count_ui = $CanvasLayer/UI/Control/QuailCount
-@onready var timer_ui = $CanvasLayer/UI/Control/Timer
-
-# Paused Variables
-@onready var paused = false
-@onready var unpause_button = $CanvasLayer/UI/Control/VBoxContainer/UnpauseButton
-@onready var pause_quit_button = $CanvasLayer/UI/Control/VBoxContainer/PauseQuitButton
-@onready var pause_retry = $CanvasLayer/UI/Control/VBoxContainer/PauseRetry
-@onready var game_over_ui = $CanvasLayer/UI/GameOverText
+## Gameplay UI
+#@onready var quail_count_ui = $CanvasLayer/UI/Control/QuailCount
+#@onready var timer_ui = $CanvasLayer/UI/Control/Timer
+#
+## Paused Variables
+#@onready var paused = falses
+#@onready var unpause_button = $CanvasLayer/UI/Control/VBoxContainer/UnpauseButton
+#@onready var pause_quit_button = $CanvasLayer/UI/Control/VBoxContainer/PauseQuitButton
+#@onready var pause_retry = $CanvasLayer/UI/Control/VBoxContainer/PauseRetry
+#@onready var game_over_ui = $CanvasLayer/UI/GameOverText
 
 # Effects Variables
 @onready var particles = $CPUParticles2D
@@ -37,10 +37,10 @@ func _ready():
 			#add_child(instance)
 			
 	print("Current level = " + PlayerVariables.current_level)
-	unpause_button.visible = false
-	pause_quit_button.visible = false
-	pause_retry.visible = false
-	game_over_ui.visible = false 
+	#unpause_button.visible = false
+	#pause_quit_button.visible = false
+	#pause_retry.visible = false
+	#game_over_ui.visible = false 
 	timer.start()
 
 
@@ -82,8 +82,8 @@ func _process(delta):
 	else:
 		sprite.play("idle")
 	
-	quail_count_ui.text = ("Quail count: " + str(current_quail_count))
-	timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
+	#quail_count_ui.text = ("Quail count: " + str(current_quail_count))
+	#timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	velocity = dir.normalized() * speed
 	move_and_slide()
 	
@@ -97,11 +97,11 @@ func _process(delta):
 		get_tree().reload_current_scene()
 	
 # Pause
-	if Input.is_action_just_pressed("pause") and paused == false:
-		get_tree().paused = true
-		unpause_button.visible = true
-		pause_retry.visible = true
-		pause_quit_button.visible = true
+	#if Input.is_action_just_pressed("pause") and paused == false:
+		#get_tree().paused = true
+		#unpause_button.visible = true
+		#pause_retry.visible = true
+		#pause_quit_button.visible = true
 	
 	if alive == false:
 		particles.emitting = true
@@ -116,7 +116,7 @@ func _on_hurtbox_area_entered(area):
 		sprite.visible = false
 		hurtbox.monitoring = true
 		alive = false
-		game_over_ui.visible = true
+		#game_over_ui.visible = true
 		print("Game Over")
 		
 	if area.is_in_group("water"):
@@ -127,7 +127,7 @@ func _on_hurtbox_area_entered(area):
 		print("Quail burning!!")
 		alive = false
 		sprite.visible = false
-		game_over_ui.visible = true
+		#game_over_ui.visible = true
 	else:
 		pass
 
@@ -143,11 +143,11 @@ func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
 
 # Unpause
-func _on_unpause_button_button_down():
-		unpause_button.visible = false
-		pause_quit_button.visible = false
-		pause_retry.visible = false
-		get_tree().paused = false
+#func _on_unpause_button_button_down():
+		#unpause_button.visible = false
+		#pause_quit_button.visible = false
+		#pause_retry.visible = false
+		#get_tree().paused = false
 		
 
 # Play Again 
@@ -164,16 +164,16 @@ func _on_play_again_button_button_down():
 		pass
 		#get_tree().change_scene_to_file("res://" + PlayerVariables.current_level + ".tscn")
 
-
-func _on_pause_quit_button_button_down():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
-
-
-
-func _on_pause_retry_button_down():
-	PlayerVariables.quail_count = 0
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+#
+#func _on_pause_quit_button_button_down():
+	#get_tree().change_scene_to_file("res://main_menu.tscn")
+#
+#
+#
+#func _on_pause_retry_button_down():
+	#PlayerVariables.quail_count = 0
+	#get_tree().paused = false
+	#get_tree().reload_current_scene()
 
 
 func _on_hurtbox_area_exited(area):

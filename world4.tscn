@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://gq0k1lpounae"]
+[gd_scene load_steps=33 format=3 uid="uid://gq0k1lpounae"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_mnrrk"]
 [ext_resource type="PackedScene" uid="uid://bhxtmp2tcsl23" path="res://night_parallax_background.tscn" id="2_p8ta8"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="25_qk2dn"]
 [ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="26_xecss"]
 [ext_resource type="PackedScene" uid="uid://cer2wenif6nf2" path="res://semi_spawner.tscn" id="27_2nl54"]
+[ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="28_4ox1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_frd5w")
@@ -633,7 +634,7 @@ z_index = 2
 position = Vector2(772, 122)
 
 [node name="EndFlag" parent="." instance=ExtResource("9_6qbna")]
-position = Vector2(426, 250)
+position = Vector2(89, 114)
 
 [node name="CarSpawner2" parent="." instance=ExtResource("5_he7l0")]
 position = Vector2(150, -395)
@@ -855,6 +856,8 @@ position = Vector2(775, 4)
 
 [node name="SemiSpawner" parent="." instance=ExtResource("27_2nl54")]
 position = Vector2(220, -398)
+
+[node name="UICanvas" parent="." instance=ExtResource("28_4ox1f")]
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
