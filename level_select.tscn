@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ga2omyhx8dwf"]
+[gd_scene load_steps=5 format=3 uid="uid://ga2omyhx8dwf"]
 
 [ext_resource type="Script" path="res://scripts/level_select.gd" id="1_r1rmq"]
-[ext_resource type="PackedScene" uid="uid://bhxtmp2tcsl23" path="res://night_parallax_background.tscn" id="2_hd07b"]
+[ext_resource type="PackedScene" uid="uid://cr5h11sy2os6o" path="res://storm_background.tscn" id="2_l3ice"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="3_nf4ct"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_vm8hg"]
 
 [node name="LevelSelect" type="Node2D"]
 position = Vector2(924, 543)
 script = ExtResource("1_r1rmq")
 
-[node name="NightParallaxBackground" parent="." instance=ExtResource("2_hd07b")]
+[node name="StormBackground" parent="." instance=ExtResource("2_l3ice")]
+offset = Vector2(400, 0)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 400, 0)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -30,26 +34,36 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nf4ct")
+theme_override_font_sizes/font_size = 64
+text = "Select a Level:"
+
 [node name="ButtonWorld1" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 1"
 
 [node name="ButtonWorld2" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 2"
 
 [node name="ButtonWorld3" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 3"
 
 [node name="ButtonWorld4" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 4
@@ -57,6 +71,7 @@ text = "World 4
 
 [node name="ButtonWorld5" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 5
@@ -64,18 +79,21 @@ text = "World 5
 
 [node name="ButtonWorld6" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 6"
 
 [node name="ButtonWorld7" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 7"
 
 [node name="ButtonWorld8" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 8
@@ -83,16 +101,37 @@ text = "World 8
 
 [node name="ButtonWorld9" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "World 9
 "
 
+[node name="ButtonWorld10" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nf4ct")
+text = "World 10
+"
+
+[node name="ButtonWorld11" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nf4ct")
+text = "World 11"
+
+[node name="ButtonWorld12" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_nf4ct")
+text = "World 12"
+
 [node name="Back" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
 theme_override_font_sizes/font_size = 32
 text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
 
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld1" to="." method="_on_button_world_1_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld2" to="." method="_on_button_world_2_button_down"]
@@ -103,4 +142,7 @@ text = "Back"
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld7" to="." method="_on_button_world_7_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld8" to="." method="_on_button_world_8_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld9" to="." method="_on_button_world_9_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ButtonWorld10" to="." method="_on_button_world_10_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ButtonWorld11" to="." method="_on_button_world_11_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ButtonWorld12" to="." method="_on_button_world_12_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/Back" to="." method="_on_back_button_down"]

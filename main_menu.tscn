@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=42 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="31_n2hne"]
 [ext_resource type="Texture2D" uid="uid://bk574n3cfkkbg" path="res://assets/menu/LogoRevision14.png" id="32_152n8"]
 [ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="37_a1j58"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -228,47 +229,54 @@ scale = Vector2(2, 2)
 position = Vector2(145, 39)
 scale = Vector2(2, 2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 83.0
-offset_bottom = 89.0
-grow_vertical = 2
-size_flags_horizontal = 0
-
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../LevelSelectButton")
-focus_next = NodePath("../LevelSelectButton")
-focus_previous = NodePath("../QuitButton")
-theme_override_fonts/font = ExtResource("14_qf2yh")
-theme_override_font_sizes/font_size = 16
-text = "Play"
-
-[node name="LevelSelectButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../PlayButton")
-focus_previous = NodePath("../PlayButton")
-theme_override_fonts/font = ExtResource("14_qf2yh")
-text = "Level Select"
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../PlayButton")
-focus_next = NodePath("../PlayButton")
-theme_override_fonts/font = ExtResource("14_qf2yh")
-theme_override_font_sizes/font_size = 16
-text = "	Quit Game"
-
 [node name="MenuSign" type="Sprite2D" parent="."]
 z_index = 5
 position = Vector2(-89, 68)
 scale = Vector2(2, 2)
 texture = ExtResource("32_fsm2t")
 
-[connection signal="button_down" from="VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
-[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+top_level = true
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 100.0
+offset_bottom = 73.0
+size_flags_horizontal = 0
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../LevelSelectButton")
+focus_neighbor_bottom = NodePath("../LevelSelectButton")
+focus_next = NodePath("../LevelSelectButton")
+focus_previous = NodePath("../QuitButton")
+theme = ExtResource("37_a1j58")
+theme_override_fonts/font = ExtResource("14_qf2yh")
+theme_override_font_sizes/font_size = 16
+text = "Play"
+
+[node name="LevelSelectButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_previous = NodePath("../PlayButton")
+theme = ExtResource("37_a1j58")
+theme_override_font_sizes/font_size = 16
+text = "Level Select"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../PlayButton")
+focus_next = NodePath("../PlayButton")
+theme = ExtResource("37_a1j58")
+theme_override_fonts/font = ExtResource("14_qf2yh")
+theme_override_font_sizes/font_size = 16
+text = "	Quit Game"
+
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]

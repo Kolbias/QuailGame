@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddk8hn0jx3lpg"]
+[gd_scene load_steps=10 format=3 uid="uid://ddk8hn0jx3lpg"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dakpgqkqmy62g" path="res://assets/ui/SilverEgg.png" id="4_oey5w"]
 [ext_resource type="AudioStream" uid="uid://dle8qk27avik" path="res://assets/sounds/BirdAmbience.ogg" id="5_cw2r3"]
 [ext_resource type="Texture2D" uid="uid://dnem4atfooguh" path="res://assets/ui/GoldEgg.png" id="5_u2cvp"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="6_avaob"]
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource("1_m5l4d")
@@ -46,6 +47,7 @@ offset_bottom = 116.5
 
 [node name="Next" type="Button" parent="Control/VBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("6_avaob")
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
 text = "Next Level
@@ -53,6 +55,7 @@ text = "Next Level
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer2"]
 layout_mode = 2
+theme = ExtResource("6_avaob")
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
@@ -74,6 +77,8 @@ alignment = 1
 
 [node name="StarText" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
 text = "Star Text"
@@ -81,6 +86,8 @@ horizontal_alignment = 1
 
 [node name="QuailScore" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
 text = "you rescued blank quails"

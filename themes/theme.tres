@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bpswxq60aviax"]
+
+[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_w4ibr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey4jp"]
+bg_color = Color(0.211765, 0.772549, 0.956863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.427451, 0.917647, 0.839216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktbiv"]
+bg_color = Color(0.67451, 0.156863, 0.278431, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[resource]
+default_font = ExtResource("1_w4ibr")
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_w4ibr")
+Button/styles/hover = SubResource("StyleBoxFlat_ey4jp")
+Button/styles/normal = SubResource("StyleBoxFlat_ktbiv")

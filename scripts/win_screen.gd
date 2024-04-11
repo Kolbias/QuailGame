@@ -88,9 +88,33 @@ func _ready():
 	# World 9
 	if score == 20 and world == "world9":
 		award_bronze()
-	if (score > 21 and score < 24 and world == "world9"):
+	if (score > 20 and score < 24 and world == "world9"):
 		award_silver()
 	if score >= 25 and world == "world9":
+		award_gold()
+	
+	# World 10
+	if score == 20 and world == "world10":
+		award_bronze()
+	if (score > 20 and score < 24 and world == "world10"):
+		award_silver()
+	if score >= 25 and world == "world10":
+		award_gold()
+	
+	# World 11
+	if score == 20 and world == "world11":
+		award_bronze()
+	if (score > 20 and score < 24 and world == "world11"):
+		award_silver()
+	if score >= 25 and world == "world11":
+		award_gold()
+		
+	# World 12
+	if score == 20 and world == "world12":
+		award_bronze()
+	if (score > 21 and score < 24 and world == "world12"):
+		award_silver()
+	if score >= 25 and world == "world12":
 		award_gold()
 		
 	quail_call_sound.play()
@@ -152,7 +176,22 @@ func _on_next_button_down():
 	elif PlayerVariables.current_level == 'world8':
 		PlayerVariables.current_level = 'world9' 
 		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world9.tscn") # Change to world8 when created.
+		get_tree().change_scene_to_file("res://world9.tscn")
+		
+	elif PlayerVariables.current_level == 'world9':
+		PlayerVariables.current_level = 'world10' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world10.tscn")
+		
+	elif PlayerVariables.current_level == 'world10':
+		PlayerVariables.current_level = 'world11' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world11.tscn")
+	
+	elif PlayerVariables.current_level == 'world11':
+		PlayerVariables.current_level = 'world12' 
+		print(PlayerVariables.current_level)
+		get_tree().change_scene_to_file("res://world12.tscn")  # Change to world8 when created.
 	else:
 		get_tree().change_scene_to_file("res://main_menu.tscn")
 

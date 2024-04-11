@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxfwlo7wajkmt"]
+[gd_scene load_steps=5 format=3 uid="uid://bxfwlo7wajkmt"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_gmcjw"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_y8cmf"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_eg8u3"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="4_68s8r"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_gmcjw")
@@ -27,6 +28,8 @@ grow_vertical = 2
 
 [node name="GameOver" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_eg8u3")
 text = "Game Over
 "
@@ -34,12 +37,16 @@ horizontal_alignment = 1
 
 [node name="PlayAgain" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_68s8r")
 theme_override_fonts/font = ExtResource("3_eg8u3")
+theme_override_font_sizes/font_size = 16
 text = "Play again?"
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_68s8r")
 theme_override_fonts/font = ExtResource("3_eg8u3")
+theme_override_font_sizes/font_size = 16
 text = "Quit
 "
 
