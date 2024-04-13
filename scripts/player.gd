@@ -41,6 +41,7 @@ func _ready():
 	#pause_quit_button.visible = false
 	#pause_retry.visible = false
 	#game_over_ui.visible = false 
+	#GlobalSignals.game_over.connect(_on_game_over)
 	timer.start()
 
 
@@ -116,6 +117,7 @@ func _on_hurtbox_area_entered(area):
 		sprite.visible = false
 		hurtbox.monitoring = true
 		alive = false
+		GlobalSignals.emit_signal("game_over")
 		#game_over_ui.visible = true
 		print("Game Over")
 		
@@ -180,3 +182,6 @@ func _on_hurtbox_area_exited(area):
 	if area.is_in_group("water"):
 		in_water = false
 		PlayerVariables.speed = 100.0
+
+func _on_game_over():
+	print("Player Died")
