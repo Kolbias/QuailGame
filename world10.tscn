@@ -548,7 +548,7 @@ one_shot = true
 autostart = true
 
 [node name="CarSpawner5" type="Marker2D" parent="."]
-position = Vector2(633, 405)
+position = Vector2(633, 406)
 rotation = 3.14159
 script = ExtResource("8_mv0eu")
 
@@ -746,7 +746,7 @@ volume_db = -3.0
 autoplay = true
 
 [node name="TwoCarSpawner" parent="." instance=ExtResource("27_s1euc")]
-position = Vector2(545, -354)
+position = Vector2(560, -350)
 rotation = 0.0
 
 [node name="TwoCarSpawner2" parent="." instance=ExtResource("27_s1euc")]
@@ -763,7 +763,7 @@ position = Vector2(-400, 151)
 fire_speed = 0.4
 
 [node name="SemiSpawner" parent="." instance=ExtResource("25_o0eht")]
-position = Vector2(465, 472)
+position = Vector2(442, 449)
 
 [node name="UICanvas" parent="." instance=ExtResource("26_kbmt2")]
 

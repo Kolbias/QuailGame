@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsi5uovwxtvik"]
+
+[ext_resource type="Shader" path="res://shaders/grass_alt.gdshader" id="1_rcd3h"]
+[ext_resource type="Texture2D" uid="uid://cy7kq3jdj8ed0" path="res://assets/objects/Reed.png" id="2_luqm7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kjhlj"]
+shader = ExtResource("1_rcd3h")
+
+[node name="Reed" type="Sprite2D"]
+material = SubResource("ShaderMaterial_kjhlj")
+texture = ExtResource("2_luqm7")
