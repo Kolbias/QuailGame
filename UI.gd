@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var quail_count_ui = $UI/Control/VBoxContainer3/QuailCount
 @onready var timer_ui = $UI/Control/VBoxContainer3/Timer
 @onready var timer = $Timer
+@onready var transition = $UI/BlackTransition
 
 # Paused Variables
 @onready var paused = false
@@ -13,7 +14,7 @@ extends CanvasLayer
 
 func _ready():
 	timer.start()
-	
+	GlobalSignals.game_over.connect(_on_game_over)
 	unpause_button.connect('button_down', _on_unpause_button_down)
 	pause_quit_button.connect("button_down", _on_pause_quit_button_down)
 	pause_retry.connect("button_down", _on_pause_retry_button_down)
@@ -53,3 +54,6 @@ func _on_pause_retry_button_down():
 
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
+
+func _on_game_over():
+	game_over_ui.visible = true

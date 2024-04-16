@@ -4,7 +4,7 @@ extends Node2D
 @onready var quail_baby = preload("res://quail_baby.tscn")
 # @export var background_scroll_speed = Vector2(0.15,0.15)
 @onready var player_quail_amount = PlayerVariables.quail_count
-@onready var ui = $UICanvas
+@onready var ui = $UICanvasdw
 @onready var player = $Player
 
 func _ready():
