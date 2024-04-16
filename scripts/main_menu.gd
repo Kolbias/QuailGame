@@ -5,8 +5,10 @@ extends Node2D
 @onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.5,0.5)
 @onready var sound = $AudioStreamPlayer2D
+@onready var play_button = $CanvasLayer/Control/VBoxContainer/PlayButton
 
 func _ready():
+	play_button.grab_focus()
 	get_tree().paused = false
 	baby_quail_left.flip_h = true
 	sound.play()

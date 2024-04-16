@@ -18,6 +18,7 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
+	$Control/VBoxContainer2/Next.grab_focus()
 	var world = PlayerVariables.current_level
 	
 	# World1 Score Thresholds
@@ -125,7 +126,7 @@ func _process(delta):
 	parallax.motion_offset += background_scroll_speed
 
 func _on_quit_button_down():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://main_menu.tscn")
 
 
 func _on_next_button_down():

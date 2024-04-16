@@ -47,6 +47,12 @@ offset_bottom = 116.5
 
 [node name="Next" type="Button" parent="Control/VBoxContainer2"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Quit")
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_right = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
 theme = ExtResource("6_avaob")
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
@@ -55,10 +61,16 @@ text = "Next Level
 
 [node name="Quit" type="Button" parent="Control/VBoxContainer2"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Next")
+focus_neighbor_top = NodePath("../Next")
+focus_neighbor_right = NodePath("../Next")
+focus_neighbor_bottom = NodePath("../Next")
+focus_next = NodePath("../Next")
+focus_previous = NodePath("../Next")
 theme = ExtResource("6_avaob")
 theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
-text = "Quit"
+text = "Quit to Menu"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1

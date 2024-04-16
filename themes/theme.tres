@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bpswxq60aviax"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bpswxq60aviax"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_w4ibr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn24"]
+bg_color = Color(0.211765, 0.772549, 0.956863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.427451, 0.917647, 0.839216, 1)
+shadow_color = Color(0.427451, 0.917647, 0.839216, 1)
+shadow_size = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey4jp"]
 bg_color = Color(0.211765, 0.772549, 0.956863, 1)
@@ -9,18 +19,31 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.427451, 0.917647, 0.839216, 1)
+shadow_color = Color(0, 0, 0, 0.239216)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktbiv"]
-bg_color = Color(0.67451, 0.156863, 0.278431, 1)
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.14902, 0.521569, 0.298039, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.239216)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
 
 [resource]
 default_font = ExtResource("1_w4ibr")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_w4ibr")
+Button/styles/focus = SubResource("StyleBoxFlat_btn24")
 Button/styles/hover = SubResource("StyleBoxFlat_ey4jp")
 Button/styles/normal = SubResource("StyleBoxFlat_ktbiv")

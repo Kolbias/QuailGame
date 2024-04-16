@@ -37,6 +37,9 @@ func _process(delta):
 		pause_retry.visible = true
 		pause_quit_button.visible = true
 		get_tree().paused = true
+		unpause_button.grab_focus()
+		
+		
 		
 func _on_unpause_button_down():
 	unpause_button.visible = false

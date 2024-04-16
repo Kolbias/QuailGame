@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Control/VBoxContainer/PlayAgain.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -37,7 +37,7 @@ func _on_play_again_button_down():
 
 func _on_quit_button_down():
 	
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://main_menu.tscn")
 #
 #func get_current_world(new_world):
 	#var world = PlayerVariables.current_level

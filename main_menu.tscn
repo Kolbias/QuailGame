@@ -239,15 +239,21 @@ texture = ExtResource("32_fsm2t")
 layer = 2
 follow_viewport_enabled = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 top_level = true
 offset_left = 20.0
 offset_top = 5.0
-offset_right = 100.0
-offset_bottom = 73.0
+offset_right = 104.0
+offset_bottom = 76.0
 size_flags_horizontal = 0
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../QuitButton")
 focus_neighbor_top = NodePath("../QuitButton")
@@ -260,7 +266,7 @@ theme_override_fonts/font = ExtResource("14_qf2yh")
 theme_override_font_sizes/font_size = 16
 text = "Play"
 
-[node name="LevelSelectButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="LevelSelectButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
@@ -268,7 +274,7 @@ theme = ExtResource("37_a1j58")
 theme_override_font_sizes/font_size = 16
 text = "Level Select"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
@@ -277,6 +283,6 @@ theme_override_fonts/font = ExtResource("14_qf2yh")
 theme_override_font_sizes/font_size = 16
 text = "	Quit Game"
 
-[connection signal="button_down" from="CanvasLayer/VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]
