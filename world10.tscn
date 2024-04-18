@@ -681,9 +681,6 @@ position = Vector2(299, 50)
 [node name="FlowerPatch2" parent="Environment" instance=ExtResource("21_oi8fp")]
 position = Vector2(829, 87)
 
-[node name="GrassField" parent="Environment" instance=ExtResource("22_73iwv")]
-position = Vector2(316, 82)
-
 [node name="GrassField3" parent="Environment" instance=ExtResource("22_73iwv")]
 position = Vector2(48, 31)
 
