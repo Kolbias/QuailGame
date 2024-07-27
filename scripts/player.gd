@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 # Gameplay Variables
-@onready var alive = true
-@onready var hurtbox = $Hurtbox
-@onready var sprite = get_node("AnimatedSprite2D")
-@onready var quail_baby = preload("res://quail_baby.tscn")
-@onready var world = preload("res://world.gd")
-@onready var timer = $Timer
-@onready var egg_hatch_sound = $EggHatchSound
-@onready var hit_sound = $HitSound
-@onready var in_water = false
-@onready var push_amount = 10.0
+@onready var alive := true
+@onready var hurtbox := $Hurtbox
+@onready var sprite := get_node("AnimatedSprite2D")
+@onready var quail_baby := preload("res://quail_baby.tscn")
+@onready var world := preload("res://world.gd")
+@onready var timer := $Timer
+@onready var egg_hatch_sound := $EggHatchSound
+@onready var hit_sound := $HitSound
+@onready var in_water := false
+@onready var push_amount := 10.0
+@onready var speed = PlayerVariables.speed
+@onready var boost_speed = PlayerVariables.boost_speed
 
+var can_boost := true
 ## Gameplay UI
 #@onready var quail_count_ui = $CanvasLayer/UI/Control/QuailCount
 #@onready var timer_ui = $CanvasLayer/UI/Control/Timer
@@ -45,17 +48,17 @@ func _ready():
 	timer.start()
 
 
-func _process(delta):
+func _physics_process(delta):
 	var current_quail_count = PlayerVariables.quail_count
 	var dir = Vector2()
-	var speed = PlayerVariables.speed
 	var moving = false 
 	var move_left = Input.is_action_pressed("move_left")
 	var move_right = Input.is_action_pressed("move_right")
 	var move_down = Input.is_action_pressed("move_down")
 	var move_up = Input.is_action_pressed("move_up")
-
-	
+	var boost = Input.is_action_pressed("boost")
+	var boost_started = Input.is_action_just_pressed("boost")
+	PlayerVariables.boost_cooldown = $BoostCooldown.time_left
 # Movement
 	if move_left and alive == true:
 		dir.x -= speed
@@ -72,7 +75,14 @@ func _process(delta):
 		dir.y -= speed
 		moving = true
 	
+	if can_boost and boost_started:
+		$BoostTimer.start()
 	
+	if moving and boost and can_boost:
+		speed = lerp(speed, boost_speed, 5.0 * delta)
+		print(speed)
+		
+		
 	if moving:
 		sprite.play("run")
 		if in_water:
@@ -185,3 +195,16 @@ func _on_hurtbox_area_exited(area):
 
 func _on_game_over():
 	print("Player Died")
+
+
+func _on_boost_timer_timeout():
+	$BoostTimer.stop()
+	$BoostCooldown.start()
+	speed = PlayerVariables.speed
+	can_boost = false
+
+
+func _on_boost_cooldown_timeout():
+	can_boost = true
+	$BoostCooldown.stop()
+

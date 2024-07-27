@@ -234,6 +234,13 @@ scale_amount_max = 0.7
 scale_amount_curve = SubResource("Curve_bnd0r")
 anim_speed_max = 5.0
 
+[node name="BoostTimer" type="Timer" parent="."]
+
+[node name="BoostCooldown" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
+[connection signal="timeout" from="BoostCooldown" to="." method="_on_boost_cooldown_timeout"]

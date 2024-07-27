@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var pause_quit_button = $UI/Control/VBoxContainer/PauseQuitButton
 @onready var pause_retry = $UI/Control/VBoxContainer/PauseRetry
 @onready var game_over_ui = $UI/GameOverText
+@onready var boost_cooldown_bar = $UI/Control/VBoxContainer3/BoostCooldownBar
 
 func _ready():
 	timer.start()
@@ -30,7 +31,7 @@ func _process(delta):
 	quail_count_ui.text = "Quail Count: " + str(PlayerVariables.quail_count)
 	var time_left_rounded = int(timer.time_left)
 	timer_ui.text = "Time Left: " + str(time_left_rounded)
-	
+	boost_cooldown_bar.value = PlayerVariables.boost_cooldown
 	if Input.is_action_just_pressed("pause") and paused == false:
 		print("Paused via UI Node")
 		unpause_button.visible = true

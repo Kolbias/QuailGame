@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=7 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_8mgkr"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="2_c03q6"]
 [ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="3_krllt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xvyk"]
+bg_color = Color(1, 1, 0.270588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="UICanvas" type="CanvasLayer"]
 script = ExtResource("1_wmy3y")
@@ -146,6 +154,15 @@ theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
 text = "Time Remaining: ##"
+
+[node name="BoostCooldownBar" type="ProgressBar" parent="UI/Control/VBoxContainer3"]
+custom_minimum_size = Vector2(10, 25)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_4xvyk")
+max_value = 3.0
+value = 3.0
+fill_mode = 1
+show_percentage = false
 
 [node name="GameOverText" type="Label" parent="UI"]
 layout_mode = 1
