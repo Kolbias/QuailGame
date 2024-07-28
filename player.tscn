@@ -1,12 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=43 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
+[ext_resource type="Texture2D" uid="uid://bb7lslpklpjfa" path="res://assets/player/QuailBoost1.png" id="2_5cc8h"]
+[ext_resource type="Texture2D" uid="uid://8raq7gyhj40e" path="res://assets/player/QuailBoost2.png" id="3_8lkm1"]
 [ext_resource type="Texture2D" uid="uid://dh5g5k03maj5e" path="res://assets/player/QuailStatic3.png" id="3_xxd4a"]
 [ext_resource type="Texture2D" uid="uid://bmjusyo3qlbsx" path="res://assets/player/QuailStatic4.png" id="4_1iod7"]
+[ext_resource type="Texture2D" uid="uid://cl8m77r6i6wo8" path="res://assets/player/QuailBoost3.png" id="4_lt4wd"]
+[ext_resource type="Texture2D" uid="uid://dh7imxwgcjivm" path="res://assets/player/QuailBoost4.png" id="5_ephsh"]
 [ext_resource type="Texture2D" uid="uid://dabhk4fahhnyh" path="res://assets/player/QuailStatic5.png" id="5_lccfj"]
+[ext_resource type="Texture2D" uid="uid://dw01cyig5g7c3" path="res://assets/player/QuailBoost5.png" id="6_2pn5s"]
 [ext_resource type="Texture2D" uid="uid://dyrtv4nnfjv8j" path="res://assets/player/QuailStatic6.png" id="6_smeov"]
 [ext_resource type="Texture2D" uid="uid://dfuvxfqmpwo06" path="res://assets/player/QuailStatic7.png" id="7_hordg"]
+[ext_resource type="Texture2D" uid="uid://brw4ajxrhrbyn" path="res://assets/player/QuailBoost6.png" id="7_wy67a"]
+[ext_resource type="Texture2D" uid="uid://ck4b4s4yfacsl" path="res://assets/player/QuailBoost7.png" id="8_6pwvf"]
 [ext_resource type="Texture2D" uid="uid://cmxx7mdnr5hh3" path="res://assets/player/QuailStatic8.png" id="8_vwric"]
 [ext_resource type="Texture2D" uid="uid://b7mef36ajuhr0" path="res://assets/player/QuailStatic9.png" id="9_dx3mc"]
 [ext_resource type="Texture2D" uid="uid://dnlu5pml2gs1o" path="res://assets/player/QuailStatic2.png" id="10_utgu2"]
@@ -29,9 +36,36 @@
 [ext_resource type="Texture2D" uid="uid://dqulrlhgm34vb" path="res://assets/player/QuailSwim7.png" id="24_h73ne"]
 [ext_resource type="Texture2D" uid="uid://54iugs4aog8t" path="res://assets/player/QuailSwim8.png" id="25_j57du"]
 [ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
+[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="30_th2rr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5cc8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8lkm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lt4wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ephsh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2pn5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wy67a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6pwvf")
+}],
+"loop": true,
+"name": &"boost",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_1ff1k")
@@ -180,7 +214,7 @@ script = ExtResource("1_lrfys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7sgie")
-animation = &"idle"
+animation = &"boost"
 autoplay = "swim"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -235,9 +269,22 @@ scale_amount_curve = SubResource("Curve_bnd0r")
 anim_speed_max = 5.0
 
 [node name="BoostTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="BoostCooldown" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="StateDebug" type="Label" parent="."]
+visible = false
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = -8.0
+theme_override_fonts/font = ExtResource("30_th2rr")
+theme_override_font_sizes/font_size = 16
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]

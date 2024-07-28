@@ -14,42 +14,114 @@ extends CharacterBody2D
 @onready var speed = PlayerVariables.speed
 @onready var boost_speed = PlayerVariables.boost_speed
 
-var can_boost := true
-## Gameplay UI
-#@onready var quail_count_ui = $CanvasLayer/UI/Control/QuailCount
-#@onready var timer_ui = $CanvasLayer/UI/Control/Timer
-#
-## Paused Variables
-#@onready var paused = falses
-#@onready var unpause_button = $CanvasLayer/UI/Control/VBoxContainer/UnpauseButton
-#@onready var pause_quit_button = $CanvasLayer/UI/Control/VBoxContainer/PauseQuitButton
-#@onready var pause_retry = $CanvasLayer/UI/Control/VBoxContainer/PauseRetry
-#@onready var game_over_ui = $CanvasLayer/UI/GameOverText
+enum States {IDLE, WALK, BOOST, BOOSTSTART, SWIM}
 
-# Effects Variables
+var can_boost = true
+var state = States.IDLE
+
 @onready var particles = $CPUParticles2D
 
 
-
+func change_state(new_state):
+	state = new_state
 
 func _ready():
-	#Tryin to spawn Babies between levels
-	#if PlayerVariables.quail_count > 0:
-		#var instance = quail_baby.instantiate()
-		#for x in PlayerVariables.quail_count:
-			#add_child(instance)
-			
 	print("Current level = " + PlayerVariables.current_level)
-	#unpause_button.visible = false
-	#pause_quit_button.visible = false
-	#pause_retry.visible = false
-	#game_over_ui.visible = false 
-	#GlobalSignals.game_over.connect(_on_game_over)
 	timer.start()
 
 
 func _physics_process(delta):
+	var dir = Vector2()
 	var current_quail_count = PlayerVariables.quail_count
+	var boost_started = Input.is_action_just_pressed("boost")
+	var boost_ended = Input.is_action_just_released("boost")
+	PlayerVariables.boost_cooldown = $BoostCooldown.time_left
+	
+	match state:
+		States.IDLE:
+			#$StateDebug.text = "IDLE"
+			if Input.is_action_pressed("move_down"):
+				change_state(States.WALK)
+			if Input.is_action_pressed("move_up"):
+				change_state(States.WALK)
+			if Input.is_action_pressed("move_left"):
+				change_state(States.WALK)
+			if Input.is_action_pressed("move_right"):
+				change_state(States.WALK)
+			sprite.play("idle")
+		States.WALK:
+			#$StateDebug.text = "WALK"
+			var move_left = Input.is_action_pressed("move_left")
+			var move_right = Input.is_action_pressed("move_right")
+			var move_down = Input.is_action_pressed("move_down")
+			var move_up = Input.is_action_pressed("move_up")
+			var boost = Input.is_action_pressed("boost")
+			if move_left and alive == true:
+				dir.x -= speed
+				sprite.flip_h = true
+			if move_right and alive == true:
+				dir.x += speed
+				sprite.flip_h = false
+			if move_down and alive == true:
+				dir.y += speed
+			if move_up and alive == true:
+				dir.y -= speed
+			velocity = dir.normalized() * speed
+			move_and_slide()
+			sprite.play("run")
+			if Input.is_action_just_pressed("boost") and can_boost:
+				change_state(States.BOOSTSTART)
+			if Input.is_action_just_released("move_down"):
+				change_state(States.IDLE)
+			if Input.is_action_just_released("move_up"):
+				change_state(States.IDLE)
+			if Input.is_action_just_released("move_left"):
+				change_state(States.IDLE)
+			if Input.is_action_just_released("move_right"):
+				change_state(States.IDLE)
+		States.BOOSTSTART:
+			can_boost = false
+			$StateDebug.text = "BOOST START"
+			$BoostTimer.start()
+			change_state(States.BOOST)
+		States.BOOST:
+			var move_left = Input.is_action_pressed("move_left")
+			var move_right = Input.is_action_pressed("move_right")
+			var move_down = Input.is_action_pressed("move_down")
+			var move_up = Input.is_action_pressed("move_up")
+			var boost = Input.is_action_pressed("boost")
+			if move_left and alive == true:
+				dir.x -= speed
+				sprite.flip_h = true
+			if move_right and alive == true:
+				dir.x += speed
+				sprite.flip_h = false
+			if move_down and alive == true:
+				dir.y += speed
+			if move_up and alive == true:
+				dir.y -= speed
+			velocity = dir.normalized() * speed
+			move_and_slide()
+			sprite.play("boost")
+			$StateDebug.text = "BOOST"
+			speed = lerp(speed, boost_speed, 5.0 * delta)
+
+	velocity = dir.normalized() * speed
+	move_and_slide()
+	
+	for i in get_slide_collision_count():
+			var c = get_slide_collision(i)
+			if c.get_collider() is RigidBody2D:
+				c.get_collider().apply_central_impulse(-c.get_normal() * push_amount)
+	
+	if Input.is_action_just_pressed("restart"):
+		PlayerVariables.quail_count = 0
+		get_tree().reload_current_scene()
+
+	if alive == false:
+		particles.emitting = true
+
+func move():
 	var dir = Vector2()
 	var moving = false 
 	var move_left = Input.is_action_pressed("move_left")
@@ -57,9 +129,6 @@ func _physics_process(delta):
 	var move_down = Input.is_action_pressed("move_down")
 	var move_up = Input.is_action_pressed("move_up")
 	var boost = Input.is_action_pressed("boost")
-	var boost_started = Input.is_action_just_pressed("boost")
-	PlayerVariables.boost_cooldown = $BoostCooldown.time_left
-# Movement
 	if move_left and alive == true:
 		dir.x -= speed
 		sprite.flip_h = true
@@ -74,50 +143,11 @@ func _physics_process(delta):
 	if move_up and alive == true:
 		dir.y -= speed
 		moving = true
-	
-	if can_boost and boost_started:
-		$BoostTimer.start()
-	
-	if moving and boost and can_boost:
-		speed = lerp(speed, boost_speed, 5.0 * delta)
-		print(speed)
-		
-		
-	if moving:
-		sprite.play("run")
-		if in_water:
-				sprite.play("swim")
-	elif in_water and moving == false:
-		sprite.play("swim")
-		
-	else:
-		sprite.play("idle")
-	
-	#quail_count_ui.text = ("Quail count: " + str(current_quail_count))
-	#timer_ui.text = ("Time Remaining: " + str(int(timer.time_left)))
 	velocity = dir.normalized() * speed
 	move_and_slide()
-	
-	for i in get_slide_collision_count():
-			var c = get_slide_collision(i)
-			if c.get_collider() is RigidBody2D:
-				c.get_collider().apply_central_impulse(-c.get_normal() * push_amount)
-	
-	if Input.is_action_just_pressed("restart"):
-		PlayerVariables.quail_count = 0
-		get_tree().reload_current_scene()
-	
-# Pause
-	#if Input.is_action_just_pressed("pause") and paused == false:
-		#get_tree().paused = true
-		#unpause_button.visible = true
-		#pause_retry.visible = true
-		#pause_quit_button.visible = true
-	
-	if alive == false:
-		particles.emitting = true
-		
+	sprite.play("run")
 
+	
 # Car Collision
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
@@ -128,7 +158,6 @@ func _on_hurtbox_area_entered(area):
 		hurtbox.monitoring = true
 		alive = false
 		GlobalSignals.emit_signal("game_over")
-		#game_over_ui.visible = true
 		print("Game Over")
 		
 	if area.is_in_group("water"):
@@ -139,7 +168,6 @@ func _on_hurtbox_area_entered(area):
 		print("Quail burning!!")
 		alive = false
 		sprite.visible = false
-		#game_over_ui.visible = true
 	else:
 		pass
 
@@ -154,13 +182,6 @@ func _on_quail_egg_quail_hatched():
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
 
-# Unpause
-#func _on_unpause_button_button_down():
-		#unpause_button.visible = false
-		#pause_quit_button.visible = false
-		#pause_retry.visible = false
-		#get_tree().paused = false
-		
 
 # Play Again 
 func _on_play_again_button_button_down():
@@ -174,18 +195,7 @@ func _on_play_again_button_button_down():
 		get_tree().change_scene_to_file("res://world3.tscn")
 	else:
 		pass
-		#get_tree().change_scene_to_file("res://" + PlayerVariables.current_level + ".tscn")
 
-#
-#func _on_pause_quit_button_button_down():
-	#get_tree().change_scene_to_file("res://main_menu.tscn")
-#
-#
-#
-#func _on_pause_retry_button_down():
-	#PlayerVariables.quail_count = 0
-	#get_tree().paused = false
-	#get_tree().reload_current_scene()
 
 
 func _on_hurtbox_area_exited(area):
@@ -198,10 +208,13 @@ func _on_game_over():
 
 
 func _on_boost_timer_timeout():
+	change_state(States.IDLE)
+	can_boost = false
 	$BoostTimer.stop()
 	$BoostCooldown.start()
 	speed = PlayerVariables.speed
-	can_boost = false
+	print("timer stopped")
+
 
 
 func _on_boost_cooldown_timeout():
