@@ -1,6 +1,6 @@
 extends Node
 
-var speed := 75.0
+var speed := 70.0
 var boost_speed := 120.0
 var quail_count := 0
 var boost_cooldown := 0.0

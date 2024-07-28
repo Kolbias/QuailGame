@@ -567,10 +567,10 @@ position = Vector2(95, -18)
 position = Vector2(106, -69)
 
 [node name="QuailEgg21" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(413, 64)
+position = Vector2(426, 64)
 
 [node name="QuailEgg23" parent="." instance=ExtResource("5_k6rxl")]
-position = Vector2(486, 24)
+position = Vector2(486, 29)
 
 [node name="QuailEgg18" parent="." instance=ExtResource("5_k6rxl")]
 position = Vector2(256, -143)
