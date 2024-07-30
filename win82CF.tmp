@@ -1,0 +1,119 @@
+[gd_scene load_steps=10 format=3 uid="uid://ddk8hn0jx3lpg"]
+
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
+[ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
+[ext_resource type="Texture2D" uid="uid://c3j6wojqph123" path="res://assets/ui/BronzeEgg.png" id="3_euacw"]
+[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_u15fd"]
+[ext_resource type="AudioStream" uid="uid://dg80eo36ckyi7" path="res://assets/sounds/QuailCall1.mp3" id="4_agpg8"]
+[ext_resource type="Texture2D" uid="uid://dakpgqkqmy62g" path="res://assets/ui/SilverEgg.png" id="4_oey5w"]
+[ext_resource type="AudioStream" uid="uid://dle8qk27avik" path="res://assets/sounds/BirdAmbience.ogg" id="5_cw2r3"]
+[ext_resource type="Texture2D" uid="uid://dnem4atfooguh" path="res://assets/ui/GoldEgg.png" id="5_u2cvp"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="6_avaob"]
+
+[node name="WinScreen" type="Node2D"]
+script = ExtResource("1_m5l4d")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_g0l7j")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BronzeStar" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(0, -60)
+texture = ExtResource("3_euacw")
+
+[node name="SilverStar" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(0, -60)
+texture = ExtResource("4_oey5w")
+
+[node name="GoldStar" type="Sprite2D" parent="Control"]
+visible = false
+position = Vector2(0, -60)
+texture = ExtResource("5_u2cvp")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -156.0
+offset_top = 51.5
+offset_right = 156.0
+offset_bottom = 116.5
+
+[node name="Next" type="Button" parent="Control/VBoxContainer2"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Quit")
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_right = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Quit")
+theme = ExtResource("6_avaob")
+theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 32
+text = "Next Level
+"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer2"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Next")
+focus_neighbor_top = NodePath("../Next")
+focus_neighbor_right = NodePath("../Next")
+focus_neighbor_bottom = NodePath("../Next")
+focus_next = NodePath("../Next")
+focus_previous = NodePath("../Next")
+theme = ExtResource("6_avaob")
+theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 32
+text = "Quit to Menu"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -49.5
+offset_right = 156.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StarText" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 32
+text = "Star Text"
+horizontal_alignment = 1
+
+[node name="QuailScore" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_u15fd")
+theme_override_font_sizes/font_size = 32
+text = "you rescued blank quails"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="QuailCallSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_agpg8")
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_cw2r3")
+
+[connection signal="button_down" from="Control/VBoxContainer2/Next" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer2/Quit" to="." method="_on_quit_button_down"]

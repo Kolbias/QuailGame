@@ -26,7 +26,7 @@ func change_state(new_state):
 	state = new_state
 
 func _ready():
-	print("Current level = " + PlayerVariables.current_level)
+	print("Current level = " + str(PlayerVariables.current_level))
 	timer.start()
 
 

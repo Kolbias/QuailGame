@@ -7,6 +7,7 @@ extends Node2D
 @onready var ui = $UICanvas
 @onready var player = $Player
 
+
 func _ready():
 	pass
 

@@ -13,6 +13,12 @@ extends Node2D
 @onready var star_speed = 0.5
 @onready var star_scale = Vector2(3,3)
 
+@onready var cr1 = PlayerVariables.chall_rating1
+@onready var cr2 = PlayerVariables.chall_rating2
+@onready var cr3 = PlayerVariables.chall_rating3
+@onready var cr4 = PlayerVariables.chall_rating4
+@onready var cr5 = PlayerVariables.chall_rating5
+
 # Sounds
 @onready var quail_call_sound = $QuailCallSound
 @onready var ambient_sound = $Ambience
@@ -23,99 +29,99 @@ func _ready():
 	
 	# World1 Score Thresholds
 	# Bronze
-	if score == 10 and world == "world1":
+	if score == cr1 and world == 1:
 		award_bronze()
-	if (score > 10 and score < 20 and world == "world1"):
+	if (score > cr1 and score < 15 and world == 1):
 		award_silver()
-	if score >= 20 and world == "world1":
+	if score >= 15 and world == 1:
 		award_gold()
 	
 	# World2 Score Thresholds
-	if score == 15 and world == "world2":
+	if score == cr2 and world == 2:
 		award_bronze()
-	if (score > 15 and score < 20 and world == "world2"):
+	if (score > cr2 and score < 17 and world == 2):
 		award_silver()
-	if score >= 20 and world == "world2":
+	if score >= 17 and world == 2:
 		award_gold()
 	
 	# World3 Score Thresholds
-	if score == 18 and world == "world3":
+	if score == cr3 and world == 3:
 		award_bronze()
-	if (score > 18 and score < 22 and world == "world3"):
+	if (score > cr3 and score < 19 and world == 3):
 		award_silver()
-	if score >= 23 and world == "world3":
+	if score >= 19 and world == 3:
 		award_gold()
 
 	# World4 Score Thresholds
-	if score == 12 and world == "world4":
+	if score == cr3 and world == 4:
 		award_bronze()
-	if (score > 13 and score < 19 and world == "world4"):
+	if (score > cr3 and score < 17 and world == 4):
 		award_silver()
-	if score >= 20 and world == "world4":
+	if score >= 17 and world == 4:
 		award_gold()
 	
 	# World5
-	if score == 12 and world == "world5":
+	if score == cr3 and world == 5:
 		award_bronze()
-	if (score > 15 and score < 19 and world == "world5"):
+	if (score > cr3 and score < 19 and world == 5):
 		award_silver()
-	if score >= 20 and world == "world5":
+	if score >= 19 and world == 5:
 		award_gold()
 	
 	# World6
-	if score == 12 and world == "world6":
+	if score == cr3 and world == 6:
 		award_bronze()
-	if (score > 15 and score < 19 and world == "world6"):
+	if (score > cr3 and score < 18 and world == 6):
 		award_silver()
-	if score >= 20 and world == "world6":
+	if score >= 18 and world == 6:
 		award_gold()
 	
 	# World7
-	if score == 20 and world == "world7":
+	if score == cr3 and world == 7:
 		award_bronze()
-	if (score > 21 and score < 24 and world == "world7"):
+	if (score > cr3 and score < 18 and world == 7):
 		award_silver()
-	if score >= 25 and world == "world7":
+	if score >= 18 and world == 7:
 		award_gold()
 	
 	# World8
-	if score == 20 and world == "world8":
+	if score == cr4 and world == 8:
 		award_bronze()
-	if (score > 21 and score < 24 and world == "world8"):
+	if (score > cr4 and score < 18 and world == 8):
 		award_silver()
-	if score >= 25 and world == "world8":
+	if score >= 18 and world == 8:
 		award_gold()
 	
 	# World 9
-	if score == 20 and world == "world9":
+	if score == cr4 and world == 9:
 		award_bronze()
-	if (score > 20 and score < 24 and world == "world9"):
+	if (score > cr4 and score < 18 and world == 9):
 		award_silver()
-	if score >= 25 and world == "world9":
+	if score >= 18 and world == 9:
 		award_gold()
 	
 	# World 10
-	if score == 20 and world == "world10":
+	if score == cr4 and world == 10:
 		award_bronze()
-	if (score > 20 and score < 24 and world == "world10"):
+	if (score > cr4 and score < 18 and world == 10):
 		award_silver()
-	if score >= 25 and world == "world10":
+	if score >= 18 and world == 10:
 		award_gold()
 	
 	# World 11
-	if score == 20 and world == "world11":
+	if score == cr3 and world == 11:
 		award_bronze()
-	if (score > 20 and score < 24 and world == "world11"):
+	if (score > cr3 and score < 18 and world == 11):
 		award_silver()
-	if score >= 25 and world == "world11":
+	if score >= 18 and world == 11:
 		award_gold()
 		
 	# World 12
-	if score == 20 and world == "world12":
+	if score == cr3 and world == 12:
 		award_bronze()
-	if (score > 21 and score < 24 and world == "world12"):
+	if (score > cr3 and score < 18 and world == 12):
 		award_silver()
-	if score >= 25 and world == "world12":
+	if score >= 18 and world == 12:
 		award_gold()
 		
 	quail_call_sound.play()
@@ -131,70 +137,13 @@ func _on_quit_button_down():
 
 func _on_next_button_down():
 	PlayerVariables.quail_count = 0
-	#var world = PlayerVariables.current_level[0]
-	#print(world)
-	#print("Next world will be: " + str(world))
-	#var next_world_path = "res://" + str(next_world) + ".tscn"
-	#print("World path is: " + str(next_world_path))
-	# get_tree().change_scene_to_file(next_world_path)
-	
-	
-	if PlayerVariables.current_level == 'world1':
-		PlayerVariables.current_level = 'world2'
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world2.tscn")
-	
-	elif PlayerVariables.current_level == 'world2':
-		PlayerVariables.current_level = 'world3' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world3.tscn")
-	
-	elif PlayerVariables.current_level == 'world3':
-		PlayerVariables.current_level = 'world4' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world4.tscn")
-	
-	elif PlayerVariables.current_level == 'world4':
-		PlayerVariables.current_level = 'world5' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world5.tscn")
-	
-	elif PlayerVariables.current_level == 'world5':
-		PlayerVariables.current_level = 'world6' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world6.tscn")
-	
-	elif PlayerVariables.current_level == 'world6':
-		PlayerVariables.current_level = 'world7' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world7.tscn")
-	
-	elif PlayerVariables.current_level == 'world7':
-		PlayerVariables.current_level = 'world8' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world8.tscn") # Change to world8 when created.
-	
-	elif PlayerVariables.current_level == 'world8':
-		PlayerVariables.current_level = 'world9' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world9.tscn")
-		
-	elif PlayerVariables.current_level == 'world9':
-		PlayerVariables.current_level = 'world10' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world10.tscn")
-		
-	elif PlayerVariables.current_level == 'world10':
-		PlayerVariables.current_level = 'world11' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world11.tscn")
-	
-	elif PlayerVariables.current_level == 'world11':
-		PlayerVariables.current_level = 'world12' 
-		print(PlayerVariables.current_level)
-		get_tree().change_scene_to_file("res://world12.tscn")  # Change to world8 when created.
-	else:
-		get_tree().change_scene_to_file("res://main_menu.tscn")
+	var world = PlayerVariables.current_level
+	print(world)
+	var next_world = world + 1
+	var next_world_path = "res://world" + str(next_world) + ".tscn"
+	print("Next world will be: " + str(world))
+	PlayerVariables.current_level += 1
+	get_tree().change_scene_to_file(next_world_path)
 
 
 func award_bronze():
