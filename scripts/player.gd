@@ -220,4 +220,3 @@ func _on_boost_timer_timeout():
 func _on_boost_cooldown_timeout():
 	can_boost = true
 	$BoostCooldown.stop()
-

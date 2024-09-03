@@ -138,7 +138,11 @@ offset_right = 324.0
 offset_bottom = 20.0
 grow_vertical = 2
 
-[node name="QuailCount" type="Label" parent="UI/Control/VBoxContainer3"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3"]
+layout_mode = 2
+
+[node name="QuailCount" type="Label" parent="UI/Control/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -146,6 +150,23 @@ theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
 text = "Quail Count: ##"
+
+[node name="Label" type="Label" parent="UI/Control/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "/"
+
+[node name="QuailRequired" type="Label" parent="UI/Control/VBoxContainer3/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "##"
 
 [node name="Timer" type="Label" parent="UI/Control/VBoxContainer3"]
 layout_mode = 2
