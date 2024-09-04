@@ -59,6 +59,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer"]
+z_index = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pejax")
 theme_override_styles/fill = SubResource("StyleBoxFlat_fh7mr")
@@ -69,6 +70,7 @@ fill_mode = 1
 show_percentage = false
 
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
+z_index = 5
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dypgdc1rdjhkt"]
+
+[ext_resource type="AudioStream" uid="uid://dyty47c8c82an" path="res://assets/sounds/QuailSongRevised.ogg" id="1_yp06g"]
+
+[node name="QuailMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yp06g")
+autoplay = true

@@ -232,7 +232,7 @@ shape = SubResource("CircleShape2D_i7leb")
 debug_color = Color(0.980392, 0.0509804, 0.32549, 0.419608)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 45.0
 one_shot = true
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]

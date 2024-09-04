@@ -11,7 +11,7 @@ extends CanvasLayer
 @onready var unpause_button = $UI/Control/VBoxContainer/UnpauseButton
 @onready var pause_quit_button = $UI/Control/VBoxContainer/PauseQuitButton
 @onready var pause_retry = $UI/Control/VBoxContainer/PauseRetry
-@onready var game_over_ui = $UI/GameOverText
+@onready var game_over_ui = %GameOverCont
 @onready var boost_cooldown_bar = $UI/Control/VBoxContainer3/BoostCooldownBar
 
 func _ready():

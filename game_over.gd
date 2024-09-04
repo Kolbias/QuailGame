@@ -11,7 +11,7 @@ func _process(_delta):
 func _on_play_again_button_down():
 	PlayerVariables.quail_count = 0
 	var world = PlayerVariables.current_level
-	var full_path = "res://world" + world + ".tscn"
+	var full_path = "res://world" + str(world) + ".tscn"
 	print("World path is: " + full_path)
 	get_tree().change_scene_to_file(full_path)
 

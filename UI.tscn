@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=8 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_8mgkr"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="2_c03q6"]
 [ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="3_krllt"]
+[ext_resource type="Texture2D" uid="uid://bymor6bopqdmn" path="res://assets/ui/PSControllerButtonTri.png" id="6_2ubrd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xvyk"]
 bg_color = Color(1, 1, 0.270588, 1)
@@ -91,6 +92,13 @@ theme = ExtResource("2_8mgkr")
 theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
 text = "Restart"
+
+[node name="ControlsButton" type="Button" parent="UI/Control/VBoxContainer"]
+process_mode = 2
+visible = false
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+text = "Controls"
 
 [node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
 process_mode = 2
@@ -185,46 +193,61 @@ value = 3.0
 fill_mode = 1
 show_percentage = false
 
-[node name="GameOverText" type="Label" parent="UI"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverCont" type="VBoxContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -133.0
-offset_right = 66.0
-offset_bottom = -103.0
+offset_left = -119.0
+offset_top = -138.0
+offset_right = 113.0
+offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PlayAgainButton" type="Button" parent="UI/GameOverCont"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_32fu0")
+text = "Play Again?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/GameOverCont"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/GameOverCont/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 32
+text = "Restart Press R or"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/GameOverCont/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_2ubrd")
+expand_mode = 2
+
+[node name="GameOverText" type="Label" parent="UI/GameOverCont"]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
 text = "Game Over"
-
-[node name="PlayAgainButton" type="Button" parent="UI/GameOverText"]
-visible = false
-layout_mode = 0
-offset_left = -9.0
-offset_top = 28.0
-offset_right = 78.0
-offset_bottom = 51.0
-theme_override_fonts/font = ExtResource("1_32fu0")
-text = "Play Again?"
-
-[node name="Label" type="Label" parent="UI/GameOverText"]
-layout_mode = 0
-offset_left = -41.0
-offset_top = 33.0
-offset_right = 191.0
-offset_bottom = 63.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
-text = "Press R to restart"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]

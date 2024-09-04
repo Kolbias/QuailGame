@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://hybl53q65uf4"]
+[gd_scene load_steps=29 format=3 uid="uid://hybl53q65uf4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_58dau"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_chxl2"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cuv1tav8vdfe8" path="res://objects/hedge.tscn" id="16_crn6g"]
 [ext_resource type="PackedScene" uid="uid://ci1vdlgk0k2yp" path="res://objects/bench.tscn" id="17_pdyjb"]
 [ext_resource type="PackedScene" uid="uid://ba5oc8vlw742f" path="res://end_flag.tscn" id="18_ywwiq"]
-[ext_resource type="AudioStream" uid="uid://cn5nwasxwo1g" path="res://assets/sounds/QuailSong.ogg" id="19_qtjos"]
 [ext_resource type="PackedScene" uid="uid://b1igtqb3o25lp" path="res://two_car_spawner.tscn" id="20_skkvq"]
 [ext_resource type="PackedScene" uid="uid://cd2h116fn2nhg" path="res://objects/flower.tscn" id="21_6aiq5"]
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="22_qe0cy"]
@@ -537,11 +536,6 @@ position = Vector2(795, 221)
 position = Vector2(1, 0)
 color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_qtjos")
-volume_db = 3.0
-autoplay = true
 
 [node name="UICanvas" parent="." instance=ExtResource("25_lfpbs")]
 

@@ -94,7 +94,14 @@ func _physics_process(delta):
 			sprite.visible = false
 			hurtbox.monitoring = true
 			alive = false
-	
+		States.SWIM:
+			if input_vector.x < 0:
+				sprite.flip_h = true
+			if input_vector.x > 0:
+				sprite.flip_h = false
+			velocity = input_vector * (speed * 0.5)
+			sprite.play("swim")
+			move_and_slide()
 	for i in get_slide_collision_count():
 			var c = get_slide_collision(i)
 			if c.get_collider() is RigidBody2D:
@@ -117,8 +124,9 @@ func _on_hurtbox_area_entered(area):
 		
 	if area.is_in_group("water"):
 		in_water = true
-		PlayerVariables.speed = PlayerVariables.speed * 0.5
-		
+		#PlayerVariables.speed = PlayerVariables.speed * 0.5
+		change_state(States.SWIM)
+						  
 	if area.is_in_group("fire"):
 		print("Quail burning!!")
 		alive = false
@@ -153,8 +161,8 @@ func _on_play_again_button_button_down():
 func _on_hurtbox_area_exited(area):
 	if area.is_in_group("water"):
 		in_water = false
-		PlayerVariables.speed = 100.0
-
+		#PlayerVariables.speed = 100.0
+		change_state(States.WALK)
 func _on_game_over():
 	change_state(States.DEAD)
 	print("Player Died")
