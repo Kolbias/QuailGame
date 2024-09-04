@@ -1,10 +1,10 @@
 extends Node
 
-var speed := 70.0
-var boost_speed := 120.0
+var speed := 150.0
+var boost_speed := 250.0
 var quail_count := 0
 var boost_cooldown := 0.0
-
+var time_remaining := 0
 var quail_total := 0
 
 var quail_collected := 0

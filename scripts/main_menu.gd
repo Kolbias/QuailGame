@@ -8,6 +8,8 @@ extends Node2D
 @onready var play_button = $CanvasLayer/Control/VBoxContainer/PlayButton
 
 func _ready():
+	PlayerVariables.current_level = 1
+	
 	play_button.grab_focus()
 	get_tree().paused = false
 	baby_quail_left.flip_h = true
@@ -27,8 +29,8 @@ func _process(delta):
 	#baby_quail_left.flip_h = true
 	#await get_tree().create_timer(1000).timeout
 	#baby_quail_left.flip_h = false
-	if Input.is_action_pressed("move_down"):
-		pass
+	#if Input.is_action_pressed("move_down"):
+		#pass
 
 
 func _on_button_button_down():

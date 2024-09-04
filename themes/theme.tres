@@ -3,17 +3,17 @@
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_w4ibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn24"]
-bg_color = Color(0.211765, 0.772549, 0.956863, 1)
+bg_color = Color(1, 1, 0.27, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.427451, 0.917647, 0.839216, 1)
-shadow_color = Color(0.427451, 0.917647, 0.839216, 1)
+border_color = Color(1, 0.647167, 0.27, 1)
+shadow_color = Color(1, 0.647059, 0.270588, 1)
 shadow_size = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey4jp"]
-bg_color = Color(0.211765, 0.772549, 0.956863, 1)
+bg_color = Color(1, 1, 0.27, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -28,7 +28,7 @@ content_margin_left = 3.0
 content_margin_top = 3.0
 content_margin_right = 3.0
 content_margin_bottom = 3.0
-bg_color = Color(1, 1, 0.270588, 1)
+bg_color = Color(0.93, 0.93, 0.2511, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1

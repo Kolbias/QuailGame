@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var quail_count_ui = %QuailCount
 @onready var quail_required = %QuailRequired
 @onready var timer_ui = $UI/Control/VBoxContainer3/Timer
-@onready var timer = $Timer
+@onready var time_left = PlayerVariables.time_remaining
 @onready var transition = $UI/BlackTransition
 
 # Paused Variables
@@ -15,12 +15,12 @@ extends CanvasLayer
 @onready var boost_cooldown_bar = $UI/Control/VBoxContainer3/BoostCooldownBar
 
 func _ready():
-	timer.start()
+	#timer.start()
 	GlobalSignals.game_over.connect(_on_game_over)
 	unpause_button.connect('button_down', _on_unpause_button_down)
 	pause_quit_button.connect("button_down", _on_pause_quit_button_down)
 	pause_retry.connect("button_down", _on_pause_retry_button_down)
-	timer.connect("timeout", _on_timer_timeout)
+	#timer.connect("timeout", _on_timer_timeout)
 	
 	paused = false
 	unpause_button.visible = false
@@ -30,8 +30,8 @@ func _ready():
 
 func _process(delta):
 	quail_count_ui.text = "Quail Count: " + str(PlayerVariables.quail_count)
-	var time_left_rounded = int(timer.time_left)
-	timer_ui.text = "Time Left: " + str(time_left_rounded)
+	#var time_left_rounded = int(timer.time_left)
+	timer_ui.text = "Time Left: " + str(int(PlayerVariables.time_remaining))
 	boost_cooldown_bar.value = PlayerVariables.boost_cooldown
 	if Input.is_action_just_pressed("pause") and paused == false:
 		print("Paused via UI Node")

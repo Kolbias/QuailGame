@@ -41,6 +41,7 @@ theme_override_font_sizes/font_size = 64
 text = "Select a Level:"
 
 [node name="ButtonWorld1" type="Button" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")

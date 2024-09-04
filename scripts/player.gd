@@ -14,7 +14,7 @@ extends CharacterBody2D
 @onready var speed = PlayerVariables.speed
 @onready var boost_speed = PlayerVariables.boost_speed
 
-enum States {IDLE, WALK, BOOST, BOOSTSTART, SWIM}
+enum States {IDLE, WALK, BOOST, BOOSTSTART, SWIM, DEAD}
 
 var can_boost = true
 var state = States.IDLE
@@ -26,12 +26,21 @@ func change_state(new_state):
 	state = new_state
 
 func _ready():
+	GlobalSignals.connect("game_over", _on_game_over)
 	print("Current level = " + str(PlayerVariables.current_level))
 	timer.start()
 
-
+func _process(delta: float) -> void:
+	PlayerVariables.time_remaining = timer.time_left
+	print(timer.time_left)
+	print(PlayerVariables.time_remaining)
 func _physics_process(delta):
 	var dir = Vector2()
+	var input_vector = Vector2.ZERO
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up") 
+	input_vector = input_vector.normalized()
+	
 	var current_quail_count = PlayerVariables.quail_count
 	var boost_started = Input.is_action_just_pressed("boost")
 	var boost_ended = Input.is_action_just_released("boost")
@@ -39,75 +48,52 @@ func _physics_process(delta):
 	
 	match state:
 		States.IDLE:
-			#$StateDebug.text = "IDLE"
-			if Input.is_action_pressed("move_down"):
+			$StateDebug.text = "IDLE"
+			if Input.is_action_pressed("ui_down"):
 				change_state(States.WALK)
-			if Input.is_action_pressed("move_up"):
+			if Input.is_action_pressed("ui_up"):
 				change_state(States.WALK)
-			if Input.is_action_pressed("move_left"):
+			if Input.is_action_pressed("ui_left"):
 				change_state(States.WALK)
-			if Input.is_action_pressed("move_right"):
+			if Input.is_action_pressed("ui_right"):
 				change_state(States.WALK)
 			sprite.play("idle")
 		States.WALK:
-			#$StateDebug.text = "WALK"
-			var move_left = Input.is_action_pressed("move_left")
-			var move_right = Input.is_action_pressed("move_right")
-			var move_down = Input.is_action_pressed("move_down")
-			var move_up = Input.is_action_pressed("move_up")
-			var boost = Input.is_action_pressed("boost")
-			if move_left and alive == true:
-				dir.x -= speed
-				sprite.flip_h = true
-			if move_right and alive == true:
-				dir.x += speed
-				sprite.flip_h = false
-			if move_down and alive == true:
-				dir.y += speed
-			if move_up and alive == true:
-				dir.y -= speed
-			velocity = dir.normalized() * speed
-			move_and_slide()
+			$StateDebug.text = "WALK"
+
 			sprite.play("run")
 			if Input.is_action_just_pressed("boost") and can_boost:
 				change_state(States.BOOSTSTART)
-			if Input.is_action_just_released("move_down"):
+			if input_vector == Vector2(0,0):
 				change_state(States.IDLE)
-			if Input.is_action_just_released("move_up"):
-				change_state(States.IDLE)
-			if Input.is_action_just_released("move_left"):
-				change_state(States.IDLE)
-			if Input.is_action_just_released("move_right"):
-				change_state(States.IDLE)
+			if input_vector.x < 0:
+				sprite.flip_h = true
+			if input_vector.x > 0:
+				sprite.flip_h = false
+
+			velocity = input_vector * speed
+			print(input_vector)
+			move_and_slide()
 		States.BOOSTSTART:
 			can_boost = false
 			$StateDebug.text = "BOOST START"
 			$BoostTimer.start()
 			change_state(States.BOOST)
 		States.BOOST:
-			var move_left = Input.is_action_pressed("move_left")
-			var move_right = Input.is_action_pressed("move_right")
-			var move_down = Input.is_action_pressed("move_down")
-			var move_up = Input.is_action_pressed("move_up")
-			var boost = Input.is_action_pressed("boost")
-			if move_left and alive == true:
-				dir.x -= speed
+			if input_vector.x < 0:
 				sprite.flip_h = true
-			if move_right and alive == true:
-				dir.x += speed
+			if input_vector.x > 0:
 				sprite.flip_h = false
-			if move_down and alive == true:
-				dir.y += speed
-			if move_up and alive == true:
-				dir.y -= speed
-			velocity = dir.normalized() * speed
+			velocity = input_vector.normalized() * speed
 			move_and_slide()
 			sprite.play("boost")
 			$StateDebug.text = "BOOST"
 			speed = lerp(speed, boost_speed, 5.0 * delta)
-
-	velocity = dir.normalized() * speed
-	move_and_slide()
+		States.DEAD:
+			PlayerVariables.quail_count = 0
+			sprite.visible = false
+			hurtbox.monitoring = true
+			alive = false
 	
 	for i in get_slide_collision_count():
 			var c = get_slide_collision(i)
@@ -121,42 +107,11 @@ func _physics_process(delta):
 	if alive == false:
 		particles.emitting = true
 
-func move():
-	var dir = Vector2()
-	var moving = false 
-	var move_left = Input.is_action_pressed("move_left")
-	var move_right = Input.is_action_pressed("move_right")
-	var move_down = Input.is_action_pressed("move_down")
-	var move_up = Input.is_action_pressed("move_up")
-	var boost = Input.is_action_pressed("boost")
-	if move_left and alive == true:
-		dir.x -= speed
-		sprite.flip_h = true
-		moving = true
-	if move_right and alive == true:
-		dir.x += speed
-		sprite.flip_h = false
-		moving = true
-	if move_down and alive == true:
-		dir.y += speed
-		moving = true
-	if move_up and alive == true:
-		dir.y -= speed
-		moving = true
-	velocity = dir.normalized() * speed
-	move_and_slide()
-	sprite.play("run")
-
-	
 # Car Collision
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
 		if alive: 
 			hit_sound.play()
-		PlayerVariables.quail_count = 0
-		sprite.visible = false
-		hurtbox.monitoring = true
-		alive = false
 		GlobalSignals.emit_signal("game_over")
 		print("Game Over")
 		
@@ -174,14 +129,13 @@ func _on_hurtbox_area_entered(area):
 # Quail Egg hatch
 func _on_quail_egg_quail_hatched():
 	PlayerVariables.quail_count += 1
+	timer.start(timer.time_left + 2.0)
 	egg_hatch_sound.play()
 	var added_quail_count = PlayerVariables.quail_count
 	print("Quail count: " + str(added_quail_count))
 
-# End Flag
 func _on_timer_timeout():
 	get_tree().change_scene_to_file("res://game_over.tscn")
-
 
 # Play Again 
 func _on_play_again_button_button_down():
@@ -196,14 +150,13 @@ func _on_play_again_button_button_down():
 	else:
 		pass
 
-
-
 func _on_hurtbox_area_exited(area):
 	if area.is_in_group("water"):
 		in_water = false
 		PlayerVariables.speed = 100.0
 
 func _on_game_over():
+	change_state(States.DEAD)
 	print("Player Died")
 
 
@@ -214,8 +167,6 @@ func _on_boost_timer_timeout():
 	$BoostCooldown.start()
 	speed = PlayerVariables.speed
 	print("timer stopped")
-
-
 
 func _on_boost_cooldown_timeout():
 	can_boost = true
