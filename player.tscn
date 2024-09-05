@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=44 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://54iugs4aog8t" path="res://assets/player/QuailSwim8.png" id="25_j57du"]
 [ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="30_th2rr"]
+[ext_resource type="StyleBox" uid="uid://bttv0h4rmpw37" path="res://themes/end_flag_style.tres" id="38_5nkh0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
@@ -289,8 +290,14 @@ vertical_alignment = 1
 
 [node name="BoostBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = -13.0
+offset_top = -14.0
+offset_right = 12.0
+offset_bottom = -10.0
+theme_override_styles/fill = ExtResource("38_5nkh0")
+max_value = 3.0
+value = 3.0
+show_percentage = false
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]

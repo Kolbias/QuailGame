@@ -31,7 +31,7 @@ func _ready():
 func _process(delta):
 	quail_count_ui.text = "Quail Count: " + str(PlayerVariables.quail_count)
 	#var time_left_rounded = int(timer.time_left)
-	timer_ui.text = "Time Left: " + str(int(PlayerVariables.time_remaining))
+	timer_ui.text = str(int(PlayerVariables.time_remaining))
 	boost_cooldown_bar.value = PlayerVariables.boost_cooldown
 	if Input.is_action_just_pressed("pause") and paused == false:
 		print("Paused via UI Node")

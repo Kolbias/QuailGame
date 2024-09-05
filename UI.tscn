@@ -126,13 +126,13 @@ grow_vertical = 2
 
 [node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
 position = Vector2(23, 6.99874)
-scale = Vector2(6.66667, 7.6005)
+scale = Vector2(8, 9.121)
 texture = ExtResource("2_c03q6")
 
 [node name="ClockUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
 z_index = 5
-position = Vector2(24, 47)
-scale = Vector2(5, 4.71429)
+position = Vector2(21, 71)
+scale = Vector2(8, 7.542)
 texture = ExtResource("3_krllt")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
@@ -145,6 +145,7 @@ offset_top = 20.0
 offset_right = 324.0
 offset_bottom = 20.0
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3"]
 layout_mode = 2
@@ -181,10 +182,11 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
-text = "Time Remaining: ##"
+theme_override_font_sizes/font_size = 48
+text = "##"
 
 [node name="BoostCooldownBar" type="ProgressBar" parent="UI/Control/VBoxContainer3"]
+visible = false
 custom_minimum_size = Vector2(10, 25)
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_4xvyk")

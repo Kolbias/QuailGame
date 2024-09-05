@@ -27,7 +27,7 @@ func change_state(new_state):
 	state = new_state
 
 func _ready():
-	%BoostBar.hide
+	%BoostBar.hide()
 	GlobalSignals.connect("game_over", _on_game_over)
 	print("Current level = " + str(PlayerVariables.current_level))
 	timer.start()
@@ -83,7 +83,6 @@ func _physics_process(delta):
 			$BoostTimer.start()
 			change_state(States.BOOST)
 		States.BOOST:
-			%BoostBar.show()
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
@@ -98,6 +97,7 @@ func _physics_process(delta):
 			sprite.visible = false
 			hurtbox.monitoring = true
 			alive = false
+			%BoostBar.hide()
 		States.SWIM:
 			if input_vector.x < 0:
 				sprite.flip_h = true
@@ -177,9 +177,12 @@ func _on_boost_timer_timeout():
 	can_boost = false
 	$BoostTimer.stop()
 	$BoostCooldown.start()
+	%BoostBar.show()
 	speed = PlayerVariables.speed
 	print("timer stopped")
-
+	
+	
 func _on_boost_cooldown_timeout():
 	can_boost = true
 	$BoostCooldown.stop()
+	%BoostBar.hide()

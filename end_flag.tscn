@@ -3,22 +3,10 @@
 [ext_resource type="Script" path="res://scripts/end_flag.gd" id="1_b0t5a"]
 [ext_resource type="Texture2D" uid="uid://7scipsbu0xnf" path="res://assets/objects/EndFlag.png" id="1_cg1q0"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_pejax"]
+[ext_resource type="StyleBox" uid="uid://bttv0h4rmpw37" path="res://themes/end_flag_style.tres" id="4_0knna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ku378"]
 size = Vector2(14, 15)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh7mr"]
-bg_color = Color(0, 0.654902, 0.866667, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-anti_aliasing = false
 
 [node name="EndFlag" type="Area2D"]
 script = ExtResource("1_b0t5a")
@@ -62,8 +50,7 @@ grow_horizontal = 2
 z_index = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pejax")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fh7mr")
-min_value = 1.0
+theme_override_styles/fill = ExtResource("4_0knna")
 max_value = 3.0
 value = 3.0
 fill_mode = 1
