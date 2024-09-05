@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var push_amount := 10.0
 @onready var speed = PlayerVariables.speed
 @onready var boost_speed = PlayerVariables.boost_speed
+@onready var boost_bar: ProgressBar = %BoostBar
 
 enum States {IDLE, WALK, BOOST, BOOSTSTART, SWIM, DEAD}
 
@@ -26,11 +27,13 @@ func change_state(new_state):
 	state = new_state
 
 func _ready():
+	%BoostBar.hide
 	GlobalSignals.connect("game_over", _on_game_over)
 	print("Current level = " + str(PlayerVariables.current_level))
 	timer.start()
 
 func _process(delta: float) -> void:
+	%BoostBar.value = PlayerVariables.boost_cooldown
 	PlayerVariables.time_remaining = timer.time_left
 	print(timer.time_left)
 	print(PlayerVariables.time_remaining)
@@ -80,6 +83,7 @@ func _physics_process(delta):
 			$BoostTimer.start()
 			change_state(States.BOOST)
 		States.BOOST:
+			%BoostBar.show()
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:

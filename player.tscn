@@ -222,6 +222,7 @@ shape = SubResource("CircleShape2D_ufn3i")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+position_smoothing_enabled = true
 
 [node name="Hurtbox" type="Area2D" parent="." groups=["player"]]
 scale = Vector2(0.6, 0.56)
@@ -285,6 +286,11 @@ theme_override_font_sizes/font_size = 16
 text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BoostBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_right = 4.0
+offset_bottom = 27.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
