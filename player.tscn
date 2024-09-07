@@ -327,6 +327,7 @@ vertical_alignment = 1
 [node name="MashBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 5
 offset_left = -13.0
 offset_top = -11.0
 offset_right = 12.0
@@ -338,6 +339,7 @@ show_percentage = false
 [node name="BoostBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 visible = false
+z_index = 5
 offset_left = -13.0
 offset_top = -11.0
 offset_right = 12.0
