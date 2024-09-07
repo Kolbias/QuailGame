@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=46 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -38,6 +38,10 @@
 [ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="30_th2rr"]
 [ext_resource type="StyleBox" uid="uid://bttv0h4rmpw37" path="res://themes/end_flag_style.tres" id="38_5nkh0"]
+
+[sub_resource type="Gradient" id="Gradient_f2r02"]
+offsets = PackedFloat32Array(0.786667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7sgie"]
 animations = [{
@@ -209,9 +213,40 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.9097, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b3ba"]
+bg_color = Color(0.937255, 0.439216, 0.356863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 11
 script = ExtResource("1_lrfys")
+
+[node name="BoostFeathers" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+amount = 10
+randomness = 1.0
+texture = ExtResource("22_4y1jm")
+emission_shape = 1
+emission_sphere_radius = 8.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -260.82
+angular_velocity_max = 15.55
+radial_accel_min = -11.36
+radial_accel_max = -3.28
+damping_min = 18.182
+damping_max = 18.182
+angle_min = -10.0
+angle_max = 15.0
+scale_amount_min = 0.5
+scale_amount_max = 0.8
+color_ramp = SubResource("Gradient_f2r02")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7sgie")
@@ -271,10 +306,11 @@ scale_amount_curve = SubResource("Curve_bnd0r")
 anim_speed_max = 5.0
 
 [node name="BoostTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
 [node name="BoostCooldown" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 
 [node name="StateDebug" type="Label" parent="."]
 visible = false
@@ -288,14 +324,26 @@ text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MashBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 12.0
+offset_bottom = -7.0
+theme_override_styles/fill = ExtResource("38_5nkh0")
+step = 1.0
+show_percentage = false
+
 [node name="BoostBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -13.0
-offset_top = -14.0
+offset_top = -11.0
 offset_right = 12.0
-offset_bottom = -10.0
-theme_override_styles/fill = ExtResource("38_5nkh0")
-max_value = 3.0
+offset_bottom = -7.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_1b3ba")
+step = 1.0
 value = 3.0
 show_percentage = false
 

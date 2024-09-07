@@ -14,8 +14,8 @@ extends CharacterBody2D
 @onready var speed = PlayerVariables.speed
 @onready var boost_speed = PlayerVariables.boost_speed
 @onready var boost_bar: ProgressBar = %BoostBar
-
-enum States {IDLE, WALK, BOOST, BOOSTSTART, SWIM, DEAD}
+@onready var mash_bar = %MashBar
+enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, DEAD}
 
 var can_boost = true
 var state = States.IDLE
@@ -33,10 +33,15 @@ func _ready():
 	timer.start()
 
 func _process(delta: float) -> void:
-	%BoostBar.value = PlayerVariables.boost_cooldown
+	if %MashBar.value <= 0:
+		%MashBar.hide()
+	if %MashBar.value >= 1:
+		%MashBar.show()
+	%BoostBar.value = %MashBar.value
 	PlayerVariables.time_remaining = timer.time_left
 	print(timer.time_left)
 	print(PlayerVariables.time_remaining)
+	%MashBar.value -= 2
 func _physics_process(delta):
 	var dir = Vector2()
 	var input_vector = Vector2.ZERO
@@ -51,6 +56,7 @@ func _physics_process(delta):
 	
 	match state:
 		States.IDLE:
+			%BoostFeathers.emitting = false
 			$StateDebug.text = "IDLE"
 			if Input.is_action_pressed("ui_down"):
 				change_state(States.WALK)
@@ -62,36 +68,84 @@ func _physics_process(delta):
 				change_state(States.WALK)
 			sprite.play("idle")
 		States.WALK:
+			%BoostFeathers.emitting = false
+			%MashBar.show()
+			%BoostBar.hide()
+			#%MashBar.hide()
 			$StateDebug.text = "WALK"
-
 			sprite.play("run")
 			if Input.is_action_just_pressed("boost") and can_boost:
-				change_state(States.BOOSTSTART)
+				#can_boost = false
+				change_state(States.SETBOOST)
+			#if Input.is_action_just_released("boost"):
+				#can_boost = true
 			if input_vector == Vector2(0,0):
 				change_state(States.IDLE)
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
 				sprite.flip_h = false
-
+			speed = PlayerVariables.speed
 			velocity = input_vector * speed
 			print(input_vector)
 			move_and_slide()
-		States.BOOSTSTART:
-			can_boost = false
-			$StateDebug.text = "BOOST START"
-			$BoostTimer.start()
-			change_state(States.BOOST)
-		States.BOOST:
+		States.SETBOOST:
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
 				sprite.flip_h = false
+			
+			%MashBar.value += 20
+			change_state(States.BOOSTSTART)
+			speed = lerp(speed, boost_speed, 3.0 * delta)
+			move_and_slide()
+		States.BOOSTSTART:
+			if input_vector.x < 0:
+				sprite.flip_h = true
+			if input_vector.x > 0:
+				sprite.flip_h = false
+			#can_boost = false
+			$StateDebug.text = "BOOST START"
+			#$BoostTimer.start()
 			velocity = input_vector.normalized() * speed
+			speed = lerp(speed, boost_speed, 3.0 * delta)
+			move_and_slide()
+			change_state(States.BOOSTSTOP)
+			
+		States.BOOSTSTOP:
+			%BoostFeathers.emitting = true
+			sprite.play("boost")
+			if input_vector.x < 0:
+				sprite.flip_h = true
+			if input_vector.x > 0:
+				sprite.flip_h = false
+			$StateDebug.text = "BOOST STOP"
+			velocity = input_vector.normalized() * speed
+			speed = lerp(speed, boost_speed, 2.0 * delta)
+			move_and_slide()
+			if Input.is_action_pressed("boost"):
+				change_state(States.SETBOOST)
+			if %MashBar.value <= 0:
+				change_state(States.WALK)
+			if %MashBar.value >= 90:
+				change_state(States.BOOST)
+			if input_vector == Vector2(0,0):
+				change_state(States.WALK)
+		States.BOOST:
+			%MashBar.hide()
+			%BoostBar.show()
+			#$BoostTimer.start()
+			#if input_vector.x < 0:
+				#sprite.flip_h = true
+			#if input_vector.x > 0:
+				#sprite.flip_h = false
+			#velocity = input_vector.normalized() * speed
+			if %MashBar.value <= 0:
+				change_state(States.WALK)
 			move_and_slide()
 			sprite.play("boost")
 			$StateDebug.text = "BOOST"
-			speed = lerp(speed, boost_speed, 5.0 * delta)
+			#speed = lerp(speed, boost_speed, 5.0 * delta)
 		States.DEAD:
 			PlayerVariables.quail_count = 0
 			sprite.visible = false
@@ -174,10 +228,10 @@ func _on_game_over():
 
 func _on_boost_timer_timeout():
 	change_state(States.IDLE)
-	can_boost = false
-	$BoostTimer.stop()
-	$BoostCooldown.start()
-	%BoostBar.show()
+	#can_boost = false
+	#$BoostTimer.stop()
+	#$BoostCooldown.start()
+	#%BoostBar.show()
 	speed = PlayerVariables.speed
 	print("timer stopped")
 	
