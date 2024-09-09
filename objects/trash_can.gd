@@ -25,5 +25,5 @@ func get_random_time():
 
 func _on_animated_sprite_2d_animation_finished():
 	get_random_time()
-	print(timer.wait_time)
+	#print(timer.wait_time)
 	timer.start()

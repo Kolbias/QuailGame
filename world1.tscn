@@ -177,6 +177,21 @@ position = Vector2(71, 152)
 [node name="FireHydrant2" parent="Objects" instance=ExtResource("11_0sr6a")]
 position = Vector2(105, 131)
 
+[node name="TrashCan" parent="Objects" instance=ExtResource("20_2yc1x")]
+position = Vector2(727, 163)
+
+[node name="Hedge4" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(802, 96)
+
+[node name="Hedge9" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(784, 100)
+
+[node name="Hedge10" parent="Objects" instance=ExtResource("12_lbmdf")]
+position = Vector2(816, 105)
+
+[node name="Bench2" parent="Objects" instance=ExtResource("12_eh1jf")]
+position = Vector2(763, 174)
+
 [node name="FenceLayer1" type="TileMapLayer" parent="."]
 z_index = 3
 tile_map_data = PackedByteArray("AAAXAAgAAQAEAAAAAAAXAAkAAQAEAAEAAAAYAAgAAQAFAAAAAAAYAAkAAQAFAAEAAAAZAAgAAQAGAAAAAAAZAAkAAQAGAAEAAAAaAAgAAQAHAAAAAAAaAAkAAQAHAAEAAAAbAAgAAQAIAAAAAAAbAAkAAQAIAAEAAAAcAAgAAQAJAAAAAAAcAAkAAQAJAAEAAAAXAAcAAQACAAAAAAAcAAcAAQABAAIAAAAXAAYAAQACAAAAAAAXAAUAAQACAAEAAAASAP7/AQAFAAIAAAASAP//AQAFAAMAAAATAP7/AQAFAAIAAAATAP//AQAFAAMAAAAUAP7/AQAIAAIAAAAUAP//AQAIAAMAAAAVAP7/AQAIAAIAAAAVAP//AQAIAAMAAAAWAP7/AQAIAAIAAAAWAP//AQAIAAMAAAAXAP7/AQAIAAIAAAAXAP//AQAIAAMAAAAYAP7/AQAIAAIAAAAYAP//AQAIAAMAAAAZAP7/AQAIAAIAAAAZAP//AQAIAAMAAAAaAP7/AQAIAAIAAAAaAP//AQAIAAMAAAAbAP7/AQAIAAIAAAAbAP//AQAIAAMAAAAcAP7/AQAIAAIAAAAcAP//AQAIAAMAAAAdAP7/AQAIAAIAAAAdAP//AQAIAAMAAAAAAAkAAQAEAAAAAAAAAAoAAQAEAAEAAAABAAkAAQAFAAAAAAABAAoAAQAFAAEAAAACAAkAAQAJAAIAAAACAAoAAQAJAAMAAAAAAAgAAQACAAAAAAAAAAcAAQACAAAAAAAAAAYAAQACAAAAAAAAAAUAAQACAAAAAAAAAAQAAQACAAAAAAAAAAMAAQACAAAAAAAAAAIAAQACAAAAAAAAAAEAAQACAAAAAAAAAAAAAQACAAAAAAAAAP//AQABAAEAAAARAP7/AQAEAAIAAAARAP//AQAEAAMAAAAeAP7/AQAJAAIAAAAeAP//AQAJAAMAAAArAP7/AQAEAAIAAAArAP//AQAEAAMAAAAsAP7/AQAFAAIAAAAsAP//AQAFAAMAAAAtAP7/AQAFAAIAAAAtAP//AQAFAAMAAAAuAP7/AQAFAAIAAAAuAP//AQAFAAMAAAAvAP7/AQAFAAIAAAAvAP//AQAFAAMAAAAwAP7/AQAFAAIAAAAwAP//AQAFAAMAAAAxAP7/AQAFAAIAAAAxAP//AQAFAAMAAAAyAP7/AQAFAAIAAAAyAP//AQAFAAMAAAAzAP7/AQAFAAIAAAAzAP//AQAFAAMAAAA0AP7/AQAIAAIAAAA0AP//AQAIAAMAAAA1AP7/AQAJAAIAAAA1AP//AQAJAAMAAAA=")
@@ -246,21 +261,6 @@ rotation = 0.0
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
-
-[node name="TrashCan" parent="." instance=ExtResource("20_2yc1x")]
-position = Vector2(727, 163)
-
-[node name="Hedge" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(802, 96)
-
-[node name="Hedge2" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(784, 100)
-
-[node name="Hedge3" parent="." instance=ExtResource("12_lbmdf")]
-position = Vector2(816, 105)
-
-[node name="Bench" parent="." instance=ExtResource("12_eh1jf")]
-position = Vector2(763, 174)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

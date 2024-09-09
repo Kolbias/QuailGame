@@ -614,6 +614,8 @@ position = Vector2(768, 22)
 z_index = 4
 position = Vector2(80, -669)
 rotation = 0.0
+min_random_time = 8.0
+max_random_time = 10.0
 
 [node name="CarSpawner" type="Marker2D" parent="."]
 z_index = 4
@@ -622,6 +624,16 @@ rotation = 3.14159
 script = ExtResource("29_frxbu")
 
 [node name="Timer" type="Timer" parent="CarSpawner"]
+one_shot = true
+autostart = true
+
+[node name="CarSpawner2" type="Marker2D" parent="."]
+z_index = 4
+position = Vector2(268, 638)
+rotation = 3.14159
+script = ExtResource("29_frxbu")
+
+[node name="Timer" type="Timer" parent="CarSpawner2"]
 one_shot = true
 autostart = true
 
@@ -647,12 +659,6 @@ position = Vector2(452, 149)
 position = Vector2(551, -664)
 min_random_time = 0.2
 max_random_time = 3.0
-
-[node name="TwoCarSpawner2" parent="." instance=ExtResource("28_p1qqn")]
-z_index = 4
-position = Vector2(265, 761)
-min_random_time = 3.0
-max_random_time = 7.0
 
 [node name="Pylon" parent="." instance=ExtResource("34_h85o4")]
 position = Vector2(374, -46)

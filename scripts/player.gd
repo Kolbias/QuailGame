@@ -39,8 +39,8 @@ func _process(delta: float) -> void:
 		%MashBar.show()
 	%BoostBar.value = %MashBar.value
 	PlayerVariables.time_remaining = timer.time_left
-	print(timer.time_left)
-	print(PlayerVariables.time_remaining)
+	#print(timer.time_left)
+	#print(PlayerVariables.time_remaining)
 	%MashBar.value -= 2
 func _physics_process(delta):
 	var dir = Vector2()
@@ -87,7 +87,7 @@ func _physics_process(delta):
 				sprite.flip_h = false
 			speed = PlayerVariables.speed
 			velocity = input_vector * speed
-			print(input_vector)
+			#print(input_vector)
 			move_and_slide()
 		States.SETBOOST:
 			if input_vector.x < 0:

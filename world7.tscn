@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://1amw3lnytydt"]
+[gd_scene load_steps=41 format=3 uid="uid://1amw3lnytydt"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_ynmka"]
 [ext_resource type="PackedScene" uid="uid://dheb82njo58vb" path="res://objects/water.tscn" id="3_64h38"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="33_5374d"]
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="34_uprxs"]
 [ext_resource type="PackedScene" uid="uid://d373sbriqh826" path="res://objects/flower_alternate.tscn" id="35_cr5fo"]
+[ext_resource type="PackedScene" uid="uid://crvj5s2lbx51m" path="res://objects/pylon.tscn" id="36_8035f"]
 [ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="36_nvg8m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
@@ -646,6 +647,8 @@ position = Vector2(768, 22)
 z_index = 4
 position = Vector2(80, -669)
 rotation = 0.0
+min_random_time = 10.0
+max_random_time = 16.0
 
 [node name="CarSpawner" type="Marker2D" parent="."]
 z_index = 4
@@ -683,6 +686,21 @@ z_index = 4
 position = Vector2(258, 761)
 
 [node name="UICanvas" parent="." instance=ExtResource("36_nvg8m")]
+
+[node name="Pylon" parent="." instance=ExtResource("36_8035f")]
+position = Vector2(46, 135)
+
+[node name="Pylon2" parent="." instance=ExtResource("36_8035f")]
+position = Vector2(46, 91)
+
+[node name="Pylon3" parent="." instance=ExtResource("36_8035f")]
+position = Vector2(47, 59)
+
+[node name="Pylon4" parent="." instance=ExtResource("36_8035f")]
+position = Vector2(527, 132)
+
+[node name="Pylon5" parent="." instance=ExtResource("36_8035f")]
+position = Vector2(662, 74)
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]

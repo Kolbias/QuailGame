@@ -8,9 +8,6 @@ extends Node2D
 @onready var player = $Player
 
 
-func _ready():
-	pass
-
 func _on_quail_egg_quail_hatched():
 	var new_quail = quail_baby.instantiate()
 	add_child(new_quail)
