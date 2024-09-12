@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_8mgkr"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="2_c03q6"]
-[ext_resource type="Texture2D" uid="uid://dh2djgb45by6d" path="res://assets/ui/UIClock.png" id="3_krllt"]
+[ext_resource type="Texture2D" uid="uid://dth3tlgbpdbfj" path="res://assets/ui/UIClockBig.png" id="5_6sna4"]
 [ext_resource type="Texture2D" uid="uid://bymor6bopqdmn" path="res://assets/ui/PSControllerButtonTri.png" id="6_2ubrd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xvyk"]
@@ -125,27 +125,27 @@ offset_bottom = 25.0
 grow_vertical = 2
 
 [node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
-position = Vector2(23, 6.99874)
+position = Vector2(106, 0.999999)
 scale = Vector2(8, 9.121)
 texture = ExtResource("2_c03q6")
 
 [node name="ClockUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
 z_index = 5
-position = Vector2(21, 71)
+position = Vector2(63, 103)
 scale = Vector2(8, 7.542)
-texture = ExtResource("3_krllt")
+texture = ExtResource("5_6sna4")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
 z_index = 6
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = 20.0
-offset_right = 324.0
-offset_bottom = 20.0
+offset_left = 160.0
+offset_top = 16.0
+offset_right = 408.0
+offset_bottom = 16.0
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 65
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3"]
 layout_mode = 2
