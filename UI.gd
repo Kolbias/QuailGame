@@ -17,6 +17,7 @@ extends CanvasLayer
 @onready var controls_button = %ControlsButton
 func _ready():
 	#timer.start()
+	GlobalSignals.connect("egg_hatched", _on_egg_hatched)
 	GlobalSignals.game_over.connect(_on_game_over)
 	unpause_button.connect('button_down', _on_unpause_button_down)
 	pause_quit_button.connect("button_down", _on_pause_quit_button_down)
@@ -94,3 +95,12 @@ func _on_game_over():
 
 func _on_pause_quit_button_button_down() -> void:
 	pass # Replace with function body.
+
+func _on_egg_hatched():
+	%"2Secs".show()
+	var tween = get_tree().create_tween()
+	tween.tween_property(%"2Secs", "modulate", Color(1,1,1,0), 2.0).set_trans(Tween.TRANS_LINEAR)
+	await tween.finished
+	%"2Secs".hide()
+	%"2Secs".modulate = Color(1,1,1,1)
+	pass

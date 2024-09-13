@@ -11,6 +11,7 @@ extends Node2D
 func _on_quail_egg_quail_hatched():
 	var new_quail = quail_baby.instantiate()
 	add_child(new_quail)
+	GlobalSignals.emit_signal("egg_hatched")
 	new_quail.position = main_quail.position
 
 func _process(_delta):

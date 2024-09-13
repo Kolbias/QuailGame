@@ -27,6 +27,7 @@ func change_state(new_state):
 	state = new_state
 
 func _ready():
+	GlobalSignals.connect("egg_hatched", _on_egg_hatched)
 	%BoostBar.hide()
 	GlobalSignals.connect("game_over", _on_game_over)
 	print("Current level = " + str(PlayerVariables.current_level))
@@ -240,3 +241,6 @@ func _on_boost_cooldown_timeout():
 	can_boost = true
 	$BoostCooldown.stop()
 	%BoostBar.hide()
+
+func _on_egg_hatched():
+	$Plus2Particle.emitting = true

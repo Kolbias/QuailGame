@@ -226,28 +226,38 @@ theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 48
 text = "##"
 
+[node name="2Secs" type="Label" parent="UI/Control/HBoxClock"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_8mgkr")
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 21
+theme_override_font_sizes/font_size = 48
+text = "+2!"
+horizontal_alignment = 1
+
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
 z_index = 6
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -30.0
+offset_bottom = 75.0
 grow_horizontal = 2
-grow_vertical = 0
 theme_override_constants/separation = 65
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control/VBoxContainer3"]
 layout_mode = 2
 theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3/MarginContainer"]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+alignment = 1
 
 [node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
-position = Vector2(-35, 33)
+position = Vector2(703, 35)
 scale = Vector2(8, 9.121)
 texture = ExtResource("2_c03q6")
 
@@ -258,7 +268,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Quail Count: ##"
 
 [node name="Label" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
@@ -266,7 +276,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "/"
 
 [node name="QuailRequired" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
@@ -275,7 +285,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "##"
 
 [node name="BoostCooldownBar" type="ProgressBar" parent="UI/Control/VBoxContainer3"]
