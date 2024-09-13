@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b4u2b5oetsgii" path="res://assets/cars/CarVanWhite.png" id="4_jlgkm"]
 [ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://effects/HeadLight.jpg" id="6_3b2bi"]
 
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6ijec"]
 animations = [{
 "frames": [{

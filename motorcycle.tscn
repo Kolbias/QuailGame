@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cucrokjtr3chp" path="res://assets/sounds/VanPass.ogg" id="5_qxpse"]
 [ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://effects/HeadLight.jpg" id="6_jd170"]
 
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_35tca"]
 animations = [{
 "frames": [{

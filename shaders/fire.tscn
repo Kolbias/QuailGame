@@ -6,7 +6,8 @@
 [ext_resource type="Shader" path="res://shaders/fire3.gdshader" id="4_6kfsh"]
 [ext_resource type="Shader" path="res://shaders/fire2.gdshader" id="5_1jgp5"]
 [ext_resource type="Texture2D" uid="uid://cwu28hy01qk5d" path="res://assets/environment/SolidRedWide.png" id="6_ygs2m"]
-[ext_resource type="Texture2D" uid="uid://btd2mdak0vv07" path="res://Effects/light.png" id="7_kojpe"]
+[ext_resource type="Texture2D" uid="uid://btd2mdak0vv07" path="res://effects/light.png" id="7_kojpe"]
+
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1os4m"]
 

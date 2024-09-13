@@ -2,18 +2,19 @@ extends CanvasLayer
 
 @onready var quail_count_ui = %QuailCount
 @onready var quail_required = %QuailRequired
-@onready var timer_ui = $UI/Control/VBoxContainer3/Timer
+@onready var timer_ui = %Timer
 @onready var time_left = PlayerVariables.time_remaining
 @onready var transition = $UI/BlackTransition
+@onready var paused_label: Label = %PausedLabel
 
 # Paused Variables
 @onready var paused = false
-@onready var unpause_button = $UI/Control/VBoxContainer/UnpauseButton
-@onready var pause_quit_button = $UI/Control/VBoxContainer/PauseQuitButton
-@onready var pause_retry = $UI/Control/VBoxContainer/PauseRetry
+@onready var unpause_button = %UnpauseButton
+@onready var pause_quit_button = %PauseQuitButton
+@onready var pause_retry = %PauseRetry
 @onready var game_over_ui = %GameOverCont
 @onready var boost_cooldown_bar = $UI/Control/VBoxContainer3/BoostCooldownBar
-
+@onready var controls_button = %ControlsButton
 func _ready():
 	#timer.start()
 	GlobalSignals.game_over.connect(_on_game_over)
@@ -21,13 +22,13 @@ func _ready():
 	pause_quit_button.connect("button_down", _on_pause_quit_button_down)
 	pause_retry.connect("button_down", _on_pause_retry_button_down)
 	#timer.connect("timeout", _on_timer_timeout)
-	
+	paused_label.visible = false
 	paused = false
 	unpause_button.visible = false
 	pause_quit_button.visible = false
 	pause_retry.visible = false
 	game_over_ui.visible = false
-
+	controls_button.visible = false
 func _process(delta):
 	quail_count_ui.text = "Quail Count: " + str(PlayerVariables.quail_count)
 	#var time_left_rounded = int(timer.time_left)
@@ -35,9 +36,11 @@ func _process(delta):
 	boost_cooldown_bar.value = PlayerVariables.boost_cooldown
 	if Input.is_action_just_pressed("pause") and paused == false:
 		print("Paused via UI Node")
+		paused_label.visible = true
 		unpause_button.visible = true
 		pause_retry.visible = true
 		pause_quit_button.visible = true
+		controls_button.visible = true
 		get_tree().paused = true
 		unpause_button.grab_focus()
 		
@@ -70,6 +73,8 @@ func _on_unpause_button_down():
 	unpause_button.visible = false
 	pause_retry.visible = false
 	pause_quit_button.visible = false
+	controls_button.visible = false
+	paused_label.visible = false
 	get_tree().paused = false
 
 func  _on_pause_quit_button_down():
@@ -85,3 +90,7 @@ func _on_timer_timeout():
 
 func _on_game_over():
 	game_over_ui.visible = true
+
+
+func _on_pause_quit_button_button_down() -> void:
+	pass # Replace with function body.

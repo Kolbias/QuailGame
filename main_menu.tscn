@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=42 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://5gy1dnv6xuw1" path="res://assets/player/QuailRun5.png" id="11_i7p4u"]
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="12_6rmpi"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="13_e2ebm"]
-[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="14_qf2yh"]
 [ext_resource type="AudioStream" uid="uid://b0xed0so1xntv" path="res://assets/sounds/QuailSoundscape.mp3" id="18_tkjay"]
 [ext_resource type="Texture2D" uid="uid://6lyvg44yv2xa" path="res://assets/menu/LogoRevision1.png" id="19_vsnwp"]
 [ext_resource type="Texture2D" uid="uid://dvkr20ifxgri3" path="res://assets/menu/LogoRevision2.png" id="20_suiy7"]
@@ -37,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://bk574n3cfkkbg" path="res://assets/menu/LogoRevision14.png" id="32_152n8"]
 [ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="37_a1j58"]
+[ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="37_niuhx"]
+[ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="38_nj23w"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_62513"]
 animations = [{
@@ -237,19 +238,22 @@ follow_viewport_enabled = true
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 36.0
+offset_top = -71.0
+offset_right = 76.0
+offset_bottom = -31.0
+size_flags_horizontal = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 top_level = true
-layout_mode = 0
-offset_left = 20.0
-offset_top = 5.0
-offset_right = 104.0
-offset_bottom = 76.0
+layout_mode = 1
+offset_left = 31.0
+offset_top = -36.0
+offset_right = 111.0
+offset_bottom = 68.0
 size_flags_horizontal = 0
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../QuitButton")
 focus_neighbor_top = NodePath("../QuitButton")
@@ -258,26 +262,73 @@ focus_neighbor_bottom = NodePath("../LevelSelectButton")
 focus_next = NodePath("../LevelSelectButton")
 focus_previous = NodePath("../QuitButton")
 theme = ExtResource("37_a1j58")
-theme_override_fonts/font = ExtResource("14_qf2yh")
-theme_override_font_sizes/font_size = 16
-text = "Play"
+texture_normal = ExtResource("37_niuhx")
+texture_pressed = ExtResource("38_nj23w")
+texture_hover = ExtResource("38_nj23w")
 
-[node name="LevelSelectButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/PlayButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -7.5
+offset_right = 33.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Game"
+
+[node name="LevelSelectButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
 theme = ExtResource("37_a1j58")
-theme_override_font_sizes/font_size = 16
-text = "Level Select"
+texture_normal = ExtResource("37_niuhx")
+texture_pressed = ExtResource("38_nj23w")
+texture_hover = ExtResource("38_nj23w")
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/LevelSelectButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -7.5
+offset_right = 39.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Levels"
+horizontal_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
 theme = ExtResource("37_a1j58")
-theme_override_fonts/font = ExtResource("14_qf2yh")
-theme_override_font_sizes/font_size = 16
-text = "	Quit Game"
+texture_normal = ExtResource("37_niuhx")
+texture_pressed = ExtResource("38_nj23w")
+texture_hover = ExtResource("38_nj23w")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -7.5
+offset_right = 33.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit Game"
 
 [connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]

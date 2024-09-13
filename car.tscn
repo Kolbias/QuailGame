@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bhubhh1rtflkq" path="res://effects/HeadLight.jpg" id="6_tspjd"]
 
 
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_35tca"]
 animations = [{
 "frames": [{

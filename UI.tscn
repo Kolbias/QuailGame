@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=10 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_8mgkr"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="2_c03q6"]
+[ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="3_j7y1s"]
+[ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="4_kaefa"]
 [ext_resource type="Texture2D" uid="uid://dth3tlgbpdbfj" path="res://assets/ui/UIClockBig.png" id="5_6sna4"]
 [ext_resource type="Texture2D" uid="uid://bymor6bopqdmn" path="res://assets/ui/PSControllerButtonTri.png" id="6_2ubrd"]
 
@@ -47,7 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+[node name="PauseVbox" type="VBoxContainer" parent="UI/Control"]
 top_level = true
 z_index = 6
 layout_mode = 1
@@ -65,9 +67,19 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(100, 0)
 
-[node name="UnpauseButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="PausedLabel" type="Label" parent="UI/Control/PauseVbox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="UnpauseButton" type="TextureButton" parent="UI/Control/PauseVbox"]
+unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../PauseQuitButton")
 focus_neighbor_top = NodePath("../PauseQuitButton")
 focus_neighbor_right = NodePath("../PauseRetry")
@@ -75,13 +87,31 @@ focus_neighbor_bottom = NodePath("../PauseRetry")
 focus_next = NodePath("../PauseRetry")
 focus_previous = NodePath("../PauseQuitButton")
 theme = ExtResource("2_8mgkr")
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
-text = "Return to Game"
+texture_normal = ExtResource("3_j7y1s")
+texture_pressed = ExtResource("4_kaefa")
+texture_hover = ExtResource("4_kaefa")
 
-[node name="PauseRetry" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/Control/PauseVbox/UnpauseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -7.5
+offset_right = 26.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8mgkr")
+text = "Unpause"
+
+[node name="PauseRetry" type="TextureButton" parent="UI/Control/PauseVbox"]
+unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../UnpauseButton")
 focus_neighbor_top = NodePath("../UnpauseButton")
 focus_neighbor_right = NodePath("../PauseQuitButton")
@@ -89,20 +119,58 @@ focus_neighbor_bottom = NodePath("../PauseQuitButton")
 focus_next = NodePath("../PauseQuitButton")
 focus_previous = NodePath("../UnpauseButton")
 theme = ExtResource("2_8mgkr")
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
-text = "Restart"
+texture_normal = ExtResource("3_j7y1s")
+texture_pressed = ExtResource("4_kaefa")
+texture_hover = ExtResource("4_kaefa")
 
-[node name="ControlsButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/Control/PauseVbox/PauseRetry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Retry"
+horizontal_alignment = 1
+
+[node name="ControlsButton" type="TextureButton" parent="UI/Control/PauseVbox"]
+unique_name_in_owner = true
 process_mode = 2
-visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("2_8mgkr")
-text = "Controls"
+texture_normal = ExtResource("3_j7y1s")
+texture_pressed = ExtResource("4_kaefa")
+texture_hover = ExtResource("4_kaefa")
 
-[node name="PauseQuitButton" type="Button" parent="UI/Control/VBoxContainer"]
+[node name="Label" type="Label" parent="UI/Control/PauseVbox/ControlsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Controls
+"
+horizontal_alignment = 1
+
+[node name="PauseQuitButton" type="TextureButton" parent="UI/Control/PauseVbox"]
+unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../PauseRetry")
 focus_neighbor_top = NodePath("../PauseRetry")
 focus_neighbor_right = NodePath("../UnpauseButton")
@@ -110,47 +178,80 @@ focus_neighbor_bottom = NodePath("../UnpauseButton")
 focus_next = NodePath("../UnpauseButton")
 focus_previous = NodePath("../PauseRetry")
 theme = ExtResource("2_8mgkr")
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 32
-text = "Quit to Menu"
+texture_normal = ExtResource("3_j7y1s")
+texture_pressed = ExtResource("4_kaefa")
+texture_hover = ExtResource("4_kaefa")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Control"]
+[node name="Label" type="Label" parent="UI/Control/PauseVbox/PauseQuitButton"]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 123.0
-offset_bottom = 25.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 7.5
+grow_horizontal = 2
 grow_vertical = 2
+text = "Quit"
+horizontal_alignment = 1
 
-[node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
-position = Vector2(106, 0.999999)
-scale = Vector2(8, 9.121)
-texture = ExtResource("2_c03q6")
+[node name="HBoxClock" type="HBoxContainer" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
 
-[node name="ClockUI" type="Sprite2D" parent="UI/Control/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/HBoxClock"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="ClockUI" type="Sprite2D" parent="UI/Control/HBoxClock/MarginContainer"]
 z_index = 5
-position = Vector2(63, 103)
-scale = Vector2(8, 7.542)
+position = Vector2(74, 54)
+scale = Vector2(5, 5)
 texture = ExtResource("5_6sna4")
+
+[node name="Timer" type="Label" parent="UI/Control/HBoxClock/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_font_sizes/font_size = 48
+text = "##"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
 z_index = 6
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 160.0
-offset_top = 16.0
-offset_right = 408.0
-offset_bottom = 16.0
-grow_vertical = 2
+offset_top = -30.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/separation = 65
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3/MarginContainer"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 
-[node name="QuailCount" type="Label" parent="UI/Control/VBoxContainer3/HBoxContainer"]
+[node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
+position = Vector2(-35, 33)
+scale = Vector2(8, 9.121)
+texture = ExtResource("2_c03q6")
+
+[node name="QuailCount" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
@@ -160,7 +261,7 @@ theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
 text = "Quail Count: ##"
 
-[node name="Label" type="Label" parent="UI/Control/VBoxContainer3/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
@@ -168,21 +269,13 @@ theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
 text = "/"
 
-[node name="QuailRequired" type="Label" parent="UI/Control/VBoxContainer3/HBoxContainer"]
+[node name="QuailRequired" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 32
-text = "##"
-
-[node name="Timer" type="Label" parent="UI/Control/VBoxContainer3"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 48
 text = "##"
 
 [node name="BoostCooldownBar" type="ProgressBar" parent="UI/Control/VBoxContainer3"]
@@ -195,14 +288,28 @@ value = 3.0
 fill_mode = 1
 show_percentage = false
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="UI/Control"]
+[node name="HowToPlayVbox" type="VBoxContainer" parent="UI/Control"]
+visible = false
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -250.0
+offset_right = 100.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI/Control/HowToPlayVbox"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/HowToPlayVbox"]
+layout_mode = 2
 
 [node name="GameOverCont" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
@@ -255,3 +362,5 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 85.0
 one_shot = true
+
+[connection signal="button_down" from="UI/Control/PauseVbox/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
