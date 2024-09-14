@@ -47,7 +47,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer"]
-z_index = 5
+z_index = 7
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_pejax")
 theme_override_styles/fill = ExtResource("4_0knna")

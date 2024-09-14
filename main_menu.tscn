@@ -265,6 +265,7 @@ theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
 texture_pressed = ExtResource("38_nj23w")
 texture_hover = ExtResource("38_nj23w")
+texture_focused = ExtResource("38_nj23w")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/PlayButton"]
 layout_mode = 1
@@ -289,6 +290,7 @@ theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
 texture_pressed = ExtResource("38_nj23w")
 texture_hover = ExtResource("38_nj23w")
+texture_focused = ExtResource("38_nj23w")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/LevelSelectButton"]
 layout_mode = 1
@@ -314,6 +316,7 @@ theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
 texture_pressed = ExtResource("38_nj23w")
 texture_hover = ExtResource("38_nj23w")
+texture_focused = ExtResource("38_nj23w")
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/QuitButton"]
 layout_mode = 1

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxmubkwfi514i"]
+[gd_scene load_steps=7 format=3 uid="uid://dxmubkwfi514i"]
 
 [ext_resource type="Script" path="res://QuailEgg.gd" id="1_8djhc"]
 [ext_resource type="Texture2D" uid="uid://cv57ythpte4y7" path="res://assets/objects/QuailEgg.png" id="2_qtnj2"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="3_y086k"]
 [ext_resource type="PackedScene" uid="uid://bhnmc4s1hfyox" path="res://effects/egg_hatch_particles.tscn" id="4_dp3cp"]
+[ext_resource type="Texture2D" uid="uid://df3b5bj8g44kl" path="res://assets/ui/Exclaimation.png" id="5_f6qbw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf6v1"]
 radius = 4.0
@@ -35,6 +36,12 @@ hue_variation_min = -0.57
 hue_variation_max = 0.45
 anim_speed_min = 3.75
 anim_speed_max = 16.81
+
+[node name="Exclaimation" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(0, -9)
+texture = ExtResource("5_f6qbw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
