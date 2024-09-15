@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=11 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="4_kaefa"]
 [ext_resource type="Texture2D" uid="uid://dth3tlgbpdbfj" path="res://assets/ui/UIClockBig.png" id="5_6sna4"]
 [ext_resource type="Texture2D" uid="uid://bymor6bopqdmn" path="res://assets/ui/PSControllerButtonTri.png" id="6_2ubrd"]
+[ext_resource type="StyleBox" uid="uid://bttv0h4rmpw37" path="res://themes/end_flag_style.tres" id="7_o8h4o"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xvyk"]
 bg_color = Color(1, 1, 0.270588, 1)
@@ -106,7 +107,7 @@ offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_8mgkr")
-text = "Unpause"
+text = "Resume"
 
 [node name="PauseRetry" type="TextureButton" parent="UI/Control/PauseVbox"]
 unique_name_in_owner = true
@@ -241,6 +242,35 @@ theme_override_constants/shadow_outline_size = 21
 theme_override_font_sizes/font_size = 48
 text = "+2!"
 horizontal_alignment = 1
+
+[node name="RestartContainer" type="MarginContainer" parent="UI/Control/HBoxClock"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/HBoxClock/RestartContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Restarting" type="Label" parent="UI/Control/HBoxClock/RestartContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Restarting Level"
+
+[node name="RestartBar" type="ProgressBar" parent="UI/Control/HBoxClock/RestartContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_styles/fill = ExtResource("7_o8h4o")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="RestartTimer" type="Timer" parent="UI/Control/HBoxClock/RestartContainer/VBoxContainer"]
+unique_name_in_owner = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
 z_index = 6

@@ -34,7 +34,7 @@ func _process(delta):
 
 
 func _on_button_button_down():
-	get_tree().change_scene_to_file("res://world1.tscn")
+	get_tree().change_scene_to_file(str("res://world1.tscn").to_lower())
 
 
 func _on_button_2_button_down():

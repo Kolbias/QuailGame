@@ -153,6 +153,9 @@ func _physics_process(delta):
 			hurtbox.monitoring = true
 			alive = false
 			%BoostBar.hide()
+			if Input.is_action_just_pressed("restart"):
+				PlayerVariables.quail_count = 0
+				get_tree().reload_current_scene()
 		States.SWIM:
 			if input_vector.x < 0:
 				sprite.flip_h = true
@@ -167,8 +170,11 @@ func _physics_process(delta):
 				c.get_collider().apply_central_impulse(-c.get_normal() * push_amount)
 	
 	if Input.is_action_just_pressed("restart"):
-		PlayerVariables.quail_count = 0
-		get_tree().reload_current_scene()
+		$RestartTimer.start()
+		GlobalSignals.emit_signal("restart_level")
+	if Input.is_action_just_released("restart"):
+		$RestartTimer.stop()
+		GlobalSignals.emit_signal("restart_level_stop")
 
 	if alive == false:
 		particles.emitting = true
@@ -244,3 +250,10 @@ func _on_boost_cooldown_timeout():
 
 func _on_egg_hatched():
 	$Plus2Particle.emitting = true
+
+
+func _on_restart_timer_timeout() -> void:
+	GlobalSignals.emit_signal("restart_level_stop")
+	PlayerVariables.quail_count = 0
+	get_tree().reload_current_scene()
+	

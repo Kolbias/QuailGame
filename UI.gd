@@ -17,6 +17,8 @@ extends CanvasLayer
 @onready var controls_button = %ControlsButton
 func _ready():
 	#timer.start()
+	GlobalSignals.connect("restart_level", _on_restart_level)
+	GlobalSignals.connect("restart_level_stop", _on_restart_level_stop)
 	GlobalSignals.connect("egg_hatched", _on_egg_hatched)
 	GlobalSignals.game_over.connect(_on_game_over)
 	unpause_button.connect('button_down', _on_unpause_button_down)
@@ -31,6 +33,7 @@ func _ready():
 	game_over_ui.visible = false
 	controls_button.visible = false
 func _process(delta):
+	%RestartBar.value = %RestartTimer.time_left
 	quail_count_ui.text = "Quail Count: " + str(PlayerVariables.quail_count)
 	#var time_left_rounded = int(timer.time_left)
 	timer_ui.text = str(int(PlayerVariables.time_remaining))
@@ -104,3 +107,11 @@ func _on_egg_hatched():
 	%"2Secs".hide()
 	%"2Secs".modulate = Color(1,1,1,1)
 	pass
+	
+	
+func _on_restart_level():
+	%RestartTimer.start()
+	%RestartContainer.show()
+func _on_restart_level_stop():
+	%RestartTimer.stop()
+	%RestartContainer.hide()
