@@ -115,3 +115,11 @@ func _on_restart_level():
 func _on_restart_level_stop():
 	%RestartTimer.stop()
 	%RestartContainer.hide()
+
+
+func _on_controls_button_pressed() -> void:
+	%HowToPlayVbox.show()
+
+
+func _on_back_button_pressed() -> void:
+	%HowToPlayVbox.hide()

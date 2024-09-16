@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=17 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dth3tlgbpdbfj" path="res://assets/ui/UIClockBig.png" id="5_6sna4"]
 [ext_resource type="Texture2D" uid="uid://bymor6bopqdmn" path="res://assets/ui/PSControllerButtonTri.png" id="6_2ubrd"]
 [ext_resource type="StyleBox" uid="uid://bttv0h4rmpw37" path="res://themes/end_flag_style.tres" id="7_o8h4o"]
+[ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="9_1lv5n"]
+[ext_resource type="Texture2D" uid="uid://dbeaa5xkv2ar8" path="res://assets/PSControllerJoystick.png" id="10_6gv6f"]
+[ext_resource type="Texture2D" uid="uid://df3b5bj8g44kl" path="res://assets/ui/Exclaimation.png" id="10_33iv8"]
+[ext_resource type="Texture2D" uid="uid://bc12mtsxnhv8f" path="res://assets/ui/PSControllerButtonCir.png" id="11_kxr8b"]
+[ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="12_thrs0"]
+[ext_resource type="Texture2D" uid="uid://cfdu5r81xy6j3" path="res://assets/ui/PSControllerButtonOptionspng.png" id="13_j101b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xvyk"]
 bg_color = Color(1, 1, 0.270588, 1)
@@ -334,6 +340,7 @@ fill_mode = 1
 show_percentage = false
 
 [node name="HowToPlayVbox" type="VBoxContainer" parent="UI/Control"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -341,20 +348,211 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = -300.0
 offset_top = -250.0
-offset_right = 100.0
-offset_bottom = 250.0
+offset_right = 300.0
+offset_bottom = 350.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="UI/Control/HowToPlayVbox"]
-custom_minimum_size = Vector2(500, 500)
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/HowToPlayVbox"]
+custom_minimum_size = Vector2(800, 650)
 layout_mode = 2
 size_flags_horizontal = 4
+texture = ExtResource("9_1lv5n")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/HowToPlayVbox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/HowToPlayVbox/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Title" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 48
+text = "How To Play"
+
+[node name="Label" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(20, 50)
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Move to the eggs, while avoiding cars, when you see a     appear, wait until the egg hatches! When you have enough Quail Babies following you, cross all roads to find the end flag. Wait 3 seconds on the end flag to win!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(40, 50)
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Tap or Hold      to dash but be careful! If you press too long your Quail will panic and dash that direction for a brief period of time"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 50
+
+[node name="GridContainer" type="GridContainer" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="Column1" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Action"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Column2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Keyboard"
+horizontal_alignment = 1
+
+[node name="Column3" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Controller
+"
+horizontal_alignment = 1
+
+[node name="Move" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Move
+"
+horizontal_alignment = 1
+
+[node name="WASD" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "W,A,S,D"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_6gv6f")
+stretch_mode = 2
+
+[node name="Dash" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Dash"
+horizontal_alignment = 1
+
+[node name="SpaceOrShift" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Space or Shift"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("11_kxr8b")
+stretch_mode = 2
+
+[node name="Dash2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Restart Level"
+horizontal_alignment = 1
+
+[node name="SpaceOrShift2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Hold R"
+horizontal_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_2ubrd")
+stretch_mode = 2
+
+[node name="Menu" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="SpaceOrShift3" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Esc"
+horizontal_alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("13_j101b")
+stretch_mode = 2
+
+[node name="Exclaimation" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+position = Vector2(755, 91)
+scale = Vector2(2, 2)
+texture = ExtResource("10_33iv8")
+
+[node name="BackButton" type="TextureButton" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+unique_name_in_owner = true
+process_mode = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_j7y1s")
+texture_pressed = ExtResource("4_kaefa")
+texture_focused = ExtResource("12_thrs0")
+
+[node name="Label" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8mgkr")
+text = "Back"
+horizontal_alignment = 1
+
+[node name="PsControllerButtonCir" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+position = Vector2(195, 248)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("11_kxr8b")
 
 [node name="GameOverCont" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
@@ -408,4 +606,6 @@ horizontal_alignment = 1
 wait_time = 85.0
 one_shot = true
 
+[connection signal="pressed" from="UI/Control/PauseVbox/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="button_down" from="UI/Control/PauseVbox/PauseQuitButton" to="." method="_on_pause_quit_button_button_down"]
+[connection signal="pressed" from="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
