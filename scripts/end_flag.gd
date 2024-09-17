@@ -64,7 +64,7 @@ func _on_area_entered(area):
 			timer.start()
 	
 	if PlayerVariables.current_level == 4:
-		if area.is_in_group("player") and PlayerVariables.quail_count >= cr2:
+		if area.is_in_group("player") and PlayerVariables.quail_count >= cr3:
 			progress_bar.visible = true
 			print("win quail count = " + str(PlayerVariables.quail_count))
 			timer.start()
