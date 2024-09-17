@@ -97,7 +97,7 @@ func _on_game_over():
 
 
 func _on_pause_quit_button_button_down() -> void:
-	pass # Replace with function body.
+	PlayerVariables.quail_count = 0
 
 func _on_egg_hatched():
 	%"2Secs".show()
@@ -107,7 +107,6 @@ func _on_egg_hatched():
 	%"2Secs".hide()
 	%"2Secs".modulate = Color(1,1,1,1)
 	pass
-	
 	
 func _on_restart_level():
 	%RestartTimer.start()
@@ -119,7 +118,8 @@ func _on_restart_level_stop():
 
 func _on_controls_button_pressed() -> void:
 	%HowToPlayVbox.show()
-
+	%BackButton.grab_focus()
 
 func _on_back_button_pressed() -> void:
 	%HowToPlayVbox.hide()
+	%UnpauseButton.grab_focus()

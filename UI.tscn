@@ -53,6 +53,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 4.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -87,12 +91,8 @@ unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_left = NodePath("../PauseQuitButton")
 focus_neighbor_top = NodePath("../PauseQuitButton")
-focus_neighbor_right = NodePath("../PauseRetry")
 focus_neighbor_bottom = NodePath("../PauseRetry")
-focus_next = NodePath("../PauseRetry")
-focus_previous = NodePath("../PauseQuitButton")
 theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
@@ -120,12 +120,8 @@ unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_left = NodePath("../UnpauseButton")
 focus_neighbor_top = NodePath("../UnpauseButton")
-focus_neighbor_right = NodePath("../PauseQuitButton")
-focus_neighbor_bottom = NodePath("../PauseQuitButton")
-focus_next = NodePath("../PauseQuitButton")
-focus_previous = NodePath("../UnpauseButton")
+focus_neighbor_bottom = NodePath("../ControlsButton")
 theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
@@ -153,6 +149,8 @@ unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../PauseRetry")
+focus_neighbor_bottom = NodePath("../PauseQuitButton")
 theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
@@ -172,7 +170,7 @@ offset_right = 20.0
 offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Controls
+text = "Help
 "
 horizontal_alignment = 1
 
@@ -181,12 +179,8 @@ unique_name_in_owner = true
 process_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_left = NodePath("../PauseRetry")
-focus_neighbor_top = NodePath("../PauseRetry")
-focus_neighbor_right = NodePath("../UnpauseButton")
+focus_neighbor_top = NodePath("../ControlsButton")
 focus_neighbor_bottom = NodePath("../UnpauseButton")
-focus_next = NodePath("../UnpauseButton")
-focus_previous = NodePath("../PauseRetry")
 theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
@@ -372,32 +366,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
 
 [node name="Title" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 48
 text = "How To Play"
 
-[node name="Label" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(20, 50)
+[node name="Label" type="RichTextLabel" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+custom_minimum_size = Vector2(20, 300)
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
-theme_override_font_sizes/font_size = 32
-text = "Move to the eggs, while avoiding cars, when you see a     appear, wait until the egg hatches! When you have enough Quail Babies following you, cross all roads to find the end flag. Wait 3 seconds on the end flag to win!"
-horizontal_alignment = 1
-autowrap_mode = 3
+theme_override_constants/outline_size = 9
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("1_32fu0")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]Find the [wave]Eggs![/wave]
+Stand on an [wave]Egg[/wave] when you see a     appear, wait until the egg hatches! When you have enough Quail Babies following you, cross all roads to find the end flag. Wait 3 seconds on the end flag to win!
 
-[node name="Label2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(40, 50)
-layout_mode = 2
-theme = ExtResource("2_8mgkr")
-theme_override_font_sizes/font_size = 32
-text = "Tap or Hold      to dash but be careful! If you press too long your Quail will panic and dash that direction for a brief period of time"
-horizontal_alignment = 1
-autowrap_mode = 3
+Tap or Hold      to dash but be careful! If you press too long your Quail will panic and dash that direction for a brief period of time"
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -415,6 +405,7 @@ columns = 3
 [node name="Column1" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Action"
 horizontal_alignment = 1
@@ -424,6 +415,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Keyboard"
 horizontal_alignment = 1
@@ -431,6 +423,7 @@ horizontal_alignment = 1
 [node name="Column3" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Controller
 "
@@ -439,6 +432,7 @@ horizontal_alignment = 1
 [node name="Move" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Move
 "
@@ -447,6 +441,7 @@ horizontal_alignment = 1
 [node name="WASD" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "W,A,S,D"
 horizontal_alignment = 1
@@ -455,11 +450,12 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("10_6gv6f")
-stretch_mode = 2
+expand_mode = 2
 
 [node name="Dash" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Dash"
 horizontal_alignment = 1
@@ -467,6 +463,7 @@ horizontal_alignment = 1
 [node name="SpaceOrShift" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Space or Shift"
 horizontal_alignment = 1
@@ -475,11 +472,12 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("11_kxr8b")
-stretch_mode = 2
+expand_mode = 2
 
 [node name="Dash2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Restart Level"
 horizontal_alignment = 1
@@ -487,6 +485,7 @@ horizontal_alignment = 1
 [node name="SpaceOrShift2" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Hold R"
 horizontal_alignment = 1
@@ -495,11 +494,12 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("6_2ubrd")
-stretch_mode = 2
+expand_mode = 2
 
 [node name="Menu" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Menu"
 horizontal_alignment = 1
@@ -507,6 +507,7 @@ horizontal_alignment = 1
 [node name="SpaceOrShift3" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
 theme_override_font_sizes/font_size = 32
 text = "Esc"
 horizontal_alignment = 1
@@ -515,11 +516,11 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("13_j101b")
-stretch_mode = 2
+expand_mode = 2
 
 [node name="Exclaimation" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-position = Vector2(755, 91)
-scale = Vector2(2, 2)
+position = Vector2(445, 97)
+scale = Vector2(3, 3)
 texture = ExtResource("10_33iv8")
 
 [node name="BackButton" type="TextureButton" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
@@ -546,12 +547,14 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_8mgkr")
+theme_override_constants/outline_size = 9
+theme_override_font_sizes/font_size = 32
 text = "Back"
 horizontal_alignment = 1
 
 [node name="PsControllerButtonCir" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-position = Vector2(195, 248)
-scale = Vector2(1.3, 1.3)
+position = Vector2(195, 252)
+scale = Vector2(2, 2)
 texture = ExtResource("11_kxr8b")
 
 [node name="GameOverCont" type="VBoxContainer" parent="UI"]

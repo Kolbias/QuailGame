@@ -41,7 +41,7 @@ shadow_offset = Vector2(2, 2)
 [resource]
 default_font = ExtResource("1_w4ibr")
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 4
+Button/constants/outline_size = 9
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_w4ibr")
 Button/styles/focus = SubResource("StyleBoxFlat_btn24")
