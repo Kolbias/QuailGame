@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=19 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bc12mtsxnhv8f" path="res://assets/ui/PSControllerButtonCir.png" id="11_kxr8b"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="12_thrs0"]
 [ext_resource type="Texture2D" uid="uid://cfdu5r81xy6j3" path="res://assets/ui/PSControllerButtonOptionspng.png" id="13_j101b"]
+[ext_resource type="Texture2D" uid="uid://cv57ythpte4y7" path="res://assets/objects/QuailEgg.png" id="16_h2d2n"]
+[ext_resource type="Texture2D" uid="uid://7scipsbu0xnf" path="res://assets/objects/EndFlag.png" id="17_quso7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xvyk"]
 bg_color = Color(1, 1, 0.270588, 1)
@@ -342,15 +344,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -250.0
-offset_right = 300.0
-offset_bottom = 350.0
+offset_left = -400.0
+offset_top = -325.0
+offset_right = 400.0
+offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/HowToPlayVbox"]
-custom_minimum_size = Vector2(800, 650)
+custom_minimum_size = Vector2(800, 750)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("9_1lv5n")
@@ -376,18 +378,22 @@ theme_override_font_sizes/font_size = 48
 text = "How To Play"
 
 [node name="Label" type="RichTextLabel" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-custom_minimum_size = Vector2(20, 300)
+custom_minimum_size = Vector2(20, 415)
 layout_mode = 2
 theme = ExtResource("2_8mgkr")
 theme_override_constants/outline_size = 9
-theme_override_constants/line_separation = 2
+theme_override_constants/line_separation = 1
 theme_override_fonts/normal_font = ExtResource("1_32fu0")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Find the [wave]Eggs![/wave]
-Stand on an [wave]Egg[/wave] when you see a     appear, wait until the egg hatches! When you have enough Quail Babies following you, cross all roads to find the end flag. Wait 3 seconds on the end flag to win!
+text = "[center]Find the [color=yellow]Eggs![/color]
+Stand on an [color=yellow]Egg[/color] when you see a     appear, wait until the egg hatches! 
 
-Tap or Hold      to dash but be careful! If you press too long your Quail will panic and dash that direction for a brief period of time"
+When you have enough Quail Babies following you, cross all roads to find the [color=deepskyblue]End Flag. [/color]Wait 3 seconds on the end flag to win!
+
+
+
+Tap or hold Dash when moving to speed up but be careful! If you press too long your Quail will panic and dash that direction for a brief period of time."
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -519,7 +525,7 @@ texture = ExtResource("13_j101b")
 expand_mode = 2
 
 [node name="Exclaimation" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-position = Vector2(445, 97)
+position = Vector2(440, 97)
 scale = Vector2(3, 3)
 texture = ExtResource("10_33iv8")
 
@@ -552,10 +558,20 @@ theme_override_font_sizes/font_size = 32
 text = "Back"
 horizontal_alignment = 1
 
-[node name="PsControllerButtonCir" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
-position = Vector2(195, 252)
-scale = Vector2(2, 2)
-texture = ExtResource("11_kxr8b")
+[node name="QuailEgg" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+position = Vector2(508, 65)
+scale = Vector2(3, 3)
+texture = ExtResource("16_h2d2n")
+
+[node name="QuailEgg2" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+position = Vector2(291, 65)
+scale = Vector2(3, 3)
+texture = ExtResource("16_h2d2n")
+
+[node name="EndFlag" type="Sprite2D" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
+position = Vector2(396, 312)
+scale = Vector2(2.85, 2.5)
+texture = ExtResource("17_quso7")
 
 [node name="GameOverCont" type="VBoxContainer" parent="UI"]
 unique_name_in_owner = true
