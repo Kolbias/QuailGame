@@ -99,7 +99,7 @@ theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
 texture_hover = ExtResource("4_kaefa")
-texture_focused = ExtResource("4_kaefa")
+texture_focused = ExtResource("12_thrs0")
 
 [node name="Label" type="Label" parent="UI/Control/PauseVbox/UnpauseButton"]
 layout_mode = 1
@@ -128,7 +128,7 @@ theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
 texture_hover = ExtResource("4_kaefa")
-texture_focused = ExtResource("4_kaefa")
+texture_focused = ExtResource("12_thrs0")
 
 [node name="Label" type="Label" parent="UI/Control/PauseVbox/PauseRetry"]
 layout_mode = 1
@@ -157,7 +157,7 @@ theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
 texture_hover = ExtResource("4_kaefa")
-texture_focused = ExtResource("4_kaefa")
+texture_focused = ExtResource("12_thrs0")
 
 [node name="Label" type="Label" parent="UI/Control/PauseVbox/ControlsButton"]
 layout_mode = 1
@@ -187,7 +187,7 @@ theme = ExtResource("2_8mgkr")
 texture_normal = ExtResource("3_j7y1s")
 texture_pressed = ExtResource("4_kaefa")
 texture_hover = ExtResource("4_kaefa")
-texture_focused = ExtResource("4_kaefa")
+texture_focused = ExtResource("12_thrs0")
 
 [node name="Label" type="Label" parent="UI/Control/PauseVbox/PauseQuitButton"]
 layout_mode = 1

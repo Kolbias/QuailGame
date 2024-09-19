@@ -24,7 +24,7 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
-	$Control/VBoxContainer2/Next.grab_focus()
+	%Next.grab_focus()
 	var world = PlayerVariables.current_level
 	
 	# World1 Score Thresholds

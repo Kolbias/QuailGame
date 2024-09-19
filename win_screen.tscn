@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddk8hn0jx3lpg"]
+[gd_scene load_steps=13 format=3 uid="uid://ddk8hn0jx3lpg"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://dle8qk27avik" path="res://assets/sounds/BirdAmbience.ogg" id="5_cw2r3"]
 [ext_resource type="Texture2D" uid="uid://dnem4atfooguh" path="res://assets/ui/GoldEgg.png" id="5_u2cvp"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="6_avaob"]
+[ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="7_qft03"]
+[ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="8_f8n55"]
+[ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="9_jgmb5"]
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource("1_m5l4d")
@@ -39,14 +42,23 @@ position = Vector2(0, -60)
 texture = ExtResource("5_u2cvp")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = -156.0
-offset_top = 51.5
-offset_right = 156.0
-offset_bottom = 116.5
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 97.0
+offset_right = 40.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Next" type="Button" parent="Control/VBoxContainer2"]
+[node name="Next" type="TextureButton" parent="Control/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../Quit")
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_right = NodePath("../Quit")
@@ -54,13 +66,30 @@ focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Quit")
 theme = ExtResource("6_avaob")
-theme_override_fonts/font = ExtResource("3_u15fd")
-theme_override_font_sizes/font_size = 32
-text = "Next Level
-"
+texture_normal = ExtResource("7_qft03")
+texture_pressed = ExtResource("7_qft03")
+texture_focused = ExtResource("9_jgmb5")
 
-[node name="Quit" type="Button" parent="Control/VBoxContainer2"]
+[node name="Label" type="RichTextLabel" parent="Control/VBoxContainer2/Next"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -15.5
+offset_right = 59.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_avaob")
+bbcode_enabled = true
+text = "[wave]Next[/wave]"
+
+[node name="Quit" type="TextureButton" parent="Control/VBoxContainer2"]
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../Next")
 focus_neighbor_top = NodePath("../Next")
 focus_neighbor_right = NodePath("../Next")
@@ -68,9 +97,19 @@ focus_neighbor_bottom = NodePath("../Next")
 focus_next = NodePath("../Next")
 focus_previous = NodePath("../Next")
 theme = ExtResource("6_avaob")
-theme_override_fonts/font = ExtResource("3_u15fd")
-theme_override_font_sizes/font_size = 32
-text = "Quit to Menu"
+texture_normal = ExtResource("7_qft03")
+texture_pressed = ExtResource("8_f8n55")
+texture_focused = ExtResource("9_jgmb5")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer2/Quit"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 1.5
+offset_right = 91.0
+offset_bottom = 41.5
+bbcode_enabled = true
+text = "[wave]Quit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
