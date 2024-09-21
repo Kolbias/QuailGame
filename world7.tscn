@@ -710,7 +710,7 @@ position = Vector2(258, 761)
 [node name="UICanvas" parent="." instance=ExtResource("36_nvg8m")]
 
 [node name="Pylon" parent="." instance=ExtResource("36_8035f")]
-position = Vector2(46, 135)
+position = Vector2(71, 138)
 
 [node name="Pylon2" parent="." instance=ExtResource("36_8035f")]
 position = Vector2(46, 91)
