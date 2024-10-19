@@ -193,9 +193,12 @@ func _on_hurtbox_area_entered(area):
 		change_state(States.SWIM)
 						  
 	if area.is_in_group("fire"):
-		print("Quail burning!!")
-		alive = false
-		sprite.visible = false
+		#print("Quail burning!!")
+		#alive = false
+		#sprite.visible = false
+		print("fire detected by player")
+		GlobalSignals.emit_signal("game_over")
+		change_state(States.DEAD)
 	else:
 		pass
 
