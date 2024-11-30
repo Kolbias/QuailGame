@@ -107,6 +107,9 @@ damping_curve = SubResource("Curve_hq6bk")
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_wv8tg")
 
+[node name="CallTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="finished" from="CarDeathSound" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="SpiritParticle" to="." method="_on_cpu_particles_2d_finished"]

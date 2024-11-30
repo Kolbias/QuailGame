@@ -333,7 +333,6 @@ one_shot = true
 wait_time = 0.5
 
 [node name="StateDebug" type="Label" parent="."]
-visible = false
 offset_left = -20.0
 offset_top = -24.0
 offset_right = 20.0
@@ -370,6 +369,10 @@ value = 3.0
 show_percentage = false
 
 [node name="RestartTimer" type="Timer" parent="."]
+
+[node name="PlayerCallTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]

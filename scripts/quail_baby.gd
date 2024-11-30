@@ -14,6 +14,8 @@ extends CharacterBody2D
 signal quail_killed
 
 func _ready():
+	GlobalSignals.connect("call_babies", _on_call_babies)
+	%CallTimer.connect("timeout", _on_call_timer_timeout)
 	add_to_group("quail_babies")
 	animation_player.play("default", -1, randf_range(0.7, 1.0))
 
@@ -66,3 +68,14 @@ func _on_audio_stream_player_2d_finished():
 
 func _on_cpu_particles_2d_finished():
 	self.queue_free()
+
+func _on_call_babies():
+	print("Call Babies Signal Recieved by baby")
+	#$CollisionShape2D.disabled = true
+	$CollisionShape2D.shape.radius = 1
+	%CallTimer.start()
+
+func _on_call_timer_timeout():
+	var tween = get_tree().create_tween()
+	tween.tween_property($CollisionShape2D.shape, "radius", 4, 1.0)
+	#$CollisionShape2D.disabled = false

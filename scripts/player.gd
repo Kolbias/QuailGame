@@ -15,7 +15,7 @@ extends CharacterBody2D
 @onready var boost_speed = PlayerVariables.boost_speed
 @onready var boost_bar: ProgressBar = %BoostBar
 @onready var mash_bar = %MashBar
-enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, DEAD}
+enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, CALL, DEAD}
 
 var can_boost = true
 var state = States.IDLE
@@ -32,7 +32,7 @@ func _ready():
 	GlobalSignals.connect("game_over", _on_game_over)
 	print("Current level = " + str(PlayerVariables.current_level))
 	timer.start()
-
+	%PlayerCallTimer.connect("timeout", _on_player_call_timer_timeout)
 func _process(delta: float) -> void:
 	if %MashBar.value <= 0:
 		%MashBar.hide()
@@ -68,6 +68,9 @@ func _physics_process(delta):
 			if Input.is_action_pressed("ui_right"):
 				change_state(States.WALK)
 			sprite.play("idle")
+			if Input.is_action_pressed("ui_accept"):
+				%PlayerCallTimer.start()
+				change_state(States.CALL)
 		States.WALK:
 			%BoostFeathers.emitting = false
 			%MashBar.show()
@@ -148,6 +151,7 @@ func _physics_process(delta):
 			$StateDebug.text = "BOOST"
 			#speed = lerp(speed, boost_speed, 5.0 * delta)
 		States.DEAD:
+			$StateDebug.text = "DEAD"
 			PlayerVariables.quail_count = 0
 			sprite.visible = false
 			hurtbox.monitoring = true
@@ -157,6 +161,7 @@ func _physics_process(delta):
 				PlayerVariables.quail_count = 0
 				get_tree().reload_current_scene()
 		States.SWIM:
+			$StateDebug.text = "SWIM"
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
@@ -164,6 +169,9 @@ func _physics_process(delta):
 			velocity = input_vector * (speed * 0.5)
 			sprite.play("swim")
 			move_and_slide()
+		States.CALL:
+			$StateDebug.text = "CALL"
+			GlobalSignals.emit_signal("call_babies")
 	for i in get_slide_collision_count():
 			var c = get_slide_collision(i)
 			if c.get_collider() is RigidBody2D:
@@ -260,3 +268,6 @@ func _on_restart_timer_timeout() -> void:
 	PlayerVariables.quail_count = 0
 	get_tree().reload_current_scene()
 	
+func _on_player_call_timer_timeout():
+	print("player call timer time out")
+	change_state(States.IDLE)
