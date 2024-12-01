@@ -15,7 +15,7 @@ extends CharacterBody2D
 @onready var boost_speed = PlayerVariables.boost_speed
 @onready var boost_bar: ProgressBar = %BoostBar
 @onready var mash_bar = %MashBar
-enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, CALL, DEAD}
+enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, CALL, CALLSTART, DEAD}
 
 var can_boost = true
 var state = States.IDLE
@@ -70,7 +70,7 @@ func _physics_process(delta):
 			sprite.play("idle")
 			if Input.is_action_pressed("ui_accept"):
 				%PlayerCallTimer.start()
-				change_state(States.CALL)
+				change_state(States.CALLSTART)
 		States.WALK:
 			%BoostFeathers.emitting = false
 			%MashBar.show()
@@ -169,9 +169,16 @@ func _physics_process(delta):
 			velocity = input_vector * (speed * 0.5)
 			sprite.play("swim")
 			move_and_slide()
+			
+		States.CALLSTART:
+			$StateDebug.text = "CALLSTART"
+			%QuailCallSound.play()
+			change_state(States.CALL)
 		States.CALL:
+			%CallParticles.emitting = true
 			$StateDebug.text = "CALL"
 			GlobalSignals.emit_signal("call_babies")
+			
 	for i in get_slide_collision_count():
 			var c = get_slide_collision(i)
 			if c.get_collider() is RigidBody2D:
