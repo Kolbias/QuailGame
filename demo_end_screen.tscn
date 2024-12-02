@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ujln3xm3eap"]
+
+[ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="1_ega0l"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_wegd3"]
+
+[sub_resource type="GDScript" id="GDScript_hbdy3"]
+resource_name = "demo_end_screen"
+script/source = "extends Node2D
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://main_menu.tscn\")
+"
+
+[node name="ThanksForPlaying!" type="Node2D"]
+script = SubResource("GDScript_hbdy3")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_ega0l")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_wegd3")
+bbcode_enabled = true
+text = "[center]Thanks for playing!"
+
+[node name="Button" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

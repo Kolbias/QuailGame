@@ -114,6 +114,7 @@ theme_override_font_sizes/font_size = 32
 text = "World 6"
 
 [node name="ButtonWorld7" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -121,6 +122,7 @@ theme_override_font_sizes/font_size = 32
 text = "World 7"
 
 [node name="ButtonWorld8" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -129,6 +131,7 @@ text = "World 8
 "
 
 [node name="ButtonWorld9" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -137,17 +140,20 @@ text = "World 9
 "
 
 [node name="ButtonWorld10" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 text = "World 10
 "
 
 [node name="ButtonWorld11" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 text = "World 11"
 
 [node name="ButtonWorld12" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 text = "World 12"

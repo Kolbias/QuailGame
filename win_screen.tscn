@@ -18,30 +18,36 @@ script = ExtResource("1_m5l4d")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_g0l7j")]
 
-[node name="Control" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="BronzeStar" type="Sprite2D" parent="Control"]
+[node name="BronzeStar" type="Sprite2D" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -60)
 texture = ExtResource("3_euacw")
 
-[node name="SilverStar" type="Sprite2D" parent="Control"]
+[node name="SilverStar" type="Sprite2D" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -60)
 texture = ExtResource("4_oey5w")
 
-[node name="GoldStar" type="Sprite2D" parent="Control"]
+[node name="GoldStar" type="Sprite2D" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -60)
 texture = ExtResource("5_u2cvp")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,8 +61,9 @@ offset_bottom = 165.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Next" type="TextureButton" parent="Control/VBoxContainer2"]
+[node name="Next" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2"]
 unique_name_in_owner = true
+z_index = 6
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../Quit")
@@ -70,7 +77,7 @@ texture_normal = ExtResource("7_qft03")
 texture_pressed = ExtResource("7_qft03")
 texture_focused = ExtResource("9_jgmb5")
 
-[node name="Label" type="RichTextLabel" parent="Control/VBoxContainer2/Next"]
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer2/Next"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,11 +90,12 @@ offset_right = 59.0
 offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("6_avaob")
 bbcode_enabled = true
 text = "[wave]Next[/wave]"
 
-[node name="Quit" type="TextureButton" parent="Control/VBoxContainer2"]
+[node name="Quit" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_left = NodePath("../Next")
@@ -102,16 +110,17 @@ texture_pressed = ExtResource("8_f8n55")
 texture_focused = ExtResource("9_jgmb5")
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer2/Quit"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer2/Quit"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 1.5
 offset_right = 91.0
 offset_bottom = 41.5
+mouse_filter = 2
 bbcode_enabled = true
 text = "[wave]Quit"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,14 +128,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -156.0
-offset_top = -49.5
+offset_top = -49.0
 offset_right = 156.0
-offset_bottom = 49.5
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="StarText" type="Label" parent="Control/VBoxContainer"]
+[node name="StarText" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -135,7 +145,8 @@ theme_override_font_sizes/font_size = 32
 text = "Star Text"
 horizontal_alignment = 1
 
-[node name="QuailScore" type="Label" parent="Control/VBoxContainer"]
+[node name="QuailScore" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
@@ -146,6 +157,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(2, 2)
 
 [node name="QuailCallSound" type="AudioStreamPlayer2D" parent="."]
@@ -154,5 +166,5 @@ stream = ExtResource("4_agpg8")
 [node name="Ambience" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_cw2r3")
 
-[connection signal="button_down" from="Control/VBoxContainer2/Next" to="." method="_on_next_button_down"]
-[connection signal="button_down" from="Control/VBoxContainer2/Quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer2/Next" to="." method="_on_next_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer2/Quit" to="." method="_on_quit_button_down"]

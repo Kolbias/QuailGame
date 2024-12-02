@@ -1,15 +1,15 @@
 extends Node2D
 
 @onready var score = PlayerVariables.quail_count
-@onready var score_text = $Control/VBoxContainer/QuailScore
+@onready var score_text = %QuailScore
 @onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
 
 # Awards
-@onready var bronze_star = $Control/BronzeStar
-@onready var silver_star = $Control/SilverStar
-@onready var gold_star = $Control/GoldStar
-@onready var star_text = $Control/VBoxContainer/StarText
+@onready var bronze_star = %BronzeStar
+@onready var silver_star = %SilverStar
+@onready var gold_star = %GoldStar
+@onready var star_text = %StarText
 @onready var star_speed = 0.5
 @onready var star_scale = Vector2(3,3)
 
