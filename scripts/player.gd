@@ -39,9 +39,9 @@ func _process(delta: float) -> void:
 		%CallBar.hide()
 	if %CallTimer.time_left >= 1:
 		%CallBar.show()
-	#if %MashBar.value <= 0:
-		#%MashBar.hide()
-	#if %MashBar.value >= 1:
+	if %MashBar.value <= 0:
+		%MashBar.hide()
+	if %MashBar.value >= 1 and can_boost:
 		%MashBar.show()
 	%CallBar.value = %CallTimer.time_left
 	%BoostBar.value = %MashBar.value
@@ -81,9 +81,9 @@ func _physics_process(delta):
 					change_state(States.CALLSTART)
 		States.WALK:
 			%BoostFeathers.emitting = false
-			#%MashBar.show()
+			%MashBar.show()
 			%BoostBar.hide()
-			%MashBar.hide()
+			#%MashBar.hide()
 			$StateDebug.text = "WALK"
 			sprite.play("run")
 			if Input.is_action_just_pressed("boost") and can_boost:
@@ -102,7 +102,7 @@ func _physics_process(delta):
 			#print(input_vector)
 			move_and_slide()
 		States.SETBOOST:
-			#%MashBar.hide()
+			%MashBar.hide()
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
@@ -118,7 +118,7 @@ func _physics_process(delta):
 				sprite.flip_h = true
 			if input_vector.x > 0:
 				sprite.flip_h = false
-			#can_boost = false
+			
 			$StateDebug.text = "BOOST START"
 			#$BoostTimer.start()
 			velocity = input_vector.normalized() * speed
@@ -146,6 +146,7 @@ func _physics_process(delta):
 			if input_vector == Vector2(0,0):
 				change_state(States.WALK)
 		States.BOOST:
+			can_boost = false
 			%MashBar.hide()
 			%BoostBar.show()
 			#$BoostTimer.start()
@@ -156,6 +157,7 @@ func _physics_process(delta):
 			#velocity = input_vector.normalized() * speed
 			if %MashBar.value <= 0:
 				change_state(States.WALK)
+				can_boost = true
 			move_and_slide()
 			sprite.play("boost")
 			$StateDebug.text = "BOOST"

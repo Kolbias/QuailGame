@@ -38,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://54iugs4aog8t" path="res://assets/player/QuailSwim8.png" id="25_j57du"]
 [ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="30_th2rr"]
-[ext_resource type="StyleBox" uid="uid://bttv0h4rmpw37" path="res://themes/end_flag_style.tres" id="38_5nkh0"]
 [ext_resource type="AudioStream" uid="uid://qrhcr80ojh5s" path="res://assets/sounds/QuailCallShort.wav" id="40_aygby"]
 [ext_resource type="Texture2D" uid="uid://baoe28tvuu7tr" path="res://assets/ui/MusicNote.png" id="41_aeg5w"]
 
@@ -220,6 +219,14 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.9097, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbmn0"]
+bg_color = Color(0.525, 0.43, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3vqa"]
 bg_color = Color(1, 0.27, 0.282166, 1)
 border_width_left = 1
@@ -347,6 +354,7 @@ one_shot = true
 wait_time = 0.5
 
 [node name="StateDebug" type="Label" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -24.0
 offset_right = 20.0
@@ -374,10 +382,9 @@ alignment = 2
 
 [node name="MashBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 z_index = 5
 layout_mode = 2
-theme_override_styles/fill = ExtResource("38_5nkh0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fbmn0")
 step = 1.0
 show_percentage = false
 
@@ -397,7 +404,7 @@ visible = false
 z_index = 5
 layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_a2c6n")
-max_value = 5.0
+max_value = 10.0
 step = 1.0
 value = 3.0
 show_percentage = false
@@ -427,7 +434,7 @@ scale_amount_curve = SubResource("Curve_cooe2")
 
 [node name="CallTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
