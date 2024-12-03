@@ -17,6 +17,7 @@ extends CharacterBody2D
 @onready var mash_bar = %MashBar
 enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, CALL, CALLSTART, DEAD}
 
+var can_call = true
 var can_boost = true
 var state = States.IDLE
 
@@ -34,16 +35,22 @@ func _ready():
 	timer.start()
 	%PlayerCallTimer.connect("timeout", _on_player_call_timer_timeout)
 func _process(delta: float) -> void:
-	if %MashBar.value <= 0:
-		%MashBar.hide()
-	if %MashBar.value >= 1:
+	if %CallTimer.time_left <= 0:
+		%CallBar.hide()
+	if %CallTimer.time_left >= 1:
+		%CallBar.show()
+	#if %MashBar.value <= 0:
+		#%MashBar.hide()
+	#if %MashBar.value >= 1:
 		%MashBar.show()
+	%CallBar.value = %CallTimer.time_left
 	%BoostBar.value = %MashBar.value
 	PlayerVariables.time_remaining = timer.time_left
 	#print(timer.time_left)
 	#print(PlayerVariables.time_remaining)
 	%MashBar.value -= 2
 func _physics_process(delta):
+
 	var dir = Vector2()
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -69,13 +76,14 @@ func _physics_process(delta):
 				change_state(States.WALK)
 			sprite.play("idle")
 			if Input.is_action_pressed("ui_accept"):
-				%PlayerCallTimer.start()
-				change_state(States.CALLSTART)
+				if can_call:
+					%PlayerCallTimer.start()
+					change_state(States.CALLSTART)
 		States.WALK:
 			%BoostFeathers.emitting = false
-			%MashBar.show()
+			#%MashBar.show()
 			%BoostBar.hide()
-			#%MashBar.hide()
+			%MashBar.hide()
 			$StateDebug.text = "WALK"
 			sprite.play("run")
 			if Input.is_action_just_pressed("boost") and can_boost:
@@ -94,6 +102,7 @@ func _physics_process(delta):
 			#print(input_vector)
 			move_and_slide()
 		States.SETBOOST:
+			#%MashBar.hide()
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
@@ -104,6 +113,7 @@ func _physics_process(delta):
 			speed = lerp(speed, boost_speed, 3.0 * delta)
 			move_and_slide()
 		States.BOOSTSTART:
+			#%MashBar.hide()
 			if input_vector.x < 0:
 				sprite.flip_h = true
 			if input_vector.x > 0:
@@ -171,8 +181,11 @@ func _physics_process(delta):
 			move_and_slide()
 			
 		States.CALLSTART:
+			%CallBar.show()
 			$StateDebug.text = "CALLSTART"
 			%QuailCallSound.play()
+			can_call = false
+			%CallTimer.start()
 			change_state(States.CALL)
 		States.CALL:
 			%CallParticles.emitting = true
@@ -278,3 +291,10 @@ func _on_restart_timer_timeout() -> void:
 func _on_player_call_timer_timeout():
 	print("player call timer time out")
 	change_state(States.IDLE)
+
+
+func _on_call_timer_timeout() -> void:
+	if can_call == false:
+		can_call = true
+	else:
+		pass

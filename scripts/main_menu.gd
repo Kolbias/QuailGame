@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var main_quail = $MainQuail
 @onready var baby_quail_left = $BabyQuailLeft
-@onready var parallax = $ParallaxBackground/ParallaxLayer
+@onready var parallax = %ParallaxBackground
 @export var background_scroll_speed = Vector2(0.5,0.5)
 @onready var sound = $AudioStreamPlayer2D
 @onready var play_button = $CanvasLayer/Control/VBoxContainer/PlayButton
@@ -16,12 +16,12 @@ func _ready():
 	sound.play()
 	
 func _process(delta):
-	parallax.motion_offset += background_scroll_speed
+	#parallax.motion_offset += background_scroll_speed
 	
 	#Attempted to animate main quail replace with tweens?
-	main_quail.position.x += 100.0 * delta
-	if main_quail.position.x > 2020.0:
-		main_quail.position = Vector2(-185,70)
+	main_quail.position.x += 500.0 * delta
+	if main_quail.position.x > 4000.0:
+		main_quail.position = Vector2(53,1039)
 	else:
 		pass
 	#await get_tree().create_timer(1000).timeout

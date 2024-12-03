@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=52 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -220,8 +220,16 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.9097, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1b3ba"]
-bg_color = Color(0.937255, 0.439216, 0.356863, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3vqa"]
+bg_color = Color(1, 0.27, 0.282166, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2c6n"]
+bg_color = Color(0.8, 0.6, 1, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -339,7 +347,6 @@ one_shot = true
 wait_time = 0.5
 
 [node name="StateDebug" type="Label" parent="."]
-visible = false
 offset_left = -20.0
 offset_top = -24.0
 offset_right = 20.0
@@ -350,27 +357,47 @@ text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MashBar" type="ProgressBar" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -22.0
+offset_right = 8.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+alignment = 2
+
+[node name="MashBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 z_index = 5
-offset_left = -13.0
-offset_top = -11.0
-offset_right = 12.0
-offset_bottom = -7.0
+layout_mode = 2
 theme_override_styles/fill = ExtResource("38_5nkh0")
 step = 1.0
 show_percentage = false
 
-[node name="BoostBar" type="ProgressBar" parent="."]
+[node name="BoostBar" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 z_index = 5
-offset_left = -13.0
-offset_top = -11.0
-offset_right = 12.0
-offset_bottom = -7.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_1b3ba")
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_x3vqa")
+step = 1.0
+value = 3.0
+show_percentage = false
+
+[node name="CallBar" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+z_index = 5
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_a2c6n")
+max_value = 5.0
 step = 1.0
 value = 3.0
 show_percentage = false
@@ -398,9 +425,15 @@ initial_velocity_min = 15.0
 initial_velocity_max = 18.0
 scale_amount_curve = SubResource("Curve_cooe2")
 
+[node name="CallTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
 [connection signal="timeout" from="BoostCooldown" to="." method="_on_boost_cooldown_timeout"]
 [connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]
+[connection signal="timeout" from="CallTimer" to="." method="_on_call_timer_timeout"]

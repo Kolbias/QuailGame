@@ -32,19 +32,19 @@ mouse_filter = 2
 [node name="BronzeStar" type="Sprite2D" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(0, -60)
+position = Vector2(576, 387)
 texture = ExtResource("3_euacw")
 
 [node name="SilverStar" type="Sprite2D" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(0, -60)
+position = Vector2(576, 387)
 texture = ExtResource("4_oey5w")
 
 [node name="GoldStar" type="Sprite2D" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(0, -60)
+position = Vector2(576, 387)
 texture = ExtResource("5_u2cvp")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
