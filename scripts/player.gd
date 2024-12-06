@@ -64,6 +64,7 @@ func _physics_process(delta):
 	
 	match state:
 		States.IDLE:
+			%HatAnimator.play("hat_idle")
 			%BoostFeathers.emitting = false
 			$StateDebug.text = "IDLE"
 			if Input.is_action_pressed("ui_down"):
@@ -80,6 +81,7 @@ func _physics_process(delta):
 					%PlayerCallTimer.start()
 					change_state(States.CALLSTART)
 		States.WALK:
+			%HatAnimator.play("hat_run")
 			%BoostFeathers.emitting = false
 			%MashBar.show()
 			%BoostBar.hide()
@@ -95,8 +97,12 @@ func _physics_process(delta):
 				change_state(States.IDLE)
 			if input_vector.x < 0:
 				sprite.flip_h = true
+				$AnimatedSprite2D/Hats/Hat1.flip_h = true
+				%Hats.position = Vector2(-5.5,-4)
 			if input_vector.x > 0:
 				sprite.flip_h = false
+				$AnimatedSprite2D/Hats/Hat1.flip_h = false
+				%Hats.position = Vector2(5.5,-4)
 			speed = PlayerVariables.speed
 			velocity = input_vector * speed
 			#print(input_vector)

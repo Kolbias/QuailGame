@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddk8hn0jx3lpg"]
+[gd_scene load_steps=15 format=3 uid="uid://ddk8hn0jx3lpg"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
@@ -13,11 +13,29 @@
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="7_qft03"]
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="8_f8n55"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="9_jgmb5"]
+[ext_resource type="Texture2D" uid="uid://d1mqqwqluvcfh" path="res://assets/ui/EggAwardBackdrop2.png" id="14_5fn23"]
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource("1_m5l4d")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_g0l7j")]
+
+[node name="EggBackdrop2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(70, 70)
+texture = ExtResource("14_5fn23")
 
 [node name="EggBackdrop" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -165,8 +183,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -40.0
+offset_top = -29.0
 offset_right = 20.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 

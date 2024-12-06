@@ -10,7 +10,7 @@ extends Node2D
 @onready var silver_star = %SilverStar
 @onready var gold_star = %GoldStar
 @onready var star_text = %StarText
-@onready var star_speed = 0.7
+@onready var star_speed = 1.2
 @onready var star_scale = Vector2(8,8)
 
 @onready var cr1 = PlayerVariables.chall_rating1
@@ -129,7 +129,8 @@ func _ready():
 	score_text.text = "You rescued " + str(score) + " quail!"
 	
 func _process(delta):
-	%EggBackdrop.rotation += 0.01
+	%EggBackdrop.rotation += 0.001
+	%EggBackdrop2.rotation -= 0.001
 	parallax.motion_offset += background_scroll_speed
 
 func _on_quit_button_down():
@@ -150,7 +151,7 @@ func _on_next_button_down():
 func award_bronze():
 		var tween = get_tree().create_tween()
 		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Bronze Award!"
 

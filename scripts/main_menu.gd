@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var main_quail = $MainQuail
 @onready var baby_quail_left = $BabyQuailLeft
-@onready var parallax = %ParallaxBackground
+#@onready var parallax = %ParallaxBackground
 @export var background_scroll_speed = Vector2(0.5,0.5)
 @onready var sound = $AudioStreamPlayer2D
 @onready var play_button = $CanvasLayer/Control/VBoxContainer/PlayButton
