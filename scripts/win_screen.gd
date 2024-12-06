@@ -10,8 +10,8 @@ extends Node2D
 @onready var silver_star = %SilverStar
 @onready var gold_star = %GoldStar
 @onready var star_text = %StarText
-@onready var star_speed = 0.5
-@onready var star_scale = Vector2(3,3)
+@onready var star_speed = 0.7
+@onready var star_scale = Vector2(8,8)
 
 @onready var cr1 = PlayerVariables.chall_rating1
 @onready var cr2 = PlayerVariables.chall_rating2
@@ -129,6 +129,7 @@ func _ready():
 	score_text.text = "You rescued " + str(score) + " quail!"
 	
 func _process(delta):
+	%EggBackdrop.rotation += 0.01
 	parallax.motion_offset += background_scroll_speed
 
 func _on_quit_button_down():
@@ -149,20 +150,20 @@ func _on_next_button_down():
 func award_bronze():
 		var tween = get_tree().create_tween()
 		bronze_star.visible = true
-		tween.tween_property(bronze_star, "scale", star_scale, star_speed)
+		tween.tween_property(bronze_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_BOUNCE)
 		star_text.visible = true
 		star_text.text = "You got a Bronze Award!"
 
 func award_silver():
 		var tween = get_tree().create_tween()
 		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", star_scale, star_speed)
+		tween.tween_property(silver_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_BOUNCE)
 		star_text.visible = true
 		star_text.text = "You got a Silver Award!"
 		
 func award_gold():
 		var tween = get_tree().create_tween()
 		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", star_scale, star_speed)
+		tween.tween_property(gold_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_BOUNCE)
 		star_text.visible = true
 		star_text.text = "You got a Gold Award!"
