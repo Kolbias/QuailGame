@@ -315,6 +315,38 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play Game"
 
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../QuitButton")
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_right = NodePath("../LevelSelectButton")
+focus_neighbor_bottom = NodePath("../LevelSelectButton")
+focus_next = NodePath("../LevelSelectButton")
+focus_previous = NodePath("../QuitButton")
+theme = ExtResource("37_a1j58")
+texture_normal = ExtResource("37_niuhx")
+texture_pressed = ExtResource("38_nj23w")
+texture_hover = ExtResource("38_nj23w")
+texture_focused = ExtResource("39_3g1gu")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -7.5
+offset_right = 33.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+horizontal_alignment = 1
+
 [node name="LevelSelectButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
@@ -374,5 +406,6 @@ scale = Vector2(3.5, 3.5)
 texture = ExtResource("40_ynu7i")
 
 [connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/SettingsButton" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]
