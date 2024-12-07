@@ -2,13 +2,13 @@ extends Node
 
 var speed := 100.0
 var boost_speed := 165.0
-var quail_count := 0
+var quail_count := 10
 var boost_cooldown := 0.0
 var time_remaining := 0
 var quail_total := 0
 
 var quail_collected := 0
-var current_level = 1
+var current_level = 2
 
 var chall_rating1 := 10
 var chall_rating2 := 12

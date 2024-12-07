@@ -125,7 +125,8 @@ func _on_timer_timeout():
 	var earned_quails = PlayerVariables.quail_count
 	PlayerVariables.quail_total = PlayerVariables.quail_total + earned_quails
 	print_rich("[color=YELLOW][pulse]You have saved: [/pulse]" + str(PlayerVariables.quail_total) + "[color=YELLOW][pulse] quail![/pulse]") 
-	get_tree().change_scene_to_file("res://win_screen.tscn")
+	#get_tree().change_scene_to_file("res://win_screen.tscn")
+	GlobalSignals.emit_signal("world_completed")
 
 
 func _on_area_exited(area):

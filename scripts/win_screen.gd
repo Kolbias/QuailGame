@@ -145,7 +145,8 @@ func _on_next_button_down():
 	var next_world_path = "res://world" + str(next_world) + ".tscn"
 	print("Next world will be: " + str(world))
 	PlayerVariables.current_level += 1
-	get_tree().change_scene_to_file(next_world_path)
+	GlobalSignals.emit_signal("exit_win_screen", next_world_path)
+	#get_tree().change_scene_to_file(next_world_path)
 
 
 func award_bronze():

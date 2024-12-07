@@ -1,8 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=48 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
+[ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
 [ext_resource type="Texture2D" uid="uid://x143m2gugid1" path="res://assets/backgrounds/PinkBackgroundSolid.png" id="2_88ohp"]
+[ext_resource type="PackedScene" uid="uid://ha7xupacm3d3" path="res://world1.tscn" id="2_gcvxm"]
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="3_ai5w4"]
 [ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="4_dsl5h"]
 [ext_resource type="Texture2D" uid="uid://bsq8ckvempa1f" path="res://assets/menu/MenuLandscapeRevised.png" id="4_evn7y"]
@@ -37,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="37_a1j58"]
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="37_niuhx"]
+[ext_resource type="PackedScene" uid="uid://d1t4idb6racdy" path="res://settings_menu.tscn" id="37_vqwpr"]
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="38_nj23w"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="39_3g1gu"]
 [ext_resource type="Texture2D" uid="uid://bwijv53enrwqm" path="res://assets/backgrounds/PinkStripe.png" id="40_dtvnm"]
@@ -138,127 +141,135 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="MainMenu" type="Node2D"]
+[node name="Main" type="Node2D"]
 position = Vector2(-143, -18)
+script = ExtResource("1_gly1c")
+scene = ExtResource("2_gcvxm")
+
+[node name="MainMenu" type="Node2D" parent="."]
+unique_name_in_owner = true
 script = ExtResource("1_otsdi")
 
-[node name="PinkBackgroundSolid" type="Sprite2D" parent="."]
+[node name="PinkBackgroundSolid" type="Sprite2D" parent="MainMenu"]
 position = Vector2(396, 581)
 scale = Vector2(10, 10)
 texture = ExtResource("2_88ohp")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="MainMenu"]
 scale = Vector2(2, 2)
 scroll_offset = Vector2(-706, -208)
 autoscroll = Vector2(80, 80)
 repeat_times = 5
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/Parallax2D"]
 position = Vector2(1057, 486)
 scale = Vector2(2, 2)
 texture = ExtResource("40_dtvnm")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="MainMenu"]
 visible = false
 position = Vector2(1, -2)
 texture = ExtResource("1_8yby5")
 
-[node name="Landscape" type="Sprite2D" parent="."]
+[node name="Landscape" type="Sprite2D" parent="MainMenu"]
 position = Vector2(1090, 494)
 scale = Vector2(10, 10)
 texture = ExtResource("4_evn7y")
 
-[node name="BabyQuail2" type="AnimatedSprite2D" parent="."]
+[node name="BabyQuail2" type="AnimatedSprite2D" parent="MainMenu"]
 position = Vector2(1571, 239)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 frame = 2
 
-[node name="BabyQuail" type="AnimatedSprite2D" parent="."]
+[node name="BabyQuail" type="AnimatedSprite2D" parent="MainMenu"]
 position = Vector2(1524, 139)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 frame = 1
 
-[node name="BabyQuailLeft" type="AnimatedSprite2D" parent="."]
+[node name="BabyQuailLeft" type="AnimatedSprite2D" parent="MainMenu"]
+unique_name_in_owner = true
 position = Vector2(1252, 246)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_62513")
 autoplay = "default"
 
-[node name="grass" parent="." instance=ExtResource("26_rfs4x")]
+[node name="grass" parent="MainMenu" instance=ExtResource("26_rfs4x")]
 position = Vector2(564.7, 620.8)
 
-[node name="grass2" parent="." instance=ExtResource("26_rfs4x")]
+[node name="grass2" parent="MainMenu" instance=ExtResource("26_rfs4x")]
 position = Vector2(648.7, 550.8)
 
-[node name="Flower" parent="." instance=ExtResource("27_la2ku")]
+[node name="Flower" parent="MainMenu" instance=ExtResource("27_la2ku")]
 position = Vector2(566.7, 630.8)
 scale = Vector2(1.92857, 2.07143)
 
-[node name="Flower2" parent="." instance=ExtResource("27_la2ku")]
+[node name="Flower2" parent="MainMenu" instance=ExtResource("27_la2ku")]
 position = Vector2(749.7, 628.8)
 scale = Vector2(1.92857, 2.07143)
 
-[node name="MainQuail" type="AnimatedSprite2D" parent="."]
+[node name="MainQuail" type="AnimatedSprite2D" parent="MainMenu"]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(53, 1039)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_i8by4")
 autoplay = "default"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MainMenu"]
+unique_name_in_owner = true
 position = Vector2(593.7, 559.8)
 stream = ExtResource("18_tkjay")
 
-[node name="Title" type="AnimatedSprite2D" parent="."]
+[node name="Title" type="AnimatedSprite2D" parent="MainMenu"]
 visible = false
 position = Vector2(501.7, 501.8)
 sprite_frames = SubResource("SpriteFrames_hh74u")
 autoplay = "default"
 frame_progress = 0.47167
 
-[node name="DirectionalLight" type="DirectionalLight2D" parent="."]
+[node name="DirectionalLight" type="DirectionalLight2D" parent="MainMenu"]
 position = Vector2(593.7, 559.8)
 color = Color(0.835294, 0.682353, 0.352941, 1)
 energy = 0.3
 
-[node name="GrassField" parent="." instance=ExtResource("29_2nq05")]
+[node name="GrassField" parent="MainMenu" instance=ExtResource("29_2nq05")]
 visible = false
 position = Vector2(616.7, 593.8)
 
-[node name="GrassField2" parent="." instance=ExtResource("29_2nq05")]
+[node name="GrassField2" parent="MainMenu" instance=ExtResource("29_2nq05")]
 visible = false
 position = Vector2(689.7, 589.8)
 
-[node name="FlowerPatch" parent="." instance=ExtResource("30_7qc0d")]
+[node name="FlowerPatch" parent="MainMenu" instance=ExtResource("30_7qc0d")]
 visible = false
 position = Vector2(586.7, 592.8)
 scale = Vector2(2, 2)
 
-[node name="Flower3" parent="." instance=ExtResource("27_la2ku")]
+[node name="Flower3" parent="MainMenu" instance=ExtResource("27_la2ku")]
 visible = false
 position = Vector2(535.7, 607.8)
 scale = Vector2(2, 2)
 
-[node name="Flower4" parent="." instance=ExtResource("31_n2hne")]
+[node name="Flower4" parent="MainMenu" instance=ExtResource("31_n2hne")]
 visible = false
 position = Vector2(738.7, 598.8)
 scale = Vector2(2, 2)
 
-[node name="MenuSign" type="Sprite2D" parent="."]
+[node name="MenuSign" type="Sprite2D" parent="MainMenu"]
 z_index = 5
 position = Vector2(650, 804)
 scale = Vector2(8, 8)
 texture = ExtResource("32_fsm2t")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
 layer = 2
 follow_viewport_enabled = true
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="MainMenu/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,7 +278,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+[node name="SettingsMenu" parent="MainMenu/CanvasLayer/Control" instance=ExtResource("37_vqwpr")]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 544.0
+offset_top = 403.0
+offset_right = 744.0
+offset_bottom = 403.0
+rotation = 0.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CanvasLayer/Control"]
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -284,7 +306,8 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 size_flags_horizontal = 0
 
-[node name="PlayButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../QuitButton")
@@ -300,7 +323,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/PlayButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/PlayButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -315,7 +338,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play Game"
 
-[node name="SettingsButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../QuitButton")
@@ -331,7 +354,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/SettingsButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -347,7 +370,7 @@ grow_vertical = 2
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="LevelSelectButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="LevelSelectButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
@@ -358,7 +381,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/LevelSelectButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/LevelSelectButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -374,7 +397,7 @@ grow_vertical = 2
 text = "Levels"
 horizontal_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="CanvasLayer/Control/VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
@@ -385,7 +408,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/QuitButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -400,12 +423,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit Game"
 
-[node name="LogoNew" type="Sprite2D" parent="."]
+[node name="LogoNew" type="Sprite2D" parent="MainMenu"]
 position = Vector2(677, 209)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("40_ynu7i")
 
-[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/SettingsButton" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/Control/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/SettingsButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]

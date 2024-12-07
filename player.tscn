@@ -400,7 +400,7 @@ color_ramp = SubResource("Gradient_f2r02")
 sprite_frames = SubResource("SpriteFrames_7sgie")
 animation = &"idle"
 autoplay = "swim"
-frame_progress = 0.972639
+frame_progress = 0.0649245
 
 [node name="Hats" type="Node2D" parent="AnimatedSprite2D"]
 unique_name_in_owner = true
@@ -441,10 +441,12 @@ one_shot = true
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_27fe3")
+bus = &"SFX"
 
 [node name="EggHatchSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_68xgg")
 pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
@@ -544,6 +546,7 @@ one_shot = true
 [node name="QuailCallSound" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("40_aygby")
+bus = &"SFX"
 
 [node name="CallParticles" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
