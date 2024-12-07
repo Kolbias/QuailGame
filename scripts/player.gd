@@ -176,7 +176,7 @@ func _physics_process(delta):
 			%BoostBar.hide()
 			if Input.is_action_just_pressed("restart"):
 				PlayerVariables.quail_count = 0
-				get_tree().reload_current_scene()
+				GlobalSignals.emit_signal("player_restarted")
 		States.SWIM:
 			$StateDebug.text = "SWIM"
 			if input_vector.x < 0:

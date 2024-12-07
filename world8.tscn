@@ -438,7 +438,7 @@ position = Vector2(776, 93)
 [node name="EndFlag" parent="." instance=ExtResource("10_em26q")]
 position = Vector2(-113, 39)
 
-[node name="Fences" type="Node" parent="."]
+[node name="Fences" type="Node2D" parent="."]
 
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("11_7tt34")]
 position = Vector2(740, 197)
@@ -482,7 +482,7 @@ position = Vector2(402, -63)
 [node name="FenceVertBottom" parent="Fences" instance=ExtResource("16_uet8u")]
 position = Vector2(385, -74)
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
 [node name="Flower" parent="Environment" instance=ExtResource("17_xr705")]
 position = Vector2(34, 153)
@@ -557,7 +557,7 @@ position = Vector2(777, 192)
 [node name="Flower6" parent="Environment" instance=ExtResource("22_jl7q5")]
 position = Vector2(793, 186)
 
-[node name="Objects" type="Node" parent="."]
+[node name="Objects" type="Node2D" parent="."]
 
 [node name="FireHydrant" parent="Objects" instance=ExtResource("24_ol0pg")]
 position = Vector2(683, 158)

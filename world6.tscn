@@ -333,7 +333,7 @@ position = Vector2(607, -101)
 z_index = 2
 position = Vector2(199, -45)
 
-[node name="Fences" type="Node" parent="."]
+[node name="Fences" type="Node2D" parent="."]
 
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("11_b3w8v")]
 position = Vector2(543, 112)
@@ -393,7 +393,7 @@ rotation = 3.14159
 [node name="FenceVertBottom2" parent="Fences" instance=ExtResource("14_o6y2s")]
 position = Vector2(521, -108)
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
 [node name="Flower" parent="Environment" instance=ExtResource("16_hjsnv")]
 position = Vector2(423, 74)
@@ -449,7 +449,7 @@ position = Vector2(129, -31)
 [node name="WindSpawner3" parent="Environment" instance=ExtResource("19_vuwa2")]
 position = Vector2(136, -157)
 
-[node name="Objects" type="Node" parent="."]
+[node name="Objects" type="Node2D" parent="."]
 
 [node name="FireHydrant2" parent="Objects" instance=ExtResource("20_qdt04")]
 position = Vector2(774, -87)

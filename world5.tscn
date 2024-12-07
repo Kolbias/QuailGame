@@ -364,7 +364,7 @@ script = ExtResource("10_h7ds5")
 one_shot = true
 autostart = true
 
-[node name="Fences" type="Node" parent="."]
+[node name="Fences" type="Node2D" parent="."]
 
 [node name="FenceHorzLeft4" parent="Fences" instance=ExtResource("11_l7l6x")]
 position = Vector2(785, 206)
@@ -423,7 +423,7 @@ position = Vector2(87, 58)
 [node name="FenceVertCentre11" parent="Fences" instance=ExtResource("16_3jhsj")]
 position = Vector2(87, 82)
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node2D" parent="."]
 
 [node name="Flower" parent="Environment" instance=ExtResource("16_wofwd")]
 position = Vector2(411, 110)
@@ -458,7 +458,7 @@ position = Vector2(0, 109)
 [node name="WindSpawner3" parent="Environment" instance=ExtResource("19_v8gkh")]
 position = Vector2(-1, -92)
 
-[node name="Objects" type="Node" parent="."]
+[node name="Objects" type="Node2D" parent="."]
 
 [node name="FireHydrant" parent="Objects" instance=ExtResource("20_ck4ty")]
 position = Vector2(108, 144)

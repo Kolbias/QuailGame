@@ -13,10 +13,11 @@ rotation = -0.00123527
 script = ExtResource("1_d5ynd")
 
 [node name="TabContainer" type="TabContainer" parent="."]
-custom_minimum_size = Vector2(400, 400)
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 400.0
+offset_bottom = 200.0
+pivot_offset = Vector2(586.778, 179.725)
 current_tab = 1
 
 [node name="General" type="TabBar" parent="TabContainer"]
