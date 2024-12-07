@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://QuailEgg.gd" id="1_8djhc"]
 [ext_resource type="Texture2D" uid="uid://cv57ythpte4y7" path="res://assets/objects/QuailEgg.png" id="2_qtnj2"]
 [ext_resource type="AudioStream" uid="uid://cnv076cpq3vdk" path="res://assets/sounds/EggHatch.ogg" id="3_y086k"]
-[ext_resource type="PackedScene" uid="uid://bhnmc4s1hfyox" path="res://Effects/egg_hatch_particles.tscn" id="4_dp3cp"]
+[ext_resource type="PackedScene" uid="uid://bhnmc4s1hfyox" path="res://effects/egg_hatch_particles.tscn" id="4_dp3cp"]
 [ext_resource type="Texture2D" uid="uid://df3b5bj8g44kl" path="res://assets/ui/Exclaimation.png" id="5_f6qbw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gf6v1"]
