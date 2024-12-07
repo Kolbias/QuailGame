@@ -400,7 +400,7 @@ color_ramp = SubResource("Gradient_f2r02")
 sprite_frames = SubResource("SpriteFrames_7sgie")
 animation = &"idle"
 autoplay = "swim"
-frame_progress = 0.759147
+frame_progress = 0.972639
 
 [node name="Hats" type="Node2D" parent="AnimatedSprite2D"]
 unique_name_in_owner = true
