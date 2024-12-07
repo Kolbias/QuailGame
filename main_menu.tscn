@@ -279,6 +279,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="SettingsMenu" parent="MainMenu/CanvasLayer/Control" instance=ExtResource("37_vqwpr")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -289,7 +291,8 @@ offset_left = -208.0
 offset_right = -208.0
 rotation = 0.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/CanvasLayer/Control"]
+[node name="MainMenuVBox" type="VBoxContainer" parent="MainMenu/CanvasLayer/Control"]
+unique_name_in_owner = true
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -306,7 +309,7 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 size_flags_horizontal = 0
 
-[node name="PlayButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
+[node name="PlayButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -323,7 +326,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/PlayButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -338,7 +341,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Play Game"
 
-[node name="SettingsButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
+[node name="SettingsButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../QuitButton")
@@ -354,7 +357,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/SettingsButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/MainMenuVBox/SettingsButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -370,7 +373,7 @@ grow_vertical = 2
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="LevelSelectButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
+[node name="LevelSelectButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
 focus_previous = NodePath("../PlayButton")
@@ -381,7 +384,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/LevelSelectButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/MainMenuVBox/LevelSelectButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -397,7 +400,7 @@ grow_vertical = 2
 text = "Levels"
 horizontal_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
@@ -408,7 +411,7 @@ texture_hover = ExtResource("38_nj23w")
 texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/VBoxContainer/QuitButton"]
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/MainMenuVBox/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -428,8 +431,7 @@ position = Vector2(677, 209)
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("40_ynu7i")
 
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/PlayButton" to="MainMenu" method="_on_play_button_button_down"]
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/SettingsButton" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_button_down"]
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/VBoxContainer/QuitButton" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_down" from="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton" to="MainMenu" method="_on_play_button_button_down"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]

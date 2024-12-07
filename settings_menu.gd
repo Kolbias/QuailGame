@@ -17,3 +17,6 @@ func _sfx_slider_value_changed(value):
 	
 func _music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
+
+func _on_exit_button_pressed() -> void:
+	GlobalSignals.emit_signal("settings_menu_closed")

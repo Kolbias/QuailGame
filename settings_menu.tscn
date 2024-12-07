@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1t4idb6racdy"]
+[gd_scene load_steps=3 format=3 uid="uid://d1t4idb6racdy"]
 
 [ext_resource type="Script" path="res://settings_menu.gd" id="1_d5ynd"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_3u6cm"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -18,10 +19,10 @@ layout_mode = 0
 offset_right = 400.0
 offset_bottom = 200.0
 pivot_offset = Vector2(586.778, 179.725)
-current_tab = 1
+theme = ExtResource("2_3u6cm")
+current_tab = 0
 
 [node name="General" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -34,11 +35,13 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Button" type="Button" parent="TabContainer/General/MarginContainer"]
+[node name="ExitButton" type="Button" parent="TabContainer/General/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Apply Changes"
+text = "Exit"
 
 [node name="Audio" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -47,6 +50,8 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 rotation = 0.00490798
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
 
 [node name="VBoxContainer" type="GridContainer" parent="TabContainer/Audio/MarginContainer"]
 layout_mode = 2
@@ -96,3 +101,5 @@ size_flags_horizontal = 4
 max_value = 1.0
 step = 0.001
 value = 1.0
+
+[connection signal="pressed" from="TabContainer/General/MarginContainer/ExitButton" to="." method="_on_exit_button_pressed"]

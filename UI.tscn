@@ -294,10 +294,11 @@ custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 alignment = 1
 
-[node name="BabyQuailUI" type="Sprite2D" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
-position = Vector2(703, 35)
-scale = Vector2(8, 9.121)
+[node name="TextureRect" type="TextureRect" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
+layout_mode = 2
 texture = ExtResource("2_c03q6")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="QuailCount" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true

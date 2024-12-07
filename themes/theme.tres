@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bpswxq60aviax"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bpswxq60aviax"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_w4ibr"]
 
@@ -38,6 +38,14 @@ shadow_color = Color(0, 0, 0, 0.239216)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gih5m"]
+bg_color = Color(0.913725, 0.521569, 0.215686, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
 [resource]
 default_font = ExtResource("1_w4ibr")
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -52,3 +60,4 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 4
 RichTextLabel/constants/outline_size = 9
 RichTextLabel/font_sizes/normal_font_size = 32
+TabContainer/styles/panel = SubResource("StyleBoxFlat_gih5m")

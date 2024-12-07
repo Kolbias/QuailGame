@@ -3,10 +3,13 @@ extends Node2D
 
 @export var scene: PackedScene
 
-func _on_play_button_button_down() -> void:
+func _ready() -> void:
 	GlobalSignals.connect("world_completed", _on_world_completed)
 	GlobalSignals.connect("exit_win_screen", _on_exit_win_screen)
 	GlobalSignals.connect("player_restarted", _on_player_restarted)
+	GlobalSignals.connect("settings_menu_closed", _on_settings_menu_closed)
+
+func _on_play_button_button_down() -> void:
 	var instance = scene.instantiate()
 	%MainMenu.queue_free()
 	self.add_child(instance)
@@ -36,3 +39,21 @@ func _on_player_restarted():
 	world.queue_free()
 	add_child(instance)
 	pass
+
+
+func _on_settings_button_pressed() -> void:
+	var current_scene = get_child(0)
+	if current_scene.name == "MainMenu":
+		%MainMenuVBox.hide()
+		%SettingsMenu.show()
+		
+func _on_settings_menu_closed():
+	var current_scene = self.get_child(0)
+	print(current_scene.name)
+	if current_scene.name == "MainMenu":
+		%MainMenuVBox.show()
+		%SettingsMenu.hide()
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

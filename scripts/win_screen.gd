@@ -24,6 +24,7 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
+	GlobalSignals.emit_signal("save_game")
 	%Next.grab_focus()
 	var world = PlayerVariables.current_level
 	
@@ -159,13 +160,13 @@ func award_bronze():
 func award_silver():
 		var tween = get_tree().create_tween()
 		silver_star.visible = true
-		tween.tween_property(silver_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(silver_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Silver Award!"
 		
 func award_gold():
 		var tween = get_tree().create_tween()
 		gold_star.visible = true
-		tween.tween_property(gold_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(gold_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Gold Award!"

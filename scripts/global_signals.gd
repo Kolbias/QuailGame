@@ -8,3 +8,8 @@ signal call_babies
 signal world_completed
 signal exit_win_screen(String)
 signal player_restarted
+
+signal settings_menu_closed
+
+signal save_game
+signal load_game

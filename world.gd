@@ -4,7 +4,7 @@ extends Node2D
 @onready var quail_baby = preload("res://quail_baby.tscn")
 # @export var background_scroll_speed = Vector2(0.15,0.15)
 @onready var player_quail_amount = PlayerVariables.quail_count
-@onready var ui = %UICanvas
+#@onready var ui = %UICanvas
 @onready var player = $Player
 
 
@@ -27,7 +27,7 @@ func spawn_quail():
 		var instance = quail_baby.instantiate()
 		for n in player_quail_amount:
 			add_child(instance)
-			print(n)
+			#print(n)
 			instance.position = main_quail.position
 			spawned_quail += 1
 			continue
