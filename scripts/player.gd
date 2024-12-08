@@ -105,14 +105,8 @@ func _physics_process(delta):
 				change_state(States.IDLE)
 			if input_vector.x < 0:
 				flip_sprite(true, Vector2(-6,-1.7))
-				#sprite.flip_h = true
-				#$AnimatedSprite2D/Hats/Hat1.flip_h = true
-				#%Hats.position = Vector2(-6,-1.7)
 			if input_vector.x > 0:
 				flip_sprite(false, Vector2(5.5,-1.7))
-				#sprite.flip_h = false
-				#$AnimatedSprite2D/Hats/Hat1.flip_h = false
-				#%Hats.position = Vector2(5.5,-1.7)
 			speed = PlayerVariables.speed
 			velocity = input_vector * speed
 			move_and_slide()
@@ -120,14 +114,8 @@ func _physics_process(delta):
 			%MashBar.hide()
 			if input_vector.x < 0:
 				flip_sprite(true, Vector2(-6,-4))
-				#sprite.flip_h = true
-				#$AnimatedSprite2D/Hats/Hat1.flip_h = true
-				#%Hats.position = Vector2(-6,-4)
 			if input_vector.x > 0:
 				flip_sprite(false, Vector2(6,-4))
-				#sprite.flip_h = false
-				#$AnimatedSprite2D/Hats/Hat1.flip_h = false
-				#%Hats.position = Vector2(6,-4)
 			
 			%MashBar.value += 20
 			change_state(States.BOOSTSTART)
@@ -136,14 +124,8 @@ func _physics_process(delta):
 		States.BOOSTSTART:
 			if input_vector.x < 0:
 				flip_sprite(true, Vector2(-6,-4))
-				#sprite.flip_h = true
-				#$AnimatedSprite2D/Hats/Hat1.flip_h = true
-				#%Hats.position = Vector2(-6,-4)
 			if input_vector.x > 0:
 				flip_sprite(false, Vector2(6,-4))
-				#sprite.flip_h = false
-				#$AnimatedSprite2D/Hats/Hat1.flip_h = false
-				#%Hats.position = Vector2(6,-4)
 			
 			$StateDebug.text = "BOOST START"
 			velocity = input_vector.normalized() * speed
@@ -292,12 +274,8 @@ func _on_game_over():
 
 func _on_boost_timer_timeout():
 	change_state(States.IDLE)
-	#can_boost = false
-	#$BoostTimer.stop()
-	#$BoostCooldown.start()
-	#%BoostBar.show()
 	speed = PlayerVariables.speed
-	print("timer stopped")
+	#print("timer stopped")
 	
 	
 func _on_boost_cooldown_timeout():
