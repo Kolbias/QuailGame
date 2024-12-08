@@ -67,21 +67,24 @@ func _physics_process(delta):
 		States.IDLE:
 			if sprite.flip_h == true:
 				%Hats.position = Vector2(-4.5,-1.7)
+			elif sprite.flip_h == false:
+				%Hats.position = Vector2(5.5,-1.7)
 			%HatAnimator.play("hat_idle")
 			%BoostFeathers.emitting = false
 			$StateDebug.text = "IDLE"
+			
 			if Input.is_action_pressed("ui_down"):
 				change_state(States.WALK)
-				if sprite.flip_h == true:
-					%Hats.position = Vector2(-6,-1.7)
+				
 			if Input.is_action_pressed("ui_up"):
 				change_state(States.WALK)
-				if sprite.flip_h == true:
-					%Hats.position = Vector2(-6,-1.7)
+				
 			if Input.is_action_pressed("ui_left"):
 				change_state(States.WALK)
+				
 			if Input.is_action_pressed("ui_right"):
 				change_state(States.WALK)
+			
 			sprite.play("idle")
 			if Input.is_action_pressed("ui_accept"):
 				if can_call:
@@ -101,26 +104,30 @@ func _physics_process(delta):
 			if input_vector == Vector2(0,0):
 				change_state(States.IDLE)
 			if input_vector.x < 0:
-				sprite.flip_h = true
-				$AnimatedSprite2D/Hats/Hat1.flip_h = true
-				%Hats.position = Vector2(-6,-1.7)
+				flip_sprite(true, Vector2(-6,-1.7))
+				#sprite.flip_h = true
+				#$AnimatedSprite2D/Hats/Hat1.flip_h = true
+				#%Hats.position = Vector2(-6,-1.7)
 			if input_vector.x > 0:
-				sprite.flip_h = false
-				$AnimatedSprite2D/Hats/Hat1.flip_h = false
-				%Hats.position = Vector2(5.5,-1.7)
+				flip_sprite(false, Vector2(5.5,-1.7))
+				#sprite.flip_h = false
+				#$AnimatedSprite2D/Hats/Hat1.flip_h = false
+				#%Hats.position = Vector2(5.5,-1.7)
 			speed = PlayerVariables.speed
 			velocity = input_vector * speed
 			move_and_slide()
 		States.SETBOOST:
 			%MashBar.hide()
 			if input_vector.x < 0:
-				sprite.flip_h = true
-				$AnimatedSprite2D/Hats/Hat1.flip_h = true
-				%Hats.position = Vector2(-6,-4)
+				flip_sprite(true, Vector2(-6,-4))
+				#sprite.flip_h = true
+				#$AnimatedSprite2D/Hats/Hat1.flip_h = true
+				#%Hats.position = Vector2(-6,-4)
 			if input_vector.x > 0:
-				sprite.flip_h = false
-				$AnimatedSprite2D/Hats/Hat1.flip_h = false
-				%Hats.position = Vector2(6,-4)
+				flip_sprite(false, Vector2(6,-4))
+				#sprite.flip_h = false
+				#$AnimatedSprite2D/Hats/Hat1.flip_h = false
+				#%Hats.position = Vector2(6,-4)
 			
 			%MashBar.value += 20
 			change_state(States.BOOSTSTART)
@@ -128,9 +135,15 @@ func _physics_process(delta):
 			move_and_slide()
 		States.BOOSTSTART:
 			if input_vector.x < 0:
-				sprite.flip_h = true
+				flip_sprite(true, Vector2(-6,-4))
+				#sprite.flip_h = true
+				#$AnimatedSprite2D/Hats/Hat1.flip_h = true
+				#%Hats.position = Vector2(-6,-4)
 			if input_vector.x > 0:
-				sprite.flip_h = false
+				flip_sprite(false, Vector2(6,-4))
+				#sprite.flip_h = false
+				#$AnimatedSprite2D/Hats/Hat1.flip_h = false
+				#%Hats.position = Vector2(6,-4)
 			
 			$StateDebug.text = "BOOST START"
 			velocity = input_vector.normalized() * speed
@@ -142,9 +155,11 @@ func _physics_process(delta):
 			%BoostFeathers.emitting = true
 			sprite.play("boost")
 			if input_vector.x < 0:
-				sprite.flip_h = true
+				flip_sprite(true, Vector2(-6,-4))
+				#sprite.flip_h = true
 			if input_vector.x > 0:
-				sprite.flip_h = false
+				flip_sprite(false, Vector2(6,-4))
+				#sprite.flip_h = false
 			$StateDebug.text = "BOOST STOP"
 			velocity = input_vector.normalized() * speed
 			speed = lerp(speed, boost_speed, 2.0 * delta)
@@ -158,6 +173,8 @@ func _physics_process(delta):
 			if input_vector == Vector2(0,0):
 				change_state(States.WALK)
 		States.BOOST:
+			if sprite.flip_h == true:
+				%Hats.position = Vector2(-6,-4)
 			can_boost = false
 			%MashBar.hide()
 			%BoostBar.show()
@@ -204,12 +221,14 @@ func _physics_process(delta):
 			if c.get_collider() is RigidBody2D:
 				c.get_collider().apply_central_impulse(-c.get_normal() * push_amount)
 	
-	if Input.is_action_just_pressed("restart"):
-		$RestartTimer.start()
-		GlobalSignals.emit_signal("restart_level")
-	if Input.is_action_just_released("restart"):
-		$RestartTimer.stop()
-		GlobalSignals.emit_signal("restart_level_stop")
+
+	if alive == true:
+		if Input.is_action_just_pressed("restart"):
+			$RestartTimer.start()
+			GlobalSignals.emit_signal("restart_level")
+		if Input.is_action_just_released("restart"):
+			$RestartTimer.stop()
+			GlobalSignals.emit_signal("restart_level_stop")
 
 	if alive == false:
 		particles.emitting = true
@@ -293,7 +312,8 @@ func _on_egg_hatched():
 func _on_restart_timer_timeout() -> void:
 	GlobalSignals.emit_signal("restart_level_stop")
 	PlayerVariables.quail_count = 0
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
+	GlobalSignals.emit_signal("player_restarted")
 	
 func _on_player_call_timer_timeout():
 	print("player call timer time out")
@@ -305,3 +325,14 @@ func _on_call_timer_timeout() -> void:
 		can_call = true
 	else:
 		pass
+
+func flip_sprite(on: bool, pos: Vector2):
+	if on:
+		sprite.flip_h = true
+		$AnimatedSprite2D/Hats/Hat1.flip_h = true
+		%Hats.position = pos
+	else:
+		sprite.flip_h = false
+		$AnimatedSprite2D/Hats/Hat1.flip_h = false
+		%Hats.position = pos
+		
