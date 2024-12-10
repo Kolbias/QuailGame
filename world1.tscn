@@ -220,7 +220,7 @@ tile_set = ExtResource("3_a6daf")
 
 [node name="EndFlag" parent="." instance=ExtResource("15_h3ylk")]
 z_index = 1
-position = Vector2(834, 78)
+position = Vector2(834, 86)
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -284,6 +284,7 @@ energy = 0.4
 script = ExtResource("21_psjh6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Transition"]
+visible = false
 
 [node name="Container" type="Control" parent="Transition/CanvasLayer"]
 layout_mode = 3
@@ -292,6 +293,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Transition/CanvasLayer/Container"]
 unique_name_in_owner = true
@@ -302,6 +304,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("22_fymjj")
 
 [connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]

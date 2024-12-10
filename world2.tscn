@@ -219,6 +219,7 @@ tile_map_data = PackedByteArray("AAD+//3/AgACAAEAAAD+//7/AgACAAEAAAD///3/AgADAAE
 tile_set = ExtResource("4_m2c15")
 
 [node name="InvisibleWalls" type="TileMap" parent="."]
+visible = false
 position = Vector2(32, 80)
 tile_set = SubResource("TileSet_xask1")
 format = 2

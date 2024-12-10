@@ -38,6 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BlackTransition" type="ColorRect" parent="UI"]
 visible = false
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" parent="UI"]
@@ -62,6 +64,7 @@ offset_right = 4.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PauseVbox" type="VBoxContainer" parent="UI/Control"]
 top_level = true
@@ -80,6 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(100, 0)
+mouse_filter = 2
 
 [node name="PausedLabel" type="Label" parent="UI/Control/PauseVbox"]
 unique_name_in_owner = true
@@ -352,6 +356,7 @@ offset_right = 325.0
 offset_bottom = 325.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/HowToPlayVbox"]
 custom_minimum_size = Vector2(650, 625)
@@ -374,6 +379,7 @@ offset_right = 4.0
 offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 layout_mode = 2
@@ -386,6 +392,7 @@ text = "How To Play"
 [node name="Label" type="RichTextLabel" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(20, 250)
 layout_mode = 2
+mouse_filter = 2
 theme = ExtResource("2_8mgkr")
 theme_override_constants/outline_size = 9
 theme_override_constants/line_separation = 1
@@ -401,6 +408,7 @@ Tap or hold Dash when moving to speed up but be careful! If you press too long y
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control/HowToPlayVbox/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 50
 
@@ -408,6 +416,7 @@ theme_override_constants/margin_right = 50
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 3
@@ -616,6 +625,7 @@ offset_right = 113.0
 offset_bottom = -98.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PlayAgainButton" type="Button" parent="UI/GameOverCont"]
 visible = false
