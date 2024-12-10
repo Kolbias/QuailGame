@@ -10,12 +10,13 @@ extends CharacterBody2D
 @onready var egg_hatch_sound := $EggHatchSound
 @onready var hit_sound := $HitSound
 @onready var in_water := false
+@onready var on_ice := false
 @onready var push_amount := 10.0
 @onready var speed = PlayerVariables.speed
 @onready var boost_speed = PlayerVariables.boost_speed
 @onready var boost_bar: ProgressBar = %BoostBar
 @onready var mash_bar = %MashBar
-enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, CALL, CALLSTART, DEAD}
+enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, ICE, CALL, CALLSTART, DEAD}
 
 var can_call = true
 var can_boost = true
@@ -179,13 +180,24 @@ func _physics_process(delta):
 		States.SWIM:
 			$StateDebug.text = "SWIM"
 			if input_vector.x < 0:
-				sprite.flip_h = true
+				flip_sprite(true, Vector2(-6,-1.7))
 			if input_vector.x > 0:
-				sprite.flip_h = false
+				flip_sprite(false, Vector2(5.5,-1.7))
 			velocity = input_vector * (speed * 0.5)
 			sprite.play("swim")
 			move_and_slide()
-			
+		States.ICE:
+			$StateDebug.text = "ICE"
+			if input_vector.x < 0:
+				flip_sprite(true, Vector2(-6,-1.7))
+			if input_vector.x > 0:
+				flip_sprite(false, Vector2(5.5,-1.7))
+			#velocity = (input_vector / 2) * speed * 0.5
+			velocity = lerp(velocity, Vector2(0,0), 0.01) + input_vector
+
+			print("Velocity ICE: " + str(velocity))
+			#velocity = input_vector * speed
+			move_and_slide()
 		States.CALLSTART:
 			%CallBar.show()
 			$StateDebug.text = "CALLSTART"
@@ -227,6 +239,11 @@ func _on_hurtbox_area_entered(area):
 		in_water = true
 		#PlayerVariables.speed = PlayerVariables.speed * 0.5
 		change_state(States.SWIM)
+	
+	if area.is_in_group("ice"):
+		on_ice = true
+		#PlayerVariables.speed = PlayerVariables.speed * 0.5
+		change_state(States.ICE)
 						  
 	if area.is_in_group("fire"):
 		#print("Quail burning!!")
@@ -267,6 +284,10 @@ func _on_hurtbox_area_exited(area):
 		in_water = false
 		#PlayerVariables.speed = 100.0
 		change_state(States.WALK)
+	if area.is_in_group("ice"):
+		on_ice = false
+		change_state(States.WALK)
+		
 func _on_game_over():
 	change_state(States.DEAD)
 	print("Player Died")

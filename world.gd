@@ -7,7 +7,6 @@ extends Node2D
 #@onready var ui = %UICanvas
 @onready var player = $Player
 
-
 func _on_quail_egg_quail_hatched():
 	var new_quail = quail_baby.instantiate()
 	add_child(new_quail)
