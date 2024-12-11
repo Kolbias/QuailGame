@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddk8hn0jx3lpg"]
+[gd_scene load_steps=17 format=3 uid="uid://ddk8hn0jx3lpg"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="7_qft03"]
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="8_f8n55"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="9_jgmb5"]
+[ext_resource type="Texture2D" uid="uid://b6jj61xfig0t2" path="res://assets/ui/BannerWindow1.png" id="10_wf7k6"]
+[ext_resource type="Texture2D" uid="uid://bavdlbxbka1vq" path="res://assets/ui/BannerWindow2.png" id="11_inp4p"]
 [ext_resource type="Texture2D" uid="uid://d1mqqwqluvcfh" path="res://assets/ui/EggAwardBackdrop2.png" id="14_5fn23"]
 
 [node name="WinScreen" type="Node2D"]
@@ -75,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = 97.0
+offset_top = 278.0
 offset_right = 40.0
-offset_bottom = 165.0
+offset_bottom = 346.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -148,9 +150,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -155.0
-offset_top = -355.0
+offset_top = -462.0
 offset_right = 157.0
-offset_bottom = -79.0
+offset_bottom = -186.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -165,6 +167,15 @@ theme_override_font_sizes/font_size = 32
 text = "Star Text"
 horizontal_alignment = 1
 
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/VBoxContainer/StarText"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 313.0
+offset_bottom = 35.0
+texture = ExtResource("10_wf7k6")
+
 [node name="QuailScore" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -175,6 +186,16 @@ theme_override_font_sizes/font_size = 32
 text = "you rescued blank quails"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Control/VBoxContainer/QuailScore"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -22.0
+offset_top = -3.0
+offset_right = 307.0
+offset_bottom = 37.0
+scale = Vector2(1.06619, 1)
+texture = ExtResource("11_inp4p")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 8

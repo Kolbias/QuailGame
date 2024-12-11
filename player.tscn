@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://54iugs4aog8t" path="res://assets/player/QuailSwim8.png" id="25_j57du"]
 [ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="30_th2rr"]
-[ext_resource type="Texture2D" uid="uid://88x08bim1r2v" path="res://assets/player/QuailHat5.png" id="36_5hr6p"]
+[ext_resource type="Texture2D" uid="uid://cfttpoj7phfup" path="res://assets/player/QuailHat12.png" id="36_yodc1"]
 [ext_resource type="AudioStream" uid="uid://qrhcr80ojh5s" path="res://assets/sounds/QuailCallShort.wav" id="40_aygby"]
 [ext_resource type="Texture2D" uid="uid://baoe28tvuu7tr" path="res://assets/ui/MusicNote.png" id="41_aeg5w"]
 
@@ -398,7 +398,7 @@ position = Vector2(6, -4)
 [node name="Hat1" type="Sprite2D" parent="AnimatedSprite2D/Hats"]
 position = Vector2(0, -3)
 rotation = 0.0872665
-texture = ExtResource("36_5hr6p")
+texture = ExtResource("36_yodc1")
 
 [node name="HatAnimator" type="AnimationPlayer" parent="AnimatedSprite2D/Hats"]
 unique_name_in_owner = true
