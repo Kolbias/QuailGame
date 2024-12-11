@@ -32,7 +32,7 @@ texture = ExtResource("4_1hsau")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_cprcg")
 
-[node name="World" type="Node2D"]
+[node name="World1" type="Node2D"]
 script = ExtResource("1_22jv0")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_xgafp")]

@@ -6,3 +6,4 @@
 rotation = -0.00075643
 stream = ExtResource("1_yp06g")
 autoplay = true
+bus = &"music"

@@ -11,9 +11,10 @@ func _ready() -> void:
 
 func _on_play_button_button_down() -> void:
 	var instance = scene.instantiate()
+	print(str(scene))
 	%MainMenu.queue_free()
 	self.add_child(instance)
-	#instance.position = Vector2(145,20)
+	instance.position = Vector2(145,20)
 	
 func _on_world_completed():
 	var world = get_child(0)
