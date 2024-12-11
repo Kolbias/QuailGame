@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ga2omyhx8dwf"]
+[gd_scene load_steps=7 format=3 uid="uid://ckadwop3x5yfx"]
 
-[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_r1rmq"]
-[ext_resource type="PackedScene" uid="uid://cr5h11sy2os6o" path="res://storm_background.tscn" id="2_l3ice"]
+[ext_resource type="Script" path="res://level_select.gd" id="1_3mqa0"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="3_nf4ct"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_vm8hg"]
 [ext_resource type="Texture2D" uid="uid://bruojp88g60sk" path="res://assets/backgrounds/PurpleCloudBackground.png" id="5_jgwek"]
@@ -9,58 +8,66 @@
 [ext_resource type="Texture2D" uid="uid://cpk5vh8o3dy0r" path="res://assets/backgrounds/PurpleCloudBackground3.png" id="7_gmcnr"]
 
 [node name="LevelSelect" type="Node2D"]
-position = Vector2(924, 543)
-script = ExtResource("1_r1rmq")
-
-[node name="StormBackground" parent="." instance=ExtResource("2_l3ice")]
-visible = false
-offset = Vector2(400, 0)
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 400, 0)
+position = Vector2(828, 388)
+script = ExtResource("1_3mqa0")
 
 [node name="PurpleBackground" type="Parallax2D" parent="."]
+visible = false
+scroll_offset = Vector2(-620, -8)
 repeat_size = Vector2(800, 600)
 
 [node name="Sprite2D" type="Sprite2D" parent="PurpleBackground"]
-position = Vector2(-299, -185)
+visible = false
 scale = Vector2(2, 2)
 texture = ExtResource("5_jgwek")
 
 [node name="Clouds1" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(1.5, 1.5)
+scroll_offset = Vector2(-1188, -716)
 repeat_size = Vector2(800, 600)
 autoscroll = Vector2(100, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Clouds1"]
+visible = false
 texture = ExtResource("6_ilctk")
+centered = false
 
 [node name="Clouds2" type="Parallax2D" parent="."]
+visible = false
 scale = Vector2(1.5, 1.5)
+scroll_offset = Vector2(-1100, -760)
 repeat_size = Vector2(800, 600)
 autoscroll = Vector2(50, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Clouds2"]
 texture = ExtResource("7_gmcnr")
+centered = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -34.0
-offset_top = -51.5
-offset_right = -6.0
-offset_bottom = 11.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -172.0
+offset_right = 186.0
+offset_bottom = 172.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+alignment = 1
 
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -114,7 +121,6 @@ theme_override_font_sizes/font_size = 32
 text = "World 6"
 
 [node name="ButtonWorld7" type="Button" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -122,7 +128,6 @@ theme_override_font_sizes/font_size = 32
 text = "World 7"
 
 [node name="ButtonWorld8" type="Button" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -131,7 +136,6 @@ text = "World 8
 "
 
 [node name="ButtonWorld9" type="Button" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -140,25 +144,28 @@ text = "World 9
 "
 
 [node name="ButtonWorld10" type="Button" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 text = "World 10
 "
 
 [node name="ButtonWorld11" type="Button" parent="Control/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 text = "World 11"
 
 [node name="ButtonWorld12" type="Button" parent="Control/VBoxContainer"]
-visible = false
+layout_mode = 2
+theme = ExtResource("3_nf4ct")
+text = "World 12"
+
+[node name="ButtonWorld13" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 text = "World 12"
 
 [node name="Back" type="Button" parent="Control/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_nf4ct")
 theme_override_fonts/font = ExtResource("3_vm8hg")
@@ -180,4 +187,5 @@ layout_mode = 2
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld10" to="." method="_on_button_world_10_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld11" to="." method="_on_button_world_11_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/ButtonWorld12" to="." method="_on_button_world_12_button_down"]
+[connection signal="button_down" from="Control/VBoxContainer/ButtonWorld13" to="." method="_on_button_world_13_button_down"]
 [connection signal="button_down" from="Control/VBoxContainer/Back" to="." method="_on_back_button_down"]

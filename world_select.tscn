@@ -1,0 +1,140 @@
+[gd_scene load_steps=9 format=3 uid="uid://lr67kc0tky8c"]
+
+[ext_resource type="Texture2D" uid="uid://bruojp88g60sk" path="res://assets/backgrounds/PurpleCloudBackground.png" id="1_578ip"]
+[ext_resource type="Texture2D" uid="uid://cpk5vh8o3dy0r" path="res://assets/backgrounds/PurpleCloudBackground3.png" id="1_cqxp6"]
+[ext_resource type="Texture2D" uid="uid://bq6rhp3uc7ayk" path="res://assets/backgrounds/PurpleCloudBackgroundSmall2.png" id="2_qkscx"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="4_lr8lc"]
+[ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="4_s0uuc"]
+[ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="6_lquvo"]
+[ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="7_meq5g"]
+[ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="8_yi6np"]
+
+[node name="WorldSelect" type="Node2D"]
+
+[node name="PurpleCloudBackground" type="Sprite2D" parent="."]
+position = Vector2(1004, 611)
+scale = Vector2(8, 8)
+texture = ExtResource("1_578ip")
+
+[node name="Clouds1" type="Parallax2D" parent="."]
+scroll_offset = Vector2(-353, 555)
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(10, 0)
+
+[node name="PurpleCloudBackground3" type="Sprite2D" parent="Clouds1"]
+position = Vector2(270, 12)
+texture = ExtResource("1_cqxp6")
+
+[node name="Clouds2" type="Parallax2D" parent="."]
+scroll_offset = Vector2(-167, 702)
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(20, 0)
+
+[node name="PurpleCloudBackgroundSmall2" type="Sprite2D" parent="Clouds2"]
+position = Vector2(82, 36)
+texture = ExtResource("2_qkscx")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="Level1Label" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 1"
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_lr8lc")
+texture_normal = ExtResource("6_lquvo")
+texture_pressed = ExtResource("7_meq5g")
+texture_focused = ExtResource("8_yi6np")
+
+[node name="PlayWorld1Button" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -1.0
+offset_right = 11.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = "Play"

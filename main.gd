@@ -57,3 +57,6 @@ func _on_settings_menu_closed():
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_load_scene(scene_path: String):
+	var current_scene = get_child(0)

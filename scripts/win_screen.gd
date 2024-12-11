@@ -32,9 +32,9 @@ func _ready():
 	# Bronze
 	if score == cr1 and world == 1:
 		award_bronze()
-	if (score > cr1 and score < 15 and world == 1):
+	elif score == cr1 + 5 and world == 1:
 		award_silver()
-	if score >= 15 and world == 1:
+	elif score == cr1 + 8 and world == 1:
 		award_gold()
 	
 	# World2 Score Thresholds
@@ -170,3 +170,10 @@ func award_gold():
 		tween.tween_property(gold_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Gold Award!"
+
+func set_award(current_score: int):
+	var player_score = PlayerVariables.world_1_highscore
+	if current_score > player_score:
+		player_score = current_score
+		print_rich("New Highscore! on world: " + str(PlayerVariables.current_level) + str(player_score))
+		

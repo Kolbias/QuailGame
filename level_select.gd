@@ -5,7 +5,7 @@ func _ready():
 
 func _on_button_world_1_button_down():
 	PlayerVariables.current_level = 1
-	get_tree().change_scene_to_file("res://world1.tscn")
+	get_parent().change_scene_to_file("res://world1.tscn")
 
 func _on_button_world_2_button_down():
 	PlayerVariables.current_level = 2
@@ -53,3 +53,7 @@ func _on_button_world_12_button_down():
 
 func _on_back_button_down():
 	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func _on_button_world_13_button_down() -> void:
+	pass # Replace with function body.

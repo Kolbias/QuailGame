@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=21 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="9_1lv5n"]
 [ext_resource type="Texture2D" uid="uid://dbeaa5xkv2ar8" path="res://assets/PSControllerJoystick.png" id="10_6gv6f"]
 [ext_resource type="Texture2D" uid="uid://df3b5bj8g44kl" path="res://assets/ui/Exclaimation.png" id="10_33iv8"]
+[ext_resource type="Texture2D" uid="uid://b6jj61xfig0t2" path="res://assets/ui/BannerWindow1.png" id="10_40ju1"]
 [ext_resource type="Texture2D" uid="uid://bc12mtsxnhv8f" path="res://assets/ui/PSControllerButtonCir.png" id="11_kxr8b"]
 [ext_resource type="Texture2D" uid="uid://ubdcwf0kjgjn" path="res://assets/ui/PSControllerButtonX.png" id="12_0ockh"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="12_thrs0"]
@@ -290,15 +291,18 @@ theme_override_constants/separation = 65
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Control/VBoxContainer3"]
 layout_mode = 2
-theme_override_constants/margin_left = 75
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3/MarginContainer"]
-custom_minimum_size = Vector2(0, 75)
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
+z_index = 1
 layout_mode = 2
 texture = ExtResource("2_c03q6")
 expand_mode = 2
@@ -313,6 +317,27 @@ theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("1_32fu0")
 theme_override_font_sizes/font_size = 48
 text = "Quail Count: ##"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer/QuailCount"]
+modulate = Color(1, 1, 1, 0.639216)
+show_behind_parent = true
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.342
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -7.0
+offset_right = -88.548
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.28, 1.32)
+texture = ExtResource("10_40ju1")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="Label" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 layout_mode = 2

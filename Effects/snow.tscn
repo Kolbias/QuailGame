@@ -1,24 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2lovow5uq774"]
+[gd_scene load_steps=3 format=3 uid="uid://bl3k1b1ax7ka7"]
 
-[ext_resource type="Texture2D" uid="uid://bngjkyja8d8mg" path="res://assets/environment/RainParticle.png" id="1_1i3sc"]
-[ext_resource type="AudioStream" uid="uid://d26u30lqdvxvi" path="res://assets/sounds/RainLoop.ogg" id="1_m7h0j"]
+[ext_resource type="Texture2D" uid="uid://cao1ywne426fd" path="res://assets/environment/SnowParticle.png" id="1_kip5m"]
+[ext_resource type="AudioStream" uid="uid://d26u30lqdvxvi" path="res://assets/sounds/RainLoop.ogg" id="2_nq55e"]
 
-[node name="Rain" type="Node2D"]
+[node name="Snow" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color(0.768627, 0.847059, 1, 1)
 amount = 2000
-lifetime = 3.0
+lifetime = 10.0
 speed_scale = 0.7
 randomness = 1.0
-texture = ExtResource("1_1i3sc")
+texture = ExtResource("1_kip5m")
 emission_shape = 3
 emission_rect_extents = Vector2(1920, 1)
 direction = Vector2(0, 1900)
 spread = 5.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 500.0
-initial_velocity_max = 1000.0
+initial_velocity_min = 75.0
+initial_velocity_max = 100.0
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 position = Vector2(-4, 554)
@@ -34,7 +34,7 @@ initial_velocity_max = 1.0
 scale_amount_min = 0.2
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_m7h0j")
+stream = ExtResource("2_nq55e")
 volume_db = -14.054
 autoplay = true
 max_distance = 5000.0
