@@ -436,4 +436,5 @@ mouse_filter = 2
 [connection signal="button_down" from="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="button_down" from="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton" to="MainMenu" method="_on_play_button_button_down"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/LevelSelectButton" to="MainMenu" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -38,3 +38,8 @@ func _on_level_select_button_button_down():
 
 func _on_play_button_button_down() -> void:
 	pass # Replace with function body.
+
+
+func _on_level_select_button_pressed() -> void:
+	var level_select_scene = load("res://world_select.tscn")
+	GlobalSignals.emit_signal("load_world",level_select_scene)

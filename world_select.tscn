@@ -1,42 +1,62 @@
-[gd_scene load_steps=9 format=3 uid="uid://lr67kc0tky8c"]
+[gd_scene load_steps=24 format=3 uid="uid://lr67kc0tky8c"]
 
 [ext_resource type="Texture2D" uid="uid://bruojp88g60sk" path="res://assets/backgrounds/PurpleCloudBackground.png" id="1_578ip"]
 [ext_resource type="Texture2D" uid="uid://cpk5vh8o3dy0r" path="res://assets/backgrounds/PurpleCloudBackground3.png" id="1_cqxp6"]
+[ext_resource type="Script" path="res://scripts/world_select.gd" id="1_qsgjo"]
 [ext_resource type="Texture2D" uid="uid://bq6rhp3uc7ayk" path="res://assets/backgrounds/PurpleCloudBackgroundSmall2.png" id="2_qkscx"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="4_lr8lc"]
 [ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="4_s0uuc"]
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="6_lquvo"]
+[ext_resource type="PackedScene" uid="uid://ha7xupacm3d3" path="res://world1.tscn" id="7_5mkxw"]
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="7_meq5g"]
+[ext_resource type="PackedScene" uid="uid://dla466dhvfd5i" path="res://world2.tscn" id="8_sktyn"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="8_yi6np"]
+[ext_resource type="PackedScene" uid="uid://smh0vmkjysod" path="res://load_world_button.tscn" id="9_0y44p"]
+[ext_resource type="PackedScene" uid="uid://hybl53q65uf4" path="res://world3.tscn" id="9_h0knb"]
+[ext_resource type="PackedScene" uid="uid://gq0k1lpounae" path="res://world5.tscn" id="10_b5cag"]
+[ext_resource type="PackedScene" uid="uid://di5rswu1ftwhf" path="res://world6.tscn" id="11_6xxke"]
+[ext_resource type="PackedScene" uid="uid://4gqddnkx1r68" path="res://world4.tscn" id="11_8863f"]
+[ext_resource type="PackedScene" uid="uid://1amw3lnytydt" path="res://world7.tscn" id="14_lhcsd"]
+[ext_resource type="PackedScene" uid="uid://b4hg287dlt4vr" path="res://world8.tscn" id="15_es15b"]
+[ext_resource type="PackedScene" uid="uid://bapfixcggnh6d" path="res://world9.tscn" id="16_rsdnq"]
+[ext_resource type="PackedScene" uid="uid://7iiqtw1al1g6" path="res://world10.tscn" id="17_4kdyh"]
+[ext_resource type="PackedScene" uid="uid://dl5t5qtscaynn" path="res://world11.tscn" id="18_g3x0n"]
+[ext_resource type="PackedScene" uid="uid://ucwjyfpwnn2f" path="res://world12.tscn" id="19_3uoq8"]
+[ext_resource type="PackedScene" uid="uid://be4iytjiu3f6a" path="res://world13.tscn" id="20_e8htx"]
 
 [node name="WorldSelect" type="Node2D"]
+script = ExtResource("1_qsgjo")
 
-[node name="PurpleCloudBackground" type="Sprite2D" parent="."]
+[node name="CloudBackground" type="Node2D" parent="."]
+
+[node name="PurpleCloudBackground" type="Sprite2D" parent="CloudBackground"]
 position = Vector2(1004, 611)
 scale = Vector2(8, 8)
 texture = ExtResource("1_578ip")
 
-[node name="Clouds1" type="Parallax2D" parent="."]
+[node name="Clouds1" type="Parallax2D" parent="CloudBackground"]
 scroll_offset = Vector2(-353, 555)
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(10, 0)
 
-[node name="PurpleCloudBackground3" type="Sprite2D" parent="Clouds1"]
+[node name="PurpleCloudBackground3" type="Sprite2D" parent="CloudBackground/Clouds1"]
 position = Vector2(270, 12)
 texture = ExtResource("1_cqxp6")
 
-[node name="Clouds2" type="Parallax2D" parent="."]
+[node name="Clouds2" type="Parallax2D" parent="CloudBackground"]
 scroll_offset = Vector2(-167, 702)
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(20, 0)
 
-[node name="PurpleCloudBackgroundSmall2" type="Sprite2D" parent="Clouds2"]
+[node name="PurpleCloudBackgroundSmall2" type="Sprite2D" parent="CloudBackground/Clouds2"]
 position = Vector2(82, 36)
 texture = ExtResource("2_qkscx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="World1-3" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,33 +65,39 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/World1-3"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -302.0
+offset_right = 400.0
+offset_bottom = 398.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 200
+theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 200
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/World1-3/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 200
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 50
 
-[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/HBoxContainer"]
+[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("4_s0uuc")
@@ -81,13 +107,13 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
 layout_mode = 2
 offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="Level1Label" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="Level1Label" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -103,7 +129,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[center]Highest Award"
 
-[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -117,24 +143,1049 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]Level 1"
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox"]
+[node name="LoadWorldButton" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("7_5mkxw")
+
+[node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("4_lr8lc")
-texture_normal = ExtResource("6_lquvo")
-texture_pressed = ExtResource("7_meq5g")
-texture_focused = ExtResource("8_yi6np")
+size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="PlayWorld1Button" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer/HBoxContainer/World1VBox/TextureButton"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 2"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("8_sktyn")
+
+[node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevleLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 3"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("9_h0knb")
+
+[node name="World4-6" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/World4-6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -302.0
+offset_right = 400.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/World4-6/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 50
+
+[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 4"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("11_8863f")
+
+[node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 5"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("10_b5cag")
+
+[node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevleLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 6"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("11_6xxke")
+
+[node name="World7-9" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/World7-9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -302.0
+offset_right = 400.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/World7-9/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 50
+
+[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World1VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 7"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("14_lhcsd")
+
+[node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 8"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("15_es15b")
+
+[node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 9"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("16_rsdnq")
+
+[node name="World10-12" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/World10-12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -302.0
+offset_right = 400.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/World10-12/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 50
+
+[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World1VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 10"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("17_4kdyh")
+
+[node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 11"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("18_g3x0n")
+
+[node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 12"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("19_3uoq8")
+
+[node name="World13-15" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/World13-15"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -302.0
+offset_right = 400.0
+offset_bottom = 398.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/World13-15/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 50
+
+[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World1VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 13"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("20_e8htx")
+
+[node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 14 (N/A)"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("18_g3x0n")
+
+[node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_s0uuc")
+region_rect = Rect2(0, 0, 80, 64)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+layout_mode = 2
+offset_top = 71.0
+offset_right = 400.0
+offset_bottom = 71.0
+
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.0
+offset_top = 135.0
+offset_right = 85.0
+offset_bottom = 175.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Highest Award"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_right = 90.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Level 15 (N/A)"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("19_3uoq8")
+
+[node name="NextPageButtonsHBox" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 249.0
+offset_bottom = 249.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NextPageButtonsHBox"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = -1.0
-offset_right = 11.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-text = "Play"
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_right = 150
+
+[node name="PrevWorld" type="TextureButton" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("6_lquvo")
+texture_pressed = ExtResource("7_meq5g")
+texture_hover = ExtResource("7_meq5g")
+texture_focused = ExtResource("8_yi6np")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer/PrevWorld"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -16.0
+offset_right = 50.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]<< Previous World"
+
+[node name="NextWorld" type="TextureButton" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_lquvo")
+texture_pressed = ExtResource("7_meq5g")
+texture_hover = ExtResource("7_meq5g")
+texture_focused = ExtResource("8_yi6np")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer/NextWorld"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -16.0
+offset_right = 50.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]Next World >>"
+
+[connection signal="pressed" from="CanvasLayer/NextPageButtonsHBox/MarginContainer/PrevWorld" to="." method="_on_prev_world_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextPageButtonsHBox/MarginContainer/NextWorld" to="." method="_on_next_world_pressed"]

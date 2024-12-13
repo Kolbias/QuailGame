@@ -8,7 +8,7 @@ func _ready() -> void:
 	GlobalSignals.connect("exit_win_screen", _on_exit_win_screen)
 	GlobalSignals.connect("player_restarted", _on_player_restarted)
 	GlobalSignals.connect("settings_menu_closed", _on_settings_menu_closed)
-
+	GlobalSignals.connect("load_world", _on_world_loaded)
 func _on_play_button_button_down() -> void:
 	var instance = scene.instantiate()
 	print(str(scene))
@@ -59,5 +59,8 @@ func _on_settings_menu_closed():
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-func _on_load_scene(scene_path: String):
+func _on_world_loaded(scene):
 	var current_scene = get_child(0)
+	var new_scene = scene.instantiate()
+	current_scene.queue_free()
+	self.add_child(new_scene)

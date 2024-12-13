@@ -227,11 +227,15 @@ layer_0/tile_data = PackedInt32Array(262190, 0, 0, 327726, 0, 0, 393262, 0, 0, 3
 
 [node name="CarSpawner" parent="." instance=ExtResource("5_romff")]
 position = Vector2(186, -279)
+min_random_time = null
+max_random_time = null
 
 [node name="CarSpawner5" type="Marker2D" parent="."]
 position = Vector2(668, 507)
 rotation = 3.14159
 script = ExtResource("6_55ni4")
+min_random_time = null
+max_random_time = null
 
 [node name="Timer" type="Timer" parent="CarSpawner5"]
 one_shot = true

@@ -364,14 +364,20 @@ rotation = 0.0
 
 [node name="CarSpawner" parent="." instance=ExtResource("5_he7l0")]
 position = Vector2(285, -383)
+min_random_time = null
+max_random_time = null
 
 [node name="CarSpawner2" parent="." instance=ExtResource("5_he7l0")]
 position = Vector2(-217, -370)
+min_random_time = null
+max_random_time = null
 
 [node name="CarSpawner5" type="Marker2D" parent="."]
 position = Vector2(682, 499)
 rotation = 3.14159
 script = ExtResource("6_8mp3j")
+min_random_time = null
+max_random_time = null
 
 [node name="Timer" type="Timer" parent="CarSpawner5"]
 one_shot = true
@@ -381,6 +387,8 @@ autostart = true
 position = Vector2(342, 492)
 rotation = 3.14159
 script = ExtResource("6_8mp3j")
+min_random_time = null
+max_random_time = null
 
 [node name="Timer" type="Timer" parent="CarSpawner6"]
 one_shot = true

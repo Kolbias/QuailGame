@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://smh0vmkjysod"]
+
+[ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="1_hh0wi"]
+[ext_resource type="Script" path="res://scripts/load_world_button.gd" id="1_p8ek1"]
+[ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="2_hr0ys"]
+[ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="3_6u7pk"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="5_53av6"]
+
+[node name="LoadWorldButton" type="TextureButton"]
+custom_minimum_size = Vector2(200, 50)
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_vertical = 4
+texture_normal = ExtResource("1_hh0wi")
+texture_pressed = ExtResource("2_hr0ys")
+texture_focused = ExtResource("3_6u7pk")
+stretch_mode = 4
+script = ExtResource("1_p8ek1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(75, 32)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -16.0
+offset_right = 37.5
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("5_53av6")
+bbcode_enabled = true
+text = "[center]Play"
+fit_content = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -546,6 +546,8 @@ color = Color(0.282353, 0, 0.282353, 1)
 
 [node name="CarSpawner" parent="." instance=ExtResource("9_nc2w6")]
 position = Vector2(285, -383)
+min_random_time = null
+max_random_time = null
 
 [node name="MotorcycleSpawner3" parent="." instance=ExtResource("25_u6k2a")]
 position = Vector2(357, 317)

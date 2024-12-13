@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://drb7c4pmhun57"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://drb7c4pmhun57"]
 
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_5iw33"]
 [ext_resource type="Texture2D" uid="uid://bnia3oea3hcyr" path="res://assets/Quail Objectst.png" id="2_bfh23"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cxoamtri7ntd4" path="res://assets/Quail Hedge Border Snow.png" id="6_lt2id"]
 [ext_resource type="Texture2D" uid="uid://bj7f6tlwqsqg5" path="res://assets/Quail Hedge Underlay Snow.png" id="7_x2xtl"]
 [ext_resource type="Texture2D" uid="uid://brkuo3mpv8183" path="res://assets/Quail Ice.png" id="8_02s0e"]
-[ext_resource type="Texture2D" uid="uid://bv8buivha4i0c" path="res://assets/Quail Secret Path.png" id="9_kqcvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("1_5iw33")
@@ -280,7 +279,7 @@ texture = ExtResource("3_urw0f")
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
@@ -533,10 +532,6 @@ texture = ExtResource("8_02s0e")
 3:4/0 = 0
 4:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qiflg"]
-texture = ExtResource("9_kqcvc")
-0:0/0 = 0
-
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wb1q5")
@@ -547,4 +542,3 @@ sources/4 = SubResource("TileSetAtlasSource_ac08i")
 sources/5 = SubResource("TileSetAtlasSource_lh7xt")
 sources/6 = SubResource("TileSetAtlasSource_5naqj")
 sources/7 = SubResource("TileSetAtlasSource_rec41")
-sources/9 = SubResource("TileSetAtlasSource_qiflg")

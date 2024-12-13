@@ -631,6 +631,8 @@ z_index = 4
 position = Vector2(632, 633)
 rotation = 3.14159
 script = ExtResource("29_frxbu")
+min_random_time = null
+max_random_time = null
 
 [node name="Timer" type="Timer" parent="CarSpawner"]
 one_shot = true
@@ -641,6 +643,8 @@ z_index = 4
 position = Vector2(268, 638)
 rotation = 3.14159
 script = ExtResource("29_frxbu")
+min_random_time = null
+max_random_time = null
 
 [node name="Timer" type="Timer" parent="CarSpawner2"]
 one_shot = true
