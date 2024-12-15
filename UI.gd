@@ -34,7 +34,7 @@ func _ready():
 	controls_button.visible = false
 func _process(delta):
 	%RestartBar.value = %RestartTimer.time_left
-	quail_count_ui.text = "Quail Count: " + str(PlayerVariables.quail_count)
+	quail_count_ui.text = str(PlayerVariables.quail_count)
 	#var time_left_rounded = int(timer.time_left)
 	timer_ui.text = str(int(PlayerVariables.time_remaining))
 	boost_cooldown_bar.value = PlayerVariables.boost_cooldown

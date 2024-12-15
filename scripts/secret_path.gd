@@ -1,8 +1,10 @@
 extends TileMapLayer
 
 
-func _process(delta: float) -> void:
-	pass
+func _ready() -> void:
+	var area = get_child(0)
+	area.connect("body_entered", _on_area_2d_body_entered)
+	area.connect("body_exited", _on_area_2d_body_exited)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

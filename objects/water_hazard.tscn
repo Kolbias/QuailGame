@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dheb82njo58vb" path="res://objects/water.tscn" id="1_v5bu4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jcnpl"]
-radius = 8.39416
-height = 22.2222
+radius = 8.70548
+height = 21.6901
 
 [node name="WaterHazard" type="Area2D" groups=["water"]]
 collision_layer = 5

@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://drb7c4pmhun57"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://drb7c4pmhun57"]
 
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="1_5iw33"]
 [ext_resource type="Texture2D" uid="uid://bnia3oea3hcyr" path="res://assets/Quail Objectst.png" id="2_bfh23"]
 [ext_resource type="Texture2D" uid="uid://dt4r8u5jxe4dj" path="res://assets/Quail Concrete Border Underlay.png" id="3_o001l"]
 [ext_resource type="Texture2D" uid="uid://17aotcicaoxw" path="res://assets/Quail Hedge Border.png" id="3_urw0f"]
 [ext_resource type="Texture2D" uid="uid://dkqm7araxyhr1" path="res://assets/Quail Hedge Underlay.png" id="4_rpr2m"]
+[ext_resource type="Texture2D" uid="uid://bv8buivha4i0c" path="res://assets/Quail Secret Path.png" id="4_v6uhs"]
 [ext_resource type="Texture2D" uid="uid://c2l5e24epy6u7" path="res://assets/Quail Environment Snow.png" id="5_fyb0d"]
 [ext_resource type="Texture2D" uid="uid://cxoamtri7ntd4" path="res://assets/Quail Hedge Border Snow.png" id="6_lt2id"]
 [ext_resource type="Texture2D" uid="uid://bj7f6tlwqsqg5" path="res://assets/Quail Hedge Underlay Snow.png" id="7_x2xtl"]
@@ -275,6 +276,10 @@ texture = ExtResource("3_o001l")
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fdmpj"]
+texture = ExtResource("4_v6uhs")
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yq85"]
 texture = ExtResource("3_urw0f")
 0:0/0 = 0
@@ -296,7 +301,7 @@ texture = ExtResource("3_urw0f")
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
@@ -741,3 +746,4 @@ sources/7 = SubResource("TileSetAtlasSource_rec41")
 sources/8 = SubResource("TileSetAtlasSource_xi13o")
 sources/9 = SubResource("TileSetAtlasSource_df05v")
 sources/10 = SubResource("TileSetAtlasSource_dqbo0")
+sources/11 = SubResource("TileSetAtlasSource_fdmpj")

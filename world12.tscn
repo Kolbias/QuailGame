@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ucwjyfpwnn2f"]
+[gd_scene load_steps=35 format=3 uid="uid://ucwjyfpwnn2f"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_rbo1w"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_40et8"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://cuv1tav8vdfe8" path="res://objects/hedge.tscn" id="20_wcntx"]
 [ext_resource type="PackedScene" uid="uid://ci1vdlgk0k2yp" path="res://objects/bench.tscn" id="21_8bq6h"]
 [ext_resource type="PackedScene" uid="uid://b1igtqb3o25lp" path="res://two_car_spawner.tscn" id="23_k14vp"]
-[ext_resource type="PackedScene" uid="uid://k25s0le0yj4w" path="res://shaders/fire.tscn" id="24_461vk"]
 [ext_resource type="PackedScene" uid="uid://cer2wenif6nf2" path="res://semi_spawner.tscn" id="25_nx4w4"]
 [ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="26_5fqiu"]
 [ext_resource type="PackedScene" uid="uid://24p7v68b1oyw" path="res://motorcycle_spawner.tscn" id="27_j8r0e"]
@@ -435,11 +434,6 @@ rotation = 0.0
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
-
-[node name="Fire" parent="." instance=ExtResource("24_461vk")]
-z_index = 5
-position = Vector2(-400, 151)
-fire_speed = 0.4
 
 [node name="SemiSpawner4" parent="." instance=ExtResource("25_nx4w4")]
 position = Vector2(982, 1402)
