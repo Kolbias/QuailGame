@@ -16,21 +16,7 @@ var chall_rating5 := 20
 
 #Vars to Save
 var quail_total := 0
-var world_scores := {
-	"World1_quail_score": 0,
-	"World2_quail_score": 0,
-	"World3_quail_score": 0,
-	"World4_quail_score": 0,
-	"World5_quail_score": 0,
-	"World6_quail_score": 0,
-	"World7_quail_score": 0,
-	"World8_quail_score": 0,
-	"World9_quail_score": 0,
-	"World10_quail_score": 0,
-	"World11_quail_score": 0,
-	"World12_quail_score": 0,
-	"World13_quail_score": 0,
-}
+
 var world_1_hs = 0
 var world_2_hs = 0
 var world_3_hs = 0
@@ -44,6 +30,18 @@ var world_10_hs = 0
 var world_11_hs = 0
 var world_12_hs = 0
 var world_13_hs = 0
+
+
+#hat unlocks
+var hat_1 = false
+var hat_2 = false
+var hat_3 = false
+var hat_4 = false
+var hat_5 = false
+var hat_6 = false
+var hat_7 = false
+var hat_8 = false
+
 
 func _ready():
 	if FileAccess.file_exists("user://savegame.json"):
@@ -63,7 +61,19 @@ func _on_save_game():
 	var saved_data = {}
 	#Add More Vars to save below
 	saved_data["quail_total"] = quail_total
-	saved_data["world_1_score"] = world_1_hs 
+	saved_data["world_1_score"] = world_1_hs
+	saved_data["world_2_score"] = world_2_hs
+	saved_data["world_3_score"] = world_3_hs
+	saved_data["world_4_score"] = world_4_hs
+	saved_data["world_5_score"] = world_5_hs
+	saved_data["world_6_score"] = world_6_hs
+	saved_data["world_7_score"] = world_7_hs
+	saved_data["world_8_score"] = world_8_hs
+	saved_data["world_9_score"] = world_9_hs
+	saved_data["world_10_score"] = world_10_hs
+	saved_data["world_11_score"] = world_11_hs
+	saved_data["world_12_score"] = world_12_hs
+	saved_data["world_13_score"] = world_13_hs
 	#for i in world_scores:
 		#var s = "world_" + str(i) + "_score"
 		#saved_data[s] = world_scores[0]
@@ -81,7 +91,18 @@ func _on_load_game():
 	#Add more Vars to load below
 	quail_total = saved_data["quail_total"]
 	world_1_hs = saved_data["world_1_score"]
-	
+	world_2_hs = saved_data["world_2_score"]
+	world_3_hs = saved_data["world_3_score"]
+	world_4_hs = saved_data["world_4_score"]
+	world_5_hs = saved_data["world_5_score"]
+	world_6_hs = saved_data["world_6_score"]
+	world_7_hs = saved_data["world_7_score"]
+	world_8_hs = saved_data["world_8_score"]
+	world_9_hs = saved_data["world_9_score"]
+	world_10_hs = saved_data["world_10_score"]
+	world_11_hs = saved_data["world_11_score"]
+	world_12_hs = saved_data["world_12_score"]
+	world_13_hs = saved_data["world_13_score"]
 	#orld_scores[0] = saved_data["world_1_highscore"]
 	#for i in world_scores:
 		#i = saved_data[i]

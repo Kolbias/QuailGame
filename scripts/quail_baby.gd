@@ -70,12 +70,9 @@ func _on_cpu_particles_2d_finished():
 	self.queue_free()
 
 func _on_call_babies():
-	print("Call Babies Signal Recieved by baby")
-	#$CollisionShape2D.disabled = true
 	$CollisionShape2D.shape.radius = 1
 	%CallTimer.start()
 
 func _on_call_timer_timeout():
 	var tween = get_tree().create_tween()
 	tween.tween_property($CollisionShape2D.shape, "radius", 4, 1.0)
-	#$CollisionShape2D.disabled = false
