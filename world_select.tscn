@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://lr67kc0tky8c"]
+[gd_scene load_steps=25 format=3 uid="uid://lr67kc0tky8c"]
 
 [ext_resource type="Texture2D" uid="uid://bruojp88g60sk" path="res://assets/backgrounds/PurpleCloudBackground.png" id="1_578ip"]
 [ext_resource type="Texture2D" uid="uid://cpk5vh8o3dy0r" path="res://assets/backgrounds/PurpleCloudBackground3.png" id="1_cqxp6"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dl5t5qtscaynn" path="res://world11.tscn" id="18_g3x0n"]
 [ext_resource type="PackedScene" uid="uid://ucwjyfpwnn2f" path="res://world12.tscn" id="19_3uoq8"]
 [ext_resource type="PackedScene" uid="uid://be4iytjiu3f6a" path="res://world13.tscn" id="20_e8htx"]
+[ext_resource type="PackedScene" uid="uid://csten78itygrj" path="res://main_menu.tscn" id="21_0ni8d"]
 
 [node name="WorldSelect" type="Node2D"]
 script = ExtResource("1_qsgjo")
@@ -56,7 +57,6 @@ texture = ExtResource("2_qkscx")
 
 [node name="World1-3" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +113,8 @@ offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="Level1Label" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="World1HighScore" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -125,9 +126,9 @@ offset_right = 85.0
 offset_bottom = 175.0
 grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Highest Award"
+text = "[center]##"
 
 [node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
@@ -142,6 +143,21 @@ grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]Level 1"
+
+[node name="HighScoreText" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 105.0
+offset_right = 90.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]High Score"
 
 [node name="LoadWorldButton" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
 layout_mode = 2
@@ -171,7 +187,8 @@ offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+[node name="World2HighScore" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -183,9 +200,24 @@ offset_right = 85.0
 offset_bottom = 175.0
 grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Highest Award"
+text = "[center]##"
+
+[node name="HighScoreText2" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 105.0
+offset_right = 88.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]High Score"
 
 [node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
@@ -229,7 +261,8 @@ offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+[node name="World3HighScore" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -241,11 +274,26 @@ offset_right = 85.0
 offset_bottom = 175.0
 grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Highest Award"
+text = "[center]##"
 
-[node name="LevleLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+[node name="HighScoreText3" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.0
+offset_top = 105.0
+offset_right = 91.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]High Score"
+
+[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -1104,7 +1152,7 @@ layout_mode = 2
 stretch_mode = 0
 world = ExtResource("19_3uoq8")
 
-[node name="NextPageButtonsHBox" type="Control" parent="CanvasLayer"]
+[node name="NextPageButtons" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 14
 anchor_top = 0.5
@@ -1116,7 +1164,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NextPageButtonsHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/NextPageButtons"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1124,10 +1172,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 150
-theme_override_constants/margin_right = 150
 
-[node name="PrevWorld" type="TextureButton" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/NextPageButtons/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PrevWorld" type="TextureButton" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
@@ -1138,7 +1189,7 @@ texture_hover = ExtResource("7_meq5g")
 texture_focused = ExtResource("8_yi6np")
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer/PrevWorld"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer/PrevWorld"]
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1157,7 +1208,20 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]<< Previous World"
 
-[node name="NextWorld" type="TextureButton" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer"]
+[node name="MainMenuButton" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer" instance=ExtResource("9_0y44p")]
+layout_mode = 2
+stretch_mode = 0
+world = ExtResource("21_0ni8d")
+
+[node name="RichTextLabel" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer/MainMenuButton" index="0"]
+custom_minimum_size = Vector2(150, 32)
+offset_left = -85.0
+offset_top = -18.0
+offset_right = 65.0
+offset_bottom = 14.0
+text = "[center]Main Menu"
+
+[node name="NextWorld" type="TextureButton" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
@@ -1168,7 +1232,7 @@ texture_hover = ExtResource("7_meq5g")
 texture_focused = ExtResource("8_yi6np")
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/NextPageButtonsHBox/MarginContainer/NextWorld"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer/NextWorld"]
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -1187,5 +1251,7 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]Next World >>"
 
-[connection signal="pressed" from="CanvasLayer/NextPageButtonsHBox/MarginContainer/PrevWorld" to="." method="_on_prev_world_pressed"]
-[connection signal="pressed" from="CanvasLayer/NextPageButtonsHBox/MarginContainer/NextWorld" to="." method="_on_next_world_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer/PrevWorld" to="." method="_on_prev_world_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer/NextWorld" to="." method="_on_next_world_pressed"]
+
+[editable path="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer/MainMenuButton"]

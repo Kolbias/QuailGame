@@ -3,6 +3,11 @@ extends Node2D
 
 var page = 1
 
+func _ready() -> void:
+	%World1HighScore.text = "[center]" + str(PlayerVariables.world_1_hs)
+	%World2HighScore.text = "[center]" + str(PlayerVariables.world_2_hs)
+	%World3HighScore.text = "[center]" + str(PlayerVariables.world_3_hs)
+
 func _process(delta: float) -> void:
 	if page == 1:
 		%PrevWorld.hide()

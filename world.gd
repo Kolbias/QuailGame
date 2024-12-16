@@ -13,6 +13,11 @@ func _on_quail_egg_quail_hatched():
 	GlobalSignals.emit_signal("egg_hatched")
 	new_quail.position = main_quail.position
 
+func _ready() -> void:
+	var world = self.name.lstrip("World")
+	print("The current world number? " + str(world))
+	PlayerVariables.current_level = int(world)
+
 func _process(_delta):
 	# ui.position = player.position
 	# parallax.motion_offset += background_scroll_speed
