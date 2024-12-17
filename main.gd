@@ -33,7 +33,10 @@ func _on_exit_win_screen(path):
 
 func _on_player_restarted():
 	var world = get_child(0)
+	#var world_path = get_child(0).get_path()
+	#print(world_path)
 	var current_world = PlayerVariables.current_level
+	print("player restarted current world: " + str(current_world))
 	var path = "res://world" + str(current_world) + ".tscn"
 	var scene = load(path)
 	var instance = scene.instantiate()

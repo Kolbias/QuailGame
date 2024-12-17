@@ -392,7 +392,6 @@ frame_progress = 0.0649245
 
 [node name="Hats" type="Node2D" parent="AnimatedSprite2D"]
 unique_name_in_owner = true
-z_index = 1
 position = Vector2(6, -4)
 
 [node name="Hat1" type="Sprite2D" parent="AnimatedSprite2D/Hats"]

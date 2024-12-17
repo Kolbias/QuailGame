@@ -14,9 +14,10 @@ func _on_quail_egg_quail_hatched():
 	new_quail.position = main_quail.position
 
 func _ready() -> void:
-	var world = self.name.lstrip("World")
-	print("The current world number? " + str(world))
-	PlayerVariables.current_level = int(world)
+	pass
+	#var world = self.name.lstrip("World")
+	#print("The current world number? " + str(world))
+	#PlayerVariables.current_level = int(world)
 
 func _process(_delta):
 	# ui.position = player.position

@@ -1,11 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://lr67kc0tky8c"]
+[gd_scene load_steps=29 format=3 uid="uid://lr67kc0tky8c"]
 
 [ext_resource type="Texture2D" uid="uid://bruojp88g60sk" path="res://assets/backgrounds/PurpleCloudBackground.png" id="1_578ip"]
 [ext_resource type="Texture2D" uid="uid://cpk5vh8o3dy0r" path="res://assets/backgrounds/PurpleCloudBackground3.png" id="1_cqxp6"]
 [ext_resource type="Script" path="res://scripts/world_select.gd" id="1_qsgjo"]
+[ext_resource type="Texture2D" uid="uid://x143m2gugid1" path="res://assets/backgrounds/PinkBackgroundSolid.png" id="2_mh8jq"]
 [ext_resource type="Texture2D" uid="uid://bq6rhp3uc7ayk" path="res://assets/backgrounds/PurpleCloudBackgroundSmall2.png" id="2_qkscx"]
+[ext_resource type="Texture2D" uid="uid://c3q7y1pjipxj4" path="res://assets/backgrounds/BlueWaves.png" id="3_3vwm3"]
+[ext_resource type="Texture2D" uid="uid://bwijv53enrwqm" path="res://assets/backgrounds/PinkStripe.png" id="3_h6i7k"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="4_lr8lc"]
 [ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="4_s0uuc"]
+[ext_resource type="Texture2D" uid="uid://sj30dol0qiix" path="res://assets/backgrounds/StarBackground.png" id="5_3cpcq"]
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="6_lquvo"]
 [ext_resource type="PackedScene" uid="uid://ha7xupacm3d3" path="res://world1.tscn" id="7_5mkxw"]
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="7_meq5g"]
@@ -28,7 +32,46 @@
 [node name="WorldSelect" type="Node2D"]
 script = ExtResource("1_qsgjo")
 
+[node name="StripesBackground" type="Node2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+
+[node name="PinkBackground" type="Sprite2D" parent="StripesBackground"]
+position = Vector2(568, 324)
+scale = Vector2(8, 8)
+texture = ExtResource("2_mh8jq")
+
+[node name="BlueStripesParallax" type="Parallax2D" parent="StripesBackground"]
+repeat_size = Vector2(800, 600)
+autoscroll = Vector2(10, 10)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="StripesBackground/BlueStripesParallax"]
+texture = ExtResource("3_3vwm3")
+
+[node name="PinkStripesParallax" type="Parallax2D" parent="StripesBackground"]
+repeat_size = Vector2(800, 600)
+autoscroll = Vector2(20, 20)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="StripesBackground/PinkStripesParallax"]
+texture = ExtResource("3_h6i7k")
+
+[node name="NightBackground" type="Node2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+
+[node name="Parallax2D" type="Parallax2D" parent="NightBackground"]
+repeat_size = Vector2(1920, 1080)
+autoscroll = Vector2(20, 20)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="NightBackground/Parallax2D"]
+texture = ExtResource("5_3cpcq")
+
 [node name="CloudBackground" type="Node2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 
 [node name="PurpleCloudBackground" type="Sprite2D" parent="CloudBackground"]
 position = Vector2(1004, 611)
@@ -36,21 +79,21 @@ scale = Vector2(8, 8)
 texture = ExtResource("1_578ip")
 
 [node name="Clouds1" type="Parallax2D" parent="CloudBackground"]
-scroll_offset = Vector2(-353, 555)
+scroll_offset = Vector2(-285, 408)
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(10, 0)
+repeat_times = 3
 
 [node name="PurpleCloudBackground3" type="Sprite2D" parent="CloudBackground/Clouds1"]
-position = Vector2(270, 12)
 texture = ExtResource("1_cqxp6")
 
 [node name="Clouds2" type="Parallax2D" parent="CloudBackground"]
-scroll_offset = Vector2(-167, 702)
+scroll_offset = Vector2(-216, 553)
 repeat_size = Vector2(1920, 0)
 autoscroll = Vector2(20, 0)
+repeat_times = 3
 
 [node name="PurpleCloudBackgroundSmall2" type="Sprite2D" parent="CloudBackground/Clouds2"]
-position = Vector2(82, 36)
 texture = ExtResource("2_qkscx")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -348,14 +391,14 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/separation = 50
 
-[node name="World1VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
+[node name="World4VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World4VBox"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("4_s0uuc")
@@ -365,13 +408,14 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World4VBox/NinePatchRect"]
 layout_mode = 2
 offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="World4HighScore" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World4VBox/NinePatchRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -383,11 +427,11 @@ offset_right = 85.0
 offset_bottom = 175.0
 grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Highest Award"
+text = "[center]##"
 
-[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox/NinePatchRect"]
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World4VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -401,19 +445,34 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]Level 4"
 
-[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+[node name="HighScoreText" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World4VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 105.0
+offset_right = 90.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]High Score"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World4VBox" instance=ExtResource("9_0y44p")]
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("11_8863f")
 
-[node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
+[node name="World5VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World5VBox"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("4_s0uuc")
@@ -423,13 +482,14 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World5VBox/NinePatchRect"]
 layout_mode = 2
 offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="AwardLabel2" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+[node name="World5HighScore" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World5VBox/NinePatchRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -441,11 +501,11 @@ offset_right = 85.0
 offset_bottom = 175.0
 grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Highest Award"
+text = "[center]##"
 
-[node name="LevelLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox/NinePatchRect"]
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World5VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -459,19 +519,34 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]Level 5"
 
-[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox" instance=ExtResource("9_0y44p")]
+[node name="HighScoreText" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World5VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 105.0
+offset_right = 90.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]High Score"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World5VBox" instance=ExtResource("9_0y44p")]
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("10_b5cag")
 
-[node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
+[node name="World6VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World6VBox"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("4_s0uuc")
@@ -481,13 +556,14 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+[node name="AwardTexture" type="TextureRect" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World6VBox/NinePatchRect"]
 layout_mode = 2
 offset_top = 71.0
 offset_right = 400.0
 offset_bottom = 71.0
 
-[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+[node name="World6HighScore" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World6VBox/NinePatchRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -499,11 +575,11 @@ offset_right = 85.0
 offset_bottom = 175.0
 grow_horizontal = 2
 theme = ExtResource("4_lr8lc")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[center]Highest Award"
+text = "[center]##"
 
-[node name="LevleLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2/NinePatchRect"]
+[node name="AwardLabel" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World6VBox/NinePatchRect"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 1
 anchors_preset = 5
@@ -517,7 +593,22 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]Level 6"
 
-[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
+[node name="HighScoreText" type="RichTextLabel" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World6VBox/NinePatchRect"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = 105.0
+offset_right = 90.0
+offset_bottom = 145.0
+grow_horizontal = 2
+theme = ExtResource("4_lr8lc")
+bbcode_enabled = true
+text = "[center]High Score"
+
+[node name="LoadWorldButton" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer/World6VBox" instance=ExtResource("9_0y44p")]
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("11_6xxke")

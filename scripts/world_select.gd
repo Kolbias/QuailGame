@@ -1,15 +1,20 @@
 extends Node2D
 
-
+@onready var current_background = %StripesBackground
 var page = 1
 
 func _ready() -> void:
+	
 	%World1HighScore.text = "[center]" + str(PlayerVariables.world_1_hs)
 	%World2HighScore.text = "[center]" + str(PlayerVariables.world_2_hs)
 	%World3HighScore.text = "[center]" + str(PlayerVariables.world_3_hs)
 
 func _process(delta: float) -> void:
 	if page == 1:
+		if current_background == %StripesBackground:
+			%StripesBackground.modulate = Color(1,1,1,1)
+		else:
+			_fade_background(%NightBackground, %StripesBackground)
 		%PrevWorld.hide()
 		%NextWorld.show()
 		%"World1-3".show()
@@ -19,6 +24,11 @@ func _process(delta: float) -> void:
 		%"World13-15".hide()
 
 	if page == 2:
+		if current_background == %StripesBackground:
+			_fade_background(%StripesBackground, %NightBackground)
+		else: 
+			_fade_background(%CloudBackground, %NightBackground)
+		current_background = %NightBackground
 		%PrevWorld.show()
 		%NextWorld.show()
 		%"World1-3".hide()
@@ -28,6 +38,11 @@ func _process(delta: float) -> void:
 		%"World13-15".hide()
 
 	if page == 3:
+		if current_background == %NightBackground:
+			_fade_background(%NightBackground, %CloudBackground)
+		else: 
+			pass
+		current_background = %CloudBackground
 		%PrevWorld.show()
 		%NextWorld.show()
 		%"World1-3".hide()
@@ -59,3 +74,9 @@ func _on_next_world_pressed() -> void:
 
 func _on_prev_world_pressed() -> void:
 	page -= 1
+
+func _fade_background(previous, current):
+	var p = get_tree().create_tween()
+	var c = get_tree().create_tween()
+	p.tween_property(previous, "modulate", Color(1,1,1,0), 0.5)
+	c.tween_property(current, "modulate", Color(1,1,1,1), 0.5)
