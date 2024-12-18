@@ -9,13 +9,15 @@ extends Node2D
 
 func _ready():
 	PlayerVariables.current_level = 1
-	
+	#%MainMenuVBox.position.x = 500
+
 	play_button.grab_focus()
 	get_tree().paused = false
 	baby_quail_left.flip_h = true
 	sound.play()
-	
+
 func _process(delta):
+
 	main_quail.position.x += 500.0 * delta
 	if main_quail.position.x > 4000.0:
 		main_quail.position = Vector2(53,1039)
@@ -43,3 +45,7 @@ func _on_play_button_button_down() -> void:
 func _on_level_select_button_pressed() -> void:
 	var level_select_scene = load("res://world_select.tscn")
 	GlobalSignals.emit_signal("load_world",level_select_scene)
+
+#func _animate():
+	#var tween = get_tree().create_tween()
+	#tween.tween_property(%MainMenuVBox, "position.x", 500, 2.2)

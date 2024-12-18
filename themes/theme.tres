@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bpswxq60aviax"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bpswxq60aviax"]
 
+[ext_resource type="FontFile" uid="uid://bm503yn53v18p" path="res://assets/ui/fonts/Sol Schori Bold.ttf" id="1_6vjfa"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_w4ibr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn24"]
@@ -48,10 +49,10 @@ border_color = Color(0, 0, 0, 1)
 
 [resource]
 default_font = ExtResource("1_w4ibr")
+default_font_size = 16
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 9
-Button/font_sizes/font_size = 32
-Button/fonts/font = ExtResource("1_w4ibr")
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_6vjfa")
 Button/styles/focus = SubResource("StyleBoxFlat_btn24")
 Button/styles/hover = SubResource("StyleBoxFlat_ey4jp")
 Button/styles/normal = SubResource("StyleBoxFlat_ktbiv")

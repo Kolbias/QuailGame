@@ -8,7 +8,16 @@ func _ready() -> void:
 	%World1HighScore.text = "[center]" + str(PlayerVariables.world_1_hs)
 	%World2HighScore.text = "[center]" + str(PlayerVariables.world_2_hs)
 	%World3HighScore.text = "[center]" + str(PlayerVariables.world_3_hs)
-
+	%World4HighScore.text = "[center]" + str(PlayerVariables.world_4_hs)
+	%World5HighScore.text = "[center]" + str(PlayerVariables.world_5_hs)
+	%World6HighScore.text = "[center]" + str(PlayerVariables.world_6_hs)
+	%World7HighScore.text = "[center]" + str(PlayerVariables.world_7_hs)
+	%World8HighScore.text = "[center]" + str(PlayerVariables.world_8_hs)
+	%World9HighScore.text = "[center]" + str(PlayerVariables.world_9_hs)
+	#%World10HighScore.text = "[center]" + str(PlayerVariables.world_10_hs)
+	#%World11HighScore.text = "[center]" + str(PlayerVariables.world_11_hs)
+	#%World12HighScore.text = "[center]" + str(PlayerVariables.world_12_hs)
+	
 func _process(delta: float) -> void:
 	if page == 1:
 		if current_background == %StripesBackground:

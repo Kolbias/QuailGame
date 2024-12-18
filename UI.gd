@@ -32,6 +32,7 @@ func _ready():
 	pause_retry.visible = false
 	game_over_ui.visible = false
 	controls_button.visible = false
+
 func _process(delta):
 	%RestartBar.value = %RestartTimer.time_left
 	quail_count_ui.text = str(PlayerVariables.quail_count)

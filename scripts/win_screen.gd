@@ -102,28 +102,40 @@ func _ready():
 			award_gold()
 	
 	# World7
-	if score == cr3 and world == 7:
-		award_bronze()
-	if (score > cr3 and score < 18 and world == 7):
-		award_silver()
-	if score >= 18 and world == 7:
-		award_gold()
+	if world == 7:
+		if check_highscore(score, PlayerVariables.world_7_hs):
+			PlayerVariables.world_7_hs = score
+			GlobalSignals.emit_signal("save_game")
+		if score == cr3:
+			award_bronze()
+		if score > cr3 and score < 18:
+			award_silver()
+		if score >= 18:
+			award_gold()
 	
 	# World8
-	if score == cr4 and world == 8:
-		award_bronze()
-	if (score > cr4 and score < 18 and world == 8):
-		award_silver()
-	if score >= 18 and world == 8:
-		award_gold()
+	if world == 8:
+		if check_highscore(score, PlayerVariables.world_8_hs):
+			PlayerVariables.world_8_hs = score
+			GlobalSignals.emit_signal("save_game")
+		if score == cr4 and world == 8:
+			award_bronze()
+		if (score > cr4 and score < 18 and world == 8):
+			award_silver()
+		if score >= 18 and world == 8:
+			award_gold()
 	
 	# World 9
-	if score == cr4 and world == 9:
-		award_bronze()
-	if (score > cr4 and score < 18 and world == 9):
-		award_silver()
-	if score >= 18 and world == 9:
-		award_gold()
+	if world == 9:
+		if check_highscore(score, PlayerVariables.world_9_hs):
+			PlayerVariables.world_9_hs = score
+			GlobalSignals.emit_signal("save_game")
+			if score == cr4:
+				award_bronze()
+			if score > cr4 and score < 18:
+				award_silver()
+			if score >= 18:
+				award_gold()
 	
 	# World 10
 	if score == cr4 and world == 10:

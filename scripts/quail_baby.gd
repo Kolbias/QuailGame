@@ -21,7 +21,7 @@ func _ready():
 
 
 func _process(delta):
-	var speed = 4
+	var speed = 3.6
 	var vel = (player.position - position) * speed
 	if vel.x < 0:
 		animation_player.flip_h = true
