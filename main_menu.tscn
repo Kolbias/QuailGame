@@ -275,30 +275,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="MainMenuVBox" type="VBoxContainer" parent="MainMenu/CanvasLayer/Control"]
 unique_name_in_owner = true
 top_level = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 211.0
-offset_top = -44.0
-offset_right = 411.0
-offset_bottom = 60.0
-grow_horizontal = 2
+offset_left = -597.0
+offset_top = -70.0
+offset_right = -397.0
+offset_bottom = 70.0
+grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2, 2)
+pivot_offset = Vector2(100, 70)
 size_flags_horizontal = 0
 
 [node name="PlayButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../QuitButton")
 focus_neighbor_top = NodePath("../QuitButton")
@@ -328,6 +329,7 @@ grow_vertical = 2
 text = "Play Game"
 
 [node name="SettingsButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 focus_neighbor_top = NodePath("../PlayButton")
@@ -358,6 +360,7 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="LevelSelectButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
@@ -387,6 +390,7 @@ text = "Levels"
 horizontal_alignment = 1
 
 [node name="QuitButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")

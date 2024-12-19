@@ -7,7 +7,28 @@ extends Node2D
 @onready var sound = %AudioStreamPlayer2D
 @onready var play_button = %PlayButton
 
+var tween: Tween
+
 func _ready():
+	tween = create_tween()
+	tween.tween_property(%PlayButton, "position", Vector2(1000,0), 0)
+	tween.tween_property(%SettingsButton, "position", Vector2(1000,0), 0)
+	tween.tween_property(%LevelSelectButton, "position", Vector2(1000,0), 0)
+	tween.tween_property(%QuitButton, "position", Vector2(1000,0), 0)
+	#%MainMenuVBox.scale = Vector2(0.1,0.1)
+	%MainMenuVBox.modulate = Color(1,1,1,0)
+	#%PlayButton.position = Vector2(1000,0)
+	#%PlayButton.modulate = Color(1,1,1,0)
+
+	tween.tween_interval(0.2)
+	
+	#tween.tween_property(%MainMenuVBox, "scale", Vector2(2,2), 1.2).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%MainMenuVBox, "modulate", Color(1,1,1,1), 0.7)
+	tween.tween_property(%PlayButton, "position", Vector2(0,0), 1.2).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%SettingsButton, "position", Vector2(0,40), 1.3).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%LevelSelectButton, "position", Vector2(0,80), 1.4).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,120), 1.5).set_trans(Tween.TRANS_ELASTIC)
+	#tween.parallel().tween_property(%PlayButton, "modulate", Color(1,1,1,1), 0.7)
 	PlayerVariables.current_level = 1
 	#%MainMenuVBox.position.x = 500
 
