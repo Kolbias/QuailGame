@@ -15,6 +15,8 @@ func _ready():
 	tween.tween_property(%SettingsButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%LevelSelectButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%QuitButton, "position", Vector2(1000,0), 0)
+	tween.tween_property(%Sun, "position", Vector2(0,1000), 0)
+	%Logo.pivot_offset = Vector2(125,40)
 	#%MainMenuVBox.scale = Vector2(0.1,0.1)
 	%MainMenuVBox.modulate = Color(1,1,1,0)
 	#%PlayButton.position = Vector2(1000,0)
@@ -28,20 +30,25 @@ func _ready():
 	tween.parallel().tween_property(%SettingsButton, "position", Vector2(0,40), 1.3).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%LevelSelectButton, "position", Vector2(0,80), 1.4).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,120), 1.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%Sun, "position", Vector2(0,0), 2.5).set_trans(Tween.TRANS_ELASTIC)
+	#tween.parallel().tween_property(%Logo, "rotation", 0.2, 5).set_trans(Tween.TRANS_SINE)
+	#await tween.finished
+	#tween.tween_property(%Logo, "rotation", -0.2, 5).set_trans(Tween.TRANS_BOUNCE)
+
 	#tween.parallel().tween_property(%PlayButton, "modulate", Color(1,1,1,1), 0.7)
 	PlayerVariables.current_level = 1
 	#%MainMenuVBox.position.x = 500
 
 	play_button.grab_focus()
 	get_tree().paused = false
-	baby_quail_left.flip_h = true
+#	baby_quail_left.flip_h = true
 	sound.play()
 
 func _process(delta):
 
 	main_quail.position.x += 500.0 * delta
 	if main_quail.position.x > 4000.0:
-		main_quail.position = Vector2(53,1039)
+		main_quail.position = Vector2(-150,960)
 	else:
 		pass
 
