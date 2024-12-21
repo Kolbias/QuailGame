@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=28 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
@@ -17,6 +17,8 @@
 [ext_resource type="AudioStream" uid="uid://b0xed0so1xntv" path="res://assets/sounds/QuailSoundscape.mp3" id="18_tkjay"]
 [ext_resource type="Texture2D" uid="uid://oj0f74pwxu8i" path="res://assets/menu/New Main Menu Sky.png" id="19_tngld"]
 [ext_resource type="Texture2D" uid="uid://4dclgaughxok" path="res://assets/menu/New Main Menu Landscape.png" id="20_hyh78"]
+[ext_resource type="Texture2D" uid="uid://cnsunnxjw1drg" path="res://assets/menu/New Main Menu clouds.png" id="24_av0n1"]
+[ext_resource type="Texture2D" uid="uid://cgdnfff4yih8f" path="res://assets/menu/New Main Menu Bench.png" id="25_sgdwg"]
 [ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="37_a1j58"]
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="37_niuhx"]
@@ -80,15 +82,10 @@ position = Vector2(593.7, 559.8)
 stream = ExtResource("18_tkjay")
 
 [node name="DirectionalLight" type="DirectionalLight2D" parent="MainMenu"]
+visible = false
 position = Vector2(593.7, 559.8)
 color = Color(0.835294, 0.682353, 0.352941, 1)
 energy = 0.3
-
-[node name="MenuSign" type="Sprite2D" parent="MainMenu"]
-visible = false
-position = Vector2(650, 804)
-scale = Vector2(8, 8)
-texture = ExtResource("32_fsm2t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
 layer = 2
@@ -223,6 +220,12 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_i8by4")
 autoplay = "default"
 
+[node name="MenuSign" type="Sprite2D" parent="MainMenu/CanvasLayer/Control"]
+z_index = 5
+position = Vector2(314, 865)
+scale = Vector2(8, 8)
+texture = ExtResource("32_fsm2t")
+
 [node name="Sky" type="TextureRect" parent="MainMenu/CanvasLayer/Control"]
 layout_mode = 0
 offset_right = 40.0
@@ -245,20 +248,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("20_hyh78")
 
-[node name="SettingsMenu" parent="MainMenu/CanvasLayer/Control" instance=ExtResource("37_vqwpr")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 959.5
-offset_top = 570.0
-offset_right = 959.5
-offset_bottom = 660.0
-rotation = 0.0
-size_flags_horizontal = 4
-mouse_filter = 2
+[node name="Parallax2D" type="Parallax2D" parent="MainMenu/CanvasLayer/Control"]
+scroll_offset = Vector2(947, 540)
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/CanvasLayer/Control/Parallax2D"]
+texture = ExtResource("24_av0n1")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/Control"]
 layout_mode = 1
@@ -280,6 +277,29 @@ pivot_offset = Vector2(137, 45)
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("40_ynu7i")
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_sgdwg")
+
+[node name="SettingsMenu" parent="MainMenu/CanvasLayer" instance=ExtResource("37_vqwpr")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 959.5
+offset_top = 570.0
+offset_right = 959.5
+offset_bottom = 660.0
+rotation = 0.0
+size_flags_horizontal = 4
+mouse_filter = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="MainMenu/CanvasLayer"]
 visible = false

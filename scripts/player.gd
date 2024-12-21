@@ -264,7 +264,9 @@ func _on_quail_egg_quail_hatched():
 	print("Quail count: " + str(added_quail_count))
 
 func _on_timer_timeout():
-	get_tree().change_scene_to_file("res://game_over.tscn")
+	var game_over_scene = load("res://game_over.tscn")
+	GlobalSignals.emit_signal("load_world",game_over_scene)
+	#get_tree().change_scene_to_file("res://game_over.tscn")
 
 # Play Again 
 func _on_play_again_button_button_down():

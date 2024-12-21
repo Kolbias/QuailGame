@@ -12,8 +12,9 @@ func _on_play_again_button_down():
 	PlayerVariables.quail_count = 0
 	var world = PlayerVariables.current_level
 	var full_path = "res://world" + str(world) + ".tscn"
-	print("World path is: " + full_path)
-	get_tree().change_scene_to_file(full_path)
-
+	var scene = load(full_path)
+	GlobalSignals.emit_signal("load_world", scene)
+	
 func _on_quit_button_down():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	var scene = load("res://main_menu.tscn")
+	GlobalSignals.emit_signal("load_world", scene)
