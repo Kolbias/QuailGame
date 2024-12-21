@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=26 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ha7xupacm3d3" path="res://world1.tscn" id="2_uggyo"]
 [ext_resource type="Texture2D" uid="uid://bi65u10foijt6" path="res://assets/player/QuailRun1.png" id="7_cjc1g"]
 [ext_resource type="Texture2D" uid="uid://c6fbtfgmm2ua2" path="res://assets/player/QuailRun2.png" id="8_gie34"]
+[ext_resource type="PackedScene" uid="uid://smh0vmkjysod" path="res://load_world_button.tscn" id="8_tqrg1"]
 [ext_resource type="Texture2D" uid="uid://bqywkluqr3eot" path="res://assets/player/QuailRun3.png" id="9_xobrk"]
 [ext_resource type="Texture2D" uid="uid://ce6nun7tfi57g" path="res://assets/player/QuailRun4.png" id="10_x6aul"]
 [ext_resource type="Texture2D" uid="uid://5gy1dnv6xuw1" path="res://assets/player/QuailRun5.png" id="11_i7p4u"]
@@ -123,44 +124,19 @@ scale = Vector2(2, 2)
 pivot_offset = Vector2(100, 70)
 size_flags_horizontal = 0
 
-[node name="PlayButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
+[node name="PlayButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox" instance=ExtResource("8_tqrg1")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_left = NodePath("../QuitButton")
-focus_neighbor_top = NodePath("../QuitButton")
-focus_neighbor_bottom = NodePath("../SettingsButton")
-focus_next = NodePath("../SettingsButton")
-focus_previous = NodePath("../QuitButton")
-theme = ExtResource("37_a1j58")
-texture_normal = ExtResource("37_niuhx")
-texture_pressed = ExtResource("38_nj23w")
-texture_hover = ExtResource("38_nj23w")
-texture_focused = ExtResource("39_3g1gu")
 stretch_mode = 0
-
-[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.5
-offset_top = -7.5
-offset_right = 33.5
-offset_bottom = 7.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play Game"
+world = ExtResource("2_uggyo")
+world_number = 1
 
 [node name="SettingsButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../PlayButton")
 focus_neighbor_bottom = NodePath("../LevelSelectButton")
 focus_next = NodePath("../LevelSelectButton")
-focus_previous = NodePath("../PlayButton")
 theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
 texture_pressed = ExtResource("38_nj23w")
@@ -217,8 +193,6 @@ horizontal_alignment = 1
 [node name="QuitButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../PlayButton")
-focus_next = NodePath("../PlayButton")
 theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
 texture_pressed = ExtResource("38_nj23w")
@@ -271,6 +245,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("20_hyh78")
 
+[node name="SettingsMenu" parent="MainMenu/CanvasLayer/Control" instance=ExtResource("37_vqwpr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 959.5
+offset_top = 570.0
+offset_right = 959.5
+offset_bottom = 660.0
+rotation = 0.0
+size_flags_horizontal = 4
+mouse_filter = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
@@ -292,27 +281,10 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("40_ynu7i")
 
-[node name="SettingsMenu" parent="MainMenu/CanvasLayer" instance=ExtResource("37_vqwpr")]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -592.0
-offset_top = -216.0
-offset_right = -592.0
-offset_bottom = -216.0
-rotation = 0.0
-mouse_filter = 2
-
 [node name="CanvasModulate" type="CanvasModulate" parent="MainMenu/CanvasLayer"]
 visible = false
 color = Color(0.529412, 0.529412, 0.529412, 1)
 
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton" to="." method="_on_play_button_button_down"]
-[connection signal="button_down" from="MainMenu/CanvasLayer/Control/MainMenuVBox/PlayButton" to="MainMenu" method="_on_play_button_button_down"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/LevelSelectButton" to="MainMenu" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]

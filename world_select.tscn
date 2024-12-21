@@ -207,6 +207,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("7_5mkxw")
+world_number = 1
 
 [node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -281,6 +282,7 @@ text = "[center]Level 2"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("8_sktyn")
+world_number = 2
 
 [node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -355,6 +357,7 @@ text = "[center]Level 3"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("9_h0knb")
+world_number = 3
 
 [node name="World4-6" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -465,6 +468,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("11_8863f")
+world_number = 4
 
 [node name="World5VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -539,6 +543,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("10_b5cag")
+world_number = 5
 
 [node name="World6VBox" type="VBoxContainer" parent="CanvasLayer/World4-6/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -613,6 +618,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("11_6xxke")
+world_number = 6
 
 [node name="World7-9" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -723,6 +729,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("14_lhcsd")
+world_number = 7
 
 [node name="World8VBox" type="VBoxContainer" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -797,6 +804,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("15_es15b")
+world_number = 8
 
 [node name="World9VBox" type="VBoxContainer" parent="CanvasLayer/World7-9/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -871,6 +879,7 @@ text = "[center]High Score"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("16_rsdnq")
+world_number = 9
 
 [node name="World10-12" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -965,6 +974,7 @@ text = "[center]Level 10"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("17_4kdyh")
+world_number = 10
 
 [node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -1023,6 +1033,7 @@ text = "[center]Level 11"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("18_g3x0n")
+world_number = 11
 
 [node name="World2VBox2" type="VBoxContainer" parent="CanvasLayer/World10-12/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
@@ -1081,6 +1092,7 @@ text = "[center]Level 12"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("19_3uoq8")
+world_number = 12
 
 [node name="World13-15" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
@@ -1175,6 +1187,7 @@ text = "[center]Level 13"
 layout_mode = 2
 stretch_mode = 0
 world = ExtResource("20_e8htx")
+world_number = 13
 
 [node name="World2VBox" type="VBoxContainer" parent="CanvasLayer/World13-15/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)

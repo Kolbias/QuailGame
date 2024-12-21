@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var main_quail = %MainQuail
-@onready var baby_quail_left = %BabyQuailLeft
+#@onready var baby_quail_left = %BabyQuailLeft
 #@onready var parallax = %ParallaxBackground
 @export var background_scroll_speed = Vector2(0.5,0.5)
 @onready var sound = %AudioStreamPlayer2D
@@ -26,10 +26,10 @@ func _ready():
 	
 	#tween.tween_property(%MainMenuVBox, "ssscale", Vector2(2,2), 1.2).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%MainMenuVBox, "modulate", Color(1,1,1,1), 0.7)
-	tween.tween_property(%PlayButton, "position", Vector2(0,0), 1.2).set_trans(Tween.TRANS_ELASTIC)
-	tween.parallel().tween_property(%SettingsButton, "position", Vector2(0,40), 1.3).set_trans(Tween.TRANS_ELASTIC)
-	tween.parallel().tween_property(%LevelSelectButton, "position", Vector2(0,80), 1.4).set_trans(Tween.TRANS_ELASTIC)
-	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,120), 1.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%PlayButton, "position", Vector2(0,20), 1.2).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%SettingsButton, "position", Vector2(0,80), 1.3).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%LevelSelectButton, "position", Vector2(0,120), 1.4).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,160), 1.5).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%Sun, "position", Vector2(1293,648), 2.5).set_trans(Tween.TRANS_ELASTIC)
 	#tween.parallel().tween_property(%Logo, "rotation", 0.2, 5).set_trans(Tween.TRANS_SINE)
 	#await tween.finished
@@ -54,8 +54,8 @@ func _process(delta):
 
 
 
-func _on_button_button_down():
-	get_tree().change_scene_to_file(str("res://world1.tscn").to_lower())
+#func _on_button_button_down():
+	#get_tree().change_scene_to_file(str("res://world1.tscn").to_lower())
 
 
 func _on_button_2_button_down():
