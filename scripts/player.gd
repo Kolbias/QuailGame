@@ -109,7 +109,11 @@ func _physics_process(delta):
 			if input_vector.x > 0:
 				flip_sprite(false, Vector2(5.5,-1.7))
 			speed = PlayerVariables.speed
+			#velocity = lerp(velocity, input_vector, 0.1) * speed
+			#velocity.x = clamp(velocity.x, -100, 100)
+			#velocity.y = clamp(velocity.y, -100, 100)
 			velocity = input_vector * speed
+			print("player vel :" + str(velocity))
 			move_and_slide()
 		States.SETBOOST:
 			%MashBar.hide()

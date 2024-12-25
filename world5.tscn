@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://sl7cxofue73k" path="res://objects/trash_can.tscn" id="26_v24q1"]
 [ext_resource type="PackedScene" uid="uid://cer2wenif6nf2" path="res://semi_spawner.tscn" id="27_jbuwq"]
 
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_0epln")
 6:2/0 = 0

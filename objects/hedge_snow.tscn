@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxllhuujdk5gb"]
+
+[ext_resource type="Texture2D" uid="uid://cgy7houdrsmje" path="res://assets/objects/HedgeSnow1.png" id="1_nnru3"]
+[ext_resource type="Texture2D" uid="uid://cip5aqywbpbje" path="res://assets/objects/HedgeSnow2.png" id="2_r4ijj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rxeac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nnru3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_r4ijj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3gahj"]
+radius = 7.07107
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pu04x"]
+closed = false
+polygon = PackedVector2Array(9, 6, 9, 3, 8, 3, 8, 2, 8, 0, 7, 0, 7, -3, 6, -3, 6, -5, 5, -5, 5, -7, 4, -7, 4, -9, 3, -9, 3, -11, 2, -11, 2, -12, 1, -12, 1, -13, -1, -13, -1, -12, -2, -12, -2, -11, -3, -11, -3, -9, -4, -9, -4, -7, -5, -7, -5, -5, -6, -5, -6, -3, -7, -3, -7, 0, -8, 0, -8, 3, -9, 3, -9, 6)
+
+[node name="HedgeSnow" type="StaticBody2D"]
+z_index = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_rxeac")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_3gahj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_pu04x")
+occluder_light_mask = 9

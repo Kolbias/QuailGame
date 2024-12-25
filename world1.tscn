@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=4 uid="uid://ha7xupacm3d3"]
+[gd_scene load_steps=26 format=4 uid="uid://ha7xupacm3d3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_22jv0"]
+[ext_resource type="PackedScene" uid="uid://ddoorqrf5v7rm" path="res://debug_camera.tscn" id="2_mxwaa"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_xgafp"]
 [ext_resource type="PackedScene" uid="uid://bcnbbq1mw03nv" path="res://player.tscn" id="2_y3bi7"]
 [ext_resource type="TileSet" uid="uid://drb7c4pmhun57" path="res://quailcrossing_tilemap.tres" id="3_a6daf"]
@@ -86,78 +87,82 @@ script = ExtResource("3_vw035")
 one_shot = true
 autostart = true
 
-[node name="QuailEgg" parent="." instance=ExtResource("5_k6rxl")]
+[node name="Eggs" type="Node2D" parent="."]
+
+[node name="QuailEgg" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(99, 166)
 
-[node name="QuailEgg2" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg2" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(111, 38)
 
-[node name="QuailEgg20" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg20" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(108, -3)
 
-[node name="QuailEgg21" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg21" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(387, 171)
 
-[node name="QuailEgg23" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg23" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(488, 95)
 
-[node name="QuailEgg18" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg18" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(258, -77)
 
-[node name="QuailEgg3" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg3" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(26, 85)
 
-[node name="QuailEgg4" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg4" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(297, 148)
 
-[node name="QuailEgg13" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg13" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(496, 310)
 
-[node name="QuailEgg5" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg5" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(385, 78)
 
-[node name="QuailEgg22" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg22" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(496, -81)
 
-[node name="QuailEgg19" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg19" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(281, 47)
 
-[node name="QuailEgg17" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg17" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(480, 73)
 
-[node name="QuailEgg6" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg6" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(324, 192)
 
-[node name="QuailEgg16" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg16" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(324, 83)
 
-[node name="QuailEgg7" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg7" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(20, 222)
 
-[node name="QuailEgg8" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg8" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(451, 213)
 
-[node name="QuailEgg9" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg9" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(684, 110)
 
-[node name="QuailEgg10" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg10" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(780, 220)
 
-[node name="QuailEgg14" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg14" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(812, 219)
 
-[node name="QuailEgg12" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg12" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(685, 310)
 
-[node name="QuailEgg11" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg11" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(835, 144)
 
-[node name="QuailEgg15" parent="." instance=ExtResource("5_k6rxl")]
+[node name="QuailEgg15" parent="Eggs" instance=ExtResource("5_k6rxl")]
 position = Vector2(770, 77)
 
 [node name="Player" parent="." instance=ExtResource("2_y3bi7")]
+visible = false
 z_index = 2
 position = Vector2(37, 131)
+scale = Vector2(0.8, 0.8)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -284,6 +289,7 @@ energy = 0.4
 script = ExtResource("21_psjh6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Transition"]
+visible = false
 
 [node name="Container" type="Control" parent="Transition/CanvasLayer"]
 layout_mode = 3
@@ -306,49 +312,51 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("22_fymjj")
 
-[connection signal="quail_hatched" from="QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg2" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg2" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg20" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg20" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg21" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg21" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg23" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg23" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg18" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg18" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg3" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg3" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg4" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg4" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg13" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg13" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg5" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg5" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg22" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg22" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg19" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg19" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg17" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg17" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg6" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg6" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg16" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg16" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg7" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg7" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg8" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg8" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg9" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg9" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg10" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg10" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg14" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg14" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg12" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg12" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg11" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg11" to="Player" method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg15" to="." method="_on_quail_egg_quail_hatched"]
-[connection signal="quail_hatched" from="QuailEgg15" to="Player" method="_on_quail_egg_quail_hatched"]
+[node name="DebugCamera" parent="." instance=ExtResource("2_mxwaa")]
+
+[connection signal="quail_hatched" from="Eggs/QuailEgg" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg2" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg2" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg20" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg20" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg21" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg21" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg23" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg23" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg18" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg18" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg3" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg3" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg4" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg4" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg13" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg13" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg5" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg5" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg22" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg22" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg19" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg19" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg17" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg17" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg6" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg6" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg16" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg16" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg7" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg7" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg8" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg8" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg9" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg9" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg10" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg10" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg14" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg14" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg12" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg12" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg11" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg11" to="Player" method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg15" to="." method="_on_quail_egg_quail_hatched"]
+[connection signal="quail_hatched" from="Eggs/QuailEgg15" to="Player" method="_on_quail_egg_quail_hatched"]

@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://divfcytm1jkjk" path="res://objects/flower_2.tscn" id="31_jklcg"]
 [ext_resource type="PackedScene" uid="uid://bsi5uovwxtvik" path="res://objects/reed.tscn" id="32_8h53a"]
 
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_iy82k")
 6:2/0 = 0
