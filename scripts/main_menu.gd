@@ -15,6 +15,7 @@ func _ready():
 	tween.tween_property(%SettingsButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%LevelSelectButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%QuitButton, "position", Vector2(1000,0), 0)
+	tween.tween_property(%ExtrasButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%Sun, "position", Vector2(1293,1300), 0)
 	%Logo.pivot_offset = Vector2(125,40)
 	#%MainMenuVBox.scale = Vector2(0.1,0.1)
@@ -29,7 +30,8 @@ func _ready():
 	tween.tween_property(%PlayButton, "position", Vector2(0,20), 1.2).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%SettingsButton, "position", Vector2(0,80), 1.3).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%LevelSelectButton, "position", Vector2(0,120), 1.4).set_trans(Tween.TRANS_ELASTIC)
-	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,160), 1.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%ExtrasButton, "position", Vector2(0,160), 1.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,200), 1.6).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%Sun, "position", Vector2(1293,648), 2.5).set_trans(Tween.TRANS_ELASTIC)
 	#tween.parallel().tween_property(%Logo, "rotation", 0.2, 5).set_trans(Tween.TRANS_SINE)
 	#await tween.finished

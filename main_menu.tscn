@@ -112,9 +112,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -70.0
+offset_top = -68.0
 offset_right = 100.0
-offset_bottom = 70.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -185,6 +185,36 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Levels"
+horizontal_alignment = 1
+
+[node name="ExtrasButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../SettingsButton")
+theme = ExtResource("37_a1j58")
+texture_normal = ExtResource("37_niuhx")
+texture_pressed = ExtResource("38_nj23w")
+texture_hover = ExtResource("38_nj23w")
+texture_focused = ExtResource("39_3g1gu")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MainMenu/CanvasLayer/Control/MainMenuVBox/ExtrasButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -7.0
+offset_right = 39.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Extras"
 horizontal_alignment = 1
 
 [node name="QuitButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]

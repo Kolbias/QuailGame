@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d07dm82do2lbh"]
+[gd_scene load_steps=22 format=3 uid="uid://d07dm82do2lbh"]
 
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="1_32fu0"]
 [ext_resource type="Script" path="res://UI.gd" id="1_wmy3y"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dbeaa5xkv2ar8" path="res://assets/PSControllerJoystick.png" id="10_6gv6f"]
 [ext_resource type="Texture2D" uid="uid://df3b5bj8g44kl" path="res://assets/ui/Exclaimation.png" id="10_33iv8"]
 [ext_resource type="Texture2D" uid="uid://b6jj61xfig0t2" path="res://assets/ui/BannerWindow1.png" id="10_40ju1"]
+[ext_resource type="FontFile" uid="uid://cn25eogspdj85" path="res://assets/ui/fonts/Pixeltype.ttf" id="10_ig6bp"]
 [ext_resource type="Texture2D" uid="uid://bc12mtsxnhv8f" path="res://assets/ui/PSControllerButtonCir.png" id="11_kxr8b"]
 [ext_resource type="Texture2D" uid="uid://ubdcwf0kjgjn" path="res://assets/ui/PSControllerButtonX.png" id="12_0ockh"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="12_thrs0"]
@@ -226,30 +227,33 @@ theme_override_constants/margin_bottom = 0
 
 [node name="ClockUI" type="Sprite2D" parent="UI/Control/HBoxClock/MarginContainer"]
 z_index = 5
-position = Vector2(74, 54)
+position = Vector2(74, 52)
 scale = Vector2(5, 5)
 texture = ExtResource("5_6sna4")
 
-[node name="Timer" type="Label" parent="UI/Control/HBoxClock/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/HBoxClock/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Timer" type="Label" parent="UI/Control/HBoxClock/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("10_ig6bp")
+theme_override_font_sizes/font_size = 66
 text = "##"
 
-[node name="2Secs" type="Label" parent="UI/Control/HBoxClock"]
+[node name="2Secs" type="Label" parent="UI/Control/HBoxClock/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 0
 theme = ExtResource("2_8mgkr")
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_outline_size = 21
+theme_override_fonts/font = ExtResource("10_ig6bp")
 theme_override_font_sizes/font_size = 48
 text = "+2!"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RestartContainer" type="MarginContainer" parent="UI/Control/HBoxClock"]
 unique_name_in_owner = true
@@ -293,6 +297,18 @@ theme_override_constants/separation = 65
 layout_mode = 2
 theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 1500
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/VBoxContainer3/MarginContainer"]
+modulate = Color(1, 1, 1, 0.639216)
+show_behind_parent = true
+z_index = -1
+layout_mode = 2
+texture = ExtResource("10_40ju1")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Control/VBoxContainer3/MarginContainer"]
 custom_minimum_size = Vector2(0, 25)
@@ -303,7 +319,10 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 z_index = 1
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 texture = ExtResource("2_c03q6")
 expand_mode = 2
 stretch_mode = 4
@@ -314,38 +333,15 @@ z_index = 1
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("10_ig6bp")
+theme_override_font_sizes/font_size = 66
 text = "##"
-
-[node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer/QuailCount"]
-modulate = Color(1, 1, 1, 0.639216)
-show_behind_parent = true
-z_index = -1
-custom_minimum_size = Vector2(140, 40)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.154
-anchor_top = -0.156
-anchor_right = 2.994
-anchor_bottom = 1.076
-offset_left = -60.608
-offset_top = 0.02
-offset_right = -46.712
-offset_bottom = -13.42
-grow_vertical = 2
-scale = Vector2(1.28, 1.32)
-texture = ExtResource("10_40ju1")
-patch_margin_left = 1
-patch_margin_top = 1
-patch_margin_right = 1
-patch_margin_bottom = 1
 
 [node name="Label" type="Label" parent="UI/Control/VBoxContainer3/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("1_32fu0")
+theme_override_fonts/font = ExtResource("10_ig6bp")
 theme_override_font_sizes/font_size = 48
 text = "/"
 
@@ -354,8 +350,8 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("1_32fu0")
-theme_override_font_sizes/font_size = 48
+theme_override_fonts/font = ExtResource("10_ig6bp")
+theme_override_font_sizes/font_size = 66
 text = "##"
 
 [node name="BoostCooldownBar" type="ProgressBar" parent="UI/Control/VBoxContainer3"]

@@ -1360,7 +1360,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
-text = "[center]<< Previous World"
+text = "[center]<< Last World"
 
 [node name="MainMenuButton" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer" instance=ExtResource("9_0y44p")]
 layout_mode = 2
