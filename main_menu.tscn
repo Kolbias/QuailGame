@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=46 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Texture2D" uid="uid://dun4ng0ppxgub" path="res://assets/menu/MenuBackground.png" id="1_8yby5"]
 [ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
@@ -19,13 +19,31 @@
 [ext_resource type="Texture2D" uid="uid://4dclgaughxok" path="res://assets/menu/New Main Menu Landscape.png" id="20_hyh78"]
 [ext_resource type="Texture2D" uid="uid://cnsunnxjw1drg" path="res://assets/menu/New Main Menu clouds.png" id="24_av0n1"]
 [ext_resource type="Texture2D" uid="uid://cgdnfff4yih8f" path="res://assets/menu/New Main Menu Bench.png" id="25_sgdwg"]
+[ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="27_kowbm"]
+[ext_resource type="Script" path="res://scripts/extras_menu.gd" id="27_uwu8s"]
+[ext_resource type="Script" path="res://scripts/hat_button.gd" id="28_pvm0p"]
+[ext_resource type="Texture2D" uid="uid://ddonf7nkn8d8n" path="res://assets/player/QuailHat1.png" id="30_11rhe"]
+[ext_resource type="Texture2D" uid="uid://b0kxp1a0073o" path="res://assets/player/QuailHat2.png" id="31_rxuqw"]
 [ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
+[ext_resource type="Texture2D" uid="uid://dem4k55m0nm5" path="res://assets/player/QuailHat3.png" id="32_nep4m"]
+[ext_resource type="Texture2D" uid="uid://cng86il012aju" path="res://assets/player/QuailHat4.png" id="33_u2f3m"]
+[ext_resource type="Texture2D" uid="uid://88x08bim1r2v" path="res://assets/player/QuailHat5.png" id="34_td7nq"]
+[ext_resource type="Texture2D" uid="uid://bwx2s36k3j2g8" path="res://assets/player/QuailHat6.png" id="35_8w0b8"]
+[ext_resource type="Texture2D" uid="uid://5jbs18dmdkbc" path="res://assets/player/QuailHat7.png" id="36_0r2cg"]
+[ext_resource type="Texture2D" uid="uid://11k6ee1pxdkh" path="res://assets/player/QuailHat8.png" id="37_58mmu"]
 [ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="37_a1j58"]
 [ext_resource type="Texture2D" uid="uid://b58m2ua28j3ol" path="res://assets/ui/ButtonTextureUp.png" id="37_niuhx"]
 [ext_resource type="PackedScene" uid="uid://d1t4idb6racdy" path="res://settings_menu.tscn" id="37_vqwpr"]
+[ext_resource type="Texture2D" uid="uid://dv7sayu7fvawa" path="res://assets/player/QuailHat9.png" id="38_3bdj3"]
 [ext_resource type="Texture2D" uid="uid://bi0dqiq1a4of" path="res://assets/ui/ButtonTextureDown.png" id="38_nj23w"]
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="39_3g1gu"]
+[ext_resource type="Texture2D" uid="uid://cpilpom0irkw7" path="res://assets/player/QuailHat10.png" id="39_65kxm"]
+[ext_resource type="Texture2D" uid="uid://bihuv3hqsk7he" path="res://assets/player/QuailHat11.png" id="40_u3xwr"]
 [ext_resource type="Texture2D" uid="uid://olb4kl3c8glk" path="res://assets/menu/LogoNew.png" id="40_ynu7i"]
+[ext_resource type="Texture2D" uid="uid://cfttpoj7phfup" path="res://assets/player/QuailHat12.png" id="41_ta3j2"]
+[ext_resource type="Texture2D" uid="uid://d05tclg4ryos8" path="res://assets/player/QuailHat13.png" id="42_qco5k"]
+[ext_resource type="Texture2D" uid="uid://bejprwjkgdeyr" path="res://assets/player/QuailHat14.png" id="43_ak3j1"]
+[ext_resource type="Texture2D" uid="uid://cxmcasanbtvt4" path="res://assets/player/QuailHat15.png" id="44_rux2u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i8by4"]
 animations = [{
@@ -333,10 +351,210 @@ rotation = 0.0
 size_flags_horizontal = 4
 mouse_filter = 2
 
+[node name="ExtrasMenu" type="Control" parent="MainMenu/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("27_uwu8s")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/ExtrasMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 550
+theme_override_constants/margin_top = 400
+theme_override_constants/margin_right = 550
+theme_override_constants/margin_bottom = 150
+
+[node name="TabContainer" type="TabContainer" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="HatsTab" type="NinePatchRect" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer"]
+layout_mode = 2
+texture = ExtResource("27_kowbm")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+metadata/_tab_index = 0
+
+[node name="HatsGridContainer" type="GridContainer" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -85.0
+offset_right = 102.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(102, 90)
+columns = 2
+
+[node name="NoHatButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+layout_mode = 2
+text = "No Hat"
+script = ExtResource("28_pvm0p")
+
+[node name="HatButton1" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "1"
+icon = ExtResource("30_11rhe")
+script = ExtResource("28_pvm0p")
+hat_number = 1
+
+[node name="HatButton2" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "2"
+icon = ExtResource("31_rxuqw")
+script = ExtResource("28_pvm0p")
+hat_number = 2
+
+[node name="HatButton3" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "3"
+icon = ExtResource("32_nep4m")
+script = ExtResource("28_pvm0p")
+hat_number = 3
+
+[node name="HatButton4" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "4"
+icon = ExtResource("33_u2f3m")
+script = ExtResource("28_pvm0p")
+hat_number = 4
+
+[node name="HatButton5" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "5"
+icon = ExtResource("34_td7nq")
+script = ExtResource("28_pvm0p")
+hat_number = 5
+
+[node name="HatButton6" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "6
+"
+icon = ExtResource("35_8w0b8")
+script = ExtResource("28_pvm0p")
+hat_number = 6
+
+[node name="HatButton7" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "7"
+icon = ExtResource("36_0r2cg")
+script = ExtResource("28_pvm0p")
+hat_number = 7
+
+[node name="HatButton8" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "8"
+icon = ExtResource("37_58mmu")
+script = ExtResource("28_pvm0p")
+hat_number = 8
+
+[node name="HatButton9" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "9"
+icon = ExtResource("38_3bdj3")
+script = ExtResource("28_pvm0p")
+hat_number = 9
+
+[node name="HatButton10" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "10"
+icon = ExtResource("39_65kxm")
+script = ExtResource("28_pvm0p")
+hat_number = 10
+
+[node name="HatButton11" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "11"
+icon = ExtResource("40_u3xwr")
+script = ExtResource("28_pvm0p")
+hat_number = 11
+
+[node name="HatButton12" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "12"
+icon = ExtResource("41_ta3j2")
+script = ExtResource("28_pvm0p")
+hat_number = 12
+
+[node name="HatButton13" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "13"
+icon = ExtResource("42_qco5k")
+script = ExtResource("28_pvm0p")
+hat_number = 13
+
+[node name="HatButton14" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "14"
+icon = ExtResource("43_ak3j1")
+script = ExtResource("28_pvm0p")
+hat_number = 14
+
+[node name="HatButton15" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("37_a1j58")
+text = "15"
+icon = ExtResource("44_rux2u")
+script = ExtResource("28_pvm0p")
+hat_number = 15
+
+[node name="ExitButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+layout_mode = 2
+text = "Exit"
+
 [node name="CanvasModulate" type="CanvasModulate" parent="MainMenu/CanvasLayer"]
 visible = false
 color = Color(0.529412, 0.529412, 0.529412, 1)
 
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/LevelSelectButton" to="MainMenu" method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/ExtrasButton" to="." method="_on_extras_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer/ExitButton" to="MainMenu/CanvasLayer/ExtrasMenu" method="_on_exit_button_pressed"]

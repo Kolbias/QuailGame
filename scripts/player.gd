@@ -105,9 +105,13 @@ func _physics_process(delta):
 			if input_vector == Vector2(0,0):
 				change_state(States.IDLE)
 			if input_vector.x < 0:
-				flip_sprite(true, Vector2(-6,-1.7))
+				flip_sprite(true, Vector2(-7,-1.7))
 			if input_vector.x > 0:
 				flip_sprite(false, Vector2(5.5,-1.7))
+			if sprite.flip_h == true and input_vector.y > 0:
+				%Hats.position = Vector2(-7.5, -1.7)
+			if sprite.flip_h == true and input_vector.y < 0:
+				%Hats.position = Vector2(-7.5, -1.7)
 			speed = PlayerVariables.speed
 			#velocity = lerp(velocity, input_vector, 0.1) * speed
 			#velocity.x = clamp(velocity.x, -100, 100)

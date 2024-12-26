@@ -9,6 +9,7 @@ func _ready() -> void:
 	GlobalSignals.connect("player_restarted", _on_player_restarted)
 	GlobalSignals.connect("settings_menu_closed", _on_settings_menu_closed)
 	GlobalSignals.connect("load_world", _on_world_loaded)
+	GlobalSignals.connect("extras_menu_closed", _on_extras_menu_closed)
 func _on_play_button_button_down() -> void:
 	var instance = scene.instantiate()
 	print(str(scene))
@@ -67,3 +68,17 @@ func _on_world_loaded(scene):
 	var new_scene = scene.instantiate()
 	current_scene.queue_free()
 	self.add_child(new_scene)
+
+
+func _on_extras_button_pressed() -> void:
+	var current_scene = get_child(0)
+	if current_scene.name == "MainMenu":
+		%MainMenuVBox.hide()
+		%ExtrasMenu.show()
+
+func _on_extras_menu_closed():
+	var current_scene = self.get_child(0)
+	print(current_scene.name)
+	if current_scene.name == "MainMenu":
+		%MainMenuVBox.show()
+		%ExtrasMenu.hide()

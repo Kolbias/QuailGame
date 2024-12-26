@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=59 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://dkvxlnk5onwyt" path="res://assets/player/QuailSwim9.png" id="26_58y8r"]
 [ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="30_th2rr"]
 [ext_resource type="Texture2D" uid="uid://88x08bim1r2v" path="res://assets/player/QuailHat5.png" id="36_akemo"]
+[ext_resource type="Script" path="res://scripts/hats.gd" id="36_gtyw6"]
 [ext_resource type="AudioStream" uid="uid://qrhcr80ojh5s" path="res://assets/sounds/QuailCallShort.wav" id="40_aygby"]
 [ext_resource type="Texture2D" uid="uid://baoe28tvuu7tr" path="res://assets/ui/MusicNote.png" id="41_aeg5w"]
 
@@ -393,8 +394,10 @@ frame_progress = 0.0649245
 [node name="Hats" type="Node2D" parent="AnimatedSprite2D"]
 unique_name_in_owner = true
 position = Vector2(6, -4)
+script = ExtResource("36_gtyw6")
 
 [node name="Hat1" type="Sprite2D" parent="AnimatedSprite2D/Hats"]
+unique_name_in_owner = true
 position = Vector2(0, -3)
 rotation = 0.0872665
 texture = ExtResource("36_akemo")

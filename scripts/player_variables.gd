@@ -33,6 +33,7 @@ var world_13_hs = 0
 
 
 #hat unlocks
+var current_hat = 1
 var hat_1 = false
 var hat_2 = false
 var hat_3 = false
@@ -44,6 +45,7 @@ var hat_8 = false
 
 
 func _ready():
+	#GlobalSignals.emit_signal("hat_selected", _on_hat_selected)
 	if FileAccess.file_exists("user://savegame.json"):
 		_on_load_game()
 	else:
