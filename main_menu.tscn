@@ -179,8 +179,8 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../SettingsButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../ExtrasButton")
+focus_next = NodePath("../ExtrasButton")
 focus_previous = NodePath("../SettingsButton")
 theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
@@ -208,10 +208,10 @@ horizontal_alignment = 1
 [node name="ExtrasButton" type="TextureButton" parent="MainMenu/CanvasLayer/Control/MainMenuVBox"]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_top = NodePath("../LevelSelectButton")
 focus_neighbor_bottom = NodePath("../QuitButton")
 focus_next = NodePath("../QuitButton")
-focus_previous = NodePath("../SettingsButton")
+focus_previous = NodePath("../LevelSelectButton")
 theme = ExtResource("37_a1j58")
 texture_normal = ExtResource("37_niuhx")
 texture_pressed = ExtResource("38_nj23w")
@@ -360,6 +360,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("37_a1j58")
 script = ExtResource("27_uwu8s")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/CanvasLayer/ExtrasMenu"]
@@ -376,9 +377,12 @@ theme_override_constants/margin_bottom = 100
 
 [node name="TabContainer" type="TabContainer" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer"]
 layout_mode = 2
-current_tab = 0
+theme = ExtResource("37_a1j58")
+theme_override_font_sizes/font_size = 32
+current_tab = 1
 
-[node name="HatsTab" type="NinePatchRect" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer"]
+[node name="Hats" type="NinePatchRect" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer"]
+visible = false
 layout_mode = 2
 texture = ExtResource("27_kowbm")
 patch_margin_left = 2
@@ -387,7 +391,7 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 metadata/_tab_index = 0
 
-[node name="HatsGridContainer" type="GridContainer" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab"]
+[node name="HatsGridContainer" type="GridContainer" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -403,13 +407,13 @@ grow_vertical = 2
 pivot_offset = Vector2(102, 90)
 columns = 2
 
-[node name="NoHatButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="NoHatButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "No Hat"
 script = ExtResource("28_pvm0p")
 
-[node name="HatButton1" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton1" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -418,7 +422,7 @@ icon = ExtResource("30_11rhe")
 script = ExtResource("28_pvm0p")
 hat_number = 1
 
-[node name="HatButton2" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton2" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -427,7 +431,7 @@ icon = ExtResource("31_rxuqw")
 script = ExtResource("28_pvm0p")
 hat_number = 2
 
-[node name="HatButton3" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton3" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -436,7 +440,7 @@ icon = ExtResource("32_nep4m")
 script = ExtResource("28_pvm0p")
 hat_number = 3
 
-[node name="HatButton4" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton4" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -445,7 +449,7 @@ icon = ExtResource("33_u2f3m")
 script = ExtResource("28_pvm0p")
 hat_number = 4
 
-[node name="HatButton5" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton5" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -454,7 +458,7 @@ icon = ExtResource("34_td7nq")
 script = ExtResource("28_pvm0p")
 hat_number = 5
 
-[node name="HatButton6" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton6" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -464,7 +468,7 @@ icon = ExtResource("35_8w0b8")
 script = ExtResource("28_pvm0p")
 hat_number = 6
 
-[node name="HatButton7" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton7" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -473,7 +477,7 @@ icon = ExtResource("36_0r2cg")
 script = ExtResource("28_pvm0p")
 hat_number = 7
 
-[node name="HatButton8" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton8" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -482,7 +486,7 @@ icon = ExtResource("37_58mmu")
 script = ExtResource("28_pvm0p")
 hat_number = 8
 
-[node name="HatButton9" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton9" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -491,7 +495,7 @@ icon = ExtResource("38_3bdj3")
 script = ExtResource("28_pvm0p")
 hat_number = 9
 
-[node name="HatButton10" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton10" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -500,7 +504,7 @@ icon = ExtResource("39_65kxm")
 script = ExtResource("28_pvm0p")
 hat_number = 10
 
-[node name="HatButton11" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton11" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -509,7 +513,7 @@ icon = ExtResource("40_u3xwr")
 script = ExtResource("28_pvm0p")
 hat_number = 11
 
-[node name="HatButton12" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton12" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -518,7 +522,7 @@ icon = ExtResource("41_ta3j2")
 script = ExtResource("28_pvm0p")
 hat_number = 12
 
-[node name="HatButton13" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton13" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -527,7 +531,7 @@ icon = ExtResource("42_qco5k")
 script = ExtResource("28_pvm0p")
 hat_number = 13
 
-[node name="HatButton14" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton14" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -536,7 +540,7 @@ icon = ExtResource("43_ak3j1")
 script = ExtResource("28_pvm0p")
 hat_number = 14
 
-[node name="HatButton15" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="HatButton15" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
@@ -545,9 +549,22 @@ icon = ExtResource("44_rux2u")
 script = ExtResource("28_pvm0p")
 hat_number = 15
 
-[node name="ExitButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+[node name="ExitButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 layout_mode = 2
 text = "Exit"
+
+[node name="Stats" type="NinePatchRect" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="QuailRescuedLabel" type="RichTextLabel" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Stats"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+bbcode_enabled = true
+text = "Qauil Rescued!"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="MainMenu/CanvasLayer"]
 visible = false
@@ -557,4 +574,4 @@ color = Color(0.529412, 0.529412, 0.529412, 1)
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/LevelSelectButton" to="MainMenu" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/ExtrasButton" to="." method="_on_extras_button_pressed"]
 [connection signal="pressed" from="MainMenu/CanvasLayer/Control/MainMenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer/ExitButton" to="MainMenu/CanvasLayer/ExtrasMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer/ExitButton" to="MainMenu/CanvasLayer/ExtrasMenu" method="_on_exit_button_pressed"]

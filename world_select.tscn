@@ -204,8 +204,12 @@ theme = ExtResource("4_lr8lc")
 bbcode_enabled = true
 text = "[center]High Score"
 
-[node name="LoadWorldButton" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+[node name="LoadWorld1Button" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World1VBox" instance=ExtResource("9_0y44p")]
+unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_left = NodePath("../../World2VBox/LoadWorldButton")
+focus_neighbor_right = NodePath("../../World2VBox/LoadWorldButton")
+focus_neighbor_bottom = NodePath("../../../../../NextPageButtons/MarginContainer/HBoxContainer/MainMenuButton")
 stretch_mode = 0
 world = ExtResource("7_5mkxw")
 world_number = 1
@@ -356,6 +360,8 @@ text = "[center]Level 3"
 
 [node name="LoadWorldButton" parent="CanvasLayer/World1-3/MarginContainer/HBoxContainer/World2VBox2" instance=ExtResource("9_0y44p")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../World2VBox/LoadWorldButton")
+focus_previous = NodePath("../../World2VBox/LoadWorldButton")
 stretch_mode = 0
 world = ExtResource("9_h0knb")
 world_number = 3
@@ -1364,6 +1370,10 @@ text = "[center]<< Last World"
 
 [node name="MainMenuButton" parent="CanvasLayer/NextPageButtons/MarginContainer/HBoxContainer" instance=ExtResource("9_0y44p")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../PrevWorld")
+focus_neighbor_top = NodePath("../../../../World1-3/MarginContainer/HBoxContainer/World1VBox/LoadWorld1Button")
+focus_neighbor_right = NodePath("../NextWorld")
+focus_next = NodePath("../NextWorld")
 stretch_mode = 0
 world = ExtResource("21_0ni8d")
 

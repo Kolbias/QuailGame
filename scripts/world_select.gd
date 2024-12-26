@@ -17,7 +17,7 @@ func _ready() -> void:
 	#%World10HighScore.text = "[center]" + str(PlayerVariables.world_10_hs)
 	#%World11HighScore.text = "[center]" + str(PlayerVariables.world_11_hs)
 	#%World12HighScore.text = "[center]" + str(PlayerVariables.world_12_hs)
-	
+	%LoadWorld1Button.grab_focus()
 func _process(delta: float) -> void:
 	if page == 1:
 		if current_background == %StripesBackground:

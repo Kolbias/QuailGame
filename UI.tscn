@@ -212,6 +212,39 @@ grow_vertical = 2
 text = "Quit"
 horizontal_alignment = 1
 
+[node name="RestartContainer" type="MarginContainer" parent="UI/Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 14.0
+offset_top = 150.0
+offset_right = 272.0
+offset_bottom = 201.0
+theme_override_constants/margin_left = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/RestartContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Restarting" type="Label" parent="UI/Control/RestartContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_8mgkr")
+theme_override_font_sizes/font_size = 32
+text = "Restarting Level"
+
+[node name="RestartBar" type="ProgressBar" parent="UI/Control/RestartContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_styles/fill = ExtResource("7_o8h4o")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="RestartTimer" type="Timer" parent="UI/Control/RestartContainer/VBoxContainer"]
+unique_name_in_owner = true
+
 [node name="HBoxClock" type="HBoxContainer" parent="UI/Control"]
 layout_mode = 1
 anchors_preset = 10
@@ -254,35 +287,6 @@ theme_override_font_sizes/font_size = 48
 text = "+2!"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="RestartContainer" type="MarginContainer" parent="UI/Control/HBoxClock"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/HBoxClock/RestartContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Restarting" type="Label" parent="UI/Control/HBoxClock/RestartContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_8mgkr")
-theme_override_font_sizes/font_size = 32
-text = "Restarting Level"
-
-[node name="RestartBar" type="ProgressBar" parent="UI/Control/HBoxClock/RestartContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 15)
-layout_mode = 2
-theme_override_styles/fill = ExtResource("7_o8h4o")
-max_value = 1.0
-value = 1.0
-show_percentage = false
-
-[node name="RestartTimer" type="Timer" parent="UI/Control/HBoxClock/RestartContainer/VBoxContainer"]
-unique_name_in_owner = true
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="UI/Control"]
 z_index = 6
