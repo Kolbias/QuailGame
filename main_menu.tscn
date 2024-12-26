@@ -372,7 +372,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 550
 theme_override_constants/margin_top = 400
 theme_override_constants/margin_right = 550
-theme_override_constants/margin_bottom = 150
+theme_override_constants/margin_bottom = 100
 
 [node name="TabContainer" type="TabContainer" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer"]
 layout_mode = 2
@@ -394,23 +394,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -85.0
-offset_right = 102.0
-offset_bottom = 85.0
+offset_left = -202.0
+offset_top = -152.0
+offset_right = 202.0
+offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(102, 90)
 columns = 2
 
 [node name="NoHatButton" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "No Hat"
 script = ExtResource("28_pvm0p")
 
 [node name="HatButton1" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "1"
@@ -419,7 +419,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 1
 
 [node name="HatButton2" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "2"
@@ -428,7 +428,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 2
 
 [node name="HatButton3" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "3"
@@ -437,7 +437,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 3
 
 [node name="HatButton4" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "4"
@@ -446,7 +446,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 4
 
 [node name="HatButton5" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "5"
@@ -455,7 +455,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 5
 
 [node name="HatButton6" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "6
@@ -465,7 +465,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 6
 
 [node name="HatButton7" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "7"
@@ -474,7 +474,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 7
 
 [node name="HatButton8" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "8"
@@ -483,7 +483,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 8
 
 [node name="HatButton9" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "9"
@@ -492,7 +492,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 9
 
 [node name="HatButton10" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "10"
@@ -501,7 +501,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 10
 
 [node name="HatButton11" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "11"
@@ -510,7 +510,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 11
 
 [node name="HatButton12" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "12"
@@ -519,7 +519,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 12
 
 [node name="HatButton13" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "13"
@@ -528,7 +528,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 13
 
 [node name="HatButton14" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "14"
@@ -537,7 +537,7 @@ script = ExtResource("28_pvm0p")
 hat_number = 14
 
 [node name="HatButton15" type="Button" parent="MainMenu/CanvasLayer/ExtrasMenu/MarginContainer/TabContainer/HatsTab/HatsGridContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("37_a1j58")
 text = "15"

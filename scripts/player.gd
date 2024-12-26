@@ -14,7 +14,7 @@ extends CharacterBody2D
 @onready var push_amount := 10.0
 @onready var speed = PlayerVariables.speed
 @onready var boost_speed = PlayerVariables.boost_speed
-@onready var boost_bar: ProgressBar = %BoostBar
+@onready var boost_bar: TextureProgressBar = %BoostBar
 @onready var mash_bar = %MashBar
 enum States {IDLE, WALK, BOOST, BOOSTSTART, BOOSTSTOP, SETBOOST, SWIM, ICE, CALL, CALLSTART, DEAD}
 
@@ -117,7 +117,7 @@ func _physics_process(delta):
 			#velocity.x = clamp(velocity.x, -100, 100)
 			#velocity.y = clamp(velocity.y, -100, 100)
 			velocity = input_vector * speed
-			print("player vel :" + str(velocity))
+			#print("player vel :" + str(velocity))
 			move_and_slide()
 		States.SETBOOST:
 			%MashBar.hide()

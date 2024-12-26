@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=61 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
@@ -42,6 +42,11 @@
 [ext_resource type="Script" path="res://scripts/hats.gd" id="36_gtyw6"]
 [ext_resource type="AudioStream" uid="uid://qrhcr80ojh5s" path="res://assets/sounds/QuailCallShort.wav" id="40_aygby"]
 [ext_resource type="Texture2D" uid="uid://baoe28tvuu7tr" path="res://assets/ui/MusicNote.png" id="41_aeg5w"]
+[ext_resource type="Texture2D" uid="uid://cmydk651fmdk1" path="res://assets/ui/RadialWheelFill3Underlaypng.png" id="41_gcs1r"]
+[ext_resource type="Texture2D" uid="uid://codeg40ciauxn" path="res://assets/ui/RadialWheelFill.png" id="41_hcv62"]
+[ext_resource type="Texture2D" uid="uid://bg2kbio6kbgf" path="res://assets/ui/RadialWheelFrame.png" id="42_h2ca0"]
+[ext_resource type="Texture2D" uid="uid://n6o3wtkrodiy" path="res://assets/ui/RadialWheelFill3.png" id="42_hbkae"]
+[ext_resource type="Texture2D" uid="uid://bdddpbmkulln6" path="res://assets/ui/RadialWheelFill2.png" id="43_eb0rd"]
 
 [sub_resource type="Gradient" id="Gradient_mme54"]
 offsets = PackedFloat32Array(0, 0.5, 1)
@@ -317,30 +322,6 @@ point_count = 2
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.747191, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -13.9097, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbmn0"]
-bg_color = Color(0.525, 0.43, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3vqa"]
-bg_color = Color(1, 0.27, 0.282166, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2c6n"]
-bg_color = Color(0.8, 0.6, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
 [sub_resource type="Curve" id="Curve_cooe2"]
 _data = [Vector2(0.0280899, 0), 0.0, 0.0, 0, 0, Vector2(0.511236, 1), 0.0, 0.0, 0, 0, Vector2(0.94382, 0), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -481,7 +462,7 @@ text = "Test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -496,34 +477,38 @@ grow_vertical = 2
 theme_override_constants/separation = 1
 alignment = 2
 
-[node name="MashBar" type="ProgressBar" parent="VBoxContainer"]
-unique_name_in_owner = true
-z_index = 5
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_fbmn0")
-step = 1.0
-show_percentage = false
-
-[node name="BoostBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="MashBar" type="TextureProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 z_index = 5
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_x3vqa")
-step = 1.0
+fill_mode = 5
+texture_under = ExtResource("41_gcs1r")
+texture_over = ExtResource("42_h2ca0")
+texture_progress = ExtResource("42_hbkae")
+
+[node name="BoostBar" type="TextureProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+z_index = 5
+layout_mode = 2
 value = 3.0
-show_percentage = false
+fill_mode = 5
+texture_under = ExtResource("41_gcs1r")
+texture_over = ExtResource("42_h2ca0")
+texture_progress = ExtResource("41_hcv62")
 
-[node name="CallBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="CallBar" type="TextureProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 z_index = 5
 layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_a2c6n")
 max_value = 10.0
-step = 1.0
 value = 3.0
-show_percentage = false
+fill_mode = 5
+texture_under = ExtResource("41_gcs1r")
+texture_over = ExtResource("42_h2ca0")
+texture_progress = ExtResource("43_eb0rd")
 
 [node name="RestartTimer" type="Timer" parent="."]
 one_shot = true
