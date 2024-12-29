@@ -3,6 +3,7 @@ extends Node2D
 
 @export var scene: PackedScene
 
+
 func _ready() -> void:
 	GlobalSignals.connect("world_completed", _on_world_completed)
 	GlobalSignals.connect("exit_win_screen", _on_exit_win_screen)
@@ -10,6 +11,7 @@ func _ready() -> void:
 	GlobalSignals.connect("settings_menu_closed", _on_settings_menu_closed)
 	GlobalSignals.connect("load_world", _on_world_loaded)
 	GlobalSignals.connect("extras_menu_closed", _on_extras_menu_closed)
+	
 func _on_play_button_button_down() -> void:
 	var instance = scene.instantiate()
 	print(str(scene))

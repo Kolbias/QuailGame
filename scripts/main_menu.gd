@@ -6,10 +6,11 @@ extends Node2D
 @export var background_scroll_speed = Vector2(0.5,0.5)
 @onready var sound = %AudioStreamPlayer2D
 @onready var play_button = %PlayButton
-
+var current_background = "day"
 var tween: Tween
 
 func _ready():
+	%DayNightChangeTimer.connect("timeout", _on_day_night_change)
 	tween = create_tween()
 	tween.tween_property(%PlayButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%SettingsButton, "position", Vector2(1000,0), 0)
@@ -17,6 +18,7 @@ func _ready():
 	tween.tween_property(%QuitButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%ExtrasButton, "position", Vector2(1000,0), 0)
 	tween.tween_property(%Sun, "position", Vector2(1293,1300), 0)
+	tween.tween_property(%Moon, "position", Vector2(1293,1300), 0)
 	%Logo.pivot_offset = Vector2(125,40)
 	#%MainMenuVBox.scale = Vector2(0.1,0.1)
 	%MainMenuVBox.modulate = Color(1,1,1,0)
@@ -33,6 +35,7 @@ func _ready():
 	tween.parallel().tween_property(%ExtrasButton, "position", Vector2(0,160), 1.5).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%QuitButton, "position", Vector2(0,200), 1.6).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(%Sun, "position", Vector2(1293,648), 2.5).set_trans(Tween.TRANS_ELASTIC)
+	
 	#tween.parallel().tween_property(%Logo, "rotation", 0.2, 5).set_trans(Tween.TRANS_SINE)
 	#await tween.finished
 	#tween.tween_property(%Logo, "rotation", -0.2, 5).set_trans(Tween.TRANS_BOUNCE)
@@ -79,3 +82,14 @@ func _on_level_select_button_pressed() -> void:
 #func _animate():
 	#var tween = get_tree().create_tween()
 	#tween.tween_property(%MainMenuVBox, "position.x", 500, 2.2)
+func _on_day_night_change():
+	var tween = create_tween()
+	if current_background == "day":
+		tween.tween_property(%SkyDay,"modulate", Color(1,1,1,0), 0.5)
+		tween.parallel().tween_property(%Sun, "position", Vector2(1293,1300), 0.5)
+		tween.parallel().tween_property(%Moon, "position", Vector2(1425,648), 2.5).set_trans(Tween.TRANS_ELASTIC)
+		tween.parallel().tween_property(%CanvasModulate, "color", Color.GRAY, 0.4)
+		tween.parallel().tween_property(%SkyNight, "modulate", Color(1,1,1,1), 0.4)
+		tween.parallel().tween_property(%Moonlight, "energy", 1, 2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	if current_background == "night":
+		pass
