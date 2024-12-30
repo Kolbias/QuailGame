@@ -50,7 +50,7 @@ func _ready():
 	sound.play()
 
 func _process(delta):
-
+	
 	main_quail.position.x += 500.0 * delta
 	if main_quail.position.x > 4000.0:
 		main_quail.position = Vector2(-100,1015)
@@ -83,13 +83,23 @@ func _on_level_select_button_pressed() -> void:
 	#var tween = get_tree().create_tween()
 	#tween.tween_property(%MainMenuVBox, "position.x", 500, 2.2)
 func _on_day_night_change():
+	#print("Day/Night Time out")
 	var tween = create_tween()
 	if current_background == "day":
 		tween.tween_property(%SkyDay,"modulate", Color(1,1,1,0), 0.5)
 		tween.parallel().tween_property(%Sun, "position", Vector2(1293,1300), 0.5)
-		tween.parallel().tween_property(%Moon, "position", Vector2(1425,648), 2.5).set_trans(Tween.TRANS_ELASTIC)
+		tween.parallel().tween_property(%Moon, "position", Vector2(1425,500), 2.5).set_trans(Tween.TRANS_ELASTIC)
 		tween.parallel().tween_property(%CanvasModulate, "color", Color.GRAY, 0.4)
 		tween.parallel().tween_property(%SkyNight, "modulate", Color(1,1,1,1), 0.4)
 		tween.parallel().tween_property(%Moonlight, "energy", 1, 2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
-	if current_background == "night":
-		pass
+		tween.parallel().tween_property(%Nightlights, "modulate", Color(1,1,1,1), 0.4)
+		current_background = "night"
+	elif current_background == "night":
+		tween.tween_property(%SkyDay,"modulate", Color(1,1,1,1), 0.5)
+		tween.parallel().tween_property(%Moonlight, "energy", 0, 0).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+		tween.parallel().tween_property(%Moon, "position", Vector2(1293,1300), 1.5).set_trans(Tween.TRANS_ELASTIC)
+		tween.parallel().tween_property(%Sun, "position", Vector2(1293,648), 2.5).set_trans(Tween.TRANS_ELASTIC)
+		tween.parallel().tween_property(%CanvasModulate, "color", Color.WHITE, 0.4)
+		tween.parallel().tween_property(%SkyNight, "modulate", Color(1,1,1,0), 0.4)
+		tween.parallel().tween_property(%Nightlights, "modulate", Color(1,1,1,0), 0.4)
+		current_background = "day"

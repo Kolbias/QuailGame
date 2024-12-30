@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=49 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://1ofscm18b474" path="res://assets/player/QuailRun6.png" id="12_6rmpi"]
 [ext_resource type="Texture2D" uid="uid://cbeioutgn12aj" path="res://assets/player/QuailRun7.png" id="13_e2ebm"]
 [ext_resource type="Texture2D" uid="uid://v4dwcs05d2la" path="res://assets/menu/New Main Menu Sun.png" id="13_pdg8d"]
+[ext_resource type="Texture2D" uid="uid://drqg30h8co0x7" path="res://assets/menu/New Main Menu Nightlights.png" id="17_1bigx"]
+[ext_resource type="Texture2D" uid="uid://35457bpoamtq" path="res://assets/menu/New Main Menu Powerlines.png" id="18_n8xys"]
 [ext_resource type="AudioStream" uid="uid://b0xed0so1xntv" path="res://assets/sounds/QuailSoundscape.mp3" id="18_tkjay"]
 [ext_resource type="Texture2D" uid="uid://btd2mdak0vv07" path="res://Effects/light.png" id="19_ina1h"]
 [ext_resource type="Texture2D" uid="uid://oj0f74pwxu8i" path="res://assets/menu/New Main Menu Sky.png" id="19_tngld"]
@@ -140,6 +142,13 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("20_hyh78")
 
+[node name="Nightlights" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("17_1bigx")
+
 [node name="Parallax2D" type="Parallax2D" parent="MainMenu/BackgroundCanvas"]
 scroll_offset = Vector2(947, 540)
 repeat_size = Vector2(1920, 0)
@@ -148,6 +157,11 @@ repeat_times = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="MainMenu/BackgroundCanvas/Parallax2D"]
 texture = ExtResource("24_av0n1")
+
+[node name="Powerlines" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("18_n8xys")
 
 [node name="Bench" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
 anchors_preset = 15
@@ -159,7 +173,7 @@ texture = ExtResource("25_sgdwg")
 
 [node name="DayNightChangeTimer" type="Timer" parent="MainMenu/BackgroundCanvas"]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 20.0
 autostart = true
 
 [node name="MenuSign" type="Sprite2D" parent="MainMenu/BackgroundCanvas"]
