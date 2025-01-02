@@ -89,6 +89,146 @@ script = ExtResource("1_otsdi")
 
 [node name="BackgroundCanvas" type="CanvasLayer" parent="MainMenu"]
 
+[node name="Control" type="Control" parent="MainMenu/BackgroundCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkyDay" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_tngld")
+expand_mode = 1
+
+[node name="SkyNight" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_5m85i")
+expand_mode = 1
+
+[node name="Sun" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+unique_name_in_owner = true
+offset_left = 1293.0
+offset_top = 1242.0
+offset_right = 1488.0
+offset_bottom = 1437.0
+pivot_offset = Vector2(97, 97)
+texture = ExtResource("13_pdg8d")
+expand_mode = 1
+
+[node name="Moon" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+unique_name_in_owner = true
+offset_left = 1282.0
+offset_top = 1223.0
+offset_right = 1477.0
+offset_bottom = 1428.0
+pivot_offset = Vector2(97, 97)
+texture = ExtResource("23_ih8t0")
+expand_mode = 1
+
+[node name="Moonlight" type="PointLight2D" parent="MainMenu/BackgroundCanvas/Control/Moon"]
+unique_name_in_owner = true
+energy = 0.0
+range_layer_max = 1
+texture = ExtResource("19_ina1h")
+offset = Vector2(97, 102)
+
+[node name="Landscape" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_hyh78")
+expand_mode = 1
+
+[node name="Nightlights" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_1bigx")
+expand_mode = 1
+
+[node name="Bench" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("25_sgdwg")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="MainMenu/BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Clouds" type="Parallax2D" parent="MainMenu/BackgroundCanvas/Control/Control"]
+scroll_offset = Vector2(0, 500)
+repeat_size = Vector2(1920, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/BackgroundCanvas/Control/Control/Clouds"]
+texture = ExtResource("24_av0n1")
+
+[node name="Powerlines" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_n8xys")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.5
+offset_top = 155.0
+offset_right = 137.5
+offset_bottom = 245.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(137, 45)
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/BackgroundCanvas/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("32_fsm2t")
+expand_mode = 1
+
 [node name="MainQuail" type="AnimatedSprite2D" parent="MainMenu/BackgroundCanvas"]
 unique_name_in_owner = true
 z_index = 3
@@ -100,88 +240,10 @@ autoplay = "default"
 [node name="CanvasModulate" type="CanvasModulate" parent="MainMenu/BackgroundCanvas"]
 unique_name_in_owner = true
 
-[node name="SkyDay" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-unique_name_in_owner = true
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("19_tngld")
-
-[node name="SkyNight" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("21_5m85i")
-
-[node name="Sun" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-unique_name_in_owner = true
-offset_left = 1293.0
-offset_top = 1242.0
-offset_right = 1488.0
-offset_bottom = 1437.0
-pivot_offset = Vector2(97, 97)
-texture = ExtResource("13_pdg8d")
-
-[node name="Moon" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-unique_name_in_owner = true
-offset_left = 1282.0
-offset_top = 1223.0
-offset_right = 1477.0
-offset_bottom = 1428.0
-pivot_offset = Vector2(97, 97)
-texture = ExtResource("23_ih8t0")
-
-[node name="Moonlight" type="PointLight2D" parent="MainMenu/BackgroundCanvas/Moon"]
-unique_name_in_owner = true
-energy = 0.0
-range_layer_max = 1
-texture = ExtResource("19_ina1h")
-offset = Vector2(97, 102)
-
-[node name="Landscape" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("20_hyh78")
-
-[node name="Nightlights" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("17_1bigx")
-
-[node name="Parallax2D" type="Parallax2D" parent="MainMenu/BackgroundCanvas"]
-scroll_offset = Vector2(947, 540)
-repeat_size = Vector2(1920, 0)
-autoscroll = Vector2(10, 0)
-repeat_times = 6
-
-[node name="Sprite2D" type="Sprite2D" parent="MainMenu/BackgroundCanvas/Parallax2D"]
-texture = ExtResource("24_av0n1")
-
-[node name="Powerlines" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("18_n8xys")
-
-[node name="Bench" type="TextureRect" parent="MainMenu/BackgroundCanvas"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("25_sgdwg")
-
 [node name="DayNightChangeTimer" type="Timer" parent="MainMenu/BackgroundCanvas"]
 unique_name_in_owner = true
 wait_time = 20.0
 autostart = true
-
-[node name="MenuSign" type="Sprite2D" parent="MainMenu/BackgroundCanvas"]
-z_index = 5
-position = Vector2(314, 865)
-scale = Vector2(8, 8)
-texture = ExtResource("32_fsm2t")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MainMenu"]
 unique_name_in_owner = true
@@ -192,26 +254,6 @@ stream = ExtResource("18_tkjay")
 layer = 2
 follow_viewport_enabled = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenu/UICanvas"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -137.5
-offset_top = -389.0
-offset_right = 137.5
-offset_bottom = -299.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-pivot_offset = Vector2(137, 45)
-
-[node name="Logo" type="TextureRect" parent="MainMenu/UICanvas/MarginContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("40_ynu7i")
-
 [node name="Control" type="Control" parent="MainMenu/UICanvas"]
 layout_mode = 3
 anchors_preset = 15
@@ -219,9 +261,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 mouse_filter = 2
+
+[node name="Logo" type="TextureRect" parent="MainMenu/UICanvas/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(750, 240)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 87.0
+offset_right = 375.0
+offset_bottom = 327.0
+grow_horizontal = 2
+pivot_offset = Vector2(375, 120)
+texture = ExtResource("40_ynu7i")
+expand_mode = 1
 
 [node name="SteamButton" type="TextureButton" parent="MainMenu/UICanvas/Control"]
 unique_name_in_owner = true
@@ -229,14 +285,15 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -279.0
+offset_left = -280.0
 offset_top = 139.0
-offset_right = -152.0
+offset_right = -153.0
 offset_bottom = 256.0
 grow_horizontal = 0
 pivot_offset = Vector2(63, 58)
 size_flags_horizontal = 4
 texture_normal = ExtResource("29_527ts")
+ignore_texture_size = true
 stretch_mode = 0
 
 [node name="WishlistNow" type="RichTextLabel" parent="MainMenu/UICanvas/Control/SteamButton"]
@@ -267,18 +324,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -68.0
+offset_top = -88.0
 offset_right = 100.0
-offset_bottom = 126.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-pivot_offset = Vector2(100, 70)
+pivot_offset = Vector2(100, 88)
 size_flags_horizontal = 0
 
 [node name="PlayButton" parent="MainMenu/UICanvas/Control/MainMenuVBox" instance=ExtResource("8_tqrg1")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+size_flags_horizontal = 5
 stretch_mode = 0
 world = ExtResource("2_uggyo")
 world_number = 1
