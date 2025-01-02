@@ -103,3 +103,7 @@ func _on_day_night_change():
 		tween.parallel().tween_property(%SkyNight, "modulate", Color(1,1,1,0), 0.4)
 		tween.parallel().tween_property(%Nightlights, "modulate", Color(1,1,1,0), 0.4)
 		current_background = "day"
+
+
+func _on_steam_button_pressed() -> void:
+	OS.shell_open("https://store.steampowered.com/app/3398430/Quail_Crossing/")

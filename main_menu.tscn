@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=50 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://djq1qnsn34gnb" path="res://assets/ui/Window.png" id="27_kowbm"]
 [ext_resource type="Script" path="res://scripts/extras_menu.gd" id="27_uwu8s"]
 [ext_resource type="Script" path="res://scripts/hat_button.gd" id="28_pvm0p"]
+[ext_resource type="Texture2D" uid="uid://dllsbyap8kx3h" path="res://assets/ui/SteamIcon.png" id="29_527ts"]
 [ext_resource type="Texture2D" uid="uid://ddonf7nkn8d8n" path="res://assets/player/QuailHat1.png" id="30_11rhe"]
 [ext_resource type="Texture2D" uid="uid://b0kxp1a0073o" path="res://assets/player/QuailHat2.png" id="31_rxuqw"]
 [ext_resource type="Texture2D" uid="uid://c1ksvrq15u2a1" path="res://assets/menu/MenuSign.png" id="32_fsm2t"]
@@ -222,6 +223,40 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
+[node name="SteamButton" type="TextureButton" parent="MainMenu/UICanvas/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -279.0
+offset_top = 139.0
+offset_right = -152.0
+offset_bottom = 256.0
+grow_horizontal = 0
+pivot_offset = Vector2(63, 58)
+size_flags_horizontal = 4
+texture_normal = ExtResource("29_527ts")
+stretch_mode = 0
+
+[node name="WishlistNow" type="RichTextLabel" parent="MainMenu/UICanvas/Control/SteamButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = 63.0
+offset_right = 103.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("37_a1j58")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]Wishlist Now!"
+
 [node name="MainMenuVBox" type="VBoxContainer" parent="MainMenu/UICanvas/Control"]
 unique_name_in_owner = true
 top_level = true
@@ -361,6 +396,11 @@ offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Quit Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/UICanvas/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="SettingsMenu" parent="MainMenu/UICanvas" instance=ExtResource("37_vqwpr")]
 unique_name_in_owner = true
@@ -593,6 +633,7 @@ offset_top = 31.0
 bbcode_enabled = true
 text = "Qauil Rescued!"
 
+[connection signal="pressed" from="MainMenu/UICanvas/Control/SteamButton" to="MainMenu" method="_on_steam_button_pressed"]
 [connection signal="pressed" from="MainMenu/UICanvas/Control/MainMenuVBox/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/UICanvas/Control/MainMenuVBox/LevelSelectButton" to="MainMenu" method="_on_level_select_button_pressed"]
 [connection signal="pressed" from="MainMenu/UICanvas/Control/MainMenuVBox/ExtrasButton" to="." method="_on_extras_button_pressed"]
