@@ -1,16 +1,31 @@
 extends Node2D
 
+var app_id = "3398430"
 
 @export var scene: PackedScene
 
+func _init():
+	OS.set_environment("SteamAppID", app_id)
+	OS.set_environment("SteamGameID", app_id)
 
 func _ready() -> void:
+	Steam.steamInit()
+	var is_running = Steam.isSteamRunning()
+	var id = Steam.getSteamID()
+	var steam_name = Steam.getFriendPersonaName(id)
+	
 	GlobalSignals.connect("world_completed", _on_world_completed)
 	GlobalSignals.connect("exit_win_screen", _on_exit_win_screen)
 	GlobalSignals.connect("player_restarted", _on_player_restarted)
 	GlobalSignals.connect("settings_menu_closed", _on_settings_menu_closed)
 	GlobalSignals.connect("load_world", _on_world_loaded)
 	GlobalSignals.connect("extras_menu_closed", _on_extras_menu_closed)
+	if !is_running:
+		print("Error: Steam is not running")
+		return
+	
+	print("Steam is running")
+	print("Username: " + str(steam_name))
 	
 func _on_play_button_button_down() -> void:
 	var instance = scene.instantiate()
