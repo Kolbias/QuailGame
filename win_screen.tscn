@@ -243,6 +243,11 @@ texture = ExtResource("3_euacw")
 expand_mode = 1
 stretch_mode = 3
 
+[node name="HatUnlockProgress" type="ProgressBar" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 20.0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 zoom = Vector2(2, 2)

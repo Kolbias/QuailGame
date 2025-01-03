@@ -40,7 +40,7 @@ func _ready():
 			award_silver()
 		if score >= 15:
 			award_gold()
-	
+		check_hat_unlock_progress()
 	# World2 Score Thresholds
 	if world == 2: 
 		if check_highscore(score, PlayerVariables.world_2_hs):
@@ -213,3 +213,17 @@ func check_highscore(current_score: int, player_world_score):
 		player_world_score = current_score
 		print_rich("New Highscore! on world" + str(PlayerVariables.current_level) + " = " + str(player_world_score))
 		return true
+
+func check_hat_unlock_progress():
+	var hat_progress = PlayerVariables.quail_rescue_level
+	if hat_progress >= 20:
+		var next_hat_progress = PlayerVariables.quail_rescue_level - 20
+		var tween = create_tween()
+		tween.tween_property(%HatUnlockProgress, "value", 20, 1.0)
+		PlayerVariables.quail_rescue_level = next_hat_progress
+		print("Quail Hat progress over 20: " + str(PlayerVariables.quail_rescue_level))
+	else:
+		var next_hat_progress = PlayerVariables.quail_rescue_level
+		var tween = create_tween()
+		tween.tween_property(%HatUnlockProgress, "value", next_hat_progress, 1.0)
+		print("Quail Hat progress under 20: " + str(PlayerVariables.quail_rescue_level))

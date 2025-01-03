@@ -6,7 +6,7 @@ var quail_count := 0
 var boost_cooldown := 0.0
 var time_remaining := 0
 var quail_collected := 0
-var current_level = 1
+var current_level := 1
 
 var chall_rating1 := 10
 var chall_rating2 := 12
@@ -15,7 +15,9 @@ var chall_rating4 := 18
 var chall_rating5 := 20
 
 #Vars to Save
-var quail_total := 0
+var quail_total := 23
+var quail_rescue_level := 0
+var randomly_recieved_hats := []
 
 var world_1_hs = 0
 var world_2_hs = 0
@@ -33,15 +35,34 @@ var world_13_hs = 0
 
 
 #hat unlocks
-var current_hat = 1
-var hat_1 = false
-var hat_2 = false
-var hat_3 = false
-var hat_4 = false
-var hat_5 = false
-var hat_6 = false
-var hat_7 = false
-var hat_8 = false
+var hat_path = [
+	"res://assets/player/QuailHat1.png",
+	"res://assets/player/QuailHat2.png",
+	"res://assets/player/QuailHat3.png",
+	"res://assets/player/QuailHat4.png",
+	"res://assets/player/QuailHat5.png",
+	"res://assets/player/QuailHat6.png",
+	"res://assets/player/QuailHat7.png",
+	"res://assets/player/QuailHat8.png",
+	"res://assets/player/QuailHat9.png",
+	"res://assets/player/QuailHat10.png",
+	"res://assets/player/QuailHat11.png",
+	"res://assets/player/QuailHat12.png",
+	"res://assets/player/QuailHat13.png",
+	"res://assets/player/QuailHat14.png",
+	"res://assets/player/QuailHat15.png",
+]
+
+var current_hat = 0
+var unlocked_hats := []
+#var hat_1 = false
+#var hat_2 = false
+#var hat_3 = false
+#var hat_4 = false
+#var hat_5 = false
+#var hat_6 = false
+#var hat_7 = false
+#var hat_8 = false
 
 
 func _ready():
@@ -57,7 +78,8 @@ func _ready():
 func _process(delta):
 	if quail_count < 0:
 		quail_count = 0
-
+	quail_rescue_level = quail_total
+	
 func _on_save_game():
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	var saved_data = {}

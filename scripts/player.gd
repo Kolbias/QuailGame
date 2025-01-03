@@ -280,11 +280,11 @@ func _on_timer_timeout():
 func _on_play_again_button_button_down():
 	print(PlayerVariables.current_level)
 	PlayerVariables.quail_count = 0
-	if PlayerVariables.current_level == "world1" or "world":
+	if PlayerVariables.current_level == 1:
 		get_tree().reload_current_scene()
-	if PlayerVariables.current_level == "world2":
+	if PlayerVariables.current_level == 2:
 		get_tree().change_scene_to_file("res://world2.tscn")
-	if PlayerVariables.current_level == "world3":
+	if PlayerVariables.current_level == 3:
 		get_tree().change_scene_to_file("res://world3.tscn")
 	else:
 		pass
