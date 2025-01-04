@@ -40,7 +40,6 @@ func _ready():
 			award_silver()
 		if score >= 15:
 			award_gold()
-		check_hat_unlock_progress()
 	# World2 Score Thresholds
 	if world == 2: 
 		if check_highscore(score, PlayerVariables.world_2_hs):
@@ -164,7 +163,7 @@ func _ready():
 	quail_call_sound.play()
 	ambient_sound.play()
 	score_text.text = "You rescued " + str(score) + " quail!"
-	
+	check_hat_unlock_progress()
 func _process(delta):
 	%EggBackdrop.rotation += 0.001
 	%EggBackdrop2.rotation -= 0.001
@@ -222,6 +221,11 @@ func check_hat_unlock_progress():
 		tween.tween_property(%HatUnlockProgress, "value", 20, 1.0)
 		PlayerVariables.quail_rescue_level = next_hat_progress
 		print("Quail Hat progress over 20: " + str(PlayerVariables.quail_rescue_level))
+		print("Hat progress remainder: " + str(next_hat_progress))
+		%HatUnlockProgress.value = 0
+		tween.tween_property(%HatUnlockProgress, "value", 0, 0.0)
+		tween.tween_property(%HatUnlockProgress, "value", next_hat_progress, 1.0)
+		GlobalSignals.emit_signal("award_new_hat")
 	else:
 		var next_hat_progress = PlayerVariables.quail_rescue_level
 		var tween = create_tween()

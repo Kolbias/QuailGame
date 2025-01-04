@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddk8hn0jx3lpg"]
+[gd_scene load_steps=18 format=3 uid="uid://ddk8hn0jx3lpg"]
 
 [ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_m5l4d"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_g0l7j"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://b6jj61xfig0t2" path="res://assets/ui/BannerWindow1.png" id="10_wf7k6"]
 [ext_resource type="Texture2D" uid="uid://bavdlbxbka1vq" path="res://assets/ui/BannerWindow2.png" id="11_inp4p"]
 [ext_resource type="Texture2D" uid="uid://d1mqqwqluvcfh" path="res://assets/ui/EggAwardBackdrop2.png" id="14_5fn23"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqcgn"]
+bg_color = Color(0.2, 0.533333, 0.870588, 1)
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource("1_m5l4d")
@@ -206,20 +209,26 @@ offset_bottom = 37.0
 scale = Vector2(1.06619, 1)
 texture = ExtResource("11_inp4p")
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -29.0
-offset_right = 20.0
-offset_bottom = 11.0
+offset_left = -100.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 100
 
-[node name="SilverStar" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SilverStar" type="TextureRect" parent="CanvasLayer/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -227,7 +236,7 @@ texture = ExtResource("4_oey5w")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="GoldStar" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+[node name="GoldStar" type="TextureRect" parent="CanvasLayer/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -235,7 +244,7 @@ texture = ExtResource("5_u2cvp")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="BronzeStar" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+[node name="BronzeStar" type="TextureRect" parent="CanvasLayer/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -243,10 +252,26 @@ texture = ExtResource("3_euacw")
 expand_mode = 1
 stretch_mode = 3
 
-[node name="HatUnlockProgress" type="ProgressBar" parent="CanvasLayer/CenterContainer"]
+[node name="HatUnlockProgress" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_cqcgn")
 max_value = 20.0
+show_percentage = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HatUnlockProgress"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+offset_left = -48.0
+offset_top = 29.0
+offset_right = 249.0
+offset_bottom = 70.0
+theme = ExtResource("6_avaob")
+bbcode_enabled = true
+text = "[wave][center]Next Hat Unlock"
+scroll_active = false
+autowrap_mode = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false

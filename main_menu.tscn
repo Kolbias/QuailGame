@@ -545,6 +545,7 @@ text = "1"
 icon = ExtResource("30_11rhe")
 script = ExtResource("28_pvm0p")
 hat_number = 1
+hat_string = "res://assets/player/QuailHat1.png"
 
 [node name="HatButton2" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -554,6 +555,7 @@ text = "2"
 icon = ExtResource("31_rxuqw")
 script = ExtResource("28_pvm0p")
 hat_number = 2
+hat_string = "res://assets/player/QuailHat2.png"
 
 [node name="HatButton3" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -563,6 +565,7 @@ text = "3"
 icon = ExtResource("32_nep4m")
 script = ExtResource("28_pvm0p")
 hat_number = 3
+hat_string = "res://assets/player/QuailHat3.png"
 
 [node name="HatButton4" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -572,6 +575,7 @@ text = "4"
 icon = ExtResource("33_u2f3m")
 script = ExtResource("28_pvm0p")
 hat_number = 4
+hat_string = "res://assets/player/QuailHat4.png"
 
 [node name="HatButton5" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -581,6 +585,7 @@ text = "5"
 icon = ExtResource("34_td7nq")
 script = ExtResource("28_pvm0p")
 hat_number = 5
+hat_string = "res://assets/player/QuailHat5.png"
 
 [node name="HatButton6" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -591,6 +596,7 @@ text = "6
 icon = ExtResource("35_8w0b8")
 script = ExtResource("28_pvm0p")
 hat_number = 6
+hat_string = "res://assets/player/QuailHat6.png"
 
 [node name="HatButton7" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -600,6 +606,7 @@ text = "7"
 icon = ExtResource("36_0r2cg")
 script = ExtResource("28_pvm0p")
 hat_number = 7
+hat_string = "res://assets/player/QuailHat7.png"
 
 [node name="HatButton8" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -609,6 +616,7 @@ text = "8"
 icon = ExtResource("37_58mmu")
 script = ExtResource("28_pvm0p")
 hat_number = 8
+hat_string = "res://assets/player/QuailHat8.png"
 
 [node name="HatButton9" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -618,6 +626,7 @@ text = "9"
 icon = ExtResource("38_3bdj3")
 script = ExtResource("28_pvm0p")
 hat_number = 9
+hat_string = "res://assets/player/QuailHat9.png"
 
 [node name="HatButton10" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -627,6 +636,7 @@ text = "10"
 icon = ExtResource("39_65kxm")
 script = ExtResource("28_pvm0p")
 hat_number = 10
+hat_string = "res://assets/player/QuailHat10.png"
 
 [node name="HatButton11" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -636,6 +646,7 @@ text = "11"
 icon = ExtResource("40_u3xwr")
 script = ExtResource("28_pvm0p")
 hat_number = 11
+hat_string = "res://assets/player/QuailHat11.png"
 
 [node name="HatButton12" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -645,6 +656,7 @@ text = "12"
 icon = ExtResource("41_ta3j2")
 script = ExtResource("28_pvm0p")
 hat_number = 12
+hat_string = "res://assets/player/QuailHat12.png"
 
 [node name="HatButton13" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -654,6 +666,7 @@ text = "13"
 icon = ExtResource("42_qco5k")
 script = ExtResource("28_pvm0p")
 hat_number = 13
+hat_string = "res://assets/player/QuailHat13.png"
 
 [node name="HatButton14" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -663,6 +676,7 @@ text = "14"
 icon = ExtResource("43_ak3j1")
 script = ExtResource("28_pvm0p")
 hat_number = 14
+hat_string = "res://assets/player/QuailHat14.png"
 
 [node name="HatButton15" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -672,6 +686,7 @@ text = "15"
 icon = ExtResource("44_rux2u")
 script = ExtResource("28_pvm0p")
 hat_number = 15
+hat_string = "res://assets/player/QuailHat15.png"
 
 [node name="ExitButton" type="Button" parent="MainMenu/UICanvas/ExtrasMenu/MarginContainer/TabContainer/Hats/HatsGridContainer"]
 layout_mode = 2

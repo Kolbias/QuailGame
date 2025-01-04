@@ -15,3 +15,4 @@ signal load_world(PackedScene)
 signal hat_selected(int)
 signal save_game
 signal load_game
+signal award_new_hat

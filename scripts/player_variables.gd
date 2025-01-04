@@ -15,7 +15,7 @@ var chall_rating4 := 18
 var chall_rating5 := 20
 
 #Vars to Save
-var quail_total := 23
+var quail_total := 0
 var quail_rescue_level := 0
 var randomly_recieved_hats := []
 
@@ -67,6 +67,7 @@ var unlocked_hats := []
 
 func _ready():
 	#GlobalSignals.emit_signal("hat_selected", _on_hat_selected)
+	GlobalSignals.connect("award_new_hat", _award_hat)
 	if FileAccess.file_exists("user://savegame.json"):
 		_on_load_game()
 	else:
@@ -78,7 +79,6 @@ func _ready():
 func _process(delta):
 	if quail_count < 0:
 		quail_count = 0
-	quail_rescue_level = quail_total
 	
 func _on_save_game():
 	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
@@ -131,3 +131,12 @@ func _on_load_game():
 	#for i in world_scores:
 		#i = saved_data[i]
 	file.close()
+
+func _award_hat():
+	var new_hat = hat_path.pick_random()
+	if unlocked_hats.has(new_hat):
+		new_hat = hat_path.pick_random()
+	else:
+		unlocked_hats.append(new_hat)
+	print("New Hat Selected: " + str(new_hat))
+	print("Unlocked Hats: " + str(unlocked_hats))
