@@ -24,7 +24,7 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
-	GlobalSignals.emit_signal("save_game")
+	#GlobalSignals.emit_signal("save_game")
 	%Next.grab_focus()
 	var world = PlayerVariables.current_level
 	
@@ -170,7 +170,9 @@ func _process(delta):
 	parallax.motion_offset += background_scroll_speed
 
 func _on_quit_button_down():
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+	PlayerVariables.quail_count = 0
+	var main_menu = load("res://main_menu.tscn")
+	GlobalSignals.emit_signal("load_world", main_menu)
 
 
 func _on_next_button_down():

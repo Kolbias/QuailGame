@@ -17,7 +17,8 @@ var chall_rating5 := 20
 #Vars to Save
 var quail_total := 0
 var quail_rescue_level := 0
-var randomly_recieved_hats := []
+var current_hat = 0
+var unlocked_hats := []
 
 var world_1_hs = 0
 var world_2_hs = 0
@@ -53,8 +54,6 @@ var hat_path = [
 	"res://assets/player/QuailHat15.png",
 ]
 
-var current_hat = 0
-var unlocked_hats := []
 #var hat_1 = false
 #var hat_2 = false
 #var hat_3 = false
@@ -85,6 +84,8 @@ func _on_save_game():
 	var saved_data = {}
 	#Add More Vars to save below
 	saved_data["quail_total"] = quail_total
+	saved_data["quail_rescue_level"] = quail_rescue_level
+	saved_data["unlocked_hats"] = unlocked_hats
 	saved_data["world_1_score"] = world_1_hs
 	saved_data["world_2_score"] = world_2_hs
 	saved_data["world_3_score"] = world_3_hs
@@ -98,6 +99,7 @@ func _on_save_game():
 	saved_data["world_11_score"] = world_11_hs
 	saved_data["world_12_score"] = world_12_hs
 	saved_data["world_13_score"] = world_13_hs
+
 	#for i in world_scores:
 		#var s = "world_" + str(i) + "_score"
 		#saved_data[s] = world_scores[0]
@@ -114,6 +116,8 @@ func _on_load_game():
 	var saved_data = JSON.parse_string(json)
 	#Add more Vars to load below
 	quail_total = saved_data["quail_total"]
+	quail_rescue_level = saved_data["quail_rescue_level"]
+	unlocked_hats = saved_data["unlocked_hats"]
 	world_1_hs = saved_data["world_1_score"]
 	world_2_hs = saved_data["world_2_score"]
 	world_3_hs = saved_data["world_3_score"]
@@ -135,6 +139,9 @@ func _on_load_game():
 func _award_hat():
 	var new_hat = hat_path.pick_random()
 	if unlocked_hats.has(new_hat):
+		hat_path.erase(new_hat)
+		print("hat already unlocked")
+		print(str(unlocked_hats))
 		new_hat = hat_path.pick_random()
 	else:
 		unlocked_hats.append(new_hat)
