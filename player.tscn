@@ -1,9 +1,10 @@
-[gd_scene load_steps=61 format=3 uid="uid://bcnbbq1mw03nv"]
+[gd_scene load_steps=62 format=3 uid="uid://bcnbbq1mw03nv"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lrfys"]
 [ext_resource type="Texture2D" uid="uid://bwndcl3ii5ld4" path="res://assets/player/QuailStatic1.png" id="2_1ff1k"]
 [ext_resource type="Texture2D" uid="uid://bb7lslpklpjfa" path="res://assets/player/QuailBoost1.png" id="2_5cc8h"]
 [ext_resource type="Texture2D" uid="uid://cvdxofxtdwul0" path="res://assets/ui/Plus2Clock.png" id="2_7snvs"]
+[ext_resource type="Texture2D" uid="uid://becqcic1y8cgr" path="res://assets/player/MainQuailShadow.png" id="2_rrm4c"]
 [ext_resource type="Texture2D" uid="uid://8raq7gyhj40e" path="res://assets/player/QuailBoost2.png" id="3_8lkm1"]
 [ext_resource type="Texture2D" uid="uid://dh5g5k03maj5e" path="res://assets/player/QuailStatic3.png" id="3_xxd4a"]
 [ext_resource type="Texture2D" uid="uid://bmjusyo3qlbsx" path="res://assets/player/QuailStatic4.png" id="4_1iod7"]
@@ -329,6 +330,10 @@ point_count = 3
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 11
 script = ExtResource("1_lrfys")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+texture = ExtResource("2_rrm4c")
 
 [node name="Plus2Particle" type="CPUParticles2D" parent="."]
 z_index = 5

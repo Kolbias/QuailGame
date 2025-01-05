@@ -60,10 +60,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 20.0
-offset_right = 4.0
-offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -301,7 +297,7 @@ theme_override_constants/separation = 65
 layout_mode = 2
 theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 1500
+theme_override_constants/margin_right = 1545
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UI/Control/VBoxContainer3/MarginContainer"]
 modulate = Color(1, 1, 1, 0.639216)

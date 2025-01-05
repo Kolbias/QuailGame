@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci1vdlgk0k2yp"]
+[gd_scene load_steps=4 format=3 uid="uid://ci1vdlgk0k2yp"]
 
 [ext_resource type="Texture2D" uid="uid://ci4l3j2abvbhp" path="res://assets/objects/Bench.png" id="1_e3blr"]
+[ext_resource type="Texture2D" uid="uid://ch2swhxgvqu3m" path="res://assets/objects/BenchShadow.png" id="1_yeq0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqae7"]
 size = Vector2(59, 11)
 
 [node name="Bench" type="StaticBody2D"]
 z_index = 4
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(2, 4)
+texture = ExtResource("1_yeq0q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_e3blr")

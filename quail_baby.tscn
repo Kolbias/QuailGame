@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd62om5x8mc2h"]
+[gd_scene load_steps=14 format=3 uid="uid://dd62om5x8mc2h"]
 
 [ext_resource type="Texture2D" uid="uid://bk230x83x6v0p" path="res://assets/player/QuailBaby1.png" id="1_36wmc"]
 [ext_resource type="Script" path="res://scripts/quail_baby.gd" id="1_bt3ko"]
+[ext_resource type="Texture2D" uid="uid://cqw076bbixv2t" path="res://assets/player/BabyQuailShadow.png" id="2_pe106"]
 [ext_resource type="Texture2D" uid="uid://btye3dun0qtel" path="res://assets/player/QuailBaby2.png" id="3_hvxpv"]
 [ext_resource type="Texture2D" uid="uid://csmbhd3o5idoh" path="res://assets/player/QuailBaby3.png" id="4_1kubu"]
 [ext_resource type="AudioStream" uid="uid://c43vqtkjmikdr" path="res://assets/sounds/QuailHit.ogg" id="5_82qmo"]
@@ -47,6 +48,10 @@ point_count = 3
 collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_bt3ko")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+texture = ExtResource("2_pe106")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_534es")

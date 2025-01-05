@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var score = PlayerVariables.quail_count
 @onready var score_text = %QuailScore
-@onready var parallax = $ParallaxBackground/ParallaxLayer
+#@onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
 
 # Awards
@@ -167,7 +167,7 @@ func _ready():
 func _process(delta):
 	%EggBackdrop.rotation += 0.001
 	%EggBackdrop2.rotation -= 0.001
-	parallax.motion_offset += background_scroll_speed
+	#parallax.motion_offset += background_scroll_speed
 
 func _on_quit_button_down():
 	PlayerVariables.quail_count = 0

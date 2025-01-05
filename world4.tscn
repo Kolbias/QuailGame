@@ -475,13 +475,13 @@ position = Vector2(494, 261)
 position = Vector2(438, -103)
 
 [node name="WindSpawner" parent="Environment" instance=ExtResource("20_5tsci")]
-position = Vector2(-174, 218)
+position = Vector2(-682, 237)
 
 [node name="WindSpawner2" parent="Environment" instance=ExtResource("20_5tsci")]
-position = Vector2(-110, -3)
+position = Vector2(-618, 16)
 
 [node name="WindSpawner3" parent="Environment" instance=ExtResource("20_5tsci")]
-position = Vector2(-118, -188)
+position = Vector2(-626, -169)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -572,6 +572,7 @@ tile_set = ExtResource("3_xuff7")
 script = ExtResource("27_54wcf")
 
 [node name="Area2D" type="Area2D" parent="SecretPath"]
+z_index = 5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SecretPath/Area2D"]
 position = Vector2(-144, 256)
