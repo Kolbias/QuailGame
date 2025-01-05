@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Quail Story"
+config/name="Quail Crossing"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://assets/icon/QuialIcon1.png"

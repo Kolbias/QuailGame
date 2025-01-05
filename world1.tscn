@@ -76,7 +76,7 @@ layer_0/tile_data = PackedInt32Array(-131029, 0, 0, -131028, 0, 0, -131027, 0, 0
 position = Vector2(145, -292)
 
 [node name="CarSpawner2" type="Marker2D" parent="."]
-position = Vector2(237, 480)
+position = Vector2(237, 548)
 rotation = 3.14159
 script = ExtResource("3_vw035")
 
@@ -85,7 +85,7 @@ one_shot = true
 autostart = true
 
 [node name="CarSpawner5" type="Marker2D" parent="."]
-position = Vector2(635, 471)
+position = Vector2(635, 564)
 rotation = 3.14159
 script = ExtResource("3_vw035")
 
@@ -167,6 +167,9 @@ position = Vector2(770, 77)
 [node name="Player" parent="." instance=ExtResource("2_y3bi7")]
 z_index = 2
 position = Vector2(37, 131)
+
+[node name="Camera2D" parent="Player" index="4"]
+zoom = Vector2(0.5, 0.5)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -278,7 +281,7 @@ position = Vector2(50, 97)
 
 [node name="TwoCarSpawner" parent="." instance=ExtResource("19_y7xyt")]
 z_index = 4
-position = Vector2(547, -288)
+position = Vector2(547, -402)
 rotation = 0.0
 
 [node name="UICanvas" parent="." instance=ExtResource("29_81j6g")]
@@ -364,3 +367,5 @@ texture = ExtResource("22_fymjj")
 [connection signal="quail_hatched" from="Eggs/QuailEgg11" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="Eggs/QuailEgg15" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="Eggs/QuailEgg15" to="Player" method="_on_quail_egg_quail_hatched"]
+
+[editable path="Player"]

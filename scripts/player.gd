@@ -51,6 +51,8 @@ func _process(delta: float) -> void:
 	#print(timer.time_left)
 	#print(PlayerVariables.time_remaining)
 	%MashBar.value -= 2
+	#print("Can Boost: " + str(can_boost))
+	#print("Mash Bar Value: " + str(mash_bar.value))
 func _physics_process(delta):
 
 	var dir = Vector2()
@@ -92,7 +94,8 @@ func _physics_process(delta):
 					%PlayerCallTimer.start()
 					change_state(States.CALLSTART)
 		States.WALK:
-			
+			if %MashBar.value <= 0:
+				can_boost = true
 			%HatAnimator.play("hat_run")
 			%BoostFeathers.emitting = false
 			%MashBar.show()
@@ -143,6 +146,8 @@ func _physics_process(delta):
 			change_state(States.BOOSTSTOP)
 			
 		States.BOOSTSTOP:
+			if %MashBar.value <= 0:
+				can_boost = true
 			%BoostFeathers.emitting = true
 			sprite.play("boost")
 			if input_vector.x < 0:
@@ -187,6 +192,8 @@ func _physics_process(delta):
 				GlobalSignals.emit_signal("player_restarted")
 		States.SWIM:
 			$StateDebug.text = "SWIM"
+			if %MashBar.value <= 0:
+				can_boost = true
 			if input_vector.x < 0:
 				flip_sprite(true, Vector2(-6,-1.7))
 			if input_vector.x > 0:

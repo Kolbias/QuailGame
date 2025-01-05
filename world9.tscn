@@ -217,59 +217,94 @@ script = ExtResource("1_npyd6")
 position = Vector2(1, 1)
 color = Color(0.45098, 0.45098, 0.45098, 1)
 
-[node name="Water" parent="." instance=ExtResource("2_8loxm")]
+[node name="WaterNodes" type="Node2D" parent="."]
+
+[node name="Water" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(432, 222)
 scale = Vector2(1.28, 1)
 
-[node name="Water5" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water5" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(423, -97)
 scale = Vector2(1.28, 1)
 
-[node name="Water6" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water6" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(749, 93)
 scale = Vector2(1.28, 1)
 
-[node name="Water2" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water2" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(420, 76)
 
-[node name="Water7" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water7" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(-42, 246)
 scale = Vector2(1.80965, 1)
 
-[node name="Water9" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water9" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(-37, 108)
 scale = Vector2(1.80965, 1)
 
-[node name="Water8" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water8" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(-48, -28)
 scale = Vector2(1.80965, 1)
 
-[node name="Water3" parent="." instance=ExtResource("2_8loxm")]
+[node name="Water3" parent="WaterNodes" instance=ExtResource("2_8loxm")]
 position = Vector2(227, 47)
 
-[node name="RainOnWaterAnim" parent="." instance=ExtResource("3_ltksu")]
+[node name="RainOnWaterAnim" parent="WaterNodes" instance=ExtResource("3_ltksu")]
 position = Vector2(440, 218)
 
-[node name="RainOnWaterAnim3" parent="." instance=ExtResource("4_plcrl")]
+[node name="RainOnWaterAnim3" parent="WaterNodes" instance=ExtResource("4_plcrl")]
 position = Vector2(-46, 88)
 
-[node name="RainOnWaterAnim4" parent="." instance=ExtResource("4_plcrl")]
+[node name="RainOnWaterAnim4" parent="WaterNodes" instance=ExtResource("4_plcrl")]
 position = Vector2(440, 82)
 
-[node name="RainOnWaterAnim5" parent="." instance=ExtResource("3_ltksu")]
-position = Vector2(704, 88)
-
-[node name="RainOnWaterAnim7" parent="." instance=ExtResource("3_ltksu")]
+[node name="RainOnWaterAnim7" parent="WaterNodes" instance=ExtResource("3_ltksu")]
 position = Vector2(-48, -26)
 
-[node name="RainOnWaterAnim8" parent="." instance=ExtResource("3_ltksu")]
+[node name="RainOnWaterAnim8" parent="WaterNodes" instance=ExtResource("3_ltksu")]
 position = Vector2(445, -96)
 
-[node name="RainOnWaterAnim9" parent="." instance=ExtResource("3_ltksu")]
-position = Vector2(706, 81)
+[node name="RainOnWaterAnim9" parent="WaterNodes" instance=ExtResource("3_ltksu")]
+position = Vector2(704, 103)
 
-[node name="RainOnWaterAnim10" parent="." instance=ExtResource("3_ltksu")]
+[node name="RainOnWaterAnim10" parent="WaterNodes" instance=ExtResource("3_ltksu")]
 position = Vector2(762, 68)
+
+[node name="WaterHazard8" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(441, -97)
+scale = Vector2(0.15, 0.5)
+
+[node name="WaterHazard9" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(-47, -25)
+scale = Vector2(0.3, 1)
+
+[node name="WaterHazard2" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(-48, 86)
+scale = Vector2(0.3, 0.4)
+
+[node name="WaterHazard5" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(-48, 245)
+scale = Vector2(0.3, 0.65)
+
+[node name="WaterHazard3" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(441, 88)
+scale = Vector2(0.15, 0.742)
+
+[node name="WaterHazard7" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(705, 87)
+scale = Vector2(0.292429, 0.741521)
+
+[node name="WaterHazard10" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(802, 78)
+scale = Vector2(0.32, 0.55)
+
+[node name="WaterHazard4" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(442, 223)
+scale = Vector2(0.2, 0.8)
+
+[node name="WaterHazard6" parent="WaterNodes" instance=ExtResource("7_pp2wk")]
+position = Vector2(226, 41)
+scale = Vector2(0.2, 0.7)
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -286,42 +321,6 @@ visible = false
 tile_set = SubResource("TileSet_xask1")
 format = 2
 layer_0/tile_data = PackedInt32Array(-786435, 0, 0, -786436, 0, 0, -786437, 0, 0, -786438, 0, 0, -786439, 0, 0, -786440, 0, 0, -786441, 0, 0, -786442, 0, 0, -786443, 0, 0, -786444, 0, 0, -786445, 0, 0, -786446, 0, 0, -786447, 0, 0, -786448, 0, 0, -786449, 0, 0, -786450, 0, 0, -786451, 0, 0, -786452, 0, 0, -786453, 0, 0, -786454, 0, 0, -786455, 0, 0, -786456, 0, 0, -720920, 0, 0, -655384, 0, 0, -589848, 0, 0, -524312, 0, 0, -458776, 0, 0, -393240, 0, 0, -327704, 0, 0, -262168, 0, 0, -196632, 0, 0, -131096, 0, 0, -65560, 0, 0, -24, 0, 0, 65512, 0, 0, 131048, 0, 0, 196584, 0, 0, 393192, 0, 0, 458728, 0, 0, 524264, 0, 0, 262120, 0, 0, 327656, 0, 0, 589800, 0, 0, 655336, 0, 0, 720872, 0, 0, 786408, 0, 0, 851944, 0, 0, 917480, 0, 0, 983016, 0, 0, 1048552, 0, 0, 1114088, 0, 0, 1179624, 0, 0, 1245160, 0, 0, 1310696, 0, 0, 1376232, 0, 0, 1441768, 0, 0, 1507304, 0, 0, 1572841, 0, 0, 1572842, 0, 0, 1572843, 0, 0, 1572844, 0, 0, 1572845, 0, 0, 1572846, 0, 0, 1572847, 0, 0, 1572848, 0, 0, 1572849, 0, 0, 1572850, 0, 0, 1572851, 0, 0, 1572852, 0, 0, 1572853, 0, 0, 1572854, 0, 0, 1572855, 0, 0, 1572856, 0, 0, 1572857, 0, 0, 1572858, 0, 0, 1572859, 0, 0, 1572860, 0, 0, 1572861, 0, 0, 1572862, 0, 0, 1572863, 0, 0, 1507328, 0, 0, 1507329, 0, 0, 1507330, 0, 0, 1507331, 0, 0, 1507332, 0, 0, 1507333, 0, 0, 1507334, 0, 0, 1507335, 0, 0, 1507336, 0, 0, 1507337, 0, 0, 1507338, 0, 0, 1507339, 0, 0, 1507340, 0, 0, 1507341, 0, 0, 1507342, 0, 0, 1507343, 0, 0, 1507344, 0, 0, 1507345, 0, 0, 1507346, 0, 0, 1507347, 0, 0, 1507348, 0, 0, 1507349, 0, 0, 1507350, 0, 0, 1507351, 0, 0, 1507352, 0, 0, 1507353, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1507357, 0, 0, 1507358, 0, 0, 1507359, 0, 0, 1507360, 0, 0, 1507361, 0, 0, 1507362, 0, 0, 1507363, 0, 0, 1507364, 0, 0, 1507365, 0, 0, 1507366, 0, 0, 1507367, 0, 0, 1441832, 0, 0, 1441833, 0, 0, 1441834, 0, 0, 1376298, 0, 0, 1310762, 0, 0, 1245226, 0, 0, 1179690, 0, 0, 1114155, 0, 0, 1048619, 0, 0, 983083, 0, 0, 917547, 0, 0, 852011, 0, 0, 786475, 0, 0, 720939, 0, 0, 720940, 0, 0, 720941, 0, 0, 720942, 0, 0, 720943, 0, 0, 720944, 0, 0, 720945, 0, 0, 720946, 0, 0, 720947, 0, 0, 655412, 0, 0, 589876, 0, 0, 524340, 0, 0, 458805, 0, 0, 393269, 0, 0, 327733, 0, 0, 262197, 0, 0, 196661, 0, 0, 131125, 0, 0, 65589, 0, 0, 53, 0, 0, -65484, 0, 0, -131021, 0, 0, -131022, 0, 0, -131023, 0, 0, -131024, 0, 0, -131025, 0, 0, -131026, 0, 0, -131027, 0, 0, -131028, 0, 0, -196564, 0, 0, -262100, 0, 0, -327636, 0, 0, -393173, 0, 0, -458709, 0, 0, -524245, 0, 0, -589781, 0, 0, -655318, 0, 0, -720854, 0, 0, -786390, 0, 0, -786391, 0, 0, -786392, 0, 0, -786393, 0, 0, -786394, 0, 0, -786395, 0, 0, -786396, 0, 0, -786397, 0, 0, -786398, 0, 0, -786399, 0, 0, -786400, 0, 0, -786401, 0, 0, -786402, 0, 0, -786403, 0, 0, -786404, 0, 0, -786405, 0, 0, -786406, 0, 0, -786407, 0, 0, -786408, 0, 0, -786409, 0, 0, -786410, 0, 0, -786411, 0, 0, -786412, 0, 0, -786413, 0, 0, -786414, 0, 0, -786415, 0, 0, -786416, 0, 0, -786417, 0, 0, -786418, 0, 0, -786419, 0, 0, -786420, 0, 0, -786421, 0, 0, -786422, 0, 0, -786423, 0, 0, -786424, 0, 0, -786425, 0, 0, -786426, 0, 0, -786427, 0, 0, -786428, 0, 0, -786429, 0, 0, -786430, 0, 0, -786431, 0, 0, -786432, 0, 0, -720897, 0, 0, -720898, 0, 0, -655362, 0, 0, -589826, 0, 0, -786434, 0, 0)
-
-[node name="WaterHazard8" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(441, -97)
-scale = Vector2(0.15, 0.5)
-
-[node name="WaterHazard9" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(-47, -25)
-scale = Vector2(0.3, 1)
-
-[node name="WaterHazard2" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(-48, 86)
-scale = Vector2(0.3, 0.4)
-
-[node name="WaterHazard5" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(-48, 245)
-scale = Vector2(0.3, 0.65)
-
-[node name="WaterHazard3" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(441, 88)
-scale = Vector2(0.15, 0.742)
-
-[node name="WaterHazard7" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(705, 87)
-scale = Vector2(0.292429, 0.741521)
-
-[node name="WaterHazard10" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(802, 78)
-scale = Vector2(0.32, 0.55)
-
-[node name="WaterHazard4" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(442, 223)
-scale = Vector2(0.2, 0.8)
-
-[node name="WaterHazard6" parent="." instance=ExtResource("7_pp2wk")]
-position = Vector2(226, 41)
-scale = Vector2(0.2, 0.7)
 
 [node name="Eggs" type="Node2D" parent="."]
 
@@ -769,3 +768,5 @@ position = Vector2(475, 170)
 [connection signal="quail_hatched" from="Eggs/QuailEgg39" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="Eggs/QuailEgg40" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="Eggs/QuailEgg40" to="Player" method="_on_quail_egg_quail_hatched"]
+
+[editable path="Player"]
