@@ -38,7 +38,6 @@
 [ext_resource type="PackedScene" uid="uid://crvj5s2lbx51m" path="res://objects/pylon.tscn" id="36_8035f"]
 [ext_resource type="PackedScene" uid="uid://d07dm82do2lbh" path="res://UI.tscn" id="36_nvg8m"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wb1q5"]
 texture = ExtResource("3_gh7o3")
 6:2/0 = 0

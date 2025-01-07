@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://csten78itygrj"]
+[gd_scene load_steps=51 format=3 uid="uid://csten78itygrj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gly1c"]
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_otsdi"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://oj0f74pwxu8i" path="res://assets/menu/New Main Menu Sky.png" id="19_tngld"]
 [ext_resource type="Texture2D" uid="uid://4dclgaughxok" path="res://assets/menu/New Main Menu Landscape.png" id="20_hyh78"]
 [ext_resource type="Texture2D" uid="uid://c82gkda4lmnei" path="res://assets/menu/New Main Menu Sky Night.png" id="21_5m85i"]
+[ext_resource type="Texture2D" uid="uid://becqcic1y8cgr" path="res://assets/player/MainQuailShadow.png" id="21_y8nxt"]
 [ext_resource type="Texture2D" uid="uid://nw4ddfb7die" path="res://assets/menu/New Main Menu Moon.png" id="23_ih8t0"]
 [ext_resource type="Texture2D" uid="uid://cnsunnxjw1drg" path="res://assets/menu/New Main Menu clouds.png" id="24_av0n1"]
 [ext_resource type="Texture2D" uid="uid://cgdnfff4yih8f" path="res://assets/menu/New Main Menu Bench.png" id="25_sgdwg"]
@@ -210,10 +211,14 @@ expand_mode = 1
 
 [node name="MainQuail" type="AnimatedSprite2D" parent="MainMenu/BackgroundCanvas/Control"]
 unique_name_in_owner = true
-position = Vector2(270, 1015)
+position = Vector2(-77, 1015)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_i8by4")
 autoplay = "default"
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenu/BackgroundCanvas/Control/MainQuail"]
+position = Vector2(0.599994, 6.8)
+texture = ExtResource("21_y8nxt")
 
 [node name="MarginContainer" type="MarginContainer" parent="MainMenu/BackgroundCanvas/Control"]
 layout_mode = 1

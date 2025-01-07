@@ -341,7 +341,7 @@ z_index = 2
 position = Vector2(771, 17)
 
 [node name="EndFlag" parent="." instance=ExtResource("18_ywwiq")]
-position = Vector2(33, 119)
+position = Vector2(75, 89)
 
 [node name="CarSpawner2" parent="." instance=ExtResource("5_bpco2")]
 z_index = 4
