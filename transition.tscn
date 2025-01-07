@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw3o7mgnltgn"]
+
+[ext_resource type="Script" path="res://scripts/transition.gd" id="1_x2jo4"]
+[ext_resource type="Texture2D" uid="uid://dqe0rupygv8bi" path="res://assets/backgrounds/BlackSquare.png" id="2_dyqvu"]
+
+[node name="Transition" type="Node2D"]
+script = ExtResource("1_x2jo4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Container"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_dyqvu")
+expand_mode = 1

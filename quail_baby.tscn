@@ -50,6 +50,7 @@ collision_mask = 6
 script = ExtResource("1_bt3ko")
 
 [node name="Shadow" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, 2)
 texture = ExtResource("2_pe106")
 

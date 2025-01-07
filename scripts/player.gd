@@ -182,6 +182,7 @@ func _physics_process(delta):
 			$StateDebug.text = "BOOST"
 		States.DEAD:
 			$StateDebug.text = "DEAD"
+			%Shadow.hide()
 			PlayerVariables.quail_count = 0
 			sprite.visible = false
 			hurtbox.monitoring = true

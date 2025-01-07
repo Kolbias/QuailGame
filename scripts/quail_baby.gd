@@ -14,6 +14,8 @@ extends CharacterBody2D
 signal quail_killed
 
 func _ready():
+	if $CollisionShape2D.shape.radius <= 1:
+		$CollisionShape2D.shape.radius = 4
 	GlobalSignals.connect("call_babies", _on_call_babies)
 	%CallTimer.connect("timeout", _on_call_timer_timeout)
 	add_to_group("quail_babies")
@@ -33,6 +35,7 @@ func _process(delta):
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("car"):
 		if alive:
+			%Shadow.hide()
 			hit_sound.playing = true
 			alive = false
 			spirit_particle.emitting = true
