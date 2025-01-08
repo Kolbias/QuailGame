@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw3o7mgnltgn"]
+[gd_scene load_steps=4 format=3 uid="uid://cw3o7mgnltgn"]
 
 [ext_resource type="Script" path="res://scripts/transition.gd" id="1_x2jo4"]
 [ext_resource type="Texture2D" uid="uid://dqe0rupygv8bi" path="res://assets/backgrounds/BlackSquare.png" id="2_dyqvu"]
+[ext_resource type="Theme" uid="uid://bpswxq60aviax" path="res://themes/theme.tres" id="2_wrjh3"]
 
 [node name="Transition" type="Node2D"]
 script = ExtResource("1_x2jo4")
@@ -28,3 +29,23 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_dyqvu")
 expand_mode = 1
+
+[node name="WorldLabel" type="RichTextLabel" parent="CanvasLayer/Container/TextureRect"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.5
+offset_right = 100.0
+offset_bottom = -25.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 37)
+theme = ExtResource("2_wrjh3")
+bbcode_enabled = true
+text = "[center]World Label"

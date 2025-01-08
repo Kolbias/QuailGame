@@ -1,7 +1,8 @@
-[gd_scene load_steps=30 format=4 uid="uid://hybl53q65uf4"]
+[gd_scene load_steps=31 format=4 uid="uid://hybl53q65uf4"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_58dau"]
 [ext_resource type="PackedScene" uid="uid://8w8wqgsf5vbs" path="res://parallax_background.tscn" id="2_chxl2"]
+[ext_resource type="PackedScene" uid="uid://cw3o7mgnltgn" path="res://transition.tscn" id="2_ijxyu"]
 [ext_resource type="Texture2D" uid="uid://blv4xeeg401v1" path="res://assets/Quail Environment.png" id="3_4ga7m"]
 [ext_resource type="Texture2D" uid="uid://bik4xjloeafkr" path="res://assets/InvisibleWall.png" id="4_0f8og"]
 [ext_resource type="TileSet" uid="uid://drb7c4pmhun57" path="res://quailcrossing_tilemap.tres" id="4_p168u"]
@@ -203,6 +204,8 @@ sources/0 = SubResource("TileSetAtlasSource_cprcg")
 
 [node name="World3" type="Node2D"]
 script = ExtResource("1_58dau")
+
+[node name="Transition" parent="." instance=ExtResource("2_ijxyu")]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_chxl2")]
 
@@ -617,3 +620,5 @@ position = Vector2(270, -19)
 [connection signal="quail_hatched" from="Eggs/QuailEgg15" to="Player" method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="Eggs/QuailEgg8" to="." method="_on_quail_egg_quail_hatched"]
 [connection signal="quail_hatched" from="Eggs/QuailEgg8" to="Player" method="_on_quail_egg_quail_hatched"]
+
+[editable path="Player"]

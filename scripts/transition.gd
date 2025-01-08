@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	%WorldLabel.text = "World " + str(PlayerVariables.current_level)
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 	var tween = get_tree().create_tween()
 	tween.tween_property(%TextureRect, "modulate", Color(1,1,1,1), 1.5).set_trans(Tween.TRANS_SINE)

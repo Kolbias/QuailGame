@@ -35,6 +35,8 @@ sources/0 = SubResource("TileSetAtlasSource_cprcg")
 [node name="World1" type="Node2D"]
 script = ExtResource("1_22jv0")
 
+[node name="Transition2" parent="." instance=ExtResource("21_3r06a")]
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_xgafp")]
 
 [node name="BorderUnderlay" type="TileMapLayer" parent="."]
@@ -288,10 +290,6 @@ color = Color(0.870588, 0.368627, 0.352941, 1)
 energy = 0.4
 
 [node name="Transition" parent="." instance=ExtResource("21_3r06a")]
-visible = false
-
-[node name="CanvasLayer" parent="Transition" index="0"]
-visible = false
 
 [node name="DebugCamera" parent="." instance=ExtResource("2_mxwaa")]
 
