@@ -12,7 +12,8 @@ signal player_restarted
 signal settings_menu_closed
 signal extras_menu_closed
 signal load_world(PackedScene)
-signal hat_selected(int)
+signal hat_awarded_path(String)
+
 signal save_game
 signal load_game
 signal award_new_hat

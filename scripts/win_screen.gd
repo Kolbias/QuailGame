@@ -4,7 +4,7 @@ extends Node2D
 @onready var score_text = %QuailScore
 #@onready var parallax = $ParallaxBackground/ParallaxLayer
 @export var background_scroll_speed = Vector2(0.15,0.15)
-
+@onready var menu_display = 0
 # Awards
 @onready var bronze_star = %BronzeStar
 @onready var silver_star = %SilverStar
@@ -24,146 +24,13 @@ extends Node2D
 @onready var ambient_sound = $Ambience
 
 func _ready():
+	GlobalSignals.connect("hat_awarded_path", _display_new_hat)
 	#GlobalSignals.emit_signal("save_game")
 	%Next.grab_focus()
-	var world = PlayerVariables.current_level
 	
-	# World1 Score Thresholds
-	# Bronze
-	if world == 1:
-		if check_highscore(score, PlayerVariables.world_1_hs):
-			PlayerVariables.world_1_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr1:
-			award_bronze()
-		if score > cr1 and score < 15:
-			award_silver()
-		if score >= 15:
-			award_gold()
-	# World2 Score Thresholds
-	if world == 2: 
-		if check_highscore(score, PlayerVariables.world_2_hs):
-			PlayerVariables.world_2_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr2:
-			award_bronze()
-		if score > cr2 and score < 17:
-			award_silver()
-		if score >= 17:
-			award_gold()
-	
-	# World3 Score Thresholds
-	if world == 3:
-		if check_highscore(score, PlayerVariables.world_3_hs):
-			PlayerVariables.world_3_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr3:
-			award_bronze()
-		if score > cr3 and score < 19:
-			award_silver()
-		if score >= 19:
-			award_gold()
-
-	# World4 Score Thresholds
-	if world == 4:
-		if check_highscore(score, PlayerVariables.world_4_hs):
-			PlayerVariables.world_4_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr3:
-			award_bronze()
-		if score > cr3 and score < 17:
-			award_silver()
-		if score >= 17:
-			award_gold()
-	
-	# World5
-	if world == 5:
-		if check_highscore(score, PlayerVariables.world_5_hs):
-			PlayerVariables.world_5_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr3:
-			award_bronze()
-		if score > cr3 and score < 19:
-			award_silver()
-		if score >= 19:
-			award_gold()
-	
-	# World6
-	if world == 6:
-		if check_highscore(score, PlayerVariables.world_6_hs):
-			PlayerVariables.world_6_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr3:
-			award_bronze()
-		if score > cr3 and score < 18:
-			award_silver()
-		if score >= 18:
-			award_gold()
-	
-	# World7
-	if world == 7:
-		if check_highscore(score, PlayerVariables.world_7_hs):
-			PlayerVariables.world_7_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr3:
-			award_bronze()
-		if score > cr3 and score < 18:
-			award_silver()
-		if score >= 18:
-			award_gold()
-	
-	# World8
-	if world == 8:
-		if check_highscore(score, PlayerVariables.world_8_hs):
-			PlayerVariables.world_8_hs = score
-			GlobalSignals.emit_signal("save_game")
-		if score == cr4 and world == 8:
-			award_bronze()
-		if (score > cr4 and score < 18 and world == 8):
-			award_silver()
-		if score >= 18 and world == 8:
-			award_gold()
-	
-	# World 9
-	if world == 9:
-		if check_highscore(score, PlayerVariables.world_9_hs):
-			PlayerVariables.world_9_hs = score
-			GlobalSignals.emit_signal("save_game")
-			if score == cr4:
-				award_bronze()
-			if score > cr4 and score < 18:
-				award_silver()
-			if score >= 18:
-				award_gold()
-	
-	# World 10
-	if score == cr4 and world == 10:
-		award_bronze()
-	if (score > cr4 and score < 18 and world == 10):
-		award_silver()
-	if score >= 18 and world == 10:
-		award_gold()
-	
-	# World 11
-	if score == cr3 and world == 11:
-		award_bronze()
-	if (score > cr3 and score < 18 and world == 11):
-		award_silver()
-	if score >= 18 and world == 11:
-		award_gold()
-		
-	# World 12
-	if score == cr3 and world == 12:
-		award_bronze()
-	if (score > cr3 and score < 18 and world == 12):
-		award_silver()
-	if score >= 18 and world == 12:
-		award_gold()
-		
 	quail_call_sound.play()
 	ambient_sound.play()
 	score_text.text = "You rescued " + str(score) + " quail!"
-	check_hat_unlock_progress()
 func _process(delta):
 	%EggBackdrop.rotation += 0.001
 	%EggBackdrop2.rotation -= 0.001
@@ -178,13 +45,161 @@ func _on_quit_button_down():
 func _on_next_button_down():
 	PlayerVariables.quail_count = 0
 	var world = PlayerVariables.current_level
-	print(world)
 	var next_world = world + 1
-	var next_world_path = "res://world" + str(next_world) + ".tscn"
-	print("Next world will be: " + str(world))
-	PlayerVariables.current_level += 1
-	GlobalSignals.emit_signal("save_game")
-	GlobalSignals.emit_signal("exit_win_screen", next_world_path)
+	print(world)
+	if menu_display == 0:
+		print("Menu Display: " + str(menu_display))
+		#var world = PlayerVariables.current_level
+	
+	# World1 Score Thresholds
+	# Bronze
+		if world == 1:
+			
+			if check_highscore(score, PlayerVariables.world_1_hs):
+				PlayerVariables.world_1_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr1:
+				award_bronze()
+			if score > cr1 and score < 15:
+				award_silver()
+			if score >= 15:
+				award_gold()
+		# World2 Score Thresholds
+		if world == 2: 
+			if check_highscore(score, PlayerVariables.world_2_hs):
+				PlayerVariables.world_2_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr2:
+				award_bronze()
+			if score > cr2 and score < 17:
+				award_silver()
+			if score >= 17:
+				award_gold()
+		
+		# World3 Score Thresholds
+		if world == 3:
+			if check_highscore(score, PlayerVariables.world_3_hs):
+				PlayerVariables.world_3_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr3:
+				award_bronze()
+			if score > cr3 and score < 19:
+				award_silver()
+			if score >= 19:
+				award_gold()
+
+		# World4 Score Thresholds
+		if world == 4:
+			if check_highscore(score, PlayerVariables.world_4_hs):
+				PlayerVariables.world_4_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr3:
+				award_bronze()
+			if score > cr3 and score < 17:
+				award_silver()
+			if score >= 17:
+				award_gold()
+		
+		# World5
+		if world == 5:
+			if check_highscore(score, PlayerVariables.world_5_hs):
+				PlayerVariables.world_5_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr3:
+				award_bronze()
+			if score > cr3 and score < 19:
+				award_silver()
+			if score >= 19:
+				award_gold()
+		
+		# World6
+		if world == 6:
+			if check_highscore(score, PlayerVariables.world_6_hs):
+				PlayerVariables.world_6_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr3:
+				award_bronze()
+			if score > cr3 and score < 18:
+				award_silver()
+			if score >= 18:
+				award_gold()
+		
+		# World7
+		if world == 7:
+			if check_highscore(score, PlayerVariables.world_7_hs):
+				PlayerVariables.world_7_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr3:
+				award_bronze()
+			if score > cr3 and score < 18:
+				award_silver()
+			if score >= 18:
+				award_gold()
+		
+		# World8
+		if world == 8:
+			if check_highscore(score, PlayerVariables.world_8_hs):
+				PlayerVariables.world_8_hs = score
+				GlobalSignals.emit_signal("save_game")
+			if score == cr4 and world == 8:
+				award_bronze()
+			if (score > cr4 and score < 18 and world == 8):
+				award_silver()
+			if score >= 18 and world == 8:
+				award_gold()
+		
+		# World 9
+		if world == 9:
+			if check_highscore(score, PlayerVariables.world_9_hs):
+				PlayerVariables.world_9_hs = score
+				GlobalSignals.emit_signal("save_game")
+				if score == cr4:
+					award_bronze()
+				if score > cr4 and score < 18:
+					award_silver()
+				if score >= 18:
+					award_gold()
+		
+		# World 10
+		if score == cr4 and world == 10:
+			award_bronze()
+		if (score > cr4 and score < 18 and world == 10):
+			award_silver()
+		if score >= 18 and world == 10:
+			award_gold()
+		
+		# World 11
+		if score == cr3 and world == 11:
+			award_bronze()
+		if (score > cr3 and score < 18 and world == 11):
+			award_silver()
+		if score >= 18 and world == 11:
+			award_gold()
+			
+		# World 12
+		if score == cr3 and world == 12:
+			award_bronze()
+		if (score > cr3 and score < 18 and world == 12):
+			award_silver()
+		if score >= 18 and world == 12:
+			award_gold()
+		menu_display += 1
+		return
+		
+	if menu_display == 1:
+		%HatUnlockProgress.show()
+		check_hat_unlock_progress()
+		menu_display += 1
+		return
+		
+	if menu_display == 2:
+		print("Menu Display: " + str(menu_display))
+		var next_world_path = "res://world" + str(next_world) + ".tscn"
+		print("Next world will be: " + str(world))
+		PlayerVariables.current_level += 1
+		GlobalSignals.emit_signal("save_game")
+		GlobalSignals.emit_signal("exit_win_screen", next_world_path)
+
 	#get_tree().change_scene_to_file(next_world_path)
 
 
@@ -227,9 +242,20 @@ func check_hat_unlock_progress():
 		%HatUnlockProgress.value = 0
 		tween.tween_property(%HatUnlockProgress, "value", 0, 0.0)
 		tween.tween_property(%HatUnlockProgress, "value", next_hat_progress, 1.0)
+		%HatDisplayContainer.show()
 		GlobalSignals.emit_signal("award_new_hat")
 	else:
 		var next_hat_progress = PlayerVariables.quail_rescue_level
 		var tween = create_tween()
 		tween.tween_property(%HatUnlockProgress, "value", next_hat_progress, 1.0)
 		print("Quail Hat progress under 20: " + str(PlayerVariables.quail_rescue_level))
+
+func _display_new_hat(path):
+	var texture = load(path)
+	%NewHatDisplay.texture = texture
+	$CanvasLayer/AwardBoxContainer.hide()
+	var tween = create_tween()
+	
+	%NewHatDisplay.show()
+	tween.tween_interval(1.0)
+	tween.tween_property(%HatDisplayContainer, "scale", Vector2(8,8), 1.5).set_trans(Tween.TRANS_ELASTIC)

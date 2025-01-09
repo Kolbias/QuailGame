@@ -13,5 +13,5 @@ func _ready() -> void:
 		texture = load("res://assets/player/QuailHat" + str(current_hat)+ ".png")
 		%Hat1.texture = texture
 
-func _on_hat_selected(num):
-	current_hat = num
+#func _on_hat_selected(num):
+	#current_hat = num

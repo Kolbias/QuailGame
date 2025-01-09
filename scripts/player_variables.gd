@@ -36,7 +36,7 @@ var world_13_hs = 0
 
 
 #hat unlocks
-var hat_path = [
+var available_hats = [
 	"res://assets/player/QuailHat1.png",
 	"res://assets/player/QuailHat2.png",
 	"res://assets/player/QuailHat3.png",
@@ -85,6 +85,7 @@ func _on_save_game():
 	#Add More Vars to save below
 	saved_data["quail_total"] = quail_total
 	saved_data["quail_rescue_level"] = quail_rescue_level
+	saved_data["available_hats"] = available_hats
 	saved_data["unlocked_hats"] = unlocked_hats
 	saved_data["world_1_score"] = world_1_hs
 	saved_data["world_2_score"] = world_2_hs
@@ -117,6 +118,7 @@ func _on_load_game():
 	#Add more Vars to load below
 	quail_total = saved_data["quail_total"]
 	quail_rescue_level = saved_data["quail_rescue_level"]
+	available_hats = saved_data["available_hats"]
 	unlocked_hats = saved_data["unlocked_hats"]
 	world_1_hs = saved_data["world_1_score"]
 	world_2_hs = saved_data["world_2_score"]
@@ -137,13 +139,14 @@ func _on_load_game():
 	file.close()
 
 func _award_hat():
-	var new_hat = hat_path.pick_random()
+	var new_hat = available_hats.pick_random()
 	if unlocked_hats.has(new_hat):
-		hat_path.erase(new_hat)
+		available_hats.erase(new_hat)
 		print("hat already unlocked")
 		print(str(unlocked_hats))
-		new_hat = hat_path.pick_random()
+		new_hat = available_hats.pick_random()
 	else:
 		unlocked_hats.append(new_hat)
+		GlobalSignals.emit_signal("hat_awarded_path", new_hat)
 	print("New Hat Selected: " + str(new_hat))
 	print("Unlocked Hats: " + str(unlocked_hats))
