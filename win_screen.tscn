@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://b04hcq0rcgd4" path="res://assets/ui/EggAwardBackdrop.png" id="3_5qt13"]
 [ext_resource type="Texture2D" uid="uid://c3j6wojqph123" path="res://assets/ui/BronzeEgg.png" id="3_euacw"]
 [ext_resource type="Texture2D" uid="uid://c3q7y1pjipxj4" path="res://assets/backgrounds/BlueWaves.png" id="3_q6mtu"]
-[ext_resource type="FontFile" uid="uid://chlo1df4t6fcd" path="res://assets/ui/fonts/rainyhearts.ttf" id="3_u15fd"]
 [ext_resource type="Texture2D" uid="uid://bwijv53enrwqm" path="res://assets/backgrounds/PinkStripe.png" id="4_3v8p2"]
 [ext_resource type="AudioStream" uid="uid://dg80eo36ckyi7" path="res://assets/sounds/QuailCall1.mp3" id="4_agpg8"]
 [ext_resource type="Texture2D" uid="uid://dakpgqkqmy62g" path="res://assets/ui/SilverEgg.png" id="4_oey5w"]
@@ -17,74 +16,49 @@
 [ext_resource type="Texture2D" uid="uid://bify31d5ljtdq" path="res://assets/ui/ButtonTextureFocus.png" id="9_jgmb5"]
 [ext_resource type="Texture2D" uid="uid://b6jj61xfig0t2" path="res://assets/ui/BannerWindow1.png" id="10_wf7k6"]
 [ext_resource type="Texture2D" uid="uid://bavdlbxbka1vq" path="res://assets/ui/BannerWindow2.png" id="11_inp4p"]
+[ext_resource type="Texture2D" uid="uid://ije7ibdqe4ce" path="res://assets/ui/BannerWindow3.png" id="11_mt5er"]
 [ext_resource type="Texture2D" uid="uid://d1mqqwqluvcfh" path="res://assets/ui/EggAwardBackdrop2.png" id="14_5fn23"]
 [ext_resource type="Texture2D" uid="uid://cxmcasanbtvt4" path="res://assets/player/QuailHat15.png" id="17_evbyy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqcgn"]
 bg_color = Color(0.2, 0.533333, 0.870588, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="WinScreen" type="Node2D"]
 script = ExtResource("1_m5l4d")
 
-[node name="StripesBackground" type="Node2D" parent="."]
-position = Vector2(631, 448)
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="PinkBackground" type="Sprite2D" parent="StripesBackground"]
+[node name="CanvasModulate" type="CanvasModulate" parent="CanvasLayer2"]
+color = Color(0.450648, 0.450648, 0.450648, 1)
+
+[node name="StripesBackground" type="Node2D" parent="CanvasLayer2"]
+position = Vector2(2600, 1246)
+
+[node name="PinkBackground" type="Sprite2D" parent="CanvasLayer2/StripesBackground"]
 position = Vector2(568, 324)
 scale = Vector2(8, 8)
 texture = ExtResource("2_2djkl")
 
-[node name="BlueStripesParallax" type="Parallax2D" parent="StripesBackground"]
+[node name="BlueStripesParallax" type="Parallax2D" parent="CanvasLayer2/StripesBackground"]
 repeat_size = Vector2(800, 600)
 autoscroll = Vector2(10, 10)
 repeat_times = 6
 
-[node name="Sprite2D" type="Sprite2D" parent="StripesBackground/BlueStripesParallax"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/StripesBackground/BlueStripesParallax"]
 texture = ExtResource("3_q6mtu")
 
-[node name="PinkStripesParallax" type="Parallax2D" parent="StripesBackground"]
+[node name="PinkStripesParallax" type="Parallax2D" parent="CanvasLayer2/StripesBackground"]
 repeat_size = Vector2(800, 600)
 autoscroll = Vector2(20, 20)
 repeat_times = 6
 
-[node name="Sprite2D" type="Sprite2D" parent="StripesBackground/PinkStripesParallax"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer2/StripesBackground/PinkStripesParallax"]
 texture = ExtResource("4_3v8p2")
-
-[node name="EggBackdrop2" type="TextureRect" parent="."]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -70.0
-offset_right = 70.0
-offset_bottom = 70.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-pivot_offset = Vector2(70, 70)
-texture = ExtResource("14_5fn23")
-
-[node name="EggBackdrop" type="TextureRect" parent="."]
-unique_name_in_owner = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -34.0
-offset_right = 36.0
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-pivot_offset = Vector2(34, 34)
-size_flags_horizontal = 4
-texture = ExtResource("3_5qt13")
-stretch_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -98,36 +72,96 @@ grow_vertical = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 
+[node name="EggBackdrop2" type="TextureRect" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+pivot_offset = Vector2(70, 70)
+texture = ExtResource("14_5fn23")
+
+[node name="EggBackdrop" type="TextureRect" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -34.5
+offset_right = 35.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+pivot_offset = Vector2(34, 34)
+size_flags_horizontal = 4
+texture = ExtResource("3_5qt13")
+stretch_mode = 2
+
 [node name="StarText" type="Label" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
-offset_right = 312.0
-offset_bottom = 30.0
-pivot_offset = Vector2(156, 15)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -369.0
+offset_right = 200.0
+offset_bottom = -337.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("3_u15fd")
+theme = ExtResource("6_avaob")
 theme_override_font_sizes/font_size = 32
-text = "Star Text"
+text = "You got a silver award"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Control/StarText"]
 show_behind_parent = true
-layout_mode = 0
-offset_left = -1.0
-offset_top = -5.0
-offset_right = 313.0
-offset_bottom = 35.0
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("10_wf7k6")
 
 [node name="QuailScore" type="Label" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
-offset_right = 312.0
-offset_bottom = 30.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -310.0
+offset_right = 174.0
+offset_bottom = -278.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(174, 16)
 size_flags_horizontal = 4
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme = ExtResource("6_avaob")
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("3_u15fd")
 theme_override_font_sizes/font_size = 32
 text = "you rescued blank quails"
 horizontal_alignment = 1
@@ -135,17 +169,6 @@ vertical_alignment = 1
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="CanvasLayer/Control/QuailScore"]
 show_behind_parent = true
-layout_mode = 0
-offset_left = -22.0
-offset_top = -3.0
-offset_right = 307.0
-offset_bottom = 37.0
-scale = Vector2(1.06619, 1)
-texture = ExtResource("11_inp4p")
-
-[node name="LevelClearedLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(500, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,15 +176,52 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -250.0
-offset_top = -50.0
+offset_top = -25.0
 offset_right = 250.0
-offset_bottom = 50.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_avaob")
-theme_override_font_sizes/normal_font_size = 75
+texture = ExtResource("11_inp4p")
+
+[node name="LevelClearedLabel" type="RichTextLabel" parent="CanvasLayer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -66.0
+offset_right = 350.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(350, 87)
+theme = ExtResource("6_avaob")
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "[wave]Level Cleared!"
+text = "[wave][center]
+Level
+Cleared!"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/LevelClearedLabel"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("11_mt5er")
+stretch_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(250, 0)
@@ -171,10 +231,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = 278.0
-offset_right = 40.0
-offset_bottom = 346.0
+offset_left = -125.0
+offset_top = 343.0
+offset_right = 125.0
+offset_bottom = 427.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -288,9 +348,9 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(200, 20)
 offset_left = 860.0
-offset_top = 620.0
+offset_top = 594.0
 offset_right = 1060.0
-offset_bottom = 640.0
+offset_bottom = 614.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_cqcgn")
 max_value = 20.0
 show_percentage = false
@@ -323,6 +383,7 @@ grow_vertical = 2
 theme_override_constants/separation = 100
 
 [node name="ScoreAwardContainer" type="CenterContainer" parent="CanvasLayer/AwardBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -330,6 +391,7 @@ size_flags_vertical = 4
 [node name="SilverStar" type="TextureRect" parent="CanvasLayer/AwardBoxContainer/ScoreAwardContainer"]
 unique_name_in_owner = true
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("4_oey5w")
 expand_mode = 1
@@ -338,6 +400,7 @@ stretch_mode = 3
 [node name="GoldStar" type="TextureRect" parent="CanvasLayer/AwardBoxContainer/ScoreAwardContainer"]
 unique_name_in_owner = true
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("5_u2cvp")
 expand_mode = 1
@@ -346,6 +409,7 @@ stretch_mode = 3
 [node name="BronzeStar" type="TextureRect" parent="CanvasLayer/AwardBoxContainer/ScoreAwardContainer"]
 unique_name_in_owner = true
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("3_euacw")
 expand_mode = 1

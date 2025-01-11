@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dypgdc1rdjhkt"]
+[gd_scene load_steps=4 format=3 uid="uid://dypgdc1rdjhkt"]
 
+[ext_resource type="AudioStream" uid="uid://d31yadyqyw8kh" path="res://assets/sounds/NightTimeMusicRough.ogg" id="1_f8vlr"]
 [ext_resource type="AudioStream" uid="uid://dyty47c8c82an" path="res://assets/sounds/QuailSongRevised.ogg" id="1_yp06g"]
+[ext_resource type="Script" path="res://quail_music.gd" id="2_ox7jq"]
 
 [node name="QuailMusic" type="AudioStreamPlayer2D"]
 rotation = -0.00075643
-stream = ExtResource("1_yp06g")
+volume_db = 10.0
 autoplay = true
 bus = &"music"
+script = ExtResource("2_ox7jq")
+tracks = Array[AudioStreamOggVorbis]([ExtResource("1_yp06g"), ExtResource("1_f8vlr")])

@@ -14,7 +14,7 @@ func _on_quail_egg_quail_hatched():
 	new_quail.position = main_quail.position
 
 func _ready() -> void:
-	pass
+	GlobalSignals.emit_signal("world_ready", PlayerVariables.current_level)
 	#var world = self.name.lstrip("World")
 	#print("The current world number? " + str(world))
 	#PlayerVariables.current_level = int(world)

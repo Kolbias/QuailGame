@@ -10,7 +10,7 @@ extends Node2D
 @onready var silver_star = %SilverStar
 @onready var gold_star = %GoldStar
 @onready var star_text = %StarText
-@onready var star_speed = 2.2
+@onready var star_speed = 1.2
 @onready var star_scale = Vector2(8,8)
 
 @onready var cr1 = PlayerVariables.chall_rating1
@@ -27,14 +27,21 @@ func _ready():
 	var tween = create_tween()
 	GlobalSignals.connect("hat_awarded_path", _display_new_hat)
 	#tween.tween_interval(1.0)
-	#tween.tween_property(%StarText, "position", Vector2(0,-1200), 0.0)
+	tween.tween_property(%StarText, "position", Vector2(0,-1200), 0.0)
 	#tween.tween_property(%QuailScore, "position", Vector2(0,-1400), 0.0)
 	%StarText.position = Vector2(0,-1200)
 	%QuailScore.position = Vector2(0,-1400)
 	%EggBackdrop.scale = Vector2(0,0)
 	%EggBackdrop2.scale = Vector2(0,0)
+	%LevelClearedLabel.position = Vector2(0,-1400)
+	%SilverStar.scale = Vector2(0,0)
+	%GoldStar.scale = Vector2(0,0)
+	%BronzeStar.scale = Vector2(0,0)
+	%NewHatDisplay.scale = Vector2(0,0)
 	#GlobalSignals.emit_signal("save_game")
+	tween.tween_property(%LevelClearedLabel, "position", Vector2(610,459), 1.5).set_trans(Tween.TRANS_ELASTIC)
 	%Next.grab_focus()
+	
 	
 	quail_call_sound.play()
 	ambient_sound.play()
@@ -51,16 +58,16 @@ func _on_quit_button_down():
 
 
 func _on_next_button_down():
-	%LevelClearedLabel.hide()
+	#%LevelClearedLabel.hide()
 	PlayerVariables.quail_count = 0
 	var world = PlayerVariables.current_level
 	var next_world = world + 1
 	var tween = create_tween()
-
-	tween.tween_property(%EggBackdrop, "scale", Vector2(3,3), 0.2).set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(%EggBackdrop2, "scale", Vector2(2,2), 0.25).set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(%StarText, "position", Vector2(805,184), 0.5).set_trans(Tween.TRANS_ELASTIC)
-	tween.tween_property(%QuailScore, "position", Vector2(805,218), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%LevelClearedLabel, "position", Vector2(610,650), 1.2).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%EggBackdrop, "scale", Vector2(6,6), 0.2).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%EggBackdrop2, "scale", Vector2(4,4), 0.25).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%StarText, "position", Vector2(760,171), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	tween.tween_property(%QuailScore, "position", Vector2(786,230), 0.5).set_trans(Tween.TRANS_ELASTIC)
 	print(world)
 	if menu_display == 0:
 		print("Menu Display: " + str(menu_display))
@@ -206,6 +213,7 @@ func _on_next_button_down():
 		check_hat_unlock_progress()
 		menu_display += 1
 		return
+	
 		
 	if menu_display == 2:
 		print("Menu Display: " + str(menu_display))
@@ -221,6 +229,8 @@ func _on_next_button_down():
 func award_bronze():
 		var tween = get_tree().create_tween()
 		bronze_star.visible = true
+		tween.tween_interval(2.0)
+		tween.tween_property(bronze_star, "modulate", Color(1,1,1,1), 1.0)
 		tween.tween_property(bronze_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Bronze Award!"
@@ -228,6 +238,8 @@ func award_bronze():
 func award_silver():
 		var tween = get_tree().create_tween()
 		silver_star.visible = true
+		tween.tween_interval(2.0)
+		tween.tween_property(silver_star, "modulate", Color(1,1,1,1), 0.2)
 		tween.tween_property(silver_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Silver Award!"
@@ -235,6 +247,8 @@ func award_silver():
 func award_gold():
 		var tween = get_tree().create_tween()
 		gold_star.visible = true
+		tween.tween_interval(2.0)
+		tween.tween_property(gold_star, "modulate", Color(1,1,1,1), 1.0)
 		tween.tween_property(gold_star, "scale", star_scale, star_speed).set_trans(Tween.TRANS_ELASTIC)
 		star_text.visible = true
 		star_text.text = "You got a Gold Award!"
